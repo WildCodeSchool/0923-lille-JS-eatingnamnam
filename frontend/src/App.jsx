@@ -1,13 +1,15 @@
 import Counter from "./components/Counter";
-import logo from "./assets/logo.svg";
+import Navbar from "./components/Navbar/Navbar";
+/* import logo from "./assets/logo.svg"; */
 
-import "./App.css";
+import "./App.scss";
 
 function App() {
   return (
     <div className="App">
+      <Navbar />
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        {/*  <img src={logo} className="App-logo" alt="logo" /> */}
         <p>Hello Vite + React !</p>
 
         <Counter />
