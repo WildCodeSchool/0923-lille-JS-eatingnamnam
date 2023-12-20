@@ -1,6 +1,5 @@
 import Counter from "./components/Counter";
 import Navbar from "./components/Navbar/Navbar";
-/* import logo from "./assets/logo.svg"; */
 
 import "./App.scss";
 
@@ -9,7 +8,6 @@ function App() {
     <div className="App">
       <Navbar />
       <header className="App-header">
-        {/*  <img src={logo} className="App-logo" alt="logo" /> */}
         <p>Hello Vite + React !</p>
 
         <Counter />
