@@ -5,9 +5,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
 import Search from "./pages/Search/Search";
-import Homepage from "./pages/Homepage/Homepage";
-import Favorites from "./pages/Favorites/Favorites";
 import Recipe from "./pages/Recipe/Recipe";
+import Favorites from "./pages/Favorites/Favorites";
+import Homepage from "./pages/Homepage/Homepage";
 
 const router = createBrowserRouter([
   {

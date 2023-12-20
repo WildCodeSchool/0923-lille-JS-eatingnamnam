@@ -1,5 +1,6 @@
 import "./Navbar.scss";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [isActive, setIsActive] = useState("home");
@@ -10,7 +11,8 @@ function Navbar() {
     <nav className="navbar">
       <ul className="navbar__list">
         <li className="navbar__item">
-          <button
+          <Link
+            to="/"
             className="navbar__button"
             type="submit"
             onClick={handleClick}
@@ -30,10 +32,11 @@ function Navbar() {
                 alt="bouton accueil"
               />
             )}
-          </button>
+          </Link>
         </li>
         <li className="navbar__item">
-          <button
+          <Link
+            to="/search"
             className="navbar__button"
             type="submit"
             onClick={handleClick}
@@ -53,10 +56,11 @@ function Navbar() {
                 alt="bouton accueil"
               />
             )}
-          </button>
+          </Link>
         </li>
         <li className="navbar__item">
-          <button
+          <Link
+            to="/recipe"
             className="navbar__button"
             type="submit"
             onClick={handleClick}
@@ -76,10 +80,11 @@ function Navbar() {
                 alt="bouton accueil"
               />
             )}
-          </button>
+          </Link>
         </li>
         <li className="navbar__item">
-          <button
+          <Link
+            to="/favorites"
             className="navbar__button"
             type="submit"
             onClick={handleClick}
@@ -99,7 +104,7 @@ function Navbar() {
                 alt="bouton accueil"
               />
             )}
-          </button>
+          </Link>
         </li>
       </ul>
     </nav>
