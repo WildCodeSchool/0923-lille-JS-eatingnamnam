@@ -3,7 +3,6 @@ import { useState } from "react";
 
 function Navbar() {
   const [isActive, setIsActive] = useState("home");
-
   const handleClick = (event) => {
     setIsActive(event.target.name);
     console.warn("hello make route please");
