@@ -1,0 +1,62 @@
+[
+  {
+    "name": "ail",
+    "picture": "/assets/ingredients/ail.jpg"
+  },
+  {
+    "name": "baie rose",
+    "picture": "/assets/ingredients/baie_rose.jpg"
+  },
+  {
+    "name": "beurre",
+    "picture": "/assets/ingredients/beurre.jpg"
+  },
+  {
+    "name": "bière brune",
+    "picture": "/assets/ingredients/biere_brune.jpg"
+  },
+  {
+    "name": "cassonade",
+    "picture": "/assets/ingredients/cassonade.jpg"
+  },
+  {
+    "name": "huile d'olive",
+    "picture": "/assets/ingredients/huile_olive.jpg"
+  },
+  {
+    "name": "lardons",
+    "picture": "/assets/ingredients/lardons.jpg"
+  },
+  {
+    "name": "laurier",
+    "picture": "/assets/ingredients/laurier.jpg"
+  },
+  {
+    "name": "moutarde",
+    "picture": "/assets/ingredients/moutarde.jpg"
+  },
+  {
+    "name": "oignon",
+    "picture": "/assets/ingredients/oignon.jpg"
+  },
+  {
+    "name": "pain d'épice",
+    "picture": "/assets/ingredients/pain_epice.jpg"
+  },
+  {
+    "name": "pain",
+    "picture": "/assets/ingredients/pain.jpg"
+  },
+  {
+    "name": "poivre",
+    "picture": "/assets/ingredients/poivre.jpg"
+  },
+  {
+    "name": "sel",
+    "picture": "/assets/ingredients/sel.jpg"
+  },
+  {
+    "name": "thym",
+    "picture": "/assets/ingredients/thym.jpg"
+  }
+]

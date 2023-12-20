@@ -1,10 +1,12 @@
+const users = require("./src/dataBDD/users.json");
+const ingredients = require("./src/dataBDD/ingredients.json");
 /* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
 
 // Load environment variables from .env file
 require("dotenv").config();
 
 // Import Faker library for generating fake data
-const { faker } = require("@faker-js/faker");
+// const { faker } = require("@faker-js/faker");
 
 // Import database client
 const database = require("./database/client");
@@ -20,14 +22,37 @@ const seed = async () => {
     // Generating Seed Data
 
     // Optional: Truncate tables (remove existing data)
-    await database.query("truncate item");
+    // await database.query("truncate user");
 
-    // Insert fake data into the 'item' table
-    for (let i = 0; i < 10; i += 1) {
+    // Insert data into the 'user' table
+
+    for (let i = 0; i < users.length; i += 1) {
       queries.push(
-        database.query("insert into item(title) values (?)", [
-          faker.lorem.word(),
-        ])
+        database.query(
+          "INSERT INTO nam_nam.user(first_name, last_name, pseudo, email, password, birth_date, profile_picture, background_picture, role) values (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+          [
+            users[i].first_name,
+            users[i].last_name,
+            users[i].pseudo,
+            users[i].email,
+            users[i].password,
+            users[i].birth_date,
+            users[i].profile_picture,
+            users[i].background_picture,
+            users[i].role,
+          ]
+        )
+      );
+    }
+
+    // Insert data into the 'user' table
+
+    for (let i = 0; i < ingredients.length; i += 1) {
+      queries.push(
+        database.query(
+          "INSERT INTO nam_nam.ingredient(name, picture) values (?, ?)",
+          [ingredients[i].name, ingredients[i].picture]
+        )
       );
     }
 
