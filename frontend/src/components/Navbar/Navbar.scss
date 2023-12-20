@@ -1,0 +1,26 @@
+@import "../../variables.scss";
+
+.navbar {
+  align-items: center;
+}
+.navbar__list {
+  background-color: $tertiaryColor;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.navbar__item {
+  display: flex;
+  font-family: "handlee", "cursive";
+  color: $mainColor;
+}
+.navbar__button {
+  display: flex;
+  align-items: center;
+  all: unset;
+}
+.navbar__icon {
+  height: 100%;
+}
