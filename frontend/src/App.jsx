@@ -1,12 +1,10 @@
 import Counter from "./components/Counter";
-import Navbar from "./components/Navbar/Navbar";
 
 import "./App.scss";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
       <header className="App-header">
         <p>Hello Vite + React !</p>
 
