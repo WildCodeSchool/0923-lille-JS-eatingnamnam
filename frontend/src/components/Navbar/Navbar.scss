@@ -1,6 +1,8 @@
 @import "../../variables.scss";
 
 .navbar {
+  margin-top: auto;
+  align-items: flex-end;
   align-items: center;
 }
 .navbar__list {
