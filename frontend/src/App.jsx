@@ -2,6 +2,7 @@ import Counter from "./components/Counter";
 import Navbar from "./components/Navbar/Navbar";
 
 import "./App.scss";
+import Titrelogo from "./components/Titre logo/Titrelogo";
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
       <Navbar />
       <header className="App-header">
         <p>Hello Vite + React !</p>
-
+        <Titrelogo />
         <Counter />
 
         <p>
