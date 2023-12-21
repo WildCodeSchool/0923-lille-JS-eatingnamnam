@@ -1,0 +1,38 @@
+.card {
+  .card__img {
+    width: 80%;
+  }
+
+  .card__logo {
+    width: 80%;
+    height: 22vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    background-image: url("/src/assets/recipePicture.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    border: solid 2px #d56c06;
+    border-radius: 0 20px 0 20px;
+
+    .card__logo__diet__vegan {
+      width: 2em;
+      margin: 0.3em;
+    }
+  }
+  .card__info {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+
+    .card__info__title {
+      margin: 0;
+      width: 70%;
+    }
+    .card_info__stars {
+      width: 30%;
+    }
+  }
+}
