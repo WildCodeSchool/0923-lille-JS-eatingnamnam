@@ -1,12 +1,12 @@
 import "./App.scss";
 import { Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
-import Titrelogo from "./components/Titre logo/Titrelogo";
+import TitleBar from "./components/TitleBar/TitleBar";
 
 function App() {
   return (
     <div className="App">
-      <Titrelogo />
+      <TitleBar />
       <Outlet />
       <Navbar />
     </div>
