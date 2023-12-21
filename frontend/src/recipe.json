@@ -1,11 +1,11 @@
 [
   {
-    "nom": "Risotto de petit-épeautre aux champignons (vegan)",
-    "temps": "1h",
-    "difficulté": "facile",
-    "prix": "bon marché",
-    "nb_personne": 4,
-    "ingrédients": {
+    "name": "Risotto de petit-épeautre aux champignons (vegan)",
+    "time": "1h",
+    "difficulty": "facile",
+    "price": "bon marché",
+    "nb_share": 4,
+    "ingredients": {
       "1": "poivre",
       "2": "4cl cognac",
       "3": "2 cuillères à soupe huile",
@@ -16,10 +16,10 @@
       "8": "1 cuillères à soupe de sauce sauja",
       "9": "3 cuillères à soupe de crème de soja"
     },
-    "ustensiles": {
+    "ustensils": {
       "1": "sauteuse"
     },
-    "étape": {
+    "step": {
       "1": "Rincer les champignons et éplucher les échalotes. Les émincer.",
       "2": "Dans une sauteuse, faire chauffer un filet d'huile. Y faire revenir les échalotes et les champignons 5 minutes.",
       "3": "Débarrasser les champignons et verser le petit-épeautre dans la sauteuse. Le faire revenir jusqu'à ce qu'il devienne translucide.",
@@ -29,20 +29,20 @@
       "7": "Continuer à ajouter le bouillon. Laisser cuire pendant encore 15 min.",
       "8": "Crémer le risotto avec la crème de soja, éteindre le feu, et laisser reposer 2 min avant de servir."
     },
-    "note": 5,
-    "commentaires": {
+    "grade": 5,
+    "comments": {
       "1": "Recette exceptionnelle ! je recommande",
       "2": "Un délice !",
       "3": "ma grand-mère ne fait pas mieux !!!!"
     }
   },
   {
-    "nom": "Tacos mexicain",
-    "temps": "55 min",
-    "difficulté": "Très facile",
-    "prix": "Bon marché",
-    "nb_personne": 4,
-    "ingrédients": {
+    "name": "Tacos mexicain",
+    "time": "55 min",
+    "difficulty": "Très facile",
+    "price": "Bon marché",
+    "nb_share": 4,
+    "ingredients": {
       "1": "tabasco(facultatif)",
       "2": "sel",
       "3": "poivre",
@@ -56,14 +56,14 @@
       "11": "1 verre de coulis de tomate (10 cl)",
       "12": "8 feuilles de laite"
     },
-    "ustensiles": {
+    "ustensils": {
       "1": "poêle",
       "2": "pinceau",
       "3": "couteau",
       "4": "Crépière",
       "5": "Dénoyauteur"
     },
-    "étape": {
+    "step": {
       "1": "A la poêle, faire dorer l'oignon émincé dans un peu d'huile d'olive.",
       "2": "Rajouter la viande, assaisonner et laisser cuire 5 min.",
       "3": "Laver les feuilles de laitue.",
@@ -73,8 +73,8 @@
       "7": "Hors du feu, ajuster l'assaisonnement et saupoudrer généreusement de cumin; on peut aussi rajouter quelques gouttes de Tabasco. ",
       "8": "Garnir les tortillas de préparation et les refermer en les roulant comme des crêpes. Disposer 1 feuille de laitue sur chaque tacos avant de servir."
     },
-    "note": 3,
-    "commentaires": {
+    "grade": 3,
+    "comments": {
       "1": "Recette exceptionnelle ! je recommande",
       "2": "Un délice !",
       "3": "ma grand-mère ne fait pas mieux !!!!"
