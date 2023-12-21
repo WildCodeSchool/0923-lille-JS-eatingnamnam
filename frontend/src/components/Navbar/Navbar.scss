@@ -1,6 +1,8 @@
 @import "../../variables.scss";
 
 .navbar {
+  margin-top: auto;
+  align-items: flex-end;
   align-items: center;
 }
 .navbar__list {
@@ -16,7 +18,7 @@
   font-family: "handlee", "cursive";
   color: $mainColor;
 }
-.navbar__button {
+.navbar__link {
   display: flex;
   align-items: center;
   all: unset;
