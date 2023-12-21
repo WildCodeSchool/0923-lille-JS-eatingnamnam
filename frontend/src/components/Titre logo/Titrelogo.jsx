@@ -9,6 +9,12 @@ function Titrelogo() {
         src="src/assets/Logo-nam-nam.png"
         alt="logo"
       />
+      <img
+        className="titrelogo__logoUser"
+        name="logoUser"
+        src="src/assets/icone-user.svg"
+        alt="logoUser"
+      />
     </header>
   );
 }
