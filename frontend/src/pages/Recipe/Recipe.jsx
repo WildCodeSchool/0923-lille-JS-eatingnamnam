@@ -1,4 +1,4 @@
-import "./recipe.scss";
+import "./Recipe.scss";
 
 function Recipe() {
   return <h1 className="helloRecipe">HELLO RECIPE PAGE</h1>;
