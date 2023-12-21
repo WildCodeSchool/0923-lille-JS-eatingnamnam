@@ -1,0 +1,12 @@
+@import "../../variables.scss";
+
+.titleBar {
+  display: flex;
+  justify-content: space-between;
+  background-color: $tertiaryColor;
+  padding: 1rem;
+}
+
+.titleBar__userLogo {
+  height: 5rem;
+}
