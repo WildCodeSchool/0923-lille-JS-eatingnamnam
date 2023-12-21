@@ -1,0 +1,26 @@
+[
+  {
+    "name": "couteau",
+    "picture": "/assets/ustensils/couteau.jpg"
+  },
+  {
+    "name": "Crépière",
+    "picture": "/assets/ustensils/crepiere.jpg"
+  },
+  {
+    "name": "Dénoyauteur",
+    "picture": "/assets/ustensils/denoyauteur.jpg"
+  },
+  {
+    "name": "pinceau",
+    "picture": "/assets/ustensils/pinceau.jpg"
+  },
+  {
+    "name": "Poêle",
+    "picture": "/assets/ustensils/poele.jpg"
+  },
+  {
+    "name": "sauteuse",
+    "picture": "/assets/ustensils/sauteuse.jpg"
+  }
+]

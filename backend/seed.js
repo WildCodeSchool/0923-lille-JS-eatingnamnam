@@ -1,5 +1,6 @@
 const users = require("./src/dataBDD/users.json");
 const ingredients = require("./src/dataBDD/ingredients.json");
+const ustensils = require("./src/dataBDD/ustensils.json");
 /* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
 
 // Load environment variables from .env file
@@ -52,6 +53,14 @@ const seed = async () => {
         database.query(
           "INSERT INTO nam_nam.ingredient(name, picture) values (?, ?)",
           [ingredients[i].name, ingredients[i].picture]
+        )
+      );
+    }
+    for (let i = 0; i < ustensils.length; i += 1) {
+      queries.push(
+        database.query(
+          "INSERT INTO nam_nam.ustensil(name, picture) values (?, ?)",
+          [ustensils[i].name, ustensils[i].picture]
         )
       );
     }
