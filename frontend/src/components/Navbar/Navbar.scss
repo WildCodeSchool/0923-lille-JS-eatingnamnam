@@ -3,7 +3,6 @@
 .navbar {
   margin-top: auto;
   align-items: flex-end;
-  align-items: center;
 }
 .navbar__list {
   background-color: $tertiaryColor;
@@ -21,7 +20,6 @@
 .navbar__link {
   display: flex;
   align-items: center;
-  all: unset;
 }
 .navbar__icon {
   height: 100%;
