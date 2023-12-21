@@ -1,13 +1,13 @@
 import "./RecipeCard.scss";
 
 import StarBar from "../StarBar/StarBar";
-import AddFavorie from "../AddFavorite/AddFavorite";
+import AddFavorite from "../AddFavorite/AddFavorite";
 
 function RecipeCard() {
   return (
     <section className="card">
       <article className="card__logo">
-        <AddFavorie className="card__logo__favorite" />
+        <AddFavorite className="card__logo__favorite" />
         <div className="card__logo__diet">
           <img
             className="card__logo__diet__vegan"

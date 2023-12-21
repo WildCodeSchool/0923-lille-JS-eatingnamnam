@@ -1,28 +1,28 @@
 import { useState } from "react";
 import "./AddFavorite.scss";
 
-function AddFavorie() {
+function AddFavorite() {
   const [isFavorite, setIsFavorite] = useState(false);
-  const handelClickFavorite = () => {
+  const handleClickFavorite = () => {
     setIsFavorite(!isFavorite);
   };
   return (
-    <button type="button" className="logo" onClick={handelClickFavorite}>
+    <button type="button" className="logo" onClick={handleClickFavorite}>
       {isFavorite ? (
         <img
-          className="logo__isfavorite"
-          src="/src/assets/Hert.png"
-          alt="favorit"
+          className="logo__isFavorite"
+          src="/src/assets/Heart.png"
+          alt="favorite icon"
         />
       ) : (
         <img
-          className="logo__notfavorite"
-          src="/src/assets/emptyHert.png"
-          alt="add to favorit"
+          className="logo__notFavorite"
+          src="/src/assets/emptyHeart.png"
+          alt="add to favorite icon"
         />
       )}
     </button>
   );
 }
 
-export default AddFavorie;
+export default AddFavorite;
