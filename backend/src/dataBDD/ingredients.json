@@ -1,0 +1,127 @@
+[
+  {
+    "name": "ail",
+    "picture": "/assets/ingredients/ail.jpg"
+  },
+  {
+    "name": "baie rose",
+    "picture": "/assets/ingredients/baie_rose.jpg"
+  },
+  {
+    "name": "beurre",
+    "picture": "/assets/ingredients/beurre.jpg"
+  },
+  {
+    "name": "bière brune",
+    "picture": "/assets/ingredients/biere_brune.jpg"
+  },
+  {
+    "name": "boeuf haché",
+    "picture": "/assets/ingredients/boeuf_hache.jpg"
+  },
+  {
+    "name": "bouillon de légumes",
+    "picture": "/assets/ingredients/bouillon_legume.webp"
+  },
+  {
+    "name": "cassonade",
+    "picture": "/assets/ingredients/cassonade.jpg"
+  },
+  {
+    "name": "champignon de Paris bruns",
+    "picture": "/assets/ingredients/champignon_paris_brun.jpg"
+  },
+  {
+    "name": "cognac",
+    "picture": "/assets/ingredients/cognac.jpg"
+  },
+  {
+    "name": "coulis de tomates",
+    "picture": "/assets/ingredients/coulis_tomate.jpg"
+  },
+  {
+    "name": "cumin en poudre",
+    "picture": "/assets/ingredients/cumin_poudre.jpg"
+  },
+  {
+    "name": "échalote",
+    "picture": "/assets/ingredients/echalotes.jpg"
+  },
+  {
+    "name": "haricots rouge",
+    "picture": "/assets/ingredients/haricots_rouge.jpg"
+  },
+  {
+    "name": "huile d'olive",
+    "picture": "/assets/ingredients/huile_olive.jpg"
+  },
+  {
+    "name": "huile",
+    "picture": "/assets/ingredients/huile.jpg"
+  },
+  {
+    "name": "laitue",
+    "picture": "/assets/ingredients/laitue.jpg"
+  },
+  {
+    "name": "lardons",
+    "picture": "/assets/ingredients/lardons.jpg"
+  },
+  {
+    "name": "laurier",
+    "picture": "/assets/ingredients/laurier.jpg"
+  },
+  {
+    "name": "moutarde",
+    "picture": "/assets/ingredients/moutarde.jpg"
+  },
+  {
+    "name": "oignon blanc",
+    "picture": "/assets/ingredients/oignon_blanc.jpg"
+  },
+  {
+    "name": "oignon jaune",
+    "picture": "/assets/ingredients/oignon_jaune.jpg"
+  },
+  {
+    "name": "pain d'épice",
+    "picture": "/assets/ingredients/pain_epice.jpg"
+  },
+  {
+    "name": "pain",
+    "picture": "/assets/ingredients/pain.jpg"
+  },
+  {
+    "name": "petit épautre",
+    "picture": "/assets/ingredients/petit_epautre.jpg"
+  },
+  {
+    "name": "poivre",
+    "picture": "/assets/ingredients/poivre.jpg"
+  },
+  {
+    "name": "poivron vert",
+    "picture": "/assets/ingredients/poivront_vert.jpg"
+  },
+  {
+    "name": "sel",
+    "picture": "/assets/ingredients/sel.jpg"
+  },
+  {
+    "name": "tabasco",
+    "picture": "/assets/ingredients/tabasco.jpg"
+  },
+  {
+    "name": "thym",
+    "picture": "/assets/ingredients/thym.jpg"
+  },
+  {
+    "name": "tomate",
+    "picture": "/assets/ingredients/tomates.jpg"
+  },
+
+  {
+    "name": "tortillas",
+    "picture": "/assets/ingredients/tortillas.jpg"
+  }
+]

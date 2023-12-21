@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Vegan",
+    "picture": "/"
+  },
+  {
+    "name": "Végétarien",
+    "picture": "/"
+  },
+  {
+    "name": "Light",
+    "picture": "/"
+  },
+  {
+    "name": "Equilibré",
+    "picture": "/"
+  },
+  {
+    "name": "Hiver",
+    "picture": "/"
+  },
+  {
+    "name": "Eté",
+    "picture": "/"
+  },
+  {
+    "name": "Automne",
+    "picture": "/"
+  },
+  {
+    "name": "Printemps",
+    "picture": "/"
+  },
+  {
+    "name": "Entrée",
+    "picture": "/"
+  },
+  {
+    "name": "Plat",
+    "picture": "/"
+  },
+  {
+    "name": "Dessert",
+    "picture": "/"
+  },
+  {
+    "name": "Apéritif",
+    "picture": "/"
+  },
+  {
+    "name": "Cocktail",
+    "picture": "/"
+  },
+  {
+    "name": "Noël",
+    "picture": "/"
+  },
+  {
+    "name": "Paques",
+    "picture": "/"
+  },
+  {
+    "name": "Nouvel An",
+    "picture": "/"
+  },
+  {
+    "name": "Anniversaire",
+    "picture": "/"
+  },
+  {
+    "name": "Halloween",
+    "picture": "/"
+  },
+  {
+    "name": "Fête des mères",
+    "picture": "/"
+  },
+  {
+    "name": "Fête des pères",
+    "picture": "/"
+  }
+]

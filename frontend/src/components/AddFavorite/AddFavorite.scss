@@ -1,0 +1,11 @@
+.logo {
+  all: unset;
+  margin: 0.3em;
+
+  .logo__isFavorite {
+    width: 2em;
+  }
+  .logo__notFavorite {
+    width: 2em;
+  }
+}
