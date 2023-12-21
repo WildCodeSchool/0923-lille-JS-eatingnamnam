@@ -1,7 +1,7 @@
 import "./Titrelogo.scss";
 
 function Titrelogo() {
-  <> FRED</>;
+  return <p>fred</p>;
 }
 
 export default Titrelogo;
