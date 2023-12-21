@@ -1,5 +1,12 @@
 @import "../../variables.scss";
 
 .titrelogo {
+  display: flex;
+  justify-content: space-between;
   background-color: $tertiaryColor;
+  padding: 1rem;
+}
+
+.titrelogo__logoUser {
+  height: 5rem;
 }
