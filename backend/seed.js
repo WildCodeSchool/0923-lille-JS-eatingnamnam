@@ -1,10 +1,11 @@
+const users = require("./src/dataBDD/users.json");
+const ingredients = require("./src/dataBDD/ingredients.json");
+const ustensils = require("./src/dataBDD/ustensils.json");
+const tags = require("./src/dataBDD/tags.json");
 /* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
 
 // Load environment variables from .env file
 require("dotenv").config();
-
-// Import Faker library for generating fake data
-const { faker } = require("@faker-js/faker");
 
 // Import database client
 const database = require("./database/client");
@@ -18,15 +19,50 @@ const seed = async () => {
     /* ************************************************************************* */
 
     // Generating Seed Data
+    // Insert data into the 'user' table
 
-    // Optional: Truncate tables (remove existing data)
-    await database.query("truncate item");
-
-    // Insert fake data into the 'item' table
-    for (let i = 0; i < 10; i += 1) {
+    for (let i = 0; i < users.length; i += 1) {
       queries.push(
-        database.query("insert into item(title) values (?)", [
-          faker.lorem.word(),
+        database.query(
+          "INSERT INTO nam_nam.user(first_name, last_name, pseudo, email, password, birth_date, profile_picture, background_picture, role) values (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+          [
+            users[i].first_name,
+            users[i].last_name,
+            users[i].pseudo,
+            users[i].email,
+            users[i].password,
+            users[i].birth_date,
+            users[i].profile_picture,
+            users[i].background_picture,
+            users[i].role,
+          ]
+        )
+      );
+    }
+
+    // Insert data into the 'user' table
+
+    for (let i = 0; i < ingredients.length; i += 1) {
+      queries.push(
+        database.query(
+          "INSERT INTO nam_nam.ingredient(name, picture) values (?, ?)",
+          [ingredients[i].name, ingredients[i].picture]
+        )
+      );
+    }
+    for (let i = 0; i < ustensils.length; i += 1) {
+      queries.push(
+        database.query(
+          "INSERT INTO nam_nam.ustensil(name, picture) values (?, ?)",
+          [ustensils[i].name, ustensils[i].picture]
+        )
+      );
+    }
+    for (let i = 0; i < tags.length; i += 1) {
+      queries.push(
+        database.query("INSERT INTO nam_nam.tag(name, picture) values (?, ?)", [
+          tags[i].name,
+          tags[i].picture,
         ])
       );
     }

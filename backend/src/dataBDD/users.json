@@ -1,0 +1,46 @@
+[
+  {
+    "first_name": "Thomas",
+    "last_name": "Nigon",
+    "pseudo": "JacobDeLaFon",
+    "email": "nigont@gmail.com",
+    "password": "delafon",
+    "birth_date": "1988-10-22",
+    "profile_picture": "aucune image",
+    "background_picture": "aucune image",
+    "role": "admin"
+  },
+  {
+    "first_name": "Robin",
+    "last_name": "Fantino",
+    "pseudo": "NemoOnTheNet",
+    "email": "robin.fantino.rf@gmail.com",
+    "password": "onthenet",
+    "birth_date": "1991-11-18",
+    "profile_picture": "aucune image",
+    "background_picture": "aucune image",
+    "role": "user"
+  },
+  {
+    "first_name": "Marie",
+    "last_name": "Saillard",
+    "pseudo": "Milo3408",
+    "email": "mariesaillard2@gmail.com",
+    "password": "milo",
+    "birth_date": "1996-06-30",
+    "profile_picture": "aucune image",
+    "background_picture": "aucune image",
+    "role": "user"
+  },
+  {
+    "first_name": "Fred",
+    "last_name": "Ticon",
+    "pseudo": "Tycoon",
+    "email": "fred.ticon@gmail.com",
+    "password": "tycoon",
+    "birth_date": "1977-05-21",
+    "profile_picture": "aucune image",
+    "background_picture": "aucune image",
+    "role": "user"
+  }
+]
