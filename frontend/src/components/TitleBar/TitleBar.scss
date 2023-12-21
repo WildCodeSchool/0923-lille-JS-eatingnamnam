@@ -6,7 +6,11 @@
   background-color: $tertiaryColor;
   padding: 1rem;
 }
+.titleBar__logo {
+  width: 70%;
+  height: 100%;
+}
 
 .titleBar__userLogo {
-  height: 5rem;
+  width: 10%;
 }
