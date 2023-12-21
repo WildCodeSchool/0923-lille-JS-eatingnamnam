@@ -1,9 +1,14 @@
-import RecipeCard from "./components/RecipeCard/RecipeCard";
-
-import "./App.css";
+import "./App.scss";
+import { Outlet } from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
-  return <RecipeCard />;
+  return (
+    <div className="App">
+      <Outlet />
+      <Navbar />
+    </div>
+  );
 }
 
 export default App;
