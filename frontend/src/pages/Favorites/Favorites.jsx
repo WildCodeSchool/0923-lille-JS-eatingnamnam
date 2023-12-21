@@ -1,4 +1,4 @@
-import "./Favorites.scss";
+import "./favorites.scss";
 
 function Favorites() {
   return <h1 className="helloFav">HELLO FAV PAGE</h1>;

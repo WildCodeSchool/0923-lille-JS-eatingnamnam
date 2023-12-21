@@ -1,4 +1,4 @@
-import "./Navbar.scss";
+import "./navbar.scss";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -13,7 +13,7 @@ function Navbar() {
         <li className="navbar__item">
           <Link
             to="/"
-            className="navbar__button"
+            className="navbar__link"
             type="submit"
             onClick={handleClick}
           >
@@ -37,7 +37,7 @@ function Navbar() {
         <li className="navbar__item">
           <Link
             to="/search"
-            className="navbar__button"
+            className="navbar__link"
             type="submit"
             onClick={handleClick}
           >
@@ -61,7 +61,7 @@ function Navbar() {
         <li className="navbar__item">
           <Link
             to="/recipe"
-            className="navbar__button"
+            className="navbar__link"
             type="submit"
             onClick={handleClick}
           >
@@ -85,7 +85,7 @@ function Navbar() {
         <li className="navbar__item">
           <Link
             to="/favorites"
-            className="navbar__button"
+            className="navbar__link"
             type="submit"
             onClick={handleClick}
           >

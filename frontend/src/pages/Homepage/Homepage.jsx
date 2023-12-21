@@ -1,4 +1,4 @@
-import "./Homepage.scss";
+import "./homepage.scss";
 
 function Homepage() {
   return <h1 className="helloHome">HELLO HOMEPAGE</h1>;
