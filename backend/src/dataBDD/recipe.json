@@ -1,0 +1,22 @@
+[
+  {
+    "title": "tarte toto",
+    "picture": "https://genrandom.com/23b8362f-67b4-462c-ab5c-9059191b315a",
+    "time": " une minutes",
+    "date": "2023-12-31",
+    "price": "3",
+    "difficulty": "easy",
+    "number_share": "4",
+    "user_id": "1"
+  },
+  {
+    "title": "tartine au brie",
+    "picture": "https://genrandom.com/7c615c77-a540-4759-ba11-2838dd33b036",
+    "time": "dix minutes",
+    "date": "2023-12-31",
+    "price": "1",
+    "difficulty": "facile",
+    "number_share": "1",
+    "user_id": "2"
+  }
+]
