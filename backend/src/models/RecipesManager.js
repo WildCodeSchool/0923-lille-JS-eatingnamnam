@@ -33,7 +33,7 @@ class RecipeManager extends AbstractManager {
     return rows[0];
   }
 
-  async random() {
+  async randomRecipe() {
     // check the length of the database and store the length in a variable count
     const [count] = await this.database.query(`
       SELECT COUNT(id) as result FROM ${this.table}`);

@@ -17,7 +17,7 @@ const ingredientControllers = require("./controllers/ingredientControllers");
 // Route to get a list of items
 router.get("/items", itemControllers.browse);
 router.get("/recipe", recipeControllers.browse);
-router.get("/random", recipeControllers.random);
+router.get("/randomrecipe", recipeControllers.randomRecipe);
 router.get("/ustensil", ustensilControllers.browse);
 router.get("/tag", tagControllers.browse);
 router.get("/user", userControllers.browse);
