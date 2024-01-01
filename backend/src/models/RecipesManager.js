@@ -33,6 +33,24 @@ class RecipeManager extends AbstractManager {
     return rows[0];
   }
 
+  async random() {
+    // check the length of the database and store the length in a variable count
+    const [count] = await this.database.query(`
+      SELECT COUNT(id) as result FROM ${this.table}`);
+
+    // randomize a number in range of the database length
+    const random = Math.floor(Math.random() * count[0].result + 1);
+
+    // Execuse the SQL request to display the recipe with the random number generated
+    const [rows] = await this.database.query(
+      `SELECT * FROM ${this.table} WHERE id = ?`,
+      [random]
+    );
+
+    // Return the first row of the result, which represents the item
+    return rows[0];
+  }
+
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
     const [rows] = await this.database.query(`select * from ${this.table}`);
