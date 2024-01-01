@@ -1,19 +1,19 @@
 const AbstractManager = require("./AbstractManager");
 
-class recipeManager extends AbstractManager {
+class UstensilManager extends AbstractManager {
   constructor() {
     // Call the constructor of the parent class (AbstractManager)
     // and pass the table name "item" as configuration
-    super({ table: "recipe" });
+    super({ table: "ustensil" });
   }
 
   // The C of CRUD - Create operation
 
-  async create(recipe) {
+  async create(ustensil) {
     // Execute the SQL INSERT query to add a new item to the "item" table
     const [result] = await this.database.query(
-      `insert into ${this.table} (title) values (?)`,
-      [recipe.title]
+      `insert into ${this.table} (name) values (?)`,
+      [ustensil.name]
     );
 
     // Return the ID of the newly inserted item
@@ -56,4 +56,4 @@ class recipeManager extends AbstractManager {
   // }
 }
 
-module.exports = recipeManager;
+module.exports = UstensilManager;
