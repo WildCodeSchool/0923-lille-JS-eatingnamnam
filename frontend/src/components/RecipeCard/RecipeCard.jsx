@@ -5,8 +5,6 @@ import StarBar from "../StarBar/StarBar";
 import AddFavorite from "../AddFavorite/AddFavorite";
 
 function RecipeCard({ recipe }) {
-  /*   const [title, picture ] = recipe; */
-  /*  console.log("picture:", img); */
   return (
     <section className="card">
       <article
@@ -33,8 +31,6 @@ RecipeCard.propTypes = {
   recipe: PropTypes.shape({
     title: PropTypes.string.isRequired,
     picture: PropTypes.string.isRequired,
-    // Add other expected properties for the recipe object
-    // Example: difficulty, time, ingredients, ustensils, grade, comments, etc.
   }).isRequired,
 };
 
