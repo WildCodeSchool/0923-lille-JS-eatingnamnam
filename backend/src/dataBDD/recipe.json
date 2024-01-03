@@ -1,8 +1,8 @@
 [
   {
-    "title": "tarte toto",
-    "picture": "https://genrandom.com/23b8362f-67b4-462c-ab5c-9059191b315a",
-    "time": " une minutes",
+    "title": "Risotto de petit-épeautre aux champignons (vegan)",
+    "picture": "https://assets.afcdn.com/recipe/20210603/120572_w1024h768c1cx707cy1060cxt0cyt0cxb1414cyb2121.jpg",
+    "time": "1 heure",
     "date": "2023-12-31",
     "price": "3",
     "difficulty": "easy",
@@ -10,13 +10,13 @@
     "user_id": "1"
   },
   {
-    "title": "tartine au brie",
-    "picture": "https://genrandom.com/7c615c77-a540-4759-ba11-2838dd33b036",
-    "time": "dix minutes",
+    "title": "Tacos Mexicain",
+    "picture": "https://assets.afcdn.com/recipe/20190212/87658_w600.jpg",
+    "time": "55 minutes",
     "date": "2023-12-31",
     "price": "1",
-    "difficulty": "facile",
-    "number_share": "1",
+    "difficulty": "très facile",
+    "number_share": "4",
     "user_id": "2"
   }
 ]
