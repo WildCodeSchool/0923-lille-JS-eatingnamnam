@@ -10,6 +10,7 @@ function Homepage() {
       .then((data) => setRecipe(data))
       .catch((error) => console.error(error));
   }, []);
+
   return (
     <>
       {recipe ? <RecipeCard recipe={recipe} /> : "null"};
