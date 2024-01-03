@@ -6,7 +6,7 @@ function Homepage() {
   return (
     <>
       <RecipeCard />
-      <h1 className="helloHome">HELLO HOMEPAGE</h1>;
+      <h1 className="helloHome">HELLO HOMEPAGE</h1>
       <Swipper />
     </>
   );
