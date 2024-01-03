@@ -18,5 +18,49 @@
     "difficulty": "facile",
     "number_share": "1",
     "user_id": "2"
+  },
+  {
+    "title": "chili con carne",
+    "picture": "https://assets.afcdn.com/recipe/20130201/63060_w1024h768c1cx1250cy1875.jpg",
+    "time": "une heure trente minutes",
+    "date": "2024-01-03",
+    "price": "1",
+    "difficulty": "facile",
+    "number_share": "4",
+    "user_id": "3",
+    "liens_marmiton": "www.marmiton.org/recettes/recette_chili-con-carne-simple_18702.aspx"
+  },
+  {
+    "title": "riz mexicain au chorizo",
+    "picture": "https://assets.afcdn.com/recipe/20150728/14220_w1024h768c1cx985cy1030.jpg",
+    "time": "une heure cinq minutes",
+    "date": "2024-01-03",
+    "price": "1",
+    "difficulty": "facile",
+    "number_share": "4",
+    "user_id": "4",
+    "liens_marmiton": "https://www.marmiton.org/recettes/recette_riz-mexicain-au-chorizo_64824.aspx"
+  },
+  {
+    "title": "pot au feu",
+    "picture": "https://assets.afcdn.com/recipe/20170531/15953_w1024h768c1cx2045cy2725.jpg",
+    "time": "deux heure quarante cinq minutes",
+    "date": "2024-01-03",
+    "price": "1",
+    "difficulty": "facile",
+    "number_share": "6",
+    "user_id": "4",
+    "liens_marmiton": "https://www.marmiton.org/recettes/recette_pot-au-feu-des-familles_41125.aspx"
+  },
+  {
+    "title": "gratin d'hiver à la courge",
+    "picture": "https://assets.afcdn.com/recipe/20151106/18136_w1024h768c1cx1536cy864.jpg",
+    "time": "quarante minutes",
+    "date": "2024-01-03",
+    "price": "1",
+    "difficulty": "facile",
+    "number_share": "4",
+    "user_id": "4",
+    "liens_marmiton": "https://www.marmiton.org/recettes/recette_gratin-d-hiver-a-la-courge_221383.aspx"
   }
 ]
