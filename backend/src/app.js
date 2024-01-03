@@ -5,13 +5,9 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 
-app.use(express.json());
-
 // Import the API routes from the router module
 const router = require("./router");
 
-// Mount the API routes under the "/api" endpoint
-app.use("/api", router);
 // CORS peremet de protéger notre server, en bloquant les requête
 app.use(
   cors({
@@ -21,6 +17,10 @@ app.use(
     ],
   })
 );
+
+// Mount the API routes under the "/api" endpoint
+app.use("/api", router);
+app.use(express.json());
 
 app.use(express.static("./public")); // Permet d'avoir accès au image dans le public
 
