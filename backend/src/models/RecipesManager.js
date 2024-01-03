@@ -59,6 +59,20 @@ class RecipeManager extends AbstractManager {
     return rows;
   }
 
+  async recipeByTag(id) {
+    // Execute the SQL SELECT query to retrieve all items from the "item" table
+    const [rows] = await this.database.query(
+      `SELECT recipe.* FROM recipe 
+      INNER JOIN list_tags_recipe AS tags_id 
+      ON recipe.id=tags_id.recipe_id 
+      WHERE tags_id.tag_id = ?`,
+      /*   SELECT * FROM ${this.table} WHERE tag_id = ?`, */
+      [id]
+    );
+    // Return the array of items
+    return rows;
+  }
+
   // The U of CRUD - Update operation
   // TODO: Implement the update operation to modify an existing item
 
