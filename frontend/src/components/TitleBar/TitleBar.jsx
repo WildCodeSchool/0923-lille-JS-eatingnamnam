@@ -1,4 +1,5 @@
 import "./TitleBar.scss";
+import { Link } from "react-router-dom";
 
 function TitleBar() {
   return (
@@ -9,12 +10,9 @@ function TitleBar() {
         src="src/assets/Logo-nam-nam.png"
         alt="logo"
       />
-      <img
-        className="titleBar__userLogo"
-        name="userLogo"
-        src="src/assets/icone-user.svg"
-        alt="userLogo"
-      />
+      <Link to="/userprofil" className="titleBar__userLogo" type="submit">
+        <img name="userLogo" src="src/assets/icone-user.svg" alt="userLogo" />
+      </Link>
     </header>
   );
 }
