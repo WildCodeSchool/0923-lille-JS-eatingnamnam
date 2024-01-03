@@ -33,7 +33,7 @@ CREATE TABLE
         `time` VARCHAR(50) NOT NULL,
         `date` DATE NOT NULL,
         `price` INT NOT NULL,
-`difficulty` VARCHAR(50) NOT NULL,
+        `difficulty` VARCHAR(50) NOT NULL,
         `number_share` INT NOT NULL,
         `user_id` INT NOT NULL,
         PRIMARY KEY (`id`, `user_id`),
