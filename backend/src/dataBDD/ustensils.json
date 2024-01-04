@@ -52,7 +52,7 @@
     "picture": "/assets/ustensils/set_de_3_poeles.jpg"
   },
   {
-    "name": "econome",
+    "name": "économe",
     "picture": "/assets/ustensils/econome.jpg"
   },
   {
@@ -60,11 +60,11 @@
     "picture": "/assets/ustensils/lot_de_3_casseroles.jpg"
   },
   {
-    "name": "mijoteuse electrique",
+    "name": "mijoteuse électrique",
     "picture": "/assets/ustensils/mijoteuse_electrique.jpg"
   },
   {
-    "name": "cuilliere en bois",
+    "name": "cuillière en bois",
     "picture": "/assets/ustensils/cuilliere_en_bois.jpg"
   }
 ]
