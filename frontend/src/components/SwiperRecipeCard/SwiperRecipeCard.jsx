@@ -1,12 +1,15 @@
 import "./SwiperRecipeCard.scss";
-
+import PropTypes from "prop-types";
 import StarBar from "../StarBar/StarBar";
 import AddFavorite from "../AddFavorite/AddFavorite";
 
-function SwiperRecipeCard() {
+function SwiperRecipeCard({ recipe }) {
   return (
     <section className="swiperCard">
-      <article className="swiperCard__logo">
+      <article
+        className="swiperCard__logo"
+        style={{ backgroundImage: `url("${recipe.picture}")` }}
+      >
         <AddFavorite className="swiperCard__logo__favorite" />
         <div className="swiperCard__logo__diet">
           <img
@@ -17,11 +20,17 @@ function SwiperRecipeCard() {
         </div>
       </article>
       <article className="swiperCard__info">
-        <h1 className="swiperCard__info__title">Nom recette</h1>
+        <h1 className="swiperCard__info__title">{recipe.title}</h1>
         <StarBar className="swiperCard_info__stars" />
       </article>
     </section>
   );
 }
+SwiperRecipeCard.propTypes = {
+  recipe: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    picture: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default SwiperRecipeCard;
