@@ -5,7 +5,6 @@ import StarBar from "../StarBar/StarBar";
 import AddFavorite from "../AddFavorite/AddFavorite";
 
 function RecipeCard({ recipe }) {
-  console.warn("recipecard recipe check", recipe);
   return (
     <section className="card">
       <article
