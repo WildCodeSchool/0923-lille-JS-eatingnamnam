@@ -1,3 +1,5 @@
+import "./StarBar.scss";
+
 // import React, { useState } from "react";
 // import { Rating } from "react-simple-star-rating";
 

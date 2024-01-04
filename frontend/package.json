@@ -11,7 +11,8 @@
     "react-router-dom": "^6.14.2",
     "react-simple-star-rating": "^5.1.7",
     "sass": "^1.69.5",
-    "scss": "^0.2.4"
+    "scss": "^0.2.4",
+    "swiper": "^8.4.7"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.0.3",

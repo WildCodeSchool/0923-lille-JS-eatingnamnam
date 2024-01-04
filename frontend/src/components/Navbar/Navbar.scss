@@ -10,6 +10,8 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
+  height: 6vh;
 }
 
 .navbar__item {
@@ -20,6 +22,7 @@
 .navbar__link {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .navbar__icon {
   height: 100%;
