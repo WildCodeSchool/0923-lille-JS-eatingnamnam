@@ -123,5 +123,73 @@
   {
     "name": "tortillas",
     "picture": "/assets/ingredients/tortillas.jpg"
+  },
+  {
+    "name": "courge",
+    "picture": "/assets/ingredients/courge.jpg"
+  },
+  {
+    "name": "creme fraiche liquide",
+    "picture": "/assets/ingredients/creme_fraiche_liquide.jpg"
+  },
+  {
+    "name": "gruyere",
+    "picture": "/assets/ingredients/gruyere.jpg"
+  },
+  {
+    "name": "semoule",
+    "picture": "/assets/ingredients/semoule.jpg"
+  },
+  {
+    "name": "boeuf",
+    "picture": "/assets/ingredients/boeuf.jpg"
+  },
+  {
+    "name": "carotte",
+    "picture": "/assets/ingredients/carotte.jpg"
+  },
+  {
+    "name": "chou",
+    "picture": "/assets/ingredients/chou.jpg"
+  },
+  {
+    "name": "lard",
+    "picture": "/assets/ingredients/lard.jpg"
+  },
+  {
+    "name": "navet",
+    "picture": "/assets/ingredients/navet.jpg"
+  },
+  {
+    "name": "os a moelle",
+    "picture": "/assets/ingredients/os_a_moelle.jpg"
+  },
+  {
+    "name": "poireau",
+    "picture": "/assets/ingredients/poireau.jpg"
+  },
+  {
+    "name": "chorizo",
+    "picture": "/assets/ingredients/chorizo.jpg"
+  },
+  {
+    "name": "riz long",
+    "picture": "/assets/ingredients/riz_long.jpg"
+  },
+  {
+    "name": "concentrer de tomate",
+    "picture": "/assets/ingredients/concentrer_de_tomate.jpg"
+  },
+  {
+    "name": "persil",
+    "picture": "/assets/ingredients/persil.jpg"
+  },
+  {
+    "name": "poivron rouge",
+    "picture": "/assets/ingredients/poivron_rouge.jpg"
+  },
+  {
+    "name": "vin",
+    "picture": "/assets/ingredients/vin.jpg"
   }
 ]
