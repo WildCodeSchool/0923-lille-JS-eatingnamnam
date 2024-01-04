@@ -66,7 +66,6 @@ class RecipeManager extends AbstractManager {
       INNER JOIN list_tags_recipe AS tags_id 
       ON recipe.id=tags_id.recipe_id 
       WHERE tags_id.tag_id = ?`,
-      /*   SELECT * FROM ${this.table} WHERE tag_id = ?`, */
       [id]
     );
     // Return the array of items
