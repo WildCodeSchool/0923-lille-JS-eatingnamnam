@@ -1,6 +1,7 @@
 import "./Homepage.scss";
 import { useEffect, useState } from "react";
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
+import Swipper from "../../components/Swipper/Swipper";
 
 function Homepage() {
   const [recipe, setRecipe] = useState();
@@ -36,6 +37,9 @@ function Homepage() {
             <RecipeCard key={recipe.id} recipe={mexicanRecipe} />
           ))
         : "loading"}
+      <RecipeCard />
+      <h1 className="helloHome">HELLO HOMEPAGE</h1>
+      <Swipper />
     </>
   );
 }
