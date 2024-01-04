@@ -64,7 +64,7 @@ CREATE TABLE
         `id` INT NOT NULL AUTO_INCREMENT,
         `recipe_id` INT NOT NULL,
         `user_id` INT NOT NULL,
-`grade` INT NOT NULL,
+        `grade` INT NOT NULL,
         `comment` TEXT,
         `date_time` DATETIME,
         PRIMARY KEY (`id`, `recipe_id`, `user_id`),
