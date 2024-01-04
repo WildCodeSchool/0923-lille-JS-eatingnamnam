@@ -38,8 +38,6 @@ function Homepage() {
             <RecipeCard key={recipe.id} recipe={mexicanRecipe} />
           ))
         : "loading"}
-      <RecipeCard />
-      <h1 className="helloHome">HELLO HOMEPAGE</h1>
       <Swipper />
     </>
   );
