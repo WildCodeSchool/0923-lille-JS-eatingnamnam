@@ -129,11 +129,11 @@
     "picture": "/assets/ingredients/courge.jpg"
   },
   {
-    "name": "creme fraiche liquide",
+    "name": "créme fraiche liquide",
     "picture": "/assets/ingredients/creme_fraiche_liquide.jpg"
   },
   {
-    "name": "gruyere",
+    "name": "gruyére",
     "picture": "/assets/ingredients/gruyere.jpg"
   },
   {
@@ -177,8 +177,8 @@
     "picture": "/assets/ingredients/riz_long.jpg"
   },
   {
-    "name": "concentre de tomate",
-    "picture": "/assets/ingredients/concentrer_de_tomate.jpg"
+    "name": "concentré de tomate",
+    "picture": "/assets/ingredients/concentre_de_tomate.jpg"
   },
   {
     "name": "persil",
