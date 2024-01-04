@@ -11,7 +11,12 @@ function TitleBar() {
         alt="logo"
       />
       <Link to="/userprofil" className="titleBar__userLogo" type="submit">
-        <img name="userLogo" src="src/assets/icone-user.svg" alt="userLogo" />
+        <img
+          className="titleBar__userLogo__img"
+          name="userLogo"
+          src="src/assets/icone-user.svg"
+          alt="userLogo"
+        />
       </Link>
     </header>
   );
