@@ -41,7 +41,7 @@ class RecipeManager extends AbstractManager {
     // randomize a number in range of the database length
     const random = Math.floor(Math.random() * count[0].result + 1);
 
-    // Execuse the SQL request to display the recipe with the random number generated
+    // Execute the SQL request to display the recipe with the random number generated
     const [rows] = await this.database.query(
       `SELECT * FROM ${this.table} WHERE id = ?`,
       [random]
@@ -55,6 +55,19 @@ class RecipeManager extends AbstractManager {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
     const [rows] = await this.database.query(`select * from ${this.table}`);
 
+    // Return the array of items
+    return rows;
+  }
+
+  async recipeByTag(id) {
+    // Execute the SQL SELECT query to retrieve all items from the "item" table
+    const [rows] = await this.database.query(
+      `SELECT recipe.* FROM recipe 
+      INNER JOIN list_tags_recipe AS tags_id 
+      ON recipe.id=tags_id.recipe_id 
+      WHERE tags_id.tag_id = ?`,
+      [id]
+    );
     // Return the array of items
     return rows;
   }

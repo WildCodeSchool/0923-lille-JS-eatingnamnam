@@ -17,6 +17,7 @@ const managers = [
   TagManager,
   UserManager,
   IngredientManager,
+
   // Add other managers here
 ];
 
