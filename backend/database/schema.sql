@@ -14,7 +14,7 @@ CREATE TABLE
         `first_name` VARCHAR(50) NOT NULL,
         `last_name` VARCHAR(50) NOT NULL,
         `pseudo` VARCHAR(50) NOT NULL,
-        `email` VARCHAR(255) NOT NULL,
+        `email` VARCHAR(255) NOT NULL ,
         `password` VARCHAR(255) NOT NULL,
         `birth_date` DATE NOT NULL,
         `profile_picture` VARCHAR(255) NULL,

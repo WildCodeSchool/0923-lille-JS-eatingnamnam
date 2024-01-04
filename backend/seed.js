@@ -60,9 +60,8 @@ const seed = async () => {
     }
     for (let i = 0; i < tags.length; i += 1) {
       queries.push(
-        database.query("INSERT INTO nam_nam.tag(name, picture) values (?, ?)", [
+        database.query("INSERT INTO nam_nam.tag(name) values (?)", [
           tags[i].name,
-          tags[i].picture,
         ])
       );
     }
