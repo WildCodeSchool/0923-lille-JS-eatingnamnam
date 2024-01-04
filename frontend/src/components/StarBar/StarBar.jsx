@@ -7,13 +7,19 @@ function StarBar() {
   const emptyStars = Array(5).fill("src/assets/emptyStar.svg");
 
   return (
-    <div>
+    <div className="starContainer">
       {fullStars.slice(5 - gradesRecipe).map((fullStar) => {
-        return <img src={fullStar} alt="star" />;
+        return <img className="starContainer__img" src={fullStar} alt="star" />;
       })}
 
       {emptyStars.slice(gradesRecipe).map((emptyStar) => {
-        return <img src={emptyStar} alt="empty star" />;
+        return (
+          <img
+            className="starContainer__img"
+            src={emptyStar}
+            alt="empty star"
+          />
+        );
       })}
     </div>
   );
