@@ -22,7 +22,7 @@
   {
     "title": "chili con carne",
     "picture": "/assets/recette/chili.jpg",
-    "time": "une heure trente minutes",
+    "time": "1 heure 30 minutes",
     "date": "2024-01-03",
     "price": "1",
     "difficulty": "facile",
@@ -32,8 +32,8 @@
   },
   {
     "title": "riz mexicain au chorizo",
-    "picture": "/assets/recette/riz mexicain.jpg",
-    "time": "une heure cinq minutes",
+    "picture": "/assets/recette/riz_mexicain.jpg",
+    "time": "1 heure 5 minutes",
     "date": "2024-01-03",
     "price": "1",
     "difficulty": "facile",
@@ -43,8 +43,8 @@
   },
   {
     "title": "pot au feu",
-    "picture": "/assets/recette/pot au feu.jpg",
-    "time": "deux heure quarante cinq minutes",
+    "picture": "/assets/recette/pot_au_feu.jpg",
+    "time": "2 heure 45 minutes",
     "date": "2024-01-03",
     "price": "1",
     "difficulty": "facile",
@@ -55,7 +55,7 @@
   {
     "title": "gratin d'hiver à la courge",
     "picture": "/assets/recette/gratin.jpg",
-    "time": "quarante minutes",
+    "time": "40 minutes",
     "date": "2024-01-03",
     "price": "1",
     "difficulty": "facile",
