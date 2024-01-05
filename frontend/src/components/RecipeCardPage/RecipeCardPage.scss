@@ -4,11 +4,12 @@
   flex-direction: column;
   display: flex;
   width: 100%;
+
   .RecipeCardPage__img {
     width: 80%;
   }
 
-  .RecipeCardPage__logo {
+  .RecipeCardPage__header {
     width: 100%;
     height: 30vh;
     display: flex;
@@ -19,11 +20,13 @@
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 0 0 20px 20px;
-    .RecipeCardPage__logo__diet__vegan {
+
+    .RecipeCardPage__header__diet__vegan {
       width: 2em;
       margin: 0.3em;
     }
   }
+
   .RecipeCardPage__info {
     width: 98%;
     margin-top: 0.5em;
@@ -38,6 +41,7 @@
       width: 30%;
     }
   }
+
   .RecipeCardPage__info__title {
     font-family: "hubballi";
     font-size: 2em;

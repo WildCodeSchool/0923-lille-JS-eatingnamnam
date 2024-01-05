@@ -6,23 +6,27 @@ import AddFavorite from "../AddFavorite/AddFavorite";
 function RecipeCardPage({ recipe }) {
   return (
     <section className="RecipeCardPage">
-      <article
-        className="RecipeCardPage__logo"
-        style={{ backgroundImage: `url("${recipe.picture}")` }}
+      <section
+        className="RecipeCardPage__header"
+        style={{
+          backgroundImage: `url("${import.meta.env.VITE_BACKEND_URL}${
+            recipe.picture
+          }")`,
+        }}
       >
-        <AddFavorite className="RecipeCardPage__logo__favorite" />
-        <div className="RecipeCardPage__logo__diet">
+        <AddFavorite className="RecipeCardPage__header__favorite" />
+        <div className="RecipeCardPage__header__diet">
           <img
-            className="RecipeCardPage__logo__diet__vegan"
+            className="RecipeCardPage__header__diet__vegan"
             src="/src/assets/Logo-vegan.png"
             alt="this recipe is vegan"
           />
         </div>
-      </article>
-      <article className="RecipeCardPage__info">
+      </section>
+      <section className="RecipeCardPage__info">
         <p className="RecipeCardPage_info__p">"nb commentaire(s)"</p>
         <StarBar className="RecipeCardPage_info__stars" />
-      </article>
+      </section>
       <h1 className="RecipeCardPage__info__title">{recipe.title}</h1>
     </section>
   );

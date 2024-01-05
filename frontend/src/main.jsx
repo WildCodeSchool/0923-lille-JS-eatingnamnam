@@ -32,11 +32,11 @@ const router = createBrowserRouter([
         element: <Recipe />,
       },
       {
-        path: "/userprofil",
+        path: "/profile",
         element: <UserProfil />,
       },
       {
-        path: "/addrecipe",
+        path: "/add/recipe",
         element: <AddRecipe />,
       },
     ],
