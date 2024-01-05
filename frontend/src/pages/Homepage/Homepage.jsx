@@ -27,17 +27,8 @@ function Homepage() {
   return (
     <>
       {recipe ? <RecipeCard recipe={recipe} /> : "loading"}
-      {vegan
-        ? vegan.map((veganRecipe) => (
-            <RecipeCard key={recipe.id} recipe={veganRecipe} />
-          ))
-        : "loading"}
-      {mexican
-        ? mexican.map((mexicanRecipe) => (
-            <RecipeCard key={recipe.id} recipe={mexicanRecipe} />
-          ))
-        : "loading"}
-      <Swipper />
+      {vegan ? <Swipper recipes={vegan} /> : "loading"}
+      {mexican ? <Swipper recipes={mexican} /> : "loading"}
     </>
   );
 }
