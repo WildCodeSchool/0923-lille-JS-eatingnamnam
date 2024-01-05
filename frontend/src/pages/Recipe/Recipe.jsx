@@ -11,6 +11,7 @@ function Recipe() {
       .then((data) => setRecipe(data))
       .catch((error) => console.error(error));
   }, []);
+
   return <div>{recipe ? <RecipeCardPage recipe={recipe} /> : "loading"}</div>;
 }
 
