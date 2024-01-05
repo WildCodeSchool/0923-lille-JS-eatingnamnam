@@ -27,7 +27,9 @@ function Homepage() {
   return (
     <>
       {recipe ? <RecipeCard recipe={recipe} /> : "loading"}
+      <h2 className="titleHome">Recettes vegan</h2>
       {vegan ? <Swipper recipes={vegan} /> : "loading"}
+      <h2 className="titleHome">Recettes mexicaine</h2>
       {mexican ? <Swipper recipes={mexican} /> : "loading"}
     </>
   );
