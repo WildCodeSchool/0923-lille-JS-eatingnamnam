@@ -8,7 +8,11 @@ function SwiperRecipeCard({ recipe }) {
     <section className="swiperCard">
       <article
         className="swiperCard__logo"
-        style={{ backgroundImage: `url("${recipe.picture}")` }}
+        style={{
+          backgroundImage: `url("${import.meta.env.VITE_BACKEND_URL}${
+            recipe.picture
+          }")`,
+        }}
       >
         <AddFavorite className="swiperCard__logo__favorite" />
         <div className="swiperCard__logo__diet">
