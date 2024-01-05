@@ -1,19 +1,21 @@
 @import "../../variables.scss";
 
+.tagCard {
+  width: 40%;
+}
 .tagname {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 32px;
-  height: 40px;
+  height: 6vh;
   position: relative;
   top: 50%;
-  background-color: rgba($color: #9e9c9c, $alpha: 0.5);
+  background-color: rgba($color: #ffffff, $alpha: 0.5);
 }
 
-.tagCard {
-  /*   border: 1px solid $mainColor; */
-}
 .tagCard__img {
-  width: 320px;
+  width: 100%;
   object-fit: contain;
   border: 2px solid $mainColor;
   border-radius: 20px;

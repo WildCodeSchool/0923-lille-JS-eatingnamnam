@@ -1,16 +1,9 @@
 @import "../../variables.scss";
 
-.helloSearch {
-  font-size: 3rem;
-  text-align: center;
-  color: lime;
-}
 .tagCardContainer {
-  background-color: lime;
+  background-color: $tertiaryColor;
   row-gap: 20px;
   justify-content: space-around;
-  width: 90%;
-  margin: 0px auto;
   display: flex;
   flex-flow: wrap;
 }
@@ -20,4 +13,30 @@
   text-align: center;
   font-size: 30px;
   margin-bottom: 50px;
+}
+.searchBar {
+  display: flex;
+  background-color: $tertiaryColor;
+  width: 80%;
+  margin: 0 auto;
+  height: 5vh;
+  border: 2px solid $mainColor;
+  border-radius: 10px;
+}
+.searchBar__form {
+  all: unset;
+  font-family: "Handlee", sans-serif;
+  width: 100%;
+  height: 100%;
+}
+.searchBar__searchButton {
+  all: unset;
+}
+.searchBar:focus {
+  background-color: white;
+}
+.searchBar__searchIcon {
+  padding: 5px;
+  width: 5vh;
+  object-fit: contain;
 }

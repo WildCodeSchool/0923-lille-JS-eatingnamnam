@@ -12,9 +12,21 @@ function Search() {
   }, []);
   return (
     <>
-      <h1 className="helloSearch">HELLO SEARCH PAGE</h1>;
+      <form className="searchBar">
+        <input
+          className="searchBar__form"
+          type="search"
+          placeholder="Rechercher une recette..."
+        />
+        <button className="searchBar__searchButton" type="submit">
+          <img
+            className="searchBar__searchIcon"
+            src="src/assets/search.svg"
+            alt="a magnifying glass icon"
+          />
+        </button>
+      </form>
       <section className="tagCardContainer">
-        <h2 className="title">TAG CONTAINER</h2>
         {tags
           ? tags.map((tag) => <TagCard key={tag.id} tag={tag} />)
           : "loading"}
