@@ -23,16 +23,17 @@
   border: 2px solid $mainColor;
   border-radius: 10px;
 }
-.searchBar__form {
-  padding-left: 1vw;
+
+.searchBar__searchButton {
   all: unset;
+}
+.searchBar__form {
+  all: unset;
+  padding-left: 1vw;
   font-family: "Handlee", sans-serif;
   border-radius: 10px;
   width: 100%;
   height: 100%;
-}
-.searchBar__searchButton {
-  all: unset;
 }
 .searchBar__form:focus {
   background-color: white;

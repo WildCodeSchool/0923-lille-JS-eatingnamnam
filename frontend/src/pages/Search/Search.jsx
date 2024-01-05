@@ -10,6 +10,9 @@ function Search() {
       .then((data) => setTags(data))
       .catch((error) => console.error(error));
   }, []);
+  const handleClick = () => {
+    console.warn("test on focus");
+  };
   return (
     <>
       <form className="searchBar">
@@ -17,11 +20,13 @@ function Search() {
           className="searchBar__form"
           type="search"
           placeholder="Rechercher une recette..."
+          label="Rechercher une recette..."
+          onFocus={handleClick}
         />
         <button className="searchBar__searchButton" type="submit">
           <img
             className="searchBar__searchIcon"
-            src="src/assets/search.svg"
+            src="src/assets/activeSearch.svg"
             alt="a magnifying glass icon"
           />
         </button>
