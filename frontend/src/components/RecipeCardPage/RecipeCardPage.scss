@@ -1,0 +1,45 @@
+@import "../../variables.scss";
+.RecipeCardPage {
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+  .RecipeCardPage__img {
+    width: 80%;
+  }
+
+  .RecipeCardPage__logo {
+    width: 100%;
+    height: 30vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-direction: column-reverse;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 0 0 20px 20px;
+    .RecipeCardPage__logo__diet__vegan {
+      width: 2em;
+      margin: 0.3em;
+    }
+  }
+  .RecipeCardPage__info {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+
+    .RecipeCardPage_info__p {
+      font-family: "handlee", "cursive";
+    }
+
+    .RecipeCardPage_info__stars {
+      width: 30%;
+    }
+  }
+  .RecipeCardPage__info__title {
+    font-family: "hubballi";
+    margin: 0;
+    width: 70%;
+  }
+}
