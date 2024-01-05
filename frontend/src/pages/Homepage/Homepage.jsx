@@ -26,7 +26,6 @@ function Homepage() {
 
   return (
     <>
-      {recipe ? console.warn("recipe:", recipe) : ""}
       {recipe ? <RecipeCard recipe={recipe} /> : "loading"}
       {vegan
         ? vegan.map((veganRecipe) => (

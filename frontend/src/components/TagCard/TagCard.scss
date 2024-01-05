@@ -1,0 +1,23 @@
+@import "../../variables.scss";
+
+.tagname {
+  text-align: center;
+  font-size: 32px;
+  height: 40px;
+  position: relative;
+  top: 50%;
+  background-color: rgba($color: #9e9c9c, $alpha: 0.5);
+}
+
+.tagCard {
+  /*   border: 1px solid $mainColor; */
+}
+.tagCard__img {
+  width: 320px;
+  object-fit: contain;
+  border: 2px solid $mainColor;
+  border-radius: 20px;
+}
+a {
+  all: unset;
+}
