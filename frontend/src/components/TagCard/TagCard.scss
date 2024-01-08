@@ -1,0 +1,25 @@
+@import "../../variables.scss";
+
+.tagCard {
+  width: 40%;
+}
+.tagname {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  height: 6vh;
+  position: relative;
+  top: 50%;
+  background-color: rgba($color: #ffffff, $alpha: 0.5);
+}
+
+.tagCard__img {
+  width: 100%;
+  object-fit: contain;
+  border: 2px solid $mainColor;
+  border-radius: 20px;
+}
+a {
+  all: unset;
+}
