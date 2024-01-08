@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import RecipeCardPage from "../../components/RecipeCardPage/RecipeCardPage";
 import "./Recipe.scss";
+import RecipeSteps from "../../components/RecipeSteps/RecipeSteps";
 
 function Recipe() {
   const [recipe, setRecipe] = useState();
@@ -12,7 +13,12 @@ function Recipe() {
       .catch((error) => console.error(error));
   }, []);
 
-  return <div>{recipe ? <RecipeCardPage recipe={recipe} /> : "loading"}</div>;
+  return (
+    <div>
+      {recipe ? <RecipeCardPage recipe={recipe} /> : "loading"}
+      {recipe ? <RecipeSteps recipe={recipe} /> : "error no recipe found"}
+    </div>
+  );
 }
 
 export default Recipe;
