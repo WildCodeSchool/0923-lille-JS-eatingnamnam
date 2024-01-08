@@ -9,3 +9,27 @@
   border: 2px solid #99948d;
   box-shadow: 5px 5px 6px 0px #000000;
 }
+.thecomment__userLogo__img {
+  height: 85%;
+}
+.flex-container {
+  display: flex;
+  height: 30%;
+
+  //flex-direction: row;
+  //flex-wrap: nowrap;
+  //justify-content: normal;
+  //align-items: normal;
+  //align-content: normal;
+}
+
+.flex-items:nth-child(1) {
+  margin-top: 1%;
+  margin-left: 1%;
+}
+
+.flex-items:nth-child(2) {
+  padding: 0%;
+  margin-left: 2%;
+  margin-top: 1%;
+}
