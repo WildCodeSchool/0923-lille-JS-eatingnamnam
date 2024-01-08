@@ -1,6 +1,6 @@
 import "./Comment.scss";
 
 function Comment() {
-  return <thecomment className="thecomment">FRED ESSAI</thecomment>;
+  return <thecomment className="thecomment" />;
 }
 export default Comment;
