@@ -12,7 +12,10 @@ function Recipe() {
       .catch((error) => console.error(error));
   }, []);
 
-  return <div>{recipe ? <RecipeCardPage recipe={recipe} /> : "loading"}</div>;
+  console.warn(recipe);
+  return (
+    <section>{recipe ? <RecipeCardPage recipe={recipe} /> : "loading"}</section>
+  );
 }
 
 export default Recipe;

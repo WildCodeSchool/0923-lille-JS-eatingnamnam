@@ -4,6 +4,8 @@ import StarBar from "../StarBar/StarBar";
 import AddFavorite from "../AddFavorite/AddFavorite";
 
 function RecipeCardPage({ recipe }) {
+  const nbEuro = Array(recipe.price).fill("src/assets/euro.svg");
+
   return (
     <section className="RecipeCardPage">
       <section
@@ -27,7 +29,43 @@ function RecipeCardPage({ recipe }) {
         <p className="RecipeCardPage_info__p">"nb commentaire(s)"</p>
         <StarBar className="RecipeCardPage_info__stars" />
       </section>
+
       <h1 className="RecipeCardPage__info__title">{recipe.title}</h1>
+
+      <section className="RecipeCardPage__details">
+        <div className="RecipeCardPage__details__difficulty">
+          <img
+            className="RecipeCardPage__details__difficulty__hote"
+            src="/src/assets/hote.svg"
+            alt="hote de cuisinier"
+          />
+          <p>{recipe.difficulty} </p>
+        </div>
+
+        <div className="RecipeCardPage__details__time">
+          <img
+            className="RecipeCardPage__details__time__clock"
+            src="src/assets/time.svg"
+            alt="clock"
+          />
+          <p> {recipe.time} </p>
+        </div>
+        <div className="RecipeCardPage__details__price">
+          {nbEuro.map((euro, index) => {
+            return (
+              <img
+                key={euro[index]}
+                className="RecipeCardPage__details__price__euro"
+                src={euro}
+                alt="pièce euro"
+              />
+            );
+          })}
+        </div>
+      </section>
+      <h2 className="RecipeCardPage__nbShare">
+        {recipe.number_share} personnes
+      </h2>
     </section>
   );
 }
@@ -35,6 +73,10 @@ RecipeCardPage.propTypes = {
   recipe: PropTypes.shape({
     title: PropTypes.string.isRequired,
     picture: PropTypes.string.isRequired,
+    difficulty: PropTypes.string.isRequired,
+    time: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    number_share: PropTypes.number.isRequired,
   }).isRequired,
 };
 

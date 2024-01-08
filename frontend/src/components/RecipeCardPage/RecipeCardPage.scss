@@ -1,4 +1,5 @@
 @import "../../variables.scss";
+
 .RecipeCardPage {
   align-items: center;
   flex-direction: column;
@@ -45,8 +46,46 @@
   .RecipeCardPage__info__title {
     font-family: "hubballi";
     font-size: 2em;
-    margin-top: 0.5em;
+    margin: 0.5em 0 0.5em 0;
     width: 98%;
     text-align: center;
+  }
+
+  .RecipeCardPage__details {
+    display: flex;
+    justify-content: space-between;
+    width: 65%;
+
+    .RecipeCardPage__details__difficulty {
+      display: flex;
+
+      .RecipeCardPage__details__difficulty__hote {
+        height: 1em;
+        width: 1em;
+        margin-right: 0.15em;
+      }
+    }
+    .RecipeCardPage__details__time {
+      display: flex;
+
+      .RecipeCardPage__details__time__clock {
+        height: 1em;
+        width: 1em;
+        margin-right: 0.15em;
+      }
+    }
+    .RecipeCardPage__details__price {
+      display: flex;
+
+      .RecipeCardPage__details__price__euro {
+        height: 1em;
+        width: 1em;
+        margin-right: 0.15em;
+      }
+    }
+  }
+  .RecipeCardPage__nbShare {
+    margin-top: 1em;
+    font-size: 26px;
   }
 }
