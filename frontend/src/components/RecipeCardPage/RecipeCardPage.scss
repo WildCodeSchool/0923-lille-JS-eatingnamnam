@@ -54,7 +54,13 @@
   .RecipeCardPage__details {
     display: flex;
     justify-content: space-between;
-    width: 65%;
+    align-items: center;
+    width: 75%;
+
+    .RecipeCardPage__details__union {
+      height: 0.2em;
+      width: 1em;
+    }
 
     .RecipeCardPage__details__difficulty {
       display: flex;

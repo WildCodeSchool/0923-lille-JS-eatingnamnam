@@ -41,7 +41,11 @@ function RecipeCardPage({ recipe }) {
           />
           <p>{recipe.difficulty} </p>
         </div>
-
+        <img
+          className="RecipeCardPage__details__union"
+          src="/src/assets/union.svg"
+          alt="separtion"
+        />
         <div className="RecipeCardPage__details__time">
           <img
             className="RecipeCardPage__details__time__clock"
@@ -50,6 +54,12 @@ function RecipeCardPage({ recipe }) {
           />
           <p> {recipe.time} </p>
         </div>
+        <img
+          className="RecipeCardPage__details__union"
+          src="/src/assets/union.svg"
+          alt="separtion"
+        />
+
         <div className="RecipeCardPage__details__price">
           {nbEuro.map((euro, index) => {
             return (
