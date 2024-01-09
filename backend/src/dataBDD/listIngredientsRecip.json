@@ -1,0 +1,56 @@
+[
+  {
+    "recipe_id": 1,
+    "ingredient_id": 25,
+    "quantity": 1,
+    "unit": "pincée(s)"
+  },
+  {
+    "recipe_id": 1,
+    "ingredient_id": 9,
+    "quantity": 4,
+    "unit": "cl"
+  },
+  {
+    "recipe_id": 1,
+    "ingredient_id": 15,
+    "quantity": 2,
+    "unit": "cuillières à soupe"
+  },
+  {
+    "recipe_id": 1,
+    "ingredient_id": 21,
+    "quantity": 320,
+    "unit": "g"
+  },
+  {
+    "recipe_id": 1,
+    "ingredient_id": 13,
+    "quantity": 3,
+    "unit": ""
+  },
+  {
+    "recipe_id": 1,
+    "ingredient_id": 1,
+    "quantity": 2,
+    "unit": "l"
+  },
+  {
+    "recipe_id": 1,
+    "ingredient_id": 8,
+    "quantity": 300,
+    "unit": "g"
+  },
+  {
+    "recipe_id": 1,
+    "ingredient_id": 49,
+    "quantity": 1,
+    "unit": "cuillières à soupe"
+  },
+  {
+    "recipe_id": 1,
+    "ingredient_id": 50,
+    "quantity": 3,
+    "unit": "cuillières à soupe"
+  }
+]

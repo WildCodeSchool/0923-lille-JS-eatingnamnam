@@ -22,7 +22,7 @@ class RecipeManager extends AbstractManager {
 
   // The Rs of CRUD - Read operations
 
-  async read(id) {
+  async recipeById(id) {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
     const [rows] = await this.database.query(
       `select * from ${this.table} where id = ?`,

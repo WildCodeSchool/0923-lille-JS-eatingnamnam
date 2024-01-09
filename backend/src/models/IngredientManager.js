@@ -33,6 +33,15 @@ class IngredientManager extends AbstractManager {
     return rows[0];
   }
 
+  async ingredientListByRecipId(id) {
+    const [rows] = await this.database.query(
+      `select * from ingredient join list_ingredients_recip as L on ingredient.id=L.ingredient_id where L.recipe_id=?`,
+      [id]
+    );
+
+    return rows;
+  }
+
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
     const [rows] = await this.database.query(`select * from ${this.table}`);

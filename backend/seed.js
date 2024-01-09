@@ -4,6 +4,7 @@ const ustensils = require("./src/dataBDD/ustensils.json");
 const tags = require("./src/dataBDD/tags.json");
 const recipe = require("./src/dataBDD/recipe.json");
 const listTagsRecipe = require("./src/dataBDD/listTagsRecipe.json");
+const listIngredientRecipe = require("./src/dataBDD/listIngredientsRecip.json");
 /* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
 
 // Load environment variables from .env file
@@ -47,7 +48,7 @@ const seed = async () => {
     for (let i = 0; i < ingredients.length; i += 1) {
       queries.push(
         database.query(
-          "INSERT INTO nam_nam.ingredient(name, picture) values (?, ?)",
+          "INSERT INTO nam_nam.ingredient(name, picture) values ( ?, ?)",
           [ingredients[i].name, ingredients[i].picture]
         )
       );
@@ -91,6 +92,20 @@ const seed = async () => {
         database.query(
           "INSERT INTO nam_nam.list_tags_recipe(recipe_id, tag_id) values (?,?)",
           [listTagsRecipe[i].recipe_id, listTagsRecipe[i].tag_id]
+        )
+      );
+    }
+    // insert data into the 'recipe' table
+    for (let i = 0; i < listIngredientRecipe.length; i += 1) {
+      queries.push(
+        database.query(
+          "INSERT INTO nam_nam.list_ingredients_recip(recipe_id, ingredient_id, quantity, unit) values (?, ?, ?, ?)",
+          [
+            listIngredientRecipe[i].recipe_id,
+            listIngredientRecipe[i].ingredient_id,
+            listIngredientRecipe[i].quantity,
+            listIngredientRecipe[i].unit,
+          ]
         )
       );
     }
