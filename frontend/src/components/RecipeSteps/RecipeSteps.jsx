@@ -1,36 +1,24 @@
 import "./RecipeSteps.scss";
-import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
-function RecipeSteps({ recipe }) {
-  console.warn("recipe inside recipe step:", recipe);
-  const [steps, setSteps] = useState();
-
-  useEffect(() => {
-    fetch(`src/recipe.json`)
-      .then((response) => response.json())
-      .then((data) => setSteps(data))
-      .catch((error) => console.error(error));
-  }, []);
-  /*   const recipeSteps = steps[0].step; */
-  /*  console.warn("recipeSteps:", recipeSteps); */
+function RecipeSteps({ recipeStep, stepNumber }) {
   return (
-    <>
-      <h1>hello recipe steps</h1>;
-      {steps
-        ? console.warn("steps:", steps, "steps[0]step:", steps[0].step)
-        : ""}
-      {/* {recipeSteps.map((step) => (
-        <p>{step}</p>
-      ))} */}
-    </>
+    <section className="stepCard">
+      <h1 className="stepCard__title">Etape {stepNumber}:</h1>
+      <p className="stepCard__description">{recipeStep}</p>
+    </section>
   );
 }
 
 RecipeSteps.propTypes = {
-  recipe: PropTypes.shape({
+  recipeStep: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     picture: PropTypes.string.isRequired,
+  }).isRequired,
+  stepNumber: PropTypes.shape({
+    number_step: PropTypes.number.isRequired,
+    description: PropTypes.string.isRequired,
   }).isRequired,
 };
 

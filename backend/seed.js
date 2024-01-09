@@ -4,6 +4,7 @@ const ustensils = require("./src/dataBDD/ustensils.json");
 const tags = require("./src/dataBDD/tags.json");
 const recipe = require("./src/dataBDD/recipe.json");
 const listTagsRecipe = require("./src/dataBDD/listTagsRecipe.json");
+const step = require("./src/dataBDD/step.json");
 /* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
 
 // Load environment variables from .env file
@@ -87,6 +88,8 @@ const seed = async () => {
         )
       );
     }
+
+    // insert data into the 'listTagsRecipe' table
     for (let i = 0; i < listTagsRecipe.length; i += 1) {
       queries.push(
         database.query(
@@ -95,6 +98,17 @@ const seed = async () => {
         )
       );
     }
+
+    // insert data into the 'step' table
+    for (let i = 0; i < step.length; i += 1) {
+      queries.push(
+        database.query(
+          "INSERT INTO nam_nam.step(number_step, description, recipe_id) values (?,?,?)",
+          [step[i].number_step, step[i].description, step[i].recipe_id]
+        )
+      );
+    }
+
     /* ************************************************************************* */
 
     // Wait for all the insertion queries to complete

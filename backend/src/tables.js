@@ -9,6 +9,7 @@ const UstensilManager = require("./models/UstensilManager");
 const TagManager = require("./models/TagManager");
 const UserManager = require("./models/UserManager");
 const IngredientManager = require("./models/IngredientManager");
+const StepManager = require("./models/StepManager");
 
 const managers = [
   ItemManager,
@@ -17,6 +18,7 @@ const managers = [
   TagManager,
   UserManager,
   IngredientManager,
+  StepManager,
 
   // Add other managers here
 ];
