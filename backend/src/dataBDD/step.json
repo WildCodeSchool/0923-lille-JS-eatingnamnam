@@ -1,0 +1,42 @@
+[
+  {
+    "number_step": "1",
+    "description": "Rincer les champignons et éplucher les échalotes. Les émincer.",
+    "recipe_id": "1"
+  },
+  {
+    "number_step": "2",
+    "description": "Dans une sauteuse, faire chauffer un filet d'huile. Y faire revenir les échalotes et les champignons 5 minutes.",
+    "recipe_id": "1"
+  },
+  {
+    "number_step": "3",
+    "description": "Débarrasser les champignons et verser le petit-épeautre dans la sauteuse. Le faire revenir jusqu'à ce qu'il devienne translucide.",
+    "recipe_id": "1"
+  },
+  {
+    "number_step": "4",
+    "description": "Déglacer au cognac et à la sauce soja.",
+    "recipe_id": "1"
+  },
+  {
+    "number_step": "5",
+    "description": "Ajouter le bouillon de légumes petit à petit.",
+    "recipe_id": "1"
+  },
+  {
+    "number_step": "6",
+    "description": "Au bout de 20 min, ajouter les champignons et les échalotes.",
+    "recipe_id": "1"
+  },
+  {
+    "number_step": "7",
+    "description": "Continuer à ajouter le bouillon. Laisser cuire pendant encore 15 min.",
+    "recipe_id": "1"
+  },
+  {
+    "number_step": "8",
+    "description": "Crémer le risotto avec la crème de soja, éteindre le feu, et laisser reposer 2 min avant de servir.",
+    "recipe_id": "1"
+  }
+]
