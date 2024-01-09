@@ -4,6 +4,7 @@ const ustensils = require("./src/dataBDD/ustensils.json");
 const tags = require("./src/dataBDD/tags.json");
 const recipe = require("./src/dataBDD/recipe.json");
 const listTagsRecipe = require("./src/dataBDD/listTagsRecipe.json");
+const commentRecipeUser = require("./src/dataBDD/commentRecipeUser.json");
 /* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
 
 // Load environment variables from .env file
@@ -42,7 +43,7 @@ const seed = async () => {
       );
     }
 
-    // Insert data into the 'user' table
+    // Insert data into the 'ingredient' table
 
     for (let i = 0; i < ingredients.length; i += 1) {
       queries.push(
@@ -91,6 +92,21 @@ const seed = async () => {
         database.query(
           "INSERT INTO nam_nam.list_tags_recipe(recipe_id, tag_id) values (?,?)",
           [listTagsRecipe[i].recipe_id, listTagsRecipe[i].tag_id]
+        )
+      );
+    }
+    // insert data into the 'comment_recipe_user' table
+    for (let i = 0; i < commentRecipeUser.length; i += 1) {
+      queries.push(
+        database.query(
+          "INSERT INTO nam_nam.comment_recipe_user(recipe_id, user_id, grade, comment, date_time) values (?,?,?,?,?)",
+          [
+            commentRecipeUser[i].recipe_id,
+            commentRecipeUser[i].user_id,
+            commentRecipeUser[i].grade,
+            commentRecipeUser[i].comment,
+            commentRecipeUser[i].date_time,
+          ]
         )
       );
     }
