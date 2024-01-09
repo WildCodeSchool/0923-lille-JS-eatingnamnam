@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import RecipeCardPage from "../../components/RecipeCardPage/RecipeCardPage";
+import RecipeInfo from "../../components/RecipeInfo/RecipeInfo";
 import "./Recipe.scss";
 import RecipeSteps from "../../components/RecipeSteps/RecipeSteps";
 
@@ -36,7 +36,7 @@ function Recipe() {
   };
   return (
     <div>
-      {recipe ? <RecipeCardPage recipe={recipe[0]} /> : "loading"}
+      {recipe ? <RecipeInfo recipe={recipe[0]} /> : "loading"}
 
       <main className="recipe__cardContainer">
         <nav className="recipe__buttonBar">
