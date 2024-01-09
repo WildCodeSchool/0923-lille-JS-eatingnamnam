@@ -25,7 +25,7 @@ function RecipeCardPage({ recipe }) {
       </section>
       <section className="RecipeCardPage__info">
         <p className="RecipeCardPage_info__p">"nb commentaire(s)"</p>
-        <StarBar className="RecipeCardPage_info__stars" />
+        <StarBar className="RecipeCardPage_info__stars" recipe={recipe.id} />
       </section>
       <h1 className="RecipeCardPage__info__title">{recipe.title}</h1>
     </section>
@@ -33,6 +33,7 @@ function RecipeCardPage({ recipe }) {
 }
 RecipeCardPage.propTypes = {
   recipe: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     picture: PropTypes.string.isRequired,
   }).isRequired,
