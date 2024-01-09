@@ -1,5 +1,5 @@
 @import "../../variables.scss";
-.thecomment {
+.comment {
   margin-top: 5%;
   margin-left: 8%;
   margin-bottom: 8%;
@@ -12,31 +12,31 @@
   -moz-box-shadow: 10px 6px 11px -6px rgba(0, 0, 0, 0.36);
 }
 
-.flex-container {
+.comment__container {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   width: 50%;
 }
-.thecomment__userLogo__img {
+.comment__userLogo__img {
   width: 22%;
   margin-top: 1vh;
 }
-.thecomment__container {
+.comment__container {
   display: flex;
   height: 30%;
   align-items: center;
   justify-content: space-evenly;
   width: 50%;
 }
-.thecomment__user__name {
+.comment__user__name {
   font-size: 24px;
 }
 
-.thecomment__date {
+.comment__date {
   margin-top: 2vh;
   margin-left: 2vw;
 }
-.thecomment__text {
+.comment__text {
   margin: 2vw;
 }
