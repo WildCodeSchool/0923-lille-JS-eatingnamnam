@@ -45,7 +45,7 @@ function StarBar({ recipe }) {
 }
 StarBar.propTypes = {
   recipe: PropTypes.shape({
-    id: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
   }).isRequired,
 };
 

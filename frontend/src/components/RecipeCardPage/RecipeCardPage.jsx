@@ -33,7 +33,7 @@ function RecipeCardPage({ recipe }) {
 }
 RecipeCardPage.propTypes = {
   recipe: PropTypes.shape({
-    id: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     picture: PropTypes.string.isRequired,
   }).isRequired,
