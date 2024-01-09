@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import RecipeCardPage from "../../components/RecipeCardPage/RecipeCardPage";
+import RecipeInfo from "../../components/RecipeInfo/RecipeInfo";
 import IngredientCard from "../../components/IngredientCard/IngredientCard";
 import "./Recipe.scss";
 
@@ -21,7 +21,7 @@ function Recipe() {
 
   return (
     <>
-      {recipe ? <RecipeCardPage recipe={recipe} /> : "loading"}
+      <section>{recipe ? <RecipeInfo recipe={recipe} /> : "loading"}</section>
       {ingredientList ? (
         <IngredientCard ingredientList={ingredientList} />
       ) : (

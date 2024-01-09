@@ -155,6 +155,7 @@ CREATE TABLE
     IF NOT EXISTS `nam_nam`.`tag` (
         `id` INT NOT NULL AUTO_INCREMENT,
         `name` VARCHAR(45) NOT NULL,
+        `picture`VARCHAR(255) NULL,
 PRIMARY KEY (`id`) ) ENGINE = InnoDB;
 
 -- -----------------------------------------------------

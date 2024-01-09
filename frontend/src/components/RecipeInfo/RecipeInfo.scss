@@ -1,16 +1,16 @@
 @import "../../variables.scss";
 
-.RecipeCardPage {
+.RecipeInfo {
   align-items: center;
   flex-direction: column;
   display: flex;
   width: 100%;
 
-  .RecipeCardPage__img {
+  .RecipeInfo__img {
     width: 80%;
   }
 
-  .RecipeCardPage__header {
+  .RecipeInfo__header {
     width: 100%;
     height: 30vh;
     display: flex;
@@ -22,28 +22,28 @@
     background-size: cover;
     border-radius: 0 0 20px 20px;
 
-    .RecipeCardPage__header__diet__vegan {
+    .RecipeInfo__header__diet__vegan {
       width: 2em;
       margin: 0.3em;
     }
   }
 
-  .RecipeCardPage__info {
+  .RecipeInfo__info {
     width: 98%;
     margin-top: 0.5em;
     display: flex;
     justify-content: space-between;
 
-    .RecipeCardPage_info__p {
+    .RecipeInfo_info__p {
       font-family: "handlee", "cursive";
     }
 
-    .RecipeCardPage_info__stars {
+    .RecipeInfo_info__stars {
       width: 30%;
     }
   }
 
-  .RecipeCardPage__info__title {
+  .RecipeInfo__info__title {
     font-family: "hubballi";
     font-size: 2em;
     margin: 0.5em 0 0.5em 0;
@@ -51,46 +51,46 @@
     text-align: center;
   }
 
-  .RecipeCardPage__details {
+  .RecipeInfo__details {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 75%;
 
-    .RecipeCardPage__details__union {
+    .RecipeInfo__details__union {
       height: 0.2em;
       width: 1em;
     }
 
-    .RecipeCardPage__details__difficulty {
+    .RecipeInfo__details__difficulty {
       display: flex;
 
-      .RecipeCardPage__details__difficulty__hote {
+      .RecipeInfo__details__difficulty__hote {
         height: 1em;
         width: 1em;
         margin-right: 0.15em;
       }
     }
-    .RecipeCardPage__details__time {
+    .RecipeInfo__details__time {
       display: flex;
 
-      .RecipeCardPage__details__time__clock {
+      .RecipeInfo__details__time__clock {
         height: 1em;
         width: 1em;
         margin-right: 0.15em;
       }
     }
-    .RecipeCardPage__details__price {
+    .RecipeInfo__details__price {
       display: flex;
 
-      .RecipeCardPage__details__price__euro {
+      .RecipeInfo__details__price__euro {
         height: 1em;
         width: 1em;
         margin-right: 0.15em;
       }
     }
   }
-  .RecipeCardPage__nbShare {
+  .RecipeInfo__nbShare {
     margin-top: 1em;
     font-size: 26px;
   }

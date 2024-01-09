@@ -19,19 +19,19 @@
   },
   {
     "recipe_id": 1,
-    "ingredient_id": 21,
+    "ingredient_id": 24,
     "quantity": 320,
     "unit": "g"
   },
   {
     "recipe_id": 1,
-    "ingredient_id": 13,
+    "ingredient_id": 12,
     "quantity": 3,
     "unit": ""
   },
   {
     "recipe_id": 1,
-    "ingredient_id": 1,
+    "ingredient_id": 6,
     "quantity": 2,
     "unit": "l"
   },

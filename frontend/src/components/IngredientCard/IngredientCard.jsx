@@ -6,7 +6,7 @@ function IngredientCard({ ingredientList }) {
     <>
       {ingredientList.map((ingredient) => {
         return (
-          <div className="ingredientCard">
+          <div className="ingredientCard" key={ingredient.id}>
             <img
               src={`${import.meta.env.VITE_BACKEND_URL}${ingredient.picture}`}
               alt={ingredient.name}

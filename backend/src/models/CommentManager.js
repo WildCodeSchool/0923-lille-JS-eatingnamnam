@@ -1,23 +1,10 @@
 const AbstractManager = require("./AbstractManager");
 
-class TagManager extends AbstractManager {
+class CommentManager extends AbstractManager {
   constructor() {
     // Call the constructor of the parent class (AbstractManager)
     // and pass the table name "item" as configuration
-    super({ table: "tag" });
-  }
-
-  // The C of CRUD - Create operation
-
-  async create(tag) {
-    // Execute the SQL INSERT query to add a new item to the "item" table
-    const [result] = await this.database.query(
-      `insert into ${this.table} (name) values (?)`,
-      [tag.name]
-    );
-
-    // Return the ID of the newly inserted item
-    return result.insertId;
+    super({ table: "comment_recipe_user" });
   }
 
   // The Rs of CRUD - Read operations
@@ -41,14 +28,13 @@ class TagManager extends AbstractManager {
     return rows;
   }
 
-  async readAllTags() {
-    // Execute the SQL SELECT query to retrieve all items from the "item" table
+  async averageRating(recipeID) {
     const [rows] = await this.database.query(
-      `SELECT * FROM ${this.table} WHERE picture IS NOT NULL`
+      `SELECT AVG(${this.table}.grade) as average_grade FROM ${this.table} WHERE recipe_id = ?;`,
+      [recipeID]
     );
 
-    // Return the array of items
-    return rows;
+    return rows[0];
   }
 
   // The U of CRUD - Update operation
@@ -65,5 +51,4 @@ class TagManager extends AbstractManager {
   //   ...
   // }
 }
-
-module.exports = TagManager;
+module.exports = CommentManager;
