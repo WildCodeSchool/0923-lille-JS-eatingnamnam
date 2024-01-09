@@ -12,7 +12,6 @@ function Recipe() {
       .catch((error) => console.error(error));
   }, []);
 
-  console.warn(recipe);
   return (
     <section>{recipe ? <RecipeCardPage recipe={recipe} /> : "loading"}</section>
   );

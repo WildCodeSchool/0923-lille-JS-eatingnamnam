@@ -21,7 +21,7 @@ function RecipeCardPage({ recipe }) {
           <img
             className="RecipeCardPage__header__diet__vegan"
             src="/src/assets/Logo-vegan.png"
-            alt="this recipe is vegan"
+            alt="logo signalant une recette vegan"
           />
         </div>
       </section>
@@ -36,28 +36,28 @@ function RecipeCardPage({ recipe }) {
         <div className="RecipeCardPage__details__difficulty">
           <img
             className="RecipeCardPage__details__difficulty__hote"
-            src="/src/assets/hote.svg"
-            alt="hote de cuisinier"
+            src="/src/assets/toque.svg"
+            alt="toque de cuisinier"
           />
           <p>{recipe.difficulty} </p>
         </div>
         <img
           className="RecipeCardPage__details__union"
           src="/src/assets/union.svg"
-          alt="separtion"
+          alt="séparation"
         />
         <div className="RecipeCardPage__details__time">
           <img
             className="RecipeCardPage__details__time__clock"
             src="src/assets/time.svg"
-            alt="clock"
+            alt="horloge"
           />
           <p> {recipe.time} </p>
         </div>
         <img
           className="RecipeCardPage__details__union"
           src="/src/assets/union.svg"
-          alt="separtion"
+          alt="séparation"
         />
 
         <div className="RecipeCardPage__details__price">
@@ -74,7 +74,7 @@ function RecipeCardPage({ recipe }) {
         </div>
       </section>
       <h2 className="RecipeCardPage__nbShare">
-        {recipe.number_share} personnes
+        {recipe.number_share} personne(s)
       </h2>
     </section>
   );
