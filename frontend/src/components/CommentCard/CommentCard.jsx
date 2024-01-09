@@ -3,27 +3,27 @@ import StarBar from "../StarBar/StarBar";
 
 function Comment() {
   return (
-    <div className="thecomment">
-      <div className="flex-container">
+    <div className="comment">
+      <div className="comment__container">
         <img
-          className="thecomment__userLogo__img"
+          className="comment__userLogo__img"
           name="userLogo"
           src="src/assets/icone-user.svg"
           alt="userLogo"
         />
 
         <div className="flex-items">
-          <h2 className="thecomment__user__name">userName</h2>
+          <h2 className="comment__user__name">userName</h2>
           <StarBar />
         </div>
       </div>
-      <p className="thecomment__text">
+      <p className="comment__text">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam veniam
         incidunt delectus distinctio a sapiente, numquam sit ducimus
         exercitationem ratione. Fugiat iusto cum optio delectus amet deserunt
         quas maiores natus!
       </p>
-      <p className="thecomment__date">2023-12-25 - 17h30</p>
+      <p className="comment__date">2023-12-25 - 17h30</p>
     </div>
   );
 }
