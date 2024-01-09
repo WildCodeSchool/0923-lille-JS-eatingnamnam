@@ -1,0 +1,42 @@
+@import "../../variables.scss";
+.thecomment {
+  margin-top: 5%;
+  margin-left: 8%;
+  margin-bottom: 8%;
+  width: 85%;
+  background-color: #fff6ec;
+  border-radius: 15px;
+  border: 2px solid #99948d;
+  box-shadow: 10px 6px 11px -6px rgba(0, 0, 0, 0.36);
+  -webkit-box-shadow: 10px 6px 11px -6px rgba(0, 0, 0, 0.36);
+  -moz-box-shadow: 10px 6px 11px -6px rgba(0, 0, 0, 0.36);
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 50%;
+}
+.thecomment__userLogo__img {
+  width: 22%;
+  margin-top: 1vh;
+}
+.thecomment__container {
+  display: flex;
+  height: 30%;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 50%;
+}
+.thecomment__user__name {
+  font-size: 24px;
+}
+
+.thecomment__date {
+  margin-top: 2vh;
+  margin-left: 2vw;
+}
+.thecomment__text {
+  margin: 2vw;
+}
