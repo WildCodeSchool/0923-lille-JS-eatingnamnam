@@ -8,6 +8,8 @@ import Search from "./pages/Search/Search";
 import Recipe from "./pages/Recipe/Recipe";
 import Favorites from "./pages/Favorites/Favorites";
 import Homepage from "./pages/Homepage/Homepage";
+import UserProfil from "./pages/UserProfil/UserProfil";
+import AddRecipe from "./pages/AddRecipe/AddRecipe";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
       {
         path: "/recipe",
         element: <Recipe />,
+      },
+      {
+        path: "/profile",
+        element: <UserProfil />,
+      },
+      {
+        path: "/add/recipe",
+        element: <AddRecipe />,
       },
     ],
   },

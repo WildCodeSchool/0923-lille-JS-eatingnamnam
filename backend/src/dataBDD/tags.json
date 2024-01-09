@@ -1,82 +1,60 @@
 [
   {
+    "name": ""
+  },
+  {
     "name": "Vegan",
-    "picture": "/"
+    "picture": "/assets/tags/vegan.jpg"
+  },
+  {
+    "name": "Mexicain",
+    "picture": "/assets/tags/mexicain.jpg"
   },
   {
     "name": "Végétarien",
-    "picture": "/"
+    "picture": "/assets/tags/vege.jpg"
   },
   {
     "name": "Light",
-    "picture": "/"
+    "picture": "/assets/tags/light.jpg"
   },
   {
-    "name": "Equilibré",
-    "picture": "/"
+    "name": "Equilibré"
   },
   {
     "name": "Hiver",
-    "picture": "/"
+    "picture": "/assets/tags/hiver.jpg"
   },
   {
     "name": "Eté",
-    "picture": "/"
+    "picture": "/assets/tags/ete.jpg"
   },
   {
     "name": "Automne",
-    "picture": "/"
+    "picture": "/assets/tags/automne.jpg"
   },
   {
     "name": "Printemps",
-    "picture": "/"
+    "picture": "/assets/tags/printemps.jpg"
   },
   {
     "name": "Entrée",
-    "picture": "/"
+    "picture": "/assets/tags/entree.jpg"
   },
   {
     "name": "Plat",
-    "picture": "/"
+    "picture": "/assets/tags/plat.jpg"
   },
   {
     "name": "Dessert",
-    "picture": "/"
+    "picture": "/assets/tags/dessert.jpg"
   },
   {
     "name": "Apéritif",
-    "picture": "/"
+    "picture": "/assets/tags/aperitif.jpg"
   },
   {
     "name": "Cocktail",
-    "picture": "/"
-  },
-  {
-    "name": "Noël",
-    "picture": "/"
-  },
-  {
-    "name": "Paques",
-    "picture": "/"
-  },
-  {
-    "name": "Nouvel An",
-    "picture": "/"
-  },
-  {
-    "name": "Anniversaire",
-    "picture": "/"
-  },
-  {
-    "name": "Halloween",
-    "picture": "/"
-  },
-  {
-    "name": "Fête des mères",
-    "picture": "/"
-  },
-  {
-    "name": "Fête des pères",
-    "picture": "/"
+    "picture": "/assets/tags/cocktail.jpg"
   }
 ]

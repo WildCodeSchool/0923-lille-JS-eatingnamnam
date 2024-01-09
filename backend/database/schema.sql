@@ -14,7 +14,7 @@ CREATE TABLE
         `first_name` VARCHAR(50) NOT NULL,
         `last_name` VARCHAR(50) NOT NULL,
         `pseudo` VARCHAR(50) NOT NULL,
-        `email` VARCHAR(255) NOT NULL,
+        `email` VARCHAR(255) NOT NULL ,
         `password` VARCHAR(255) NOT NULL,
         `birth_date` DATE NOT NULL,
         `profile_picture` VARCHAR(255) NULL,
@@ -33,7 +33,7 @@ CREATE TABLE
         `time` VARCHAR(50) NOT NULL,
         `date` DATE NOT NULL,
         `price` INT NOT NULL,
-`difficulty` VARCHAR(50) NOT NULL,
+        `difficulty` VARCHAR(50) NOT NULL,
         `number_share` INT NOT NULL,
         `user_id` INT NOT NULL,
         PRIMARY KEY (`id`, `user_id`),
@@ -64,7 +64,7 @@ CREATE TABLE
         `id` INT NOT NULL AUTO_INCREMENT,
         `recipe_id` INT NOT NULL,
         `user_id` INT NOT NULL,
-`grade` INT NOT NULL,
+        `grade` INT NOT NULL,
         `comment` TEXT,
         `date_time` DATETIME,
         PRIMARY KEY (`id`, `recipe_id`, `user_id`),
@@ -155,6 +155,7 @@ CREATE TABLE
     IF NOT EXISTS `nam_nam`.`tag` (
         `id` INT NOT NULL AUTO_INCREMENT,
         `name` VARCHAR(45) NOT NULL,
+        `picture`VARCHAR(255) NULL,
 PRIMARY KEY (`id`) ) ENGINE = InnoDB;
 
 -- -----------------------------------------------------

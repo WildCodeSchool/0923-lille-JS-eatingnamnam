@@ -1,0 +1,66 @@
+[
+  {
+    "title": "Risotto de petit-épeautre aux champignons (vegan)",
+    "picture": "/assets/recette/risotto.jpg",
+    "time": "1 heure",
+    "date": "2023-12-31",
+    "price": "3",
+    "difficulty": "easy",
+    "number_share": "4",
+    "user_id": "1"
+  },
+  {
+    "title": "Tacos Mexicain",
+    "picture": "/assets/recette/tacos.jpg",
+    "time": "55 minutes",
+    "date": "2023-12-30",
+    "price": "1",
+    "difficulty": "très facile",
+    "number_share": "4",
+    "user_id": "2"
+  },
+  {
+    "title": "chili con carne",
+    "picture": "/assets/recette/chili.jpg",
+    "time": "1 heure 30 minutes",
+    "date": "2024-01-03",
+    "price": "1",
+    "difficulty": "facile",
+    "number_share": "4",
+    "user_id": "3",
+    "liens_marmiton": "www.marmiton.org/recettes/recette_chili-con-carne-simple_18702.aspx"
+  },
+  {
+    "title": "riz mexicain au chorizo",
+    "picture": "/assets/recette/riz_mexicain.jpg",
+    "time": "1 heure 5 minutes",
+    "date": "2024-01-03",
+    "price": "1",
+    "difficulty": "facile",
+    "number_share": "4",
+    "user_id": "4",
+    "liens_marmiton": "https://www.marmiton.org/recettes/recette_riz-mexicain-au-chorizo_64824.aspx"
+  },
+  {
+    "title": "pot au feu",
+    "picture": "/assets/recette/pot_au_feu.jpg",
+    "time": "2 heure 45 minutes",
+    "date": "2024-01-03",
+    "price": "1",
+    "difficulty": "facile",
+    "number_share": "6",
+    "user_id": "4",
+    "liens_marmiton": "https://www.marmiton.org/recettes/recette_pot-au-feu-des-familles_41125.aspx"
+  },
+  {
+    "title": "gratin d'hiver à la courge",
+    "picture": "/assets/recette/gratin.jpg",
+    "time": "40 minutes",
+    "date": "2024-01-03",
+    "price": "1",
+    "difficulty": "facile",
+    "number_share": "4",
+    "user_id": "4",
+    "liens_marmiton": "https://www.marmiton.org/recettes/recette_gratin-d-hiver-a-la-courge_221383.aspx"
+  }
+]

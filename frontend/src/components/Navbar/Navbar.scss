@@ -1,8 +1,13 @@
 @import "../../variables.scss";
 
+body {
+  margin-bottom: 6vh;
+}
 .navbar {
-  margin-top: auto;
-  align-items: flex-end;
+  position: fixed;
+  bottom: 0px;
+  z-index: 1;
+  width: 100%;
 }
 .navbar__list {
   background-color: $tertiaryColor;
@@ -10,6 +15,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  height: 6vh;
 }
 
 .navbar__item {
@@ -20,6 +26,7 @@
 .navbar__link {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .navbar__icon {
   height: 100%;
