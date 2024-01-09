@@ -4,6 +4,7 @@ const ustensils = require("./src/dataBDD/ustensils.json");
 const tags = require("./src/dataBDD/tags.json");
 const recipe = require("./src/dataBDD/recipe.json");
 const listTagsRecipe = require("./src/dataBDD/listTagsRecipe.json");
+
 /* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
 
 // Load environment variables from .env file
@@ -42,7 +43,7 @@ const seed = async () => {
       );
     }
 
-    // Insert data into the 'user' table
+    // Insert data into the 'ingredient' table
 
     for (let i = 0; i < ingredients.length; i += 1) {
       queries.push(
@@ -95,6 +96,24 @@ const seed = async () => {
         )
       );
     }
+    // insert data into the 'comment_recipe_user' table
+
+    queries.push(
+      database.query(
+        `INSERT INTO nam_nam.comment_recipe_user(recipe_id, user_id, grade, comment, date_time) VALUES 
+        (1,1,5,'Meilleur recette de ma vie !!!','2024-01-04'),
+        (1,2,3,'ca va','2024-01-04'),
+        (1,3,3,'imotep','2024-01-04'),
+        (1,4,4,'','2024-01-04'),
+        (2,1,5,'Super recette, j ai redécouvert ce plat !','2024-01-04'),
+        (3,1,4,'Toute la famille à apprécier','2024-01-04'),
+        (4,3,3,'imotep','2024-01-04'),
+        (5,4,4,'','2024-01-04'),
+        (6,3,3,'Tip Top','2024-01-04');
+        `
+      )
+    );
+
     /* ************************************************************************* */
 
     // Wait for all the insertion queries to complete
