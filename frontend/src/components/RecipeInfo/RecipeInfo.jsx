@@ -1,4 +1,4 @@
-import "./RecipeCardPage.scss";
+import "./RecipeInfo.scss";
 import PropTypes from "prop-types";
 import StarBar from "../StarBar/StarBar";
 import AddFavorite from "../AddFavorite/AddFavorite";
