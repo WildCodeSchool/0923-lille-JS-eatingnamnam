@@ -8,7 +8,11 @@ function RecipeCard({ recipe }) {
     <section className="card">
       <article
         className="card__logo"
-        style={{ backgroundImage: `url("${recipe.picture}")` }}
+        style={{
+          backgroundImage: `url("${import.meta.env.VITE_BACKEND_URL}${
+            recipe.picture
+          }")`,
+        }}
       >
         <AddFavorite className="card__logo__favorite" />
         <div className="card__logo__diet">

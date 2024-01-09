@@ -1,6 +1,6 @@
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import PropTypes from "prop-types";
 import SwiperRecipeCard from "../SwiperRecipeCard/SwiperRecipeCard";
 
 // Import Swiper styles
@@ -9,7 +9,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "./Swipper.scss";
 
-export default function Swipper() {
+function Swipper({ recipes }) {
   return (
     <Swiper
       slidesPerView={1.25}
@@ -19,18 +19,22 @@ export default function Swipper() {
       }}
       className="mySwiper"
     >
-      <SwiperSlide>
-        <SwiperRecipeCard />
-      </SwiperSlide>
-      <SwiperSlide>
-        <SwiperRecipeCard />
-      </SwiperSlide>
-      <SwiperSlide>
-        <SwiperRecipeCard />
-      </SwiperSlide>
-      <SwiperSlide>
-        <SwiperRecipeCard />
-      </SwiperSlide>
+      {recipes.map((recipe) => (
+        <SwiperSlide key={recipe.title}>
+          <SwiperRecipeCard recipe={recipe} />
+        </SwiperSlide>
+      ))}
     </Swiper>
   );
 }
+
+Swipper.propTypes = {
+  recipes: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      picture: PropTypes.string.isRequired,
+    }).isRequired
+  ).isRequired,
+};
+
+export default Swipper;

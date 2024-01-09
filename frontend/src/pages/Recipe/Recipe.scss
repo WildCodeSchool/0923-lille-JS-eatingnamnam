@@ -1,7 +1,9 @@
 @import "../../variables.scss";
 
-.helloRecipe {
-  font-size: 3rem;
-  text-align: center;
-  color: turquoise;
+body {
+  background-color: $lightGreyBackground;
+}
+
+.titleBar {
+  display: none;
 }

@@ -20,7 +20,7 @@ router.get("/items", itemControllers.browse);
 router.get("/recipe", recipeControllers.browse);
 router.get("/randomrecipe", recipeControllers.randomRecipe);
 router.get("/ustensil", ustensilControllers.browse);
-router.get("/tag", tagControllers.browse);
+router.get("/tag", tagControllers.browseByTag);
 router.get("/tag/:id", recipeControllers.recipeByTag);
 router.get("/user", userControllers.browse);
 router.get("/ingredient", ingredientControllers.browse);

@@ -41,6 +41,16 @@ class TagManager extends AbstractManager {
     return rows;
   }
 
+  async readAllTags() {
+    // Execute the SQL SELECT query to retrieve all items from the "item" table
+    const [rows] = await this.database.query(
+      `SELECT * FROM ${this.table} WHERE picture IS NOT NULL`
+    );
+
+    // Return the array of items
+    return rows;
+  }
+
   // The U of CRUD - Update operation
   // TODO: Implement the update operation to modify an existing item
 

@@ -19,13 +19,21 @@ function StarBar({ recipe }) {
 
   return (
     <div className="starContainer">
-      {fullStars.slice(5 - averageGade).map((fullStar) => {
-        return <img className="starContainer__img" src={fullStar} alt="star" />;
-      })}
-
-      {emptyStars.slice(averageGade).map((emptyStar) => {
+      {fullStars.slice(5 - averageGade).map((fullStar, index) => {
         return (
           <img
+            key={fullStar[index]}
+            className="starContainer__img"
+            src={fullStar}
+            alt="star"
+          />
+        );
+      })}
+
+      {emptyStars.slice(averageGade).map((emptyStar, index) => {
+        return (
+          <img
+            key={emptyStar[index]}
             className="starContainer__img"
             src={emptyStar}
             alt="empty star"

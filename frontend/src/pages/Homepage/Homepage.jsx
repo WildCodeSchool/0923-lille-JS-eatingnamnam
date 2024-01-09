@@ -26,19 +26,11 @@ function Homepage() {
 
   return (
     <>
-      {recipe ? console.warn("recipe:", recipe) : ""}
       {recipe ? <RecipeCard recipe={recipe} /> : "loading"}
-      {vegan
-        ? vegan.map((veganRecipe) => (
-            <RecipeCard key={recipe.id} recipe={veganRecipe} />
-          ))
-        : "loading"}
-      {mexican
-        ? mexican.map((mexicanRecipe) => (
-            <RecipeCard key={recipe.id} recipe={mexicanRecipe} />
-          ))
-        : "loading"}
-      <Swipper />
+      <h2 className="titleHome">Recettes vegan</h2>
+      {vegan ? <Swipper recipes={vegan} /> : "loading"}
+      <h2 className="titleHome">Recettes mexicaine</h2>
+      {mexican ? <Swipper recipes={mexican} /> : "loading"}
     </>
   );
 }
