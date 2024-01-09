@@ -12,14 +12,14 @@ function StarBar({ recipe }) {
       .catch((error) => console.error(error));
   }, []);
 
-  const averageGade = Math.round(grade?.average_grade);
+  const averageGrade = Math.round(grade?.average_grade);
 
   const fullStars = Array(5).fill("src/assets/star.svg");
   const emptyStars = Array(5).fill("src/assets/emptyStar.svg");
 
   return (
     <div className="starContainer">
-      {fullStars.slice(5 - averageGade).map((fullStar, index) => {
+      {fullStars.slice(5 - averageGrade).map((fullStar, index) => {
         return (
           <img
             key={fullStar[index]}
@@ -30,7 +30,7 @@ function StarBar({ recipe }) {
         );
       })}
 
-      {emptyStars.slice(averageGade).map((emptyStar, index) => {
+      {emptyStars.slice(averageGrade).map((emptyStar, index) => {
         return (
           <img
             key={emptyStar[index]}
