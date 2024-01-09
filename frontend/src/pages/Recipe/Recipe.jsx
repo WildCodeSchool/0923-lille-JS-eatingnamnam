@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import RecipeCardPage from "../../components/RecipeCardPage/RecipeCardPage";
+import RecipeInfo from "../../components/RecipeInfo/RecipeInfo";
 import "./Recipe.scss";
 
 function Recipe() {
@@ -12,7 +12,9 @@ function Recipe() {
       .catch((error) => console.error(error));
   }, []);
 
-  return <div>{recipe ? <RecipeCardPage recipe={recipe} /> : "loading"}</div>;
+  return (
+    <section>{recipe ? <RecipeInfo recipe={recipe} /> : "loading"}</section>
+  );
 }
 
 export default Recipe;

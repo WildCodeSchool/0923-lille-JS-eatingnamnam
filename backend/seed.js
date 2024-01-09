@@ -25,7 +25,7 @@ const seed = async () => {
       )
     );
 
-    // Insert data into the 'user' table
+    // Insert data into the 'ingredient' table
 
     queries.push(
       database.query(
@@ -148,6 +148,21 @@ const seed = async () => {
         `INSERT INTO nam_nam.list_tags_recipe(recipe_id, tag_id) VALUES 
         ("1", "1"),
         ("2", "2")
+        `
+      )
+    );
+    queries.push(
+      database.query(
+        `INSERT INTO nam_nam.comment_recipe_user(recipe_id, user_id, grade, comment, date_time) VALUES 
+        (1,1,5,'Meilleur recette de ma vie !!!','2024-01-04'),
+        (1,2,3,'ca va','2024-01-04'),
+        (1,3,3,'imotep','2024-01-04'),
+        (1,4,4,'','2024-01-04'),
+        (2,1,5,'Super recette, j ai redécouvert ce plat !','2024-01-04'),
+        (3,1,4,'Toute la famille à apprécier','2024-01-04'),
+        (4,3,3,'imotep','2024-01-04'),
+        (5,4,4,'','2024-01-04'),
+        (6,3,3,'Tip Top','2024-01-04');
         `
       )
     );
