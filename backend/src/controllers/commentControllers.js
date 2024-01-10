@@ -15,7 +15,6 @@ const rating = async (req, res, next) => {
     const grade = await tables.comment_recipe_user.averageRating(
       req.params.recipeID
     );
-    res.json(grade);
     if (grade == null) {
       res.sendStatus(404);
     } else {
