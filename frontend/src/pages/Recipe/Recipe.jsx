@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import RecipeInfo from "../../components/RecipeInfo/RecipeInfo";
 import "./Recipe.scss";
+import AddComment from "../../components/AddComment/AddComment";
 
 function Recipe() {
   const [recipe, setRecipe] = useState();
@@ -13,7 +14,10 @@ function Recipe() {
   }, []);
 
   return (
-    <section>{recipe ? <RecipeInfo recipe={recipe} /> : "loading"}</section>
+    <>
+      <header>{recipe ? <RecipeInfo recipe={recipe} /> : "loading"}</header>
+      <AddComment />
+    </>
   );
 }
 
