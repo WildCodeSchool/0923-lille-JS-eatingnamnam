@@ -2,7 +2,6 @@ import "./Homepage.scss";
 import { useEffect, useState } from "react";
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
 import Swipper from "../../components/Swipper/Swipper";
-import CommentCard from "../../components/CommentCard/CommentCard";
 
 function Homepage() {
   const [recipe, setRecipe] = useState();
@@ -32,7 +31,6 @@ function Homepage() {
       {vegan ? <Swipper recipes={vegan} /> : "loading"}
       <h2 className="titleHome">Recettes mexicaine</h2>
       {mexican ? <Swipper recipes={mexican} /> : "loading"}
-      <CommentCard />
     </>
   );
 }
