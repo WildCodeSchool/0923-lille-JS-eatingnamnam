@@ -15,9 +15,8 @@ function AddComment() {
           name="comment"
           rows="3"
           className="addComment__comment__addComment"
-        >
-          &nbsp;Laisse un commentaire ici
-        </textarea>
+          placeholder="&nbsp;Laisse un commentaire ici."
+        />
         <button type="button" className="addComment__comment__button">
           Partager
         </button>
