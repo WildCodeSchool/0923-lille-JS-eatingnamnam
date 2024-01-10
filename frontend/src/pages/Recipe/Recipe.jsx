@@ -44,7 +44,6 @@ function Recipe() {
   return (
     <div>
       {recipe ? <RecipeInfo recipe={recipe[0]} /> : "loading"}
-
       <main className="recipe__cardContainer">
         <nav className="recipe__buttonBar">
           <button
@@ -71,10 +70,10 @@ function Recipe() {
             Préparation
           </button>
         </nav>
-        {ingredientList ? (
+        {tab === 1 && ingredientList ? (
           <IngredientCard ingredientList={ingredientList} />
         ) : (
-          "loading"
+          ""
         )}
         {tab === 3 && recipe
           ? recipe.map((step) => (
@@ -85,21 +84,6 @@ function Recipe() {
             ))
           : ""}
       </main>
-
-      {/*   {tab === 3 ? (
-          <article className="recipe__stepContainer">
-            {recipe
-              ? recipe.map((step) => (
-                  <RecipeSteps
-                    recipeStep={step.description}
-                    stepNumber={step.number_step}
-                  />
-                ))
-              : "no steps found"}
-          </article>
-        ) : (
-          ""
-        )} */}
     </div>
   );
 }
