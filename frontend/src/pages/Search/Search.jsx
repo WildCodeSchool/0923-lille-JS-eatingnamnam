@@ -10,9 +10,6 @@ function Search() {
       .then((data) => setTags(data))
       .catch((error) => console.error(error));
   }, []);
-  const handleClick = () => {
-    console.warn("test on focus");
-  };
 
   return (
     <>
@@ -22,7 +19,6 @@ function Search() {
           type="search"
           placeholder="Rechercher une recette..."
           label="Rechercher une recette..."
-          onFocus={handleClick}
         />
         <button className="searchBar__searchButton" type="submit">
           <img

@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 function StarBar({ recipe }) {
-  console.warn(recipe);
   const [grade, setGrade] = useState();
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/grade/${recipe.id}`)
