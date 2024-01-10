@@ -13,12 +13,12 @@ function Homepage() {
       .then((data) => setRecipe(data))
       .catch((error) => console.error(error));
 
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/tag/1`)
       .then((response) => response.json())
       .then((data) => setVegan(data))
       .catch((error) => console.error(error));
 
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/tag/2`)
       .then((response) => response.json())
       .then((data) => setMexican(data))
       .catch((error) => console.error(error));
