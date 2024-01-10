@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import RecipeInfo from "../../components/RecipeInfo/RecipeInfo";
 import IngredientCard from "../../components/IngredientCard/IngredientCard";
 import "./Recipe.scss";
-import RecipeSteps from "../../components/RecipeSteps/RecipeSteps";
+import RecipeStep from "../../components/RecipeStep/RecipeStep";
 
 function Recipe() {
   const [recipe, setRecipe] = useState();
@@ -77,7 +77,8 @@ function Recipe() {
         )}
         {tab === 3 && recipe
           ? recipe.map((step) => (
-              <RecipeSteps
+              <RecipeStep
+                key={step.id}
                 recipeStep={step.description}
                 stepNumber={step.number_step}
               />
