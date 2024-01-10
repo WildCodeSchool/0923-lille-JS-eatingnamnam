@@ -84,8 +84,8 @@ function Recipe() {
               />
             ))
           : ""}
+        <AddComment />
       </main>
-      <AddComment />
     </div>
   );
 }
