@@ -41,6 +41,7 @@ function Recipe() {
     setUstensilIsActive(0);
     setStepIsActive(1);
   };
+
   return (
     <div>
       {recipe ? <RecipeInfo recipe={recipe[0]} /> : "loading"}
@@ -70,11 +71,13 @@ function Recipe() {
             Préparation
           </button>
         </nav>
-        {tab === 1 && ingredientList ? (
-          <IngredientCard ingredientList={ingredientList} />
-        ) : (
-          ""
-        )}
+        <section className="ingredientList">
+          {tab === 1 && ingredientList
+            ? ingredientList.map((ingredient) => (
+                <IngredientCard key={ingredient.id} ingredient={ingredient} />
+              ))
+            : ""}
+        </section>
         {tab === 3 && recipe
           ? recipe.map((step) => (
               <RecipeSteps

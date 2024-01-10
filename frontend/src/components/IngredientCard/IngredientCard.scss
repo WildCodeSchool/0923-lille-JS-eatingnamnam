@@ -1,12 +1,35 @@
 .ingredientCard {
-  background-color: yellow;
+  background-color: white;
   height: 7em;
-  width: 6em;
+  width: 7em;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   border-radius: 10px;
+  padding: 0.5em 0;
 
-  img {
-    height: 3em;
+  .ingredientCard__img {
+    height: 65%;
+    width: 60%;
+    background-color: blue;
+  }
+
+  .ingredientCard__info {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 35%;
+    justify-content: space-evenly;
+    .ingredientCard__info__name {
+      font-size: 15px;
+      text-align: center;
+    }
+
+    .ingredientCard__info__quantity {
+      font-weight: 900;
+      text-align: center;
+      font-size: 15px;
+    }
   }
 }
