@@ -3,8 +3,10 @@ import RecipeInfo from "../../components/RecipeInfo/RecipeInfo";
 import IngredientCard from "../../components/IngredientCard/IngredientCard";
 import "./Recipe.scss";
 import RecipeSteps from "../../components/RecipeSteps/RecipeSteps";
+import UstensiltCard from "../../components/UstensiltCard/UstensiltCard";
 
 function Recipe() {
+  const [utensils, setUtensils] = useState();
   const [recipe, setRecipe] = useState();
   const [ingredientList, setIngredientList] = useState();
   const [tab, setTab] = useState(1);
@@ -21,6 +23,11 @@ function Recipe() {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/ingredientlist/recipe/1`)
       .then((response) => response.json())
       .then((data) => setIngredientList(data))
+      .catch((error) => console.error(error));
+
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/1/utensil`)
+      .then((response) => response.json())
+      .then((data) => setUtensils(data))
       .catch((error) => console.error(error));
   }, []);
   const handleCLickIngredient = () => {
@@ -41,6 +48,7 @@ function Recipe() {
     setUstensilIsActive(0);
     setStepIsActive(1);
   };
+
   return (
     <div>
       {recipe ? <RecipeInfo recipe={recipe[0]} /> : "loading"}
@@ -74,7 +82,12 @@ function Recipe() {
           <IngredientCard ingredientList={ingredientList} />
         ) : (
           ""
-        )}
+        )}{" "}
+        {utensils
+          ? utensils.map((utensil) => (
+              <UstensiltCard name={utensil.name} img={utensil.picture} />
+            ))
+          : ""}
         {tab === 3 && recipe
           ? recipe.map((step) => (
               <RecipeSteps
