@@ -1,0 +1,54 @@
+@import "../../variables.scss";
+
+.addComment {
+  background-color: $secondaryColor;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1em 0 0 0;
+  padding: 1.5em;
+  border-radius: 20px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  .addComment__title {
+    font-size: 3em;
+    color: white;
+  }
+
+  .addComment__comment {
+    background-color: $tertiaryColor;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1em 0 0 0;
+    padding: 1em 1.5em;
+    border-radius: 20px;
+    gap: 0.75em;
+  }
+
+  .addComment__comment__texte {
+    font-size: 1.5em;
+    text-align: center;
+  }
+
+  .addComment__comment__addComment {
+    width: 90%;
+    border-radius: 5px;
+    border-color: $mainColor;
+  }
+
+  .addComment__comment__button {
+    background-color: $mainColor;
+    color: $secondaryFontColor;
+    padding: 0.25em 1em;
+    font-size: 2em;
+    border-radius: 50px;
+    border: none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  .addComment__comment__button:active {
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: #c76200;
+  }
+}
