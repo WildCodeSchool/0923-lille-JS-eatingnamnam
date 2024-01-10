@@ -12,7 +12,7 @@ class ItemManager extends AbstractManager {
   async create(item) {
     // Execute the SQL INSERT query to add a new item to the "item" table
     const [result] = await this.database.query(
-      `insert into ${this.table} (title) values (?)`,
+      `INSERT INTO ${this.table} (title) VALUE (?)`,
       [item.title]
     );
 
@@ -25,7 +25,7 @@ class ItemManager extends AbstractManager {
   async read(id) {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
     const [rows] = await this.database.query(
-      `select * from ${this.table} where id = ?`,
+      `SELECT * FROM ${this.table} WHERE id = ?`,
       [id]
     );
 
@@ -35,7 +35,7 @@ class ItemManager extends AbstractManager {
 
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
-    const [rows] = await this.database.query(`select * from ${this.table}`);
+    const [rows] = await this.database.query(`SELECT * FROM ${this.table}`);
 
     // Return the array of items
     return rows;

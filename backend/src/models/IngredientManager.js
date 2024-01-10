@@ -12,7 +12,7 @@ class IngredientManager extends AbstractManager {
   async create(ingredient) {
     // Execute the SQL INSERT query to add a new item to the "item" table
     const [result] = await this.database.query(
-      `insert into ${this.table} (name) values (?)`,
+      `INSERT INTO ${this.table} (name) VALUES (?)`,
       [ingredient.name]
     );
 
@@ -25,7 +25,7 @@ class IngredientManager extends AbstractManager {
   async read(id) {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
     const [rows] = await this.database.query(
-      `select * from ${this.table} where id = ?`,
+      `SELECT * FROM ${this.table} WHERE id = ?`,
       [id]
     );
 
@@ -35,7 +35,8 @@ class IngredientManager extends AbstractManager {
 
   async ingredientListByRecipId(id) {
     const [rows] = await this.database.query(
-      `select * from ingredient join list_ingredients_recip as L on ingredient.id=L.ingredient_id where L.recipe_id=?`,
+      `SELECT * FROM ingredient
+      INNER JOIN list_ingredients_recip as L on ingredient.id=L.ingredient_id WHERE L.recipe_id=?`,
       [id]
     );
 
@@ -44,7 +45,7 @@ class IngredientManager extends AbstractManager {
 
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
-    const [rows] = await this.database.query(`select * from ${this.table}`);
+    const [rows] = await this.database.query(`SELECT * FROM ${this.table}`);
 
     // Return the array of items
     return rows;
