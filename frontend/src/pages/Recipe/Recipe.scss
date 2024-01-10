@@ -4,10 +4,11 @@ body {
   background-color: $lightGreyBackground;
 }
 
-.RecipeInfo {
-  position: absolute;
-  z-index: 1;
-  top: 0em;
+.ingredientList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  justify-content: center;
 }
 .recipe__cardContainer {
   background-color: $mainColorTransparent;

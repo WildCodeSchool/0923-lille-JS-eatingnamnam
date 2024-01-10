@@ -14,7 +14,6 @@ app.use(
     origin: [
       process.env.FRONTEND_URL, // keep this one, after checking the value in `backend/.env`
       "http://localhost:3310/",
-      "http://localhost:3310/api/tag",
     ],
   })
 );
