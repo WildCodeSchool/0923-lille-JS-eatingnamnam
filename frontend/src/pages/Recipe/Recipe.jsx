@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import RecipeInfo from "../../components/RecipeInfo/RecipeInfo";
 import "./Recipe.scss";
 import RecipeSteps from "../../components/RecipeSteps/RecipeSteps";
 
 function Recipe() {
   const [recipe, setRecipe] = useState();
-  const [tab, setTab] = useState("1");
+  const [tab, setTab] = useState(1);
   const [ingredientIsActive, setIngredientIsActive] = useState(1);
   const [ustensilIsActive, setUstensilIsActive] = useState(0);
   const [stepIsActive, setStepIsActive] = useState(0);
@@ -36,7 +35,7 @@ function Recipe() {
   };
   return (
     <div>
-      {recipe ? <RecipeInfo recipe={recipe[0]} /> : "loading"}
+      {/*  {recipe ? <RecipeInfo recipe={recipe[0]} /> : "loading"} */}
 
       <main className="recipe__cardContainer">
         <nav className="recipe__buttonBar">
