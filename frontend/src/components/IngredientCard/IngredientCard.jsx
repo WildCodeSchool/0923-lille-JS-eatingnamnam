@@ -23,8 +23,8 @@ IngredientCard.propTypes = {
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     picture: PropTypes.string.isRequired,
-    quantity: PropTypes.number.isRequired,
-    unit: PropTypes.string.isRequired,
+    quantity: PropTypes.number,
+    unit: PropTypes.string,
   }).isRequired,
 };
 
