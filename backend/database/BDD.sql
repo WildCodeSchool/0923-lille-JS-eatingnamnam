@@ -223,7 +223,7 @@ INSERT INTO `recipe` VALUES (1,'Risotto de petit-épeautre aux champignons (vega
 UNLOCK TABLES;
 
 --
--- Table structure for table `step`
+-- Table structure for table `host`
 --
 
 DROP TABLE IF EXISTS `step`;

@@ -10,3 +10,38 @@ body {
   gap: 0.5em;
   justify-content: center;
 }
+.recipe__cardContainer {
+  background-color: $mainColorTransparent;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.recipe__stepContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.recipe__buttonBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 80%;
+  margin: 1vh 0;
+}
+.recipe__navButton {
+  all: unset;
+  padding: 5px;
+  border-bottom: 1px solid $mainColor;
+  /*   box-shadow: 0px 25px 17px -16px #000000; */
+}
+.button__Focus {
+  all: unset;
+  color: white;
+  padding: 10px;
+  background-color: $mainColor;
+  border-radius: 15px;
+  box-shadow: 4px 3px 4px -1px rgba(0, 0, 0, 0.34);
+}

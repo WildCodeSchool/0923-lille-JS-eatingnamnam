@@ -3,7 +3,6 @@ const tables = require("../tables");
 const browse = async (req, res, next) => {
   try {
     const comments = await tables.comment_recipe_user.readAll();
-
     res.json(comments);
   } catch (err) {
     next(err);
