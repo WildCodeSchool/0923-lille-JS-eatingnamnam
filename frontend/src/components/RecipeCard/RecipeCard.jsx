@@ -25,14 +25,14 @@ function RecipeCard({ recipe }) {
       </article>
       <article className="card__info">
         <h1 className="card__info__title">{recipe.title}</h1>
-        <StarBar className="card_info__stars" recipe={recipe.id} />
+        <StarBar className="card_info__stars" recipe={recipe} />
       </article>
     </section>
   );
 }
 RecipeCard.propTypes = {
   recipe: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     picture: PropTypes.string.isRequired,
   }).isRequired,

@@ -25,7 +25,7 @@ function SwiperRecipeCard({ recipe }) {
       </article>
       <article className="swiperCard__info">
         <h1 className="swiperCard__info__title">{recipe.title}</h1>
-        <StarBar className="swiperCard_info__stars" />
+        <StarBar className="swiperCard_info__stars" recipe={recipe} />
       </article>
     </section>
   );

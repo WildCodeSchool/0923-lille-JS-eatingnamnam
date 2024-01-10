@@ -12,7 +12,7 @@ class RecipeManager extends AbstractManager {
   async create(recipe) {
     // Execute the SQL INSERT query to add a new item to the "item" table
     const [result] = await this.database.query(
-      `insert into ${this.table} (title) values (?)`,
+      `INSERT INTO ${this.table} (title) VALUE (?)`,
       [recipe.title]
     );
 
@@ -22,15 +22,19 @@ class RecipeManager extends AbstractManager {
 
   // The Rs of CRUD - Read operations
 
-  async read(id) {
+  async recipeById(id) {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
     const [rows] = await this.database.query(
-      `select * from ${this.table} where id = ?`,
+      `SELECT * FROM ${this.table}
+      INNER JOIN nam_nam.step 
+      ON recipe.id = step.recipe_id
+      where recipe.id = ?
+      ORDER BY number_step ASC `,
       [id]
     );
 
     // Return the first row of the result, which represents the item
-    return rows[0];
+    return rows;
   }
 
   async randomRecipe() {
@@ -43,7 +47,8 @@ class RecipeManager extends AbstractManager {
 
     // Execute the SQL request to display the recipe with the random number generated
     const [rows] = await this.database.query(
-      `SELECT * FROM ${this.table} WHERE id = ?`,
+      `SELECT * FROM ${this.table}
+       WHERE recipe.id = ?`,
       [random]
     );
 
@@ -53,7 +58,7 @@ class RecipeManager extends AbstractManager {
 
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
-    const [rows] = await this.database.query(`select * from ${this.table}`);
+    const [rows] = await this.database.query(`SELECT * FROM ${this.table}`);
 
     // Return the array of items
     return rows;
