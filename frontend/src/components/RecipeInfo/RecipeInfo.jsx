@@ -40,7 +40,7 @@ function RecipeInfo({ recipe }) {
             alt="toque de cuisinier"
           />
           <p className="RecipeInfo__details__difficulty__text">
-            {recipe.difficulty}{" "}
+            {recipe.difficulty}
           </p>
         </div>
         <img
