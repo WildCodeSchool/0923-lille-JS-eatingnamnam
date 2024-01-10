@@ -39,7 +39,9 @@ function RecipeInfo({ recipe }) {
             src="/src/assets/toque.svg"
             alt="toque de cuisinier"
           />
-          <p>{recipe.difficulty} </p>
+          <p className="RecipeInfo__details__difficulty__text">
+            {recipe.difficulty}
+          </p>
         </div>
         <img
           className="RecipeInfo__details__union"
@@ -52,7 +54,7 @@ function RecipeInfo({ recipe }) {
             src="src/assets/time.svg"
             alt="horloge"
           />
-          <p> {recipe.time} </p>
+          <p className="RecipeInfo__details__time__text"> {recipe.time} </p>
         </div>
         <img
           className="RecipeInfo__details__union"
