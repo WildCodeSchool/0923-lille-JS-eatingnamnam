@@ -4,9 +4,8 @@ import PropTypes from "prop-types";
 
 function StarBar({ recipe }) {
   const [grade, setGrade] = useState();
-
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/grade/${recipe}`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/grade/${recipe.id}`)
       .then((response) => response.json())
       .then((data) => setGrade(data))
       .catch((error) => console.error(error));
@@ -45,7 +44,7 @@ function StarBar({ recipe }) {
 }
 StarBar.propTypes = {
   recipe: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
   }).isRequired,
 };
 

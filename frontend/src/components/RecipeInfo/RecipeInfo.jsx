@@ -27,7 +27,7 @@ function RecipeInfo({ recipe }) {
       </section>
       <section className="RecipeInfo__info">
         <p className="RecipeInfo_info__p">"nb commentaire(s)"</p>
-        <StarBar className="RecipeInfo_info__stars" />
+        <StarBar className="RecipeInfo_info__stars" recipe={recipe} />
       </section>
 
       <h1 className="RecipeInfo__info__title">{recipe.title}</h1>
@@ -79,6 +79,7 @@ function RecipeInfo({ recipe }) {
 }
 RecipeInfo.propTypes = {
   recipe: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     picture: PropTypes.string.isRequired,
     difficulty: PropTypes.string.isRequired,

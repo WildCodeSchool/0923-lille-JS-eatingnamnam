@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
+import RecipeInfo from "../../components/RecipeInfo/RecipeInfo";
+import IngredientCard from "../../components/IngredientCard/IngredientCard";
 import "./Recipe.scss";
 import RecipeSteps from "../../components/RecipeSteps/RecipeSteps";
 
 function Recipe() {
   const [recipe, setRecipe] = useState();
+  const [ingredientList, setIngredientList] = useState();
   const [tab, setTab] = useState(1);
   const [ingredientIsActive, setIngredientIsActive] = useState(1);
   const [ustensilIsActive, setUstensilIsActive] = useState(0);
@@ -13,6 +16,11 @@ function Recipe() {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/1`)
       .then((response) => response.json())
       .then((data) => setRecipe(data))
+      .catch((error) => console.error(error));
+
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/ingredientlist/recipe/1`)
+      .then((response) => response.json())
+      .then((data) => setIngredientList(data))
       .catch((error) => console.error(error));
   }, []);
   const handleCLickIngredient = () => {
@@ -35,7 +43,7 @@ function Recipe() {
   };
   return (
     <div>
-      {/*  {recipe ? <RecipeInfo recipe={recipe[0]} /> : "loading"} */}
+      {recipe ? <RecipeInfo recipe={recipe[0]} /> : "loading"}
 
       <main className="recipe__cardContainer">
         <nav className="recipe__buttonBar">
@@ -63,6 +71,11 @@ function Recipe() {
             Préparation
           </button>
         </nav>
+        {ingredientList ? (
+          <IngredientCard ingredientList={ingredientList} />
+        ) : (
+          "loading"
+        )}
         {tab === 3 && recipe
           ? recipe.map((step) => (
               <RecipeSteps
@@ -73,20 +86,20 @@ function Recipe() {
           : ""}
       </main>
 
-      {tab === 3 ? (
-        <article className="recipe__stepContainer">
-          {recipe
-            ? recipe.map((step) => (
-                <RecipeSteps
-                  recipeStep={step.description}
-                  stepNumber={step.number_step}
-                />
-              ))
-            : "no steps found"}
-        </article>
-      ) : (
-        ""
-      )}
+      {/*   {tab === 3 ? (
+          <article className="recipe__stepContainer">
+            {recipe
+              ? recipe.map((step) => (
+                  <RecipeSteps
+                    recipeStep={step.description}
+                    stepNumber={step.number_step}
+                  />
+                ))
+              : "no steps found"}
+          </article>
+        ) : (
+          ""
+        )} */}
     </div>
   );
 }
