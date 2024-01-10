@@ -20,14 +20,14 @@ function Recipe() {
   }, []);
 
   return (
-    <>
+    <section className="ingredientList">
       <section>{recipe ? <RecipeInfo recipe={recipe} /> : "loading"}</section>
       {ingredientList ? (
         <IngredientCard ingredientList={ingredientList} />
       ) : (
         "loading"
       )}
-    </>
+    </section>
   );
 }
 
