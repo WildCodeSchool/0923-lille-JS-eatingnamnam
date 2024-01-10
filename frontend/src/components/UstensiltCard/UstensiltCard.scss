@@ -1,0 +1,12 @@
+.UstensiltCard {
+  background-color: rgb(39, 179, 34);
+  height: 7em;
+  width: 6em;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+
+  img {
+    height: 3em;
+  }
+}
