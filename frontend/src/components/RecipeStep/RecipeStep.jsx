@@ -11,17 +11,8 @@ function RecipeSteps({ recipeStep, stepNumber }) {
 }
 
 RecipeSteps.propTypes = {
-  /* recipeStep: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    picture: PropTypes.string.isRequired,
-  }).isRequired, */
   recipeStep: PropTypes.string.isRequired,
   stepNumber: PropTypes.number.isRequired,
-  /*   stepNumber: PropTypes.shape({
-    number_step: PropTypes.number.isRequired,
-    description: PropTypes.string.isRequired,
-  }).isRequired, */
 };
 
 export default RecipeSteps;
