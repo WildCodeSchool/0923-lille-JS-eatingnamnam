@@ -64,20 +64,28 @@
 
     .RecipeInfo__details__difficulty {
       display: flex;
+      align-items: center;
 
       .RecipeInfo__details__difficulty__hote {
         height: 1em;
         width: 1em;
         margin-right: 0.15em;
       }
+      .RecipeInfo__details__difficulty__text {
+        font-size: 1.25em;
+      }
     }
     .RecipeInfo__details__time {
       display: flex;
+      align-items: center;
 
       .RecipeInfo__details__time__clock {
         height: 1em;
         width: 1em;
         margin-right: 0.15em;
+      }
+      .RecipeInfo__details__time__text {
+        font-size: 1.25em;
       }
     }
     .RecipeInfo__details__price {
