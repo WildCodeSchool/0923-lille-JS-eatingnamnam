@@ -98,7 +98,11 @@ function Recipe() {
         </section>
         {tab === 2 && utensils
           ? utensils.map((utensil) => (
-              <UstensiltCard name={utensil.name} img={utensil.picture} />
+              <UstensiltCard
+                key={utensil.id}
+                name={utensil.name}
+                img={utensil.picture}
+              />
             ))
           : ""}
         {tab === 3 && recipe
