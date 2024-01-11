@@ -4,7 +4,7 @@ import IngredientCard from "../../components/IngredientCard/IngredientCard";
 import "./Recipe.scss";
 import AddComment from "../../components/AddComment/AddComment";
 import RecipeStep from "../../components/RecipeStep/RecipeStep";
-import UstensiltCard from "../../components/UstensiltCard/UstensiltCard";
+import UstensiltCard from "../../components/UtensilCard/UtensilCard";
 
 function Recipe() {
   const [utensils, setUtensils] = useState();
