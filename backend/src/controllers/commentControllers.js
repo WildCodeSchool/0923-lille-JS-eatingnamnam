@@ -9,6 +9,15 @@ const browse = async (req, res, next) => {
   }
 };
 
+const commentByRecipeId = async (req, res, next) => {
+  try {
+    const comments = await tables.comment_recipe_user.read(req.params.id);
+    res.json(comments);
+  } catch (err) {
+    next(err);
+  }
+};
+
 const rating = async (req, res, next) => {
   try {
     const grade = await tables.comment_recipe_user.averageRating(
@@ -27,4 +36,5 @@ const rating = async (req, res, next) => {
 module.exports = {
   browse,
   rating,
+  commentByRecipeId,
 };
