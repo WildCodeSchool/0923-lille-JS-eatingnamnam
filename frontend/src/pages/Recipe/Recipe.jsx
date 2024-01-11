@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import RecipeInfo from "../../components/RecipeInfo/RecipeInfo";
 import IngredientCard from "../../components/IngredientCard/IngredientCard";
 import "./Recipe.scss";
 import AddComment from "../../components/AddComment/AddComment";
 import RecipeStep from "../../components/RecipeStep/RecipeStep";
+import { NavContext } from "../../components/Contexts/navBarContext";
 
 function Recipe() {
+  const { recipeID } = useContext(NavContext);
   const [recipe, setRecipe] = useState();
   const [ingredientList, setIngredientList] = useState();
   const [tab, setTab] = useState(1);
@@ -14,12 +16,16 @@ function Recipe() {
   const [stepIsActive, setStepIsActive] = useState(0);
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/1`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/${recipeID}`)
       .then((response) => response.json())
       .then((data) => setRecipe(data))
       .catch((error) => console.error(error));
 
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/ingredientlist/recipe/1`)
+    fetch(
+      `${
+        import.meta.env.VITE_BACKEND_URL
+      }/api/ingredientlist/recipe/${recipeID}`
+    )
       .then((response) => response.json())
       .then((data) => setIngredientList(data))
       .catch((error) => console.error(error));
