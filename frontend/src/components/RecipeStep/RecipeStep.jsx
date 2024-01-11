@@ -1,4 +1,4 @@
-import "./RecipeSteps.scss";
+import "./RecipeStep.scss";
 import PropTypes from "prop-types";
 
 function RecipeSteps({ recipeStep, stepNumber }) {
@@ -11,15 +11,8 @@ function RecipeSteps({ recipeStep, stepNumber }) {
 }
 
 RecipeSteps.propTypes = {
-  recipeStep: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    picture: PropTypes.string.isRequired,
-  }).isRequired,
-  stepNumber: PropTypes.shape({
-    number_step: PropTypes.number.isRequired,
-    description: PropTypes.string.isRequired,
-  }).isRequired,
+  recipeStep: PropTypes.string.isRequired,
+  stepNumber: PropTypes.number.isRequired,
 };
 
 export default RecipeSteps;

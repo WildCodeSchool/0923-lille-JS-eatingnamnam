@@ -3,7 +3,7 @@ import RecipeInfo from "../../components/RecipeInfo/RecipeInfo";
 import IngredientCard from "../../components/IngredientCard/IngredientCard";
 import "./Recipe.scss";
 import AddComment from "../../components/AddComment/AddComment";
-import RecipeSteps from "../../components/RecipeSteps/RecipeSteps";
+import RecipeStep from "../../components/RecipeStep/RecipeStep";
 import UstensiltCard from "../../components/UstensiltCard/UstensiltCard";
 
 function Recipe() {
@@ -79,11 +79,13 @@ function Recipe() {
             Préparation
           </button>
         </nav>
-        {tab === 1 && ingredientList ? (
-          <IngredientCard ingredientList={ingredientList} />
-        ) : (
-          ""
-        )}{" "}
+        <section className="ingredientList">
+          {tab === 1 && ingredientList
+            ? ingredientList.map((ingredient) => (
+                <IngredientCard key={ingredient.id} ingredient={ingredient} />
+              ))
+            : ""}
+        </section>
         {utensils
           ? utensils.map((utensil) => (
               <UstensiltCard name={utensil.name} img={utensil.picture} />
@@ -91,7 +93,8 @@ function Recipe() {
           : ""}
         {tab === 3 && recipe
           ? recipe.map((step) => (
-              <RecipeSteps
+              <RecipeStep
+                key={step.id}
                 recipeStep={step.description}
                 stepNumber={step.number_step}
               />
