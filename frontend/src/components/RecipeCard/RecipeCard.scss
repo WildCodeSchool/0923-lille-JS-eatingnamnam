@@ -1,3 +1,5 @@
+@import "../../variables.scss";
+
 .card {
   align-items: center;
   flex-direction: column;
@@ -8,15 +10,16 @@
   }
 
   .card__logo {
-    width: 80%;
+    width: 84%;
     height: 22vh;
     display: flex;
+    flex-direction: column-reverse;
     justify-content: space-between;
     align-items: flex-end;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    border: solid 2px #d56c06;
+    border: solid 2px $mainColor;
     border-radius: 0 20px 0 20px;
     .card__logo__diet__vegan {
       width: 2em;
@@ -24,13 +27,14 @@
     }
   }
   .card__info {
-    width: 80%;
+    width: 84%;
     display: flex;
     justify-content: space-between;
 
     .card__info__title {
       margin: 0;
-      width: 70%;
+      width: 74%;
+      font-size: 1.25em;
     }
     .card_info__stars {
       width: 30%;
