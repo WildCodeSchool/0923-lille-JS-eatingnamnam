@@ -26,7 +26,7 @@ function Recipe() {
       .then((data) => setIngredientList(data))
       .catch((error) => console.error(error));
 
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/1/comment`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/1/comments`)
       .then((response) => response.json())
       .then((data) => setComments(data))
       .catch((error) => console.error(error));
