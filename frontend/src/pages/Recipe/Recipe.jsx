@@ -55,15 +55,7 @@ function Recipe() {
   return (
     <div>
       {recipe ? <RecipeInfo recipe={recipe[0]} /> : "loading"}
-      {comments
-        ? comments.map((comment) => (
-            <CommentCard
-              key={comment.id}
-              comment={comment}
-              recipe={recipe[0]}
-            />
-          ))
-        : ""}
+
       <main className="recipe__cardContainer">
         <nav className="recipe__buttonBar">
           <button
@@ -107,6 +99,15 @@ function Recipe() {
             ))
           : ""}
         <AddComment />
+        {comments
+          ? comments.map((comment) => (
+              <CommentCard
+                key={comment.id}
+                comment={comment}
+                recipe={recipe[0]}
+              />
+            ))
+          : ""}
       </main>
     </div>
   );
