@@ -13,7 +13,7 @@ function Swipper({ recipes }) {
   return (
     <Swiper
       slidesPerView={1.25}
-      spaceBetween={30}
+      spaceBetween={-30}
       pagination={{
         clickable: true,
       }}
