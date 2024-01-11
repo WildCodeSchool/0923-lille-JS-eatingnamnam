@@ -8,7 +8,7 @@ function UstensiltCard({ name, img }) {
         <img src={`${import.meta.env.VITE_BACKEND_URL}${img}`} alt={name} />
         <p>{name}</p>
       </div>
-      );
+      ;
     </>
   );
 }
