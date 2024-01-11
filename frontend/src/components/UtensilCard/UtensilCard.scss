@@ -16,21 +16,8 @@
     width: 60%;
   }
 
-  .ingredientCard__info {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    height: 35%;
-    justify-content: space-evenly;
-    .UtensilCard__name {
-      font-size: 15px;
-      text-align: center;
-    }
-
-    .ingredientCard__info__quantity {
-      font-weight: 900;
-      text-align: center;
-      font-size: 15px;
-    }
+  .UtensilCard__name {
+    font-size: 15px;
+    text-align: center;
   }
 }
