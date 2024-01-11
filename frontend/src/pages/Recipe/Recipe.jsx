@@ -1,17 +1,19 @@
+import "./Recipe.scss";
 import { useEffect, useState } from "react";
 import RecipeInfo from "../../components/RecipeInfo/RecipeInfo";
 import IngredientCard from "../../components/IngredientCard/IngredientCard";
-import "./Recipe.scss";
 import RecipeSteps from "../../components/RecipeSteps/RecipeSteps";
+import CommentCard from "../../components/CommentCard/CommentCard";
 
 function Recipe() {
-  const [recipe, setRecipe] = useState();
-  const [ingredientList, setIngredientList] = useState();
+  const [comments, setComments] = useState();
   const [tab, setTab] = useState(1);
+  const [ingredientList, setIngredientList] = useState();
   const [ingredientIsActive, setIngredientIsActive] = useState(1);
   const [ustensilIsActive, setUstensilIsActive] = useState(0);
   const [stepIsActive, setStepIsActive] = useState(0);
 
+  const [recipe, setRecipe] = useState();
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/1`)
       .then((response) => response.json())
@@ -22,7 +24,13 @@ function Recipe() {
       .then((response) => response.json())
       .then((data) => setIngredientList(data))
       .catch((error) => console.error(error));
+
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/1/comment`)
+      .then((response) => response.json())
+      .then((data) => setComments(data))
+      .catch((error) => console.error(error));
   }, []);
+
   const handleCLickIngredient = () => {
     setTab(1);
     setIngredientIsActive(1);
@@ -35,15 +43,27 @@ function Recipe() {
     setUstensilIsActive(1);
     setStepIsActive(0);
   };
+
   const handleClickSteps = () => {
     setTab(3);
     setIngredientIsActive(0);
     setUstensilIsActive(0);
     setStepIsActive(1);
   };
+  console.warn("comment:", comments);
+  console.warn("recipe:", recipe);
   return (
     <div>
       {recipe ? <RecipeInfo recipe={recipe[0]} /> : "loading"}
+      {comments
+        ? comments.map((comment) => (
+            <CommentCard
+              key={comment.id}
+              comment={comment}
+              recipe={recipe[0]}
+            />
+          ))
+        : ""}
       <main className="recipe__cardContainer">
         <nav className="recipe__buttonBar">
           <button
@@ -75,6 +95,7 @@ function Recipe() {
         ) : (
           ""
         )}
+
         {tab === 3 && recipe
           ? recipe.map((step) => (
               <RecipeSteps
