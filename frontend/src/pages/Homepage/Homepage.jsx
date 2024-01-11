@@ -32,8 +32,8 @@ function Homepage() {
   };
   return (
     <main className="home">
+      <h1 className="home__recipeDay__title">Recette du jour</h1>
       <section className="home__recipeDay">
-        <h1 className="home__recipeDay__title">Recette du jour</h1>
         {recipe ? (
           <Link to="/recipe" onClick={handleClick}>
             <RecipeCard recipe={recipe} />{" "}
