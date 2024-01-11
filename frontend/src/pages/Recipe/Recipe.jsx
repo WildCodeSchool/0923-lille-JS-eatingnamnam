@@ -2,7 +2,8 @@ import "./Recipe.scss";
 import { useEffect, useState } from "react";
 import RecipeInfo from "../../components/RecipeInfo/RecipeInfo";
 import IngredientCard from "../../components/IngredientCard/IngredientCard";
-import RecipeSteps from "../../components/RecipeSteps/RecipeSteps";
+import AddComment from "../../components/AddComment/AddComment";
+import RecipeStep from "../../components/RecipeStep/RecipeStep";
 import CommentCard from "../../components/CommentCard/CommentCard";
 
 function Recipe() {
@@ -50,8 +51,7 @@ function Recipe() {
     setUstensilIsActive(0);
     setStepIsActive(1);
   };
-  console.warn("comment:", comments);
-  console.warn("recipe:", recipe);
+
   return (
     <div>
       {recipe ? <RecipeInfo recipe={recipe[0]} /> : "loading"}
@@ -90,20 +90,23 @@ function Recipe() {
             Préparation
           </button>
         </nav>
-        {tab === 1 && ingredientList ? (
-          <IngredientCard ingredientList={ingredientList} />
-        ) : (
-          ""
-        )}
-
+        <section className="ingredientList">
+          {tab === 1 && ingredientList
+            ? ingredientList.map((ingredient) => (
+                <IngredientCard key={ingredient.id} ingredient={ingredient} />
+              ))
+            : ""}
+        </section>
         {tab === 3 && recipe
           ? recipe.map((step) => (
-              <RecipeSteps
+              <RecipeStep
+                key={step.id}
                 recipeStep={step.description}
                 stepNumber={step.number_step}
               />
             ))
           : ""}
+        <AddComment />
       </main>
     </div>
   );

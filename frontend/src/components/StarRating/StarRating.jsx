@@ -9,9 +9,12 @@ function StarRating() {
   };
 
   return (
-    <div className="App">
-      <Rating onClick={handleRating} ratingValue={rating} fillColor="#D56C06" />
-    </div>
+    <Rating
+      onClick={handleRating}
+      ratingValue={rating}
+      transition
+      fillColor="#D56C06"
+    />
   );
 }
 export default StarRating;
