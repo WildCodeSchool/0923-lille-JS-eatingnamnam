@@ -1,7 +1,11 @@
 @import "../../variables.scss";
 
-.UserProfil {
+.UserProfil__name {
   font-size: 3rem;
-  text-align: center;
-  color: rgb(22, 57, 214);
+  text-align: right;
+  color: rgb(9, 9, 9);
+  margin: 2vw;
+}
+.UserProfil__img {
+  height: 20vh;
 }
