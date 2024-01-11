@@ -1,29 +1,50 @@
-import { useEffect, useState } from "react";
+import "./Recipe.scss";
+import { useEffect, useState, useContext } from "react";
 import RecipeInfo from "../../components/RecipeInfo/RecipeInfo";
 import IngredientCard from "../../components/IngredientCard/IngredientCard";
-import "./Recipe.scss";
 import AddComment from "../../components/AddComment/AddComment";
 import RecipeStep from "../../components/RecipeStep/RecipeStep";
+import UstensiltCard from "../../components/UtensilCard/UtensilCard";
+import { NavContext } from "../../components/Contexts/navBarContext";
+import CommentCard from "../../components/CommentCard/CommentCard";
 
 function Recipe() {
-  const [recipe, setRecipe] = useState();
-  const [ingredientList, setIngredientList] = useState();
+  const [utensils, setUtensils] = useState();
+  const { recipeID } = useContext(NavContext);
+  const [comments, setComments] = useState();
   const [tab, setTab] = useState(1);
+  const [ingredientList, setIngredientList] = useState();
   const [ingredientIsActive, setIngredientIsActive] = useState(1);
   const [ustensilIsActive, setUstensilIsActive] = useState(0);
   const [stepIsActive, setStepIsActive] = useState(0);
 
+  const [recipe, setRecipe] = useState();
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/1`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/${recipeID}`)
       .then((response) => response.json())
       .then((data) => setRecipe(data))
       .catch((error) => console.error(error));
 
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/ingredientlist/recipe/1`)
+    fetch(
+      `${
+        import.meta.env.VITE_BACKEND_URL
+      }/api/ingredientlist/recipe/${recipeID}`
+    )
       .then((response) => response.json())
       .then((data) => setIngredientList(data))
       .catch((error) => console.error(error));
+
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/1/utensils`)
+      .then((response) => response.json())
+      .then((data) => setUtensils(data))
+      .catch((error) => console.error(error));
+
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/1/comments`)
+      .then((response) => response.json())
+      .then((data) => setComments(data))
+      .catch((error) => console.error(error));
   }, []);
+
   const handleCLickIngredient = () => {
     setTab(1);
     setIngredientIsActive(1);
@@ -36,6 +57,7 @@ function Recipe() {
     setUstensilIsActive(1);
     setStepIsActive(0);
   };
+
   const handleClickSteps = () => {
     setTab(3);
     setIngredientIsActive(0);
@@ -46,6 +68,7 @@ function Recipe() {
   return (
     <div>
       {recipe ? <RecipeInfo recipe={recipe[0]} /> : "loading"}
+
       <main className="recipe__cardContainer">
         <nav className="recipe__buttonBar">
           <button
@@ -79,6 +102,15 @@ function Recipe() {
               ))
             : ""}
         </section>
+        {tab === 2 && utensils
+          ? utensils.map((utensil) => (
+              <UstensiltCard
+                key={utensil.id}
+                name={utensil.name}
+                img={utensil.picture}
+              />
+            ))
+          : ""}
         {tab === 3 && recipe
           ? recipe.map((step) => (
               <RecipeStep
@@ -89,6 +121,15 @@ function Recipe() {
             ))
           : ""}
         <AddComment />
+        {comments
+          ? comments.map((comment) => (
+              <CommentCard
+                key={comment.id}
+                comment={comment}
+                recipe={recipe[0]}
+              />
+            ))
+          : ""}
       </main>
     </div>
   );

@@ -21,6 +21,8 @@ router.get("/items", itemControllers.browse);
 
 router.get("/recipe", recipeControllers.browse);
 router.get("/recipe/:id", recipeControllers.recipeById);
+router.get("/recipe/:id/utensils", ustensilControllers.utensilByRecipeId);
+router.get("/recipe/:id/comments", commentControllers.commentByRecipeId);
 router.get("/randomrecipe", recipeControllers.randomRecipe);
 
 router.get("/ustensil", ustensilControllers.browse);
