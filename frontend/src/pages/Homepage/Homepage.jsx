@@ -31,19 +31,26 @@ function Homepage() {
     setRecipeID(recipe.id);
   };
   return (
-    <>
-      {recipe ? (
-        <Link to="/recipe" onClick={handleClick}>
-          <RecipeCard recipe={recipe} />{" "}
-        </Link>
-      ) : (
-        "loading"
-      )}
-      <h2 className="titleHome">Recettes vegan</h2>
-      {vegan ? <Swipper recipes={vegan} /> : "loading"}
-      <h2 className="titleHome">Recettes mexicaine</h2>
-      {mexican ? <Swipper recipes={mexican} /> : "loading"}
-    </>
+    <main className="home">
+      <section className="home__recipeDay">
+        <h1 className="home__recipeDay__title">Recette du jour</h1>
+        {recipe ? (
+          <Link to="/recipe" onClick={handleClick}>
+            <RecipeCard recipe={recipe} />{" "}
+          </Link>
+        ) : (
+          "loading"
+        )}
+      </section>
+      <section className="home__Theme">
+        <h2 className="home__Theme__title">Recettes vegan</h2>
+        {vegan ? <Swipper recipes={vegan} /> : "loading"}
+      </section>
+      <section className="home__Theme">
+        <h3 className="home__Theme__title">Recettes mexicaine</h3>
+        {mexican ? <Swipper recipes={mexican} /> : "loading"}
+      </section>
+    </main>
   );
 }
 

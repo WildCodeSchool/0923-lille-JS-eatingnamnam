@@ -4,9 +4,11 @@ import IngredientCard from "../../components/IngredientCard/IngredientCard";
 import "./Recipe.scss";
 import AddComment from "../../components/AddComment/AddComment";
 import RecipeStep from "../../components/RecipeStep/RecipeStep";
+import UstensiltCard from "../../components/UtensilCard/UtensilCard";
 import { NavContext } from "../../components/Contexts/navBarContext";
 
 function Recipe() {
+  const [utensils, setUtensils] = useState();
   const { recipeID } = useContext(NavContext);
   const [recipe, setRecipe] = useState();
   const [ingredientList, setIngredientList] = useState();
@@ -28,6 +30,11 @@ function Recipe() {
     )
       .then((response) => response.json())
       .then((data) => setIngredientList(data))
+      .catch((error) => console.error(error));
+
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/1/utensil`)
+      .then((response) => response.json())
+      .then((data) => setUtensils(data))
       .catch((error) => console.error(error));
   }, []);
   const handleCLickIngredient = () => {
@@ -85,6 +92,11 @@ function Recipe() {
               ))
             : ""}
         </section>
+        {tab === 2 && utensils
+          ? utensils.map((utensil) => (
+              <UstensiltCard name={utensil.name} img={utensil.picture} />
+            ))
+          : ""}
         {tab === 3 && recipe
           ? recipe.map((step) => (
               <RecipeStep
