@@ -86,7 +86,7 @@ function Recipe() {
               ))
             : ""}
         </section>
-        {utensils
+        {tab === 2 && utensils
           ? utensils.map((utensil) => (
               <UstensiltCard name={utensil.name} img={utensil.picture} />
             ))
