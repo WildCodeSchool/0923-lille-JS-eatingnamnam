@@ -1,8 +1,11 @@
+@import "../../variables.scss";
+
 .swiperCard {
   align-items: center;
   flex-direction: column;
   display: flex;
   width: 100%;
+  background-color: $lightGreyBackground;
   .swiperCard__img {
     width: 80%;
   }
@@ -12,6 +15,7 @@
     height: 22vh;
     display: flex;
     justify-content: space-between;
+    flex-direction: column-reverse;
     align-items: flex-end;
     background-image: url("/src/assets/recipePicture.png");
     background-position: center;
@@ -32,7 +36,8 @@
 
     .swiperCard__info__title {
       margin: 0;
-      width: 60%;
+      width: 70%;
+      font-size: 1.25em;
     }
     .swiperCard_info__stars {
       display: flex;

@@ -4,9 +4,11 @@ import RecipeInfo from "../../components/RecipeInfo/RecipeInfo";
 import IngredientCard from "../../components/IngredientCard/IngredientCard";
 import AddComment from "../../components/AddComment/AddComment";
 import RecipeStep from "../../components/RecipeStep/RecipeStep";
+import UstensiltCard from "../../components/UtensilCard/UtensilCard";
 import CommentCard from "../../components/CommentCard/CommentCard";
 
 function Recipe() {
+  const [utensils, setUtensils] = useState();
   const [comments, setComments] = useState();
   const [tab, setTab] = useState(1);
   const [ingredientList, setIngredientList] = useState();
@@ -24,6 +26,11 @@ function Recipe() {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/ingredientlist/recipe/1`)
       .then((response) => response.json())
       .then((data) => setIngredientList(data))
+      .catch((error) => console.error(error));
+
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/1/utensil`)
+      .then((response) => response.json())
+      .then((data) => setUtensils(data))
       .catch((error) => console.error(error));
 
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/1/comments`)
@@ -89,6 +96,11 @@ function Recipe() {
               ))
             : ""}
         </section>
+        {tab === 2 && utensils
+          ? utensils.map((utensil) => (
+              <UstensiltCard name={utensil.name} img={utensil.picture} />
+            ))
+          : ""}
         {tab === 3 && recipe
           ? recipe.map((step) => (
               <RecipeStep
