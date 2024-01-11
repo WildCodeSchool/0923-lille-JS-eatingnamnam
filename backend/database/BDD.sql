@@ -111,7 +111,7 @@ CREATE TABLE `list_ingredients_recip` (
   `id` int NOT NULL AUTO_INCREMENT,
   `recipe_id` int NOT NULL,
   `ingredient_id` int NOT NULL,
-  `quantity` int NOT NULL,
+  `quantity` FLOAT NULL,
   `unit` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`,`recipe_id`,`ingredient_id`),
   KEY `fk_recipe_has_ingredient_ingredient1_idx` (`ingredient_id`),
@@ -127,7 +127,7 @@ CREATE TABLE `list_ingredients_recip` (
 
 LOCK TABLES `list_ingredients_recip` WRITE;
 /*!40000 ALTER TABLE `list_ingredients_recip` DISABLE KEYS */;
-INSERT INTO `list_ingredients_recip` VALUES (1,1,25,1,'pincée(s)'),(2,1,9,4,'cl'),(3,1,15,2,'cuillière(s) à soupe'),(4,1,24,320,'g'),(5,1,12,3,''),(6,1,6,2,'l'),(7,1,8,300,'g'),(8,1,49,1,'cuillière(s) à soupe'),(9,1,50,3,'cuillière(s) à soupe'),(10,2,28,3,'quelques goûtes (facultatif)'),(11,2,27,1,'pincée(s)'),(12,2,25,2,'pincée(s)'),(13,2,11,2,'cuillière(s) à café'),(14,2,26,1,'/'),(15,2,13,1,'petite boîte'),(16,2,30,2,'entière'),(17,2,31,8,'moyenne'),(18,2,20,1,'entière'),(19,2,10,10,'cl'),(20,2,5,250,'g'),(21,2,16,8,'feuille(s)');
+INSERT INTO `list_ingredients_recip` VALUES (1,1,25, NULL, NULL),(2,1,9,4,'cl'),(3,1,15,2,'C à S'),(4,1,24,320,'g'),(5,1,12,3,''),(6,1,6,2,'l'),(7,1,8,300,'g'),(8,1,49,1,'C à S'),(9,1,50,3,'C à S'),(10,2,28, NULL,NULL),(11,2,27,NULL,NULL),(12,2,25,NULL,NULL),(13,2,11,2,'C à C'),(14,2,26,0.5,NULL),(15,2,13,1,'petite boîte'),(16,2,30,2,NULL),(17,2,31,8,NULL),(18,2,20,1,NULL),(19,2,10,10,'cl'),(20,2,5,250,'g'),(21,2,16,8,'feuille(s)');
 /*!40000 ALTER TABLE `list_ingredients_recip` ENABLE KEYS */;
 UNLOCK TABLES;
 
