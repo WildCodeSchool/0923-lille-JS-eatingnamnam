@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import RecipeInfo from "../../components/RecipeInfo/RecipeInfo";
 import IngredientCard from "../../components/IngredientCard/IngredientCard";
 import "./Recipe.scss";
-import RecipeStep from "../../components/RecipeStep/RecipeStep";
+import AddComment from "../../components/AddComment/AddComment";
+import RecipeSteps from "../../components/RecipeSteps/RecipeSteps";
 
 function Recipe() {
   const [recipe, setRecipe] = useState();
@@ -84,6 +85,7 @@ function Recipe() {
               />
             ))
           : ""}
+        <AddComment />
       </main>
     </div>
   );
