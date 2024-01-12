@@ -9,3 +9,53 @@
 .UserProfil__img {
   height: 20vh;
 }
+.UserProfil__info {
+  background-color: rgb(225, 152, 79);
+  border-radius: 30px 0px 30px 30px;
+  margin: 4%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+.UserProfil__pseudo__text {
+  grid-area: 1 / 1 / 2 / 2;
+}
+.UserProfil__pseudo__input {
+  grid-area: 2 / 1 / 3 / 2;
+  border-radius: 56px;
+  height: 3vh;
+}
+.UserProfil__anniversaire__text {
+  grid-area: 1 / 2 / 2 / 3;
+}
+.UserProfil__anniversaire__input {
+  grid-area: 2 / 2 / 3 / 3;
+  border-radius: 56px;
+  height: 3vh;
+}
+
+.UserProfil__nom__text {
+  grid-area: 3 / 1 / 4 / 2;
+}
+.UserProfil__nom__input {
+  grid-area: 4 / 1 / 5 / 2;
+  border-radius: 56px;
+  height: 3vh;
+}
+.UserProfil__prenom__text {
+  grid-area: 3 / 2 / 4 / 3;
+}
+.UserProfil__prenom__input {
+  grid-area: 4 / 2 / 5 / 3;
+  border-radius: 56px;
+  height: 3vh;
+}
+.UserProfil__mail__text {
+  grid-area: 5 / 1 / 6 / 3;
+}
+.UserProfil__mail__input {
+  grid-area: 6 / 1 / 7 / 3;
+  border-radius: 56px;
+}
