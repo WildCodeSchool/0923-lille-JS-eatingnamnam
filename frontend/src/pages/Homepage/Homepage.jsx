@@ -34,6 +34,7 @@ function Homepage() {
         <h2 className="home__Theme__title">Recettes vegan</h2>
         {vegan ? <Swipper recipes={vegan} /> : "loading"}
       </section>
+
       <section className="home__Theme">
         <h3 className="home__Theme__title">Recettes mexicaine</h3>
         {mexican ? <Swipper recipes={mexican} /> : "loading"}

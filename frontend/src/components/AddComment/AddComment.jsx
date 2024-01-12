@@ -1,26 +1,31 @@
 import "./AddComment.scss";
-import StarRating from "../StarRating/StarRating";
+// import StarRating from "../StarRating/StarRating";
+// import { useForm } from "react-hook-form";
 
 function AddComment() {
+  // const {register, handleSubmit} = useForm()
   return (
     <section className="addComment">
       <h1 className="addComment__title"> C'est terminé !</h1>
-      <div className="addComment__comment">
-        <p className="addComment__comment__texte">
+      {/* <form onSubmit={handleSubmit(onSubmit)} className="addComment__comment">
+        <h2 className="addComment__comment__texte">
           N'hesite pas a faire un retour sur cette recette !
-        </p>
+        </h2>
         <StarRating className="addComment__comment__star" />
         <textarea
           id="comment"
           name="comment"
+          {...register("comment")}
           rows="3"
           className="addComment__comment__addComment"
           placeholder="&nbsp;Laisse un commentaire ici."
         />
-        <button type="button" className="addComment__comment__button">
-          Partager
-        </button>
-      </div>
+        <imput
+          type="submit"
+          className="addComment__comment__button"
+          value="Partager"
+        />
+      </form> */}
     </section>
   );
 }
