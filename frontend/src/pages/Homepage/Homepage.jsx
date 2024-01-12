@@ -43,12 +43,12 @@ function Homepage() {
         )}
       </section>
       <section className="home__Theme">
-        <h2 className="home__Theme__title">Recettes vegan</h2>
+        <h2 className="home__Theme__title">Recettes véganes</h2>
         {vegan ? <Swipper recipes={vegan} /> : "loading"}
       </section>
 
       <section className="home__Theme">
-        <h3 className="home__Theme__title">Recettes mexicaine</h3>
+        <h3 className="home__Theme__title">Recettes mexicaines</h3>
         {mexican ? <Swipper recipes={mexican} /> : "loading"}
       </section>
     </main>
