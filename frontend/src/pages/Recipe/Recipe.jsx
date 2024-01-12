@@ -34,12 +34,12 @@ function Recipe() {
       .then((data) => setIngredientList(data))
       .catch((error) => console.error(error));
 
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/1/utensils`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/${recipeID}/utensils`)
       .then((response) => response.json())
       .then((data) => setUtensils(data))
       .catch((error) => console.error(error));
 
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/1/comments`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/${recipeID}/comments`)
       .then((response) => response.json())
       .then((data) => setComments(data))
       .catch((error) => console.error(error));

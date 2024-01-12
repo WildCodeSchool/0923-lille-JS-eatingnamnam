@@ -27,7 +27,7 @@ router.get("/randomrecipe", recipeControllers.randomRecipe);
 
 router.get("/ustensil", ustensilControllers.browse);
 router.get("/tag", tagControllers.browseByTag);
-router.get("/tag/:id", recipeControllers.recipeByTag);
+router.get("/recipe/tag/:id", recipeControllers.recipeByTag);
 
 router.get("/user", userControllers.browse);
 

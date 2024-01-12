@@ -34,7 +34,7 @@ CommentCard.propTypes = {
     last_name: PropTypes.string.isRequired,
     first_name: PropTypes.string.isRequired,
     date_time: PropTypes.string.isRequired,
-    comment: PropTypes.string.isRequired,
+    comment: PropTypes.string,
   }).isRequired,
 };
 export default CommentCard;
