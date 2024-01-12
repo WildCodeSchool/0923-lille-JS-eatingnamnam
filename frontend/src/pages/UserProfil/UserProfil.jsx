@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 import "./UserProfil.scss";
 
 function UserProfil() {
@@ -35,6 +36,9 @@ function UserProfil() {
         </label>
         <input className="UserProfil__mail__input" type="text" />
       </form>
+      <button className="UserProfil__button__post" type="button">
+        Créer un post +
+      </button>
     </>
   );
 }
