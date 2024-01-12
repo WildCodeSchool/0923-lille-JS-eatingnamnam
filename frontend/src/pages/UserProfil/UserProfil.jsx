@@ -8,7 +8,8 @@ function UserProfil() {
         src="src/assets/PlateauFromageProfil.jpg"
         alt="a magnifying glass icon"
       />
-      <h1 className="UserProfil__name">User Profil</h1>;
+      <h1 className="UserProfil__name">User Profil</h1>
+      <h4 className="UserProfil__myInfo">Mes infos</h4>
       <form className="UserProfil__info" action="#" method="post">
         <label className="UserProfil__pseudo__text" htmlFor="pseudo">
           Pseudo:
