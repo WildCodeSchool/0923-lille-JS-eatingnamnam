@@ -1,7 +1,13 @@
 import "./TitleBar.scss";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { NavContext } from "../Contexts/navBarContext";
 
 function TitleBar() {
+  const { connected, setActiveButton } = useContext(NavContext);
+  const handleClick = (event) => {
+    setActiveButton(event.target.name);
+  };
   return (
     <header className="titleBar">
       <img
@@ -10,14 +16,37 @@ function TitleBar() {
         src="src/assets/Logo-nam-nam.png"
         alt="logo"
       />
-      <Link to="/userprofil" className="titleBar__userLogo" type="submit">
-        <img
-          className="titleBar__userLogo__img"
-          name="userLogo"
-          src="src/assets/icone-user.svg"
-          alt="userLogo"
-        />
-      </Link>
+      {connected === 0 ? (
+        <Link
+          to="/login"
+          name="login"
+          className="titleBar__userLogo"
+          type="submit"
+          onClick={handleClick}
+        >
+          <img
+            className="titleBar__userLogo__img"
+            name="userLogo"
+            src="src/assets/icone-user.svg"
+            alt="userLogo"
+          />
+        </Link>
+      ) : (
+        <Link
+          to="/profile"
+          className="titleBar__userLogo"
+          type="submit"
+          name="profile"
+          onClick={handleClick}
+        >
+          <img
+            className="titleBar__userLogo__img"
+            name="userLogo"
+            src="src/assets/icone-user.svg"
+            alt="userLogo"
+          />
+        </Link>
+      )}
     </header>
   );
 }

@@ -1,12 +1,14 @@
 import "./Authentication.scss";
+import LoginForm from "../../components/LoginForm/LoginForm";
 
 function Authentication() {
   return (
-    <img
-      className="loginBackground"
-      src="src/assets/loginBackround.svg"
-      alt=""
-    />
+    <section
+      className="formLogin"
+      style={{ backgroundImage: "URL(src/assets/loginPage.svg)" }}
+    >
+      <LoginForm />
+    </section>
   );
 }
 

@@ -66,7 +66,7 @@ function Recipe() {
   };
 
   return (
-    <div>
+    <div className="page">
       {recipe ? <RecipeInfo recipe={recipe[0]} /> : "loading"}
 
       <main className="recipe__cardContainer">
