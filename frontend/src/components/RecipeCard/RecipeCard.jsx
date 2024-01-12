@@ -25,7 +25,7 @@ function RecipeCard({ recipe }) {
       </article>
       <article className="card__info">
         <h1 className="card__info__title">{recipe.title}</h1>
-        <StarBar className="card_info__stars" recipe={recipe} />
+        <StarBar className="card_info__stars" id={recipe.id} />
       </article>
     </section>
   );

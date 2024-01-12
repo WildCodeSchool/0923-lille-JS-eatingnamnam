@@ -67,7 +67,11 @@ function Recipe() {
 
   return (
     <div>
-      {recipe ? <RecipeInfo recipe={recipe[0]} /> : "loading"}
+      {recipe ? (
+        <RecipeInfo recipe={recipe[0]} id={recipe[0].recipe_id} />
+      ) : (
+        "loading"
+      )}
 
       <main className="recipe__cardContainer">
         <nav className="recipe__buttonBar">
@@ -127,6 +131,7 @@ function Recipe() {
                 key={comment.id}
                 comment={comment}
                 recipe={recipe[0]}
+                id={recipe[0].recipe_id}
               />
             ))
           : ""}

@@ -2,7 +2,7 @@ import "./CommentCard.scss";
 import PropTypes from "prop-types";
 import StarBar from "../StarBar/StarBar";
 
-function CommentCard({ comment, recipe }) {
+function CommentCard({ comment, id }) {
   return (
     <div className="comment">
       <div className="comment__container">
@@ -17,7 +17,7 @@ function CommentCard({ comment, recipe }) {
           <h2 className="comment__user__name">
             {comment.first_name} {comment.last_name}
           </h2>
-          <StarBar recipe={recipe} />
+          <StarBar id={id} />
         </div>
       </div>
       <p className="comment__text">{comment.comment}</p>
@@ -27,8 +27,8 @@ function CommentCard({ comment, recipe }) {
 }
 
 CommentCard.propTypes = {
-  recipe: PropTypes.shape({
-    id: PropTypes.number.isRequired,
+  id: PropTypes.shape({
+    id: PropTypes,
   }).isRequired,
   comment: PropTypes.shape({
     last_name: PropTypes.string.isRequired,
