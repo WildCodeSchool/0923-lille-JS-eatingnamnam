@@ -1,11 +1,12 @@
 import "./Navbar.scss";
-import { useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { NavContext } from "../Contexts/navBarContext";
 
 function Navbar() {
-  const [isActive, setIsActive] = useState("home");
+  const { activeButton, setActiveButton } = useContext(NavContext);
   const handleClick = (event) => {
-    setIsActive(event.target.name);
+    setActiveButton(event.target.name);
   };
   return (
     <nav className="navbar">
@@ -17,7 +18,7 @@ function Navbar() {
             type="submit"
             onClick={handleClick}
           >
-            {isActive !== "home" ? (
+            {activeButton !== "home" ? (
               <img
                 className="navbar__icon"
                 name="home"
@@ -41,7 +42,7 @@ function Navbar() {
             type="submit"
             onClick={handleClick}
           >
-            {isActive !== "search" ? (
+            {activeButton !== "search" ? (
               <img
                 className="navbar__icon"
                 name="search"
@@ -65,7 +66,7 @@ function Navbar() {
             type="submit"
             onClick={handleClick}
           >
-            {isActive !== "add" ? (
+            {activeButton !== "add" ? (
               <img
                 className="navbar__icon"
                 name="add"
@@ -89,7 +90,7 @@ function Navbar() {
             type="submit"
             onClick={handleClick}
           >
-            {isActive !== "bookmark" ? (
+            {activeButton !== "bookmark" ? (
               <img
                 className="navbar__icon"
                 name="bookmark"

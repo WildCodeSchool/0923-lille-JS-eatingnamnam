@@ -1,9 +1,12 @@
 import "./Homepage.scss";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
 import Swipper from "../../components/Swipper/Swipper";
+import { NavContext } from "../../components/Contexts/navBarContext";
 
 function Homepage() {
+  const { setActiveButton, setRecipeID } = useContext(NavContext);
   const [recipe, setRecipe] = useState();
   const [vegan, setVegan] = useState();
   const [mexican, setMexican] = useState();
@@ -23,12 +26,21 @@ function Homepage() {
       .then((data) => setMexican(data))
       .catch((error) => console.error(error));
   }, []);
-
+  const handleClick = () => {
+    setActiveButton("recipe");
+    setRecipeID(recipe.id);
+  };
   return (
     <main className="home">
+      <h1 className="home__recipeDay__title">Recette du jour</h1>
       <section className="home__recipeDay">
-        <h1 className="home__recipeDay__title">Recette du jour</h1>
-        {recipe ? <RecipeCard recipe={recipe} /> : "loading"}
+        {recipe ? (
+          <Link to="/recipe" onClick={handleClick}>
+            <RecipeCard recipe={recipe} />{" "}
+          </Link>
+        ) : (
+          "loading"
+        )}
       </section>
       <section className="home__Theme">
         <h2 className="home__Theme__title">Recettes vegan</h2>

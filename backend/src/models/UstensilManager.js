@@ -28,9 +28,21 @@ class UstensilManager extends AbstractManager {
       `SELECT * FROM ${this.table} WHERE id = ?`,
       [id]
     );
-
     // Return the first row of the result, which represents the item
-    return rows[0];
+    return rows;
+  }
+
+  async utensilByRecipeId(id) {
+    // Execute the SQL SELECT query to retrieve a specific item by its ID
+    const [rows] = await this.database.query(
+      `SELECT * FROM ${this.table}
+        INNER JOIN list_ustensils_recip AS ustensilList 
+        ON ustensil.id = ustensilList.ustensil_id
+        WHERE ustensilList.recipe_id=?`,
+      [id]
+    );
+
+    return rows;
   }
 
   async readAll() {
