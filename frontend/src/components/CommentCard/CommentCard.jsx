@@ -27,9 +27,7 @@ function CommentCard({ comment, id }) {
 }
 
 CommentCard.propTypes = {
-  id: PropTypes.shape({
-    id: PropTypes,
-  }).isRequired,
+  id: PropTypes.number.isRequired,
   comment: PropTypes.shape({
     last_name: PropTypes.string.isRequired,
     first_name: PropTypes.string.isRequired,
