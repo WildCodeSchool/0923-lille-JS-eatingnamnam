@@ -4,7 +4,9 @@ import StarBar from "../StarBar/StarBar";
 import AddFavorite from "../AddFavorite/AddFavorite";
 
 function RecipeInfo({ recipe, id }) {
-  const nbEuro = Array(recipe.price).fill("src/assets/euro.svg");
+  const nbEuro = Array(recipe.price).fill(
+    `${import.meta.env.VITE_BACKEND_URL}/assets/images/euro.svg`
+  );
 
   return (
     <section className="RecipeInfo">
@@ -20,7 +22,9 @@ function RecipeInfo({ recipe, id }) {
         <div className="RecipeInfo__header__diet">
           <img
             className="RecipeInfo__header__diet__vegan"
-            src="/src/assets/Logo-vegan.png"
+            src={`${
+              import.meta.env.VITE_BACKEND_URL
+            }/assets/images/Logo-vegan.png`}
             alt="logo signalant une recette vegan"
           />
         </div>
@@ -36,7 +40,7 @@ function RecipeInfo({ recipe, id }) {
         <div className="RecipeInfo__details__difficulty">
           <img
             className="RecipeInfo__details__difficulty__hote"
-            src="/src/assets/toque.svg"
+            src={`${import.meta.env.VITE_BACKEND_URL}/assets/images/toque.svg`}
             alt="toque de cuisinier"
           />
           <p className="RecipeInfo__details__difficulty__text">
@@ -45,20 +49,20 @@ function RecipeInfo({ recipe, id }) {
         </div>
         <img
           className="RecipeInfo__details__union"
-          src="/src/assets/union.svg"
+          src={`${import.meta.env.VITE_BACKEND_URL}/assets/images/union.svg`}
           alt="séparation"
         />
         <div className="RecipeInfo__details__time">
           <img
             className="RecipeInfo__details__time__clock"
-            src="src/assets/time.svg"
+            src={`${import.meta.env.VITE_BACKEND_URL}/assets/images/time.svg`}
             alt="horloge"
           />
           <p className="RecipeInfo__details__time__text"> {recipe.time} </p>
         </div>
         <img
           className="RecipeInfo__details__union"
-          src="/src/assets/union.svg"
+          src={`${import.meta.env.VITE_BACKEND_URL}/assets/images/union.svg`}
           alt="séparation"
         />
 

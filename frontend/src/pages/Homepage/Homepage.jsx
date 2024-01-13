@@ -36,7 +36,7 @@ function Homepage() {
       <h1 className="home__recipeDay__title">Recette du jour</h1>
       <section className="home__recipeDay">
         {recipe ? (
-          <Link to="/recipe" onClick={handleClick}>
+          <Link to={`/recipe/${recipe.id}`} onClick={handleClick}>
             <RecipeCard recipe={recipe} />{" "}
           </Link>
         ) : (

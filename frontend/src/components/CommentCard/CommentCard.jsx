@@ -9,7 +9,9 @@ function CommentCard({ comment, id }) {
         <img
           className="comment__userLogo__img"
           name="userLogo"
-          src="src/assets/icone-user.svg"
+          src={`${
+            import.meta.env.VITE_BACKEND_URL
+          }/assets/images/icone-user.svg`}
           alt="userLogo"
         />
 
