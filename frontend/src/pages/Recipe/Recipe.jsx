@@ -101,7 +101,7 @@ function Recipe() {
             Préparation
           </button>
         </nav>
-        <section className="ingredientList">
+        <section className="ingredientsList">
           {tab === 1 && ingredientList
             ? ingredientList.map((ingredient) => (
                 <IngredientCard
@@ -111,15 +111,17 @@ function Recipe() {
               ))
             : ""}
         </section>
-        {tab === 2 && utensils
-          ? utensils.map((utensil) => (
-              <UstensiltCard
-                key={`ustensil:${utensil.id}`}
-                name={utensil.name}
-                img={utensil.picture}
-              />
-            ))
-          : ""}
+        <section className="utensilsList">
+          {tab === 2 && utensils
+            ? utensils.map((utensil) => (
+                <UstensiltCard
+                  key={`ustensil:${utensil.id}`}
+                  name={utensil.name}
+                  img={utensil.picture}
+                />
+              ))
+            : ""}
+        </section>
         {tab === 3 && steps
           ? steps.map((step) => (
               <RecipeStep
