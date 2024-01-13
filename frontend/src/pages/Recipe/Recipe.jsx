@@ -11,7 +11,6 @@ import CommentCard from "../../components/CommentCard/CommentCard";
 
 function Recipe() {
   const [recipe, setRecipe] = useState();
-  /*   const { recipeID } = useContext(NavContext); */
   const { recipeID } = useParams();
 
   const [ingredientList, setIngredientList] = useState();
@@ -31,9 +30,7 @@ function Recipe() {
       .catch((error) => console.error(error));
 
     fetch(
-      `${
-        import.meta.env.VITE_BACKEND_URL
-      }/api/ingredientlist/recipe/${recipeID}`
+      `${import.meta.env.VITE_BACKEND_URL}/api/recipe/${recipeID}/ingredients`
     )
       .then((response) => response.json())
       .then((data) => setIngredientList(data))

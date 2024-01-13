@@ -29,7 +29,6 @@ function Homepage() {
   }, []);
   const handleClick = () => {
     setActiveButton("recipe");
-    // setRecipeID(recipe.id);
   };
   return (
     <main className="home">
