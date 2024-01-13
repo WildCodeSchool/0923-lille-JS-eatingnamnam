@@ -15,6 +15,7 @@ function Recipe() {
   const [ingredientList, setIngredientList] = useState();
   const [utensils, setUtensils] = useState();
   const [comments, setComments] = useState();
+  const [steps, setSteps] = useState();
 
   const [tab, setTab] = useState(1);
   const [ingredientIsActive, setIngredientIsActive] = useState(1);
@@ -28,9 +29,7 @@ function Recipe() {
       .catch((error) => console.error(error));
 
     fetch(
-      `${
-        import.meta.env.VITE_BACKEND_URL
-      }/api/ingredientlist/recipe/${recipeId}`
+      `${import.meta.env.VITE_BACKEND_URL}/api/recipe/${recipeId}/ingredients`
     )
       .then((response) => response.json())
       .then((data) => setIngredientList(data))
@@ -44,6 +43,11 @@ function Recipe() {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/${recipeId}/comments`)
       .then((response) => response.json())
       .then((data) => setComments(data))
+      .catch((error) => console.error(error));
+
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/${recipeId}/steps`)
+      .then((response) => response.json())
+      .then((data) => setSteps(data))
       .catch((error) => console.error(error));
   }, []);
 
@@ -69,11 +73,7 @@ function Recipe() {
 
   return (
     <div>
-      {recipe ? (
-        <RecipeInfo recipe={recipe[0]} id={recipe[0].recipe_id} />
-      ) : (
-        "loading"
-      )}
+      {recipe ? <RecipeInfo recipe={recipe} id={recipe.id} /> : "loading"}
 
       <main className="recipe__cardContainer">
         <nav className="recipe__buttonBar">
@@ -104,23 +104,26 @@ function Recipe() {
         <section className="ingredientList">
           {tab === 1 && ingredientList
             ? ingredientList.map((ingredient) => (
-                <IngredientCard key={ingredient.id} ingredient={ingredient} />
+                <IngredientCard
+                  key={`ingredient:${ingredient.id}`}
+                  ingredient={ingredient}
+                />
               ))
             : ""}
         </section>
         {tab === 2 && utensils
           ? utensils.map((utensil) => (
               <UstensiltCard
-                key={utensil.id}
+                key={`ustensil:${utensil.id}`}
                 name={utensil.name}
                 img={utensil.picture}
               />
             ))
           : ""}
-        {tab === 3 && recipe
-          ? recipe.map((step) => (
+        {tab === 3 && steps
+          ? steps.map((step) => (
               <RecipeStep
-                key={step.id}
+                key={`step:${step.id}`}
                 recipeStep={step.description}
                 stepNumber={step.number_step}
               />
@@ -131,10 +134,10 @@ function Recipe() {
         {comments
           ? comments.map((comment) => (
               <CommentCard
-                key={comment.id}
+                key={`comment:${comment.id}`}
                 comment={comment}
-                recipe={recipe[0]}
-                id={recipe[0].recipe_id}
+                recipe={recipe}
+                id={recipe.id}
               />
             ))
           : ""}

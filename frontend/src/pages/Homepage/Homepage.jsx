@@ -6,7 +6,7 @@ import Swipper from "../../components/Swipper/Swipper";
 import { NavContext } from "../../components/Contexts/navBarContext";
 
 function Homepage() {
-  const { setActiveButton, setRecipeID } = useContext(NavContext);
+  const { setActiveButton } = useContext(NavContext);
   const [recipe, setRecipe] = useState();
   const [vegan, setVegan] = useState();
   const [mexican, setMexican] = useState();
@@ -29,7 +29,6 @@ function Homepage() {
   }, []);
   const handleClick = () => {
     setActiveButton("recipe");
-    setRecipeID(recipe.id);
   };
   return (
     <main className="home">
