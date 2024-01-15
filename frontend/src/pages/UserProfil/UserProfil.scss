@@ -18,12 +18,13 @@
   color: aliceblue;
 }
 
-.test {
+.Userprofil__form {
   width: 90%;
   align-self: center;
   display: flex;
   flex-direction: column;
   align-items: end;
+  margin-left: 4vw;
 }
 
 .UserProfil__info {
@@ -45,6 +46,7 @@
 }
 .UserProfil__pseudo__input {
   border-radius: 56px;
+  border: none;
   width: 80%;
   height: 3vh;
 }
@@ -54,6 +56,7 @@
 }
 .UserProfil__anniversaire__input {
   border-radius: 56px;
+  border: none;
   width: 80%;
   height: 3vh;
 }
@@ -68,6 +71,7 @@
 }
 .UserProfil__nom__input {
   border-radius: 56px;
+  border: none;
   width: 80%;
   height: 3vh;
 }
@@ -77,6 +81,7 @@
 }
 .UserProfil__prenom__input {
   border-radius: 56px;
+  border: none;
   width: 80%;
   height: 3vh;
 }
@@ -86,20 +91,24 @@
 }
 .UserProfil__mail__input {
   border-radius: 56px;
+  border: none;
   width: 90%;
   height: 3vh;
 }
 .UserProfil__button__post {
   background-color: rgb(151, 191, 13);
+  font-size: 25px;
+
   color: aliceblue;
   height: 5vh;
   width: 50vw;
   border-radius: 56px;
   border: none;
-  margin-left: 3vw;
-  margin-top: 5vw;
+  margin-left: 4vw;
+  margin-top: 5vh;
+  margin-bottom: 3vh;
 }
 .UserProfil__post__fav {
   font-size: 25px;
-  margin-left: 3vw;
+  margin-left: 4vw;
 }
