@@ -1,7 +1,7 @@
 @import "../../variables.scss";
 
 .UserProfil__name {
-  font-size: 25px;
+  font-size: 30px;
   text-align: right;
   color: rgb(9, 9, 9);
   margin: 2vw;
@@ -12,26 +12,31 @@
 .UserProfil__myInfo {
   background-color: rgb(213, 108, 6);
   padding: 4%;
-  margin-left: 64%;
-  margin-right: 3%;
   width: 25%;
   border-radius: 30px 30px 0px 0px;
   text-align: center;
   color: aliceblue;
 }
 
+.test {
+  width: 90%;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
 .UserProfil__info {
   background-color: rgb(225, 152, 79);
   border-radius: 30px 0px 30px 30px;
   display: grid;
-  padding-left: 2em;
+  padding-left: 1em;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   height: 21vh;
-  margin-left: 3vw;
-  margin-right: 3vw;
+  width: 100%;
 }
 .UserProfil__pseudo {
   grid-area: 1 / 1 / 2 / 2;
@@ -53,6 +58,10 @@
   height: 3vh;
 }
 
+.testLabel {
+  display: flex;
+  flex-direction: column;
+}
 .UserProfil__nom {
   grid-area: 2 / 1 / 3 / 2;
   color: aliceblue;
@@ -89,4 +98,8 @@
   border: none;
   margin-left: 3vw;
   margin-top: 5vw;
+}
+.UserProfil__post__fav {
+  font-size: 25px;
+  margin-left: 3vw;
 }
