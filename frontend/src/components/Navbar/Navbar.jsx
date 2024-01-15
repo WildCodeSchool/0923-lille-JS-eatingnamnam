@@ -22,14 +22,18 @@ function Navbar() {
               <img
                 className="navbar__icon"
                 name="home"
-                src="src/assets/Home.svg"
+                src={`${
+                  import.meta.env.VITE_BACKEND_URL
+                }/assets/images/Home.svg`}
                 alt="bouton accueil"
               />
             ) : (
               <img
                 className="navbar__icon"
                 name="home"
-                src="src/assets/activeHome.svg"
+                src={`${
+                  import.meta.env.VITE_BACKEND_URL
+                }/assets/images/activeHome.svg`}
                 alt="bouton accueil"
               />
             )}
@@ -46,14 +50,18 @@ function Navbar() {
               <img
                 className="navbar__icon"
                 name="search"
-                src="src/assets/search.svg"
+                src={`${
+                  import.meta.env.VITE_BACKEND_URL
+                }/assets/images/search.svg`}
                 alt="bouton accueil"
               />
             ) : (
               <img
                 className="navbar__icon"
                 name="search"
-                src="src/assets/activeSearch.svg"
+                src={`${
+                  import.meta.env.VITE_BACKEND_URL
+                }/assets/images/activeSearch.svg`}
                 alt="bouton accueil"
               />
             )}
@@ -70,14 +78,18 @@ function Navbar() {
               <img
                 className="navbar__icon"
                 name="add"
-                src="src/assets/add.svg"
+                src={`${
+                  import.meta.env.VITE_BACKEND_URL
+                }/assets/images/add.svg`}
                 alt="bouton accueil"
               />
             ) : (
               <img
                 className="navbar__icon"
                 name="add"
-                src="src/assets/activeAdd.svg"
+                src={`${
+                  import.meta.env.VITE_BACKEND_URL
+                }/assets/images/activeAdd.svg`}
                 alt="bouton accueil"
               />
             )}
@@ -94,14 +106,18 @@ function Navbar() {
               <img
                 className="navbar__icon"
                 name="bookmark"
-                src="src/assets/bookmark.svg"
+                src={`${
+                  import.meta.env.VITE_BACKEND_URL
+                }/assets/images/bookmark.svg`}
                 alt="bouton accueil"
               />
             ) : (
               <img
                 className="navbar__icon"
                 name="bookmark"
-                src="src/assets/activeBookmark.svg"
+                src={`${
+                  import.meta.env.VITE_BACKEND_URL
+                }/assets/images/activeBookmark.svg`}
                 alt="bouton accueil"
               />
             )}

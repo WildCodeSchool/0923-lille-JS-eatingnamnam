@@ -11,12 +11,15 @@
   -webkit-box-shadow: 10px 6px 11px -6px rgba(0, 0, 0, 0.36);
   -moz-box-shadow: 10px 6px 11px -6px rgba(0, 0, 0, 0.36);
 }
+.flex-item {
+  width: 100%;
+}
 
 .comment__container {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  width: 50%;
+  width: 100%;
 }
 .comment__userLogo__img {
   width: 22%;
@@ -31,6 +34,7 @@
 }
 .comment__user__name {
   font-size: 24px;
+  width: 78%;
 }
 
 .comment__date {

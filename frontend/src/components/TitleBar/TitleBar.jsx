@@ -13,7 +13,9 @@ function TitleBar() {
       <img
         className="titleBar__logo"
         name="logo"
-        src="src/assets/Logo-nam-nam.png"
+        src={`${
+          import.meta.env.VITE_BACKEND_URL
+        }/assets/images/Logo-nam-nam.png`}
         alt="logo"
       />
       {connected === 0 ? (
@@ -42,7 +44,7 @@ function TitleBar() {
           <img
             className="titleBar__userLogo__img"
             name="userLogo"
-            src="src/assets/icone-user.svg"
+            src={`${import.meta.env.VITE_BACKEND_URL}/assets/images/User.png`}
             alt="userLogo"
           />
         </Link>
