@@ -1,4 +1,3 @@
-/* eslint-disable react/button-has-type */
 import "./UserProfil.scss";
 
 function UserProfil() {
