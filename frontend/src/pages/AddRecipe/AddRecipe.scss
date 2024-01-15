@@ -33,9 +33,21 @@
       height: 1.25em;
       // padding: 0 0.25em;
     }
-    .form__picture {
-      display: flex;
-      justify-content: center;
+  }
+  .form__picture {
+    color: $secondaryColor;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    border: 2px;
+    .form__picture__button {
+      // display: flex;
+      // justify-content: center;
+      // border:5px solid $secondaryColor ;
+      // background-color: red($color: #000000);
+      display: none;
     }
   }
 }

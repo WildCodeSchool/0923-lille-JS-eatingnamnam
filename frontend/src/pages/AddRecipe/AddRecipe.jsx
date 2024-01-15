@@ -66,7 +66,7 @@ function AddRecipe() {
           </select>
         </label>
       </div>
-      <label htmlFor="picture" className="form__fontLabel">
+      <label htmlFor="picture" className="form__picture">
         Ajouter une photo
         <input
           {...register("picture")}
@@ -74,7 +74,7 @@ function AddRecipe() {
           id="picture"
           name="picture"
           accept="image/png, image/jpeg"
-          className="form__picture"
+          className="form__picture__button"
         />
       </label>
 
