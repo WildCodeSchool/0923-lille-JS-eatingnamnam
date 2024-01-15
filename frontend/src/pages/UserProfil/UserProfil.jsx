@@ -19,6 +19,11 @@ function UserProfil() {
   return (
     <>
       <img
+        className="UserProfil__img__fred"
+        src="src/assets/photo-fred.png"
+        alt=""
+      />
+      <img
         className="UserProfil__img"
         src="src/assets/PlateauFromageProfil.jpg"
         alt="a magnifying glass icon"
