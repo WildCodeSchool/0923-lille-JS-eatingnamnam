@@ -11,7 +11,6 @@ import CommentCard from "../../components/CommentCard/CommentCard";
 function Recipe() {
   const [recipe, setRecipe] = useState();
   const { recipeID } = useParams();
-
   const [ingredientList, setIngredientList] = useState();
   const [utensils, setUtensils] = useState();
   const [steps, setSteps] = useState();
