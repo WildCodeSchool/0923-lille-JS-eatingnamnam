@@ -4,6 +4,7 @@ const express = require("express");
 
 const app = express();
 const cors = require("cors");
+const path = require("path");
 
 // Import the API routes from the router module
 const router = require("./router");
@@ -23,6 +24,7 @@ app.use("/api", router);
 app.use(express.json());
 
 app.use(express.static("./public")); // Permet d'avoir accès au image dans le public
+app.use("/images", express.static(path.join(__dirname, "images")));
 
 // Configure it
 

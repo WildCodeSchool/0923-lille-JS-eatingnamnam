@@ -4,7 +4,13 @@ body {
   background-color: $lightGreyBackground;
 }
 
-.ingredientList {
+.ingredientsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8em;
+  justify-content: center;
+}
+.utensilsList {
   display: flex;
   flex-wrap: wrap;
   gap: 0.8em;

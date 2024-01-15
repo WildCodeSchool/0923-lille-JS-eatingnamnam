@@ -7,14 +7,16 @@ function TitleBar() {
       <img
         className="titleBar__logo"
         name="logo"
-        src="src/assets/Logo-nam-nam.png"
+        src={`${
+          import.meta.env.VITE_BACKEND_URL
+        }/assets/images/Logo-nam-nam.png`}
         alt="logo"
       />
       <Link to="/userprofil" className="titleBar__userLogo" type="submit">
         <img
           className="titleBar__userLogo__img"
           name="userLogo"
-          src="src/assets/icone-user.svg"
+          src={`${import.meta.env.VITE_BACKEND_URL}/assets/images/User.png`}
           alt="userLogo"
         />
       </Link>
