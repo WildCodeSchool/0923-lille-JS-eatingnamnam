@@ -11,12 +11,10 @@ import CommentCard from "../../components/CommentCard/CommentCard";
 function Recipe() {
   const [recipe, setRecipe] = useState();
   const { recipeId } = useParams();
-
   const [ingredientList, setIngredientList] = useState();
   const [utensils, setUtensils] = useState();
   const [comments, setComments] = useState();
   const [steps, setSteps] = useState();
-
   const [tab, setTab] = useState(1);
   const [ingredientIsActive, setIngredientIsActive] = useState(1);
   const [ustensilIsActive, setUstensilIsActive] = useState(0);
