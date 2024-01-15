@@ -1,6 +1,41 @@
 @import "../../variables.scss";
 
-.helloRecipe {
-  font-size: 2.5rem;
-  text-align: center;
+.form {
+  margin: 1.5em;
+  .form__title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 0 0 0.5em 0;
+  }
+  .form__addTitle {
+    display: flex;
+    width: 100%;
+    border-radius: 30px;
+    font-size: 1.5rem;
+    margin-bottom: 0.25em;
+    // height: 1.25em;
+    padding: 0.2em 0;
+  }
+  .form__fontLabel {
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .form__evaluation {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5em 0;
+    .form__evaluation__select {
+      border-radius: 30px;
+      font-size: 1.5rem;
+      margin: 0.25em 0;
+      border: 1px solid $mainFontColor;
+      height: 1.25em;
+      // padding: 0 0.25em;
+    }
+    .form__picture {
+      display: flex;
+      justify-content: center;
+    }
+  }
 }

@@ -1,119 +1,241 @@
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable import/no-extraneous-dependencies */
 import "./AddRecipe.scss";
-// import SelectContry from "../../components/SelectContry/SelectContry";
+import { useForm } from "react-hook-form";
+import SelectContry from "../../components/SelectContry/SelectContry";
 
 function AddRecipe() {
+  const { register, handleSubmit } = useForm();
+  // eslint-disable-next-line no-alert
+  const onSubmit = (data) => alert(JSON.stringify(data));
   return (
-    <h1 className="form__title">CREE TA RECETTE</h1>
-    // <form action="" method="post" className="form">
-    //   <textarea
-    //     id="title"
-    //     name="title"
-    //     rows="1"
-    //     className="form__addTitle"
-    //     placeholder="&nbsp;Titre"
-    //   />
-    //   <div className="form__evaluation">
-    //     <input
-    //       className="form__evaluation__time"
-    //       type="time"
-    //       id="time"
-    //       name="time"
-    //       min="00:01"
-    //       max="24:00"
-    //       required
-    //     />
-    //     <label htmlFor="dificultySelect"></label>
-    //     <select
-    //       className="form__evaluation__dificulty"
-    //       name="dificulty"
-    //       id="dificultySelect"
-    //     >
-    //       <option value="">Difficulté</option>
-    //       <option value="easy">Facile</option>
-    //       <option value="medium">Moyen</option>
-    //       <option value="difficult">Difficile</option>
-    //     </select>
+    <form onSubmit={handleSubmit(onSubmit)} method="post" className="form">
+      <h1 className="form__title">CREE TA RECETTE</h1>
+      <label className="form__addTitle" htmlFor="title">
+        Titre
+      </label>
+      <textarea
+        {...register("title")}
+        id="title"
+        name="title"
+        rows="1"
+        className="form__addTitle"
+        placeholder="&nbsp;Titre"
+      />
+      <div className="form__evaluation">
+        <label className="form__fontLabel" htmlFor="time">
+          Temps
+          <input
+            {...register("time")}
+            className="form__evaluation__select"
+            type="time"
+            id="time"
+            name="time"
+            min="00:01"
+            max="24:00"
+            required
+          />
+        </label>
+        <label className="form__fontLabel" htmlFor="dificultySelect">
+          Dificulter
+          <select
+            {...register("dificulty")}
+            className="form__evaluation__select"
+            name="dificulty"
+            id="dificultySelect"
+          >
+            <option value="">-- --</option>
+            <option value="easy">Facile</option>
+            <option value="medium">Moyen</option>
+            <option value="difficult">Difficile</option>
+          </select>
+        </label>
 
-    //     <label for="priceSelect"></label>
-    //     <select
-    //       className="form__evaluation__price"
-    //       name="price"
-    //       id="priceSelect"
-    //     >
-    //       <option value="">Prix</option>
-    //       <option value="low">Bas</option>
-    //       <option value="medium">Moyen</option>
-    //       <option value="raise">Elevé</option>
-    //     </select>
-    //   </div>
+        <label htmlFor="priceSelect" className="form__fontLabel">
+          Prix
+          <select
+            {...register("price")}
+            className="form__evaluation__select"
+            name="price"
+            id="priceSelect"
+          >
+            <option value="">-- --</option>
+            <option value="low">Bas</option>
+            <option value="medium">Moyen</option>
+            <option value="raise">Elevé</option>
+          </select>
+        </label>
+      </div>
+      <label htmlFor="picture" className="form__fontLabel">
+        Ajouter une photo
+        <input
+          {...register("picture")}
+          type="file"
+          id="picture"
+          name="picture"
+          accept="image/png, image/jpeg"
+          className="form__picture"
+        />
+      </label>
 
-    //   <input
-    //     type="file"
-    //     id="photo"
-    //     name="photo"
-    //     accept="image/png, image/jpeg"
-    //   />
+      {/* composant ingrédiant */}
+      {/* composant étapes */}
+      {/* composant ustencil */}
+      <SelectContry />
+      <fieldset>
+        <legend>Régime Alimentaire</legend>
+        <label htmlFor="vegetarian">
+          <input
+            value="vegetarian"
+            {...register("diet")}
+            type="checkbox"
+            id="vegetarian"
+          />
+          Végétarien
+        </label>
 
-    //   {/* composant ingrédiant */}
-    //   {/* composant étapes */}
-    //   {/* composant ustencil */}
-    //   <SelectContry />
-    //   <fieldset>
-    //     <legend>Régime Alimentaire</legend>
-    //     <input type="checkbox" name="diet" id="vegetarian" />
-    //     <label for="vegetarian">Végétarien</label>
+        <input value="vegan" {...register("diet")} type="checkbox" id="vegan" />
+        <label htmlFor="vegan">Végan</label>
 
-    //     <input type="checkbox" name="diet" id="vegan" />
-    //     <label for="vegan">Végan</label>
+        <label htmlFor="gourmet">
+          <input
+            value="gourmet"
+            {...register("diet")}
+            type="checkbox"
+            id="gourmet"
+          />
+          Gourmand
+        </label>
 
-    //     <input type="checkbox" name="diet" id="gourmet" />
-    //     <label for="gourmet">Gourmand</label>
+        <label htmlFor="light">
+          <input
+            value="light"
+            {...register("diet")}
+            type="checkbox"
+            id="light"
+          />
+          Light
+        </label>
 
-    //     <input type="checkbox" name="diet" id="light" />
-    //     <label for="light">Light</label>
+        <label htmlFor="balanced">
+          <input
+            value="balanced"
+            {...register("diet")}
+            type="checkbox"
+            id="balanced"
+          />
+          Equilibré
+        </label>
+      </fieldset>
 
-    //     <input type="checkbox" name="diet" id="balanced" />
-    //     <label for="balanced">Equilibré</label>
-    //   </fieldset>
+      <fieldset>
+        <legend>Type</legend>
+        <label htmlFor="starter ">
+          <input
+            value="starter"
+            {...register("type")}
+            type="radio"
+            id="starter "
+          />
+          Entrée
+        </label>
 
-    //   <fieldset>
-    //     <legend>Type</legend>
-    //     <input type="checkbox" name="type" id="starter " />
-    //     <label for="starter ">Entrée</label>
+        <label htmlFor="main_course">
+          <input
+            value="main_course"
+            {...register("type")}
+            type="radio"
+            id="main_course"
+          />
+          Plat
+        </label>
 
-    //     <input type="checkbox" name="type" id="main_course" />
-    //     <label for="main_course">Plat</label>
+        <label htmlFor="dessert">
+          <input
+            value="dessert"
+            {...register("type")}
+            type="radio"
+            id="dessert"
+          />
+          Dessert
+        </label>
 
-    //     <input type="checkbox" name="type" id="dessert" />
-    //     <label for="dessert">Dessert</label>
+        <label htmlFor="aptizer">
+          <input
+            value="aptizer"
+            {...register("type")}
+            type="radio"
+            id="aptizer"
+          />
+          Apéritif
+        </label>
 
-    //     <input type="checkbox" name="type" id="aptizer" />
-    //     <label for="aptizer">Apéritif</label>
+        <label htmlFor="cocktail">
+          <input
+            value="cocktail"
+            {...register("type")}
+            type="radio"
+            id="cocktail"
+          />
+          Cocktail
+        </label>
+      </fieldset>
 
-    //     <input type="checkbox" name="type" id="cocktail" />
-    //     <label for="cocktail">Cocktail</label>
-    //   </fieldset>
+      <fieldset>
+        <legend>Saison</legend>
+        <label htmlFor="allSeason">
+          <input
+            value="allSeason"
+            {...register("season")}
+            type="checkbox"
+            id="allSeason"
+          />
+          Toute saison
+        </label>
 
-    //   <fieldset>
-    //     <legend>Saison</legend>
-    //     <input type="checkbox" name="season" id="allSeason" />
-    //     <label for="allSeason">Toute saison</label>
+        <label htmlFor="spring">
+          <input
+            value="spring"
+            {...register("season")}
+            type="checkbox"
+            id="spring"
+          />
+          Primtemps
+        </label>
 
-    //     <input type="checkbox" name="season" id="spring" />
-    //     <label for="spring">Primtemps</label>
+        <label htmlFor="summer">
+          <input
+            value="summer"
+            {...register("season")}
+            type="checkbox"
+            id="summer"
+          />
+          Eté
+        </label>
 
-    //     <input type="checkbox" name="season" id="summer" />
-    //     <label for="summer">Eté</label>
+        <label htmlFor="automn">
+          <input
+            value="automn"
+            {...register("season")}
+            type="checkbox"
+            id="automn"
+          />
+          Automne
+        </label>
 
-    //     <input type="checkbox" name="season" id="automn" />
-    //     <label for="automn">Automne</label>
+        <label htmlFor="winter">
+          <input
+            value="winter"
+            {...register("season")}
+            type="checkbox"
+            id="winter"
+          />
+          Hiver
+        </label>
+      </fieldset>
 
-    //     <input type="checkbox" name="season" id="winter" />
-    //     <label for="winter">Hiver</label>
-    //   </fieldset>
-
-    //   <input type="submit" value="Partager" />
-    // </form>
+      <input type="submit" value="Partager" />
+    </form>
   );
 }
 
