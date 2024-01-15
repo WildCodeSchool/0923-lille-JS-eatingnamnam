@@ -5,10 +5,9 @@ export const NavContext = createContext();
 
 export function NavBarProvider({ children }) {
   const [activeButton, setActiveButton] = useState("home");
-  const [recipeID, setRecipeID] = useState("1");
   const stateButton = useMemo(
-    () => ({ activeButton, setActiveButton, recipeID, setRecipeID }),
-    [activeButton, setActiveButton, recipeID, setRecipeID]
+    () => ({ activeButton, setActiveButton }),
+    [activeButton, setActiveButton]
   );
 
   return (

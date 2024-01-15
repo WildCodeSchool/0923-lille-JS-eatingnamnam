@@ -2,10 +2,10 @@ import "./StarBar.scss";
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
-function StarBar({ recipe }) {
+function StarBar({ id }) {
   const [grade, setGrade] = useState();
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/grade/${recipe.id}`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/grade/${id}`)
       .then((response) => response.json())
       .then((data) => setGrade(data))
       .catch((error) => console.error(error));
@@ -43,9 +43,7 @@ function StarBar({ recipe }) {
   );
 }
 StarBar.propTypes = {
-  recipe: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-  }).isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 export default StarBar;

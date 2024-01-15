@@ -1,24 +1,26 @@
 import "./Recipe.scss";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import RecipeInfo from "../../components/RecipeInfo/RecipeInfo";
 import IngredientCard from "../../components/IngredientCard/IngredientCard";
 import AddComment from "../../components/AddComment/AddComment";
 import RecipeStep from "../../components/RecipeStep/RecipeStep";
 import UstensiltCard from "../../components/UtensilCard/UtensilCard";
-import { NavContext } from "../../components/Contexts/navBarContext";
 import CommentCard from "../../components/CommentCard/CommentCard";
 
 function Recipe() {
-  const [utensils, setUtensils] = useState();
-  const { recipeID } = useContext(NavContext);
-  const [comments, setComments] = useState();
-  const [tab, setTab] = useState(1);
+  const [recipe, setRecipe] = useState();
+  const { recipeID } = useParams();
   const [ingredientList, setIngredientList] = useState();
+  const [utensils, setUtensils] = useState();
+  const [steps, setSteps] = useState();
+  const [comments, setComments] = useState();
+
+  const [tab, setTab] = useState(1);
   const [ingredientIsActive, setIngredientIsActive] = useState(1);
   const [ustensilIsActive, setUstensilIsActive] = useState(0);
   const [stepIsActive, setStepIsActive] = useState(0);
 
-  const [recipe, setRecipe] = useState();
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/${recipeID}`)
       .then((response) => response.json())
@@ -26,9 +28,7 @@ function Recipe() {
       .catch((error) => console.error(error));
 
     fetch(
-      `${
-        import.meta.env.VITE_BACKEND_URL
-      }/api/ingredientlist/recipe/${recipeID}`
+      `${import.meta.env.VITE_BACKEND_URL}/api/recipe/${recipeID}/ingredients`
     )
       .then((response) => response.json())
       .then((data) => setIngredientList(data))
@@ -42,6 +42,11 @@ function Recipe() {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/${recipeID}/comments`)
       .then((response) => response.json())
       .then((data) => setComments(data))
+      .catch((error) => console.error(error));
+
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/${recipeID}/steps`)
+      .then((response) => response.json())
+      .then((data) => setSteps(data))
       .catch((error) => console.error(error));
   }, []);
 
@@ -67,7 +72,7 @@ function Recipe() {
 
   return (
     <div>
-      {recipe ? <RecipeInfo recipe={recipe[0]} /> : "loading"}
+      {recipe ? <RecipeInfo recipe={recipe} id={recipe.id} /> : "loading"}
 
       <main className="recipe__cardContainer">
         <nav className="recipe__buttonBar">
@@ -98,23 +103,26 @@ function Recipe() {
         <section className="ingredientList">
           {tab === 1 && ingredientList
             ? ingredientList.map((ingredient) => (
-                <IngredientCard key={ingredient.id} ingredient={ingredient} />
+                <IngredientCard
+                  key={`ingredient:${ingredient.id}`}
+                  ingredient={ingredient}
+                />
               ))
             : ""}
         </section>
         {tab === 2 && utensils
           ? utensils.map((utensil) => (
               <UstensiltCard
-                key={utensil.id}
+                key={`ustensil:${utensil.id}`}
                 name={utensil.name}
                 img={utensil.picture}
               />
             ))
           : ""}
-        {tab === 3 && recipe
-          ? recipe.map((step) => (
+        {tab === 3 && steps
+          ? steps.map((step) => (
               <RecipeStep
-                key={step.id}
+                key={`step:${step.id}`}
                 recipeStep={step.description}
                 stepNumber={step.number_step}
               />
@@ -124,9 +132,10 @@ function Recipe() {
         {comments
           ? comments.map((comment) => (
               <CommentCard
-                key={comment.id}
+                key={`comment:${comment.id}`}
                 comment={comment}
-                recipe={recipe[0]}
+                recipe={recipe}
+                id={recipe.id}
               />
             ))
           : ""}

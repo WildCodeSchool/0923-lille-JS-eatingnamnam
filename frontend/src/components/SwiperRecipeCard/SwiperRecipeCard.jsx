@@ -13,7 +13,7 @@ function SwiperRecipeCard({ recipe }) {
     setActiveButton("recipe");
   };
   return (
-    <Link to="/recipe" onClick={handleClick}>
+    <Link to={`/recipe/${recipe.id}`} onClick={handleClick}>
       <section className="swiperCard">
         <article
           className="swiperCard__logo"
@@ -34,7 +34,7 @@ function SwiperRecipeCard({ recipe }) {
         </article>
         <article className="swiperCard__info">
           <h1 className="swiperCard__info__title">{recipe.title}</h1>
-          <StarBar className="swiperCard_info__stars" recipe={recipe} />
+          <StarBar className="swiperCard_info__stars" id={recipe.id} />
         </article>
       </section>
     </Link>

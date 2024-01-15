@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import StarBar from "../StarBar/StarBar";
 import AddFavorite from "../AddFavorite/AddFavorite";
 
-function RecipeInfo({ recipe }) {
+function RecipeInfo({ recipe, id }) {
   const nbEuro = Array(recipe.price).fill("src/assets/euro.svg");
 
   return (
@@ -27,7 +27,7 @@ function RecipeInfo({ recipe }) {
       </section>
       <section className="RecipeInfo__info">
         <p className="RecipeInfo_info__p">"nb commentaire(s)"</p>
-        <StarBar className="RecipeInfo_info__stars" recipe={recipe} />
+        <StarBar className="RecipeInfo_info__stars" id={id} />
       </section>
 
       <h1 className="RecipeInfo__info__title">{recipe.title}</h1>
@@ -89,6 +89,7 @@ RecipeInfo.propTypes = {
     price: PropTypes.number.isRequired,
     number_share: PropTypes.number.isRequired,
   }).isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 export default RecipeInfo;
