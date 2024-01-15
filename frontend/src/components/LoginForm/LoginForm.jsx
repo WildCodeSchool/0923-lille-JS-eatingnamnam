@@ -7,18 +7,26 @@ function LoginForm() {
   const onSubmit = (data) => console.warn(data);
   return (
     <form className="formLogin__inputs" onSubmit={handleSubmit(onSubmit)}>
-      <input
-        className="formLogin__inputs__text"
-        type="mail"
-        {...register("mail", { required: true }, { type: "email" })}
-        placeholder=" azerty@gmail.com"
-      />
-      <input
-        className="formLogin__inputs__text"
-        {...register("password", { required: true })}
-        type="password"
-        placeholder=" Mot de passe"
-      />
+      <label htmlFor="mail" className="formLogin__label">
+        Adresse mail
+        <input
+          id="mail"
+          className="formLogin__inputs__text"
+          type="mail"
+          {...register("mail", { required: true }, { type: "email" })}
+          placeholder="azerty@gmail.com"
+        />
+      </label>
+      <label htmlFor="password" className="formLogin__label">
+        Mot de passe
+        <input
+          id="password"
+          className="formLogin__inputs__text"
+          {...register("password", { required: true })}
+          type="password"
+          placeholder="Mot de passe"
+        />
+      </label>
       <input
         className="formLogin__inputs__submit"
         type="submit"
