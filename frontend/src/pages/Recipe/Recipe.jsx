@@ -6,7 +6,6 @@ import IngredientCard from "../../components/IngredientCard/IngredientCard";
 import AddComment from "../../components/AddComment/AddComment";
 import RecipeStep from "../../components/RecipeStep/RecipeStep";
 import UstensiltCard from "../../components/UtensilCard/UtensilCard";
-/* import { NavContext } from "../../components/Contexts/navBarContext"; */
 import CommentCard from "../../components/CommentCard/CommentCard";
 
 function Recipe() {
