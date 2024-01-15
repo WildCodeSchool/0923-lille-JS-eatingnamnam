@@ -10,41 +10,40 @@ import CommentCard from "../../components/CommentCard/CommentCard";
 
 function Recipe() {
   const [recipe, setRecipe] = useState();
-  const { recipeID } = useParams();
+  const { recipeId } = useParams();
   const [ingredientList, setIngredientList] = useState();
   const [utensils, setUtensils] = useState();
-  const [steps, setSteps] = useState();
   const [comments, setComments] = useState();
-
+  const [steps, setSteps] = useState();
   const [tab, setTab] = useState(1);
   const [ingredientIsActive, setIngredientIsActive] = useState(1);
   const [ustensilIsActive, setUstensilIsActive] = useState(0);
   const [stepIsActive, setStepIsActive] = useState(0);
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/${recipeID}`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/${recipeId}`)
       .then((response) => response.json())
       .then((data) => setRecipe(data))
       .catch((error) => console.error(error));
 
     fetch(
-      `${import.meta.env.VITE_BACKEND_URL}/api/recipe/${recipeID}/ingredients`
+      `${import.meta.env.VITE_BACKEND_URL}/api/recipe/${recipeId}/ingredients`
     )
       .then((response) => response.json())
       .then((data) => setIngredientList(data))
       .catch((error) => console.error(error));
 
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/${recipeID}/utensils`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/${recipeId}/utensils`)
       .then((response) => response.json())
       .then((data) => setUtensils(data))
       .catch((error) => console.error(error));
 
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/${recipeID}/comments`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/${recipeId}/comments`)
       .then((response) => response.json())
       .then((data) => setComments(data))
       .catch((error) => console.error(error));
 
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/${recipeID}/steps`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/${recipeId}/steps`)
       .then((response) => response.json())
       .then((data) => setSteps(data))
       .catch((error) => console.error(error));
@@ -128,7 +127,8 @@ function Recipe() {
               />
             ))
           : ""}
-        <AddComment />
+        {ingredientList && utensils && comments ? <AddComment /> : ""}
+
         {comments
           ? comments.map((comment) => (
               <CommentCard

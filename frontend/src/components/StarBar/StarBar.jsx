@@ -13,8 +13,12 @@ function StarBar({ id }) {
 
   const averageGrade = Math.round(grade?.average_grade);
 
-  const fullStars = Array(5).fill("src/assets/star.svg");
-  const emptyStars = Array(5).fill("src/assets/emptyStar.svg");
+  const fullStars = Array(5).fill(
+    `${import.meta.env.VITE_BACKEND_URL}/assets/images/star.svg`
+  );
+  const emptyStars = Array(5).fill(
+    `${import.meta.env.VITE_BACKEND_URL}/assets/images/emptyStar.svg`
+  );
 
   return (
     <div className="starContainer">
