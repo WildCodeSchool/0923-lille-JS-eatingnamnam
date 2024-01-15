@@ -58,6 +58,11 @@ function UserProfil() {
       <button className="UserProfil__button__post" type="button">
         Créer un post +
       </button>
+      <h1>Mes postes</h1>
+      <button className="UserProfil__button__favoris" type="button">
+        Tous mes Favoris
+      </button>
+      <h1>Mes favorits</h1>
     </>
   );
 }
