@@ -19,7 +19,7 @@ function UserProfil() {
   return (
     <>
       <img
-        className="UserProfil__img__fred"
+        className="UserProfil__img__profil"
         src="src/assets/photo-profil-user.jpeg"
         alt=""
       />
