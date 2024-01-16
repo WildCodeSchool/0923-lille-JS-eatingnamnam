@@ -4,7 +4,16 @@ import { useForm } from "react-hook-form";
 
 function LoginForm() {
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.warn(data);
+  const onSubmit = (data) => {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/login`, {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        data,
+      }),
+    });
+  };
+
   return (
     <form className="formLogin__inputs" onSubmit={handleSubmit(onSubmit)}>
       <label htmlFor="mail" className="formLogin__label">
