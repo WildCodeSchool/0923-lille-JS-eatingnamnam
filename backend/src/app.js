@@ -1,10 +1,9 @@
 // Load the express module to create a web application
-
+const bodyParser = require("body-parser");
 const express = require("express");
 
 const app = express();
 const cors = require("cors");
-const path = require("path");
 
 // Import the API routes from the router module
 const router = require("./router");
@@ -22,9 +21,9 @@ app.use(
 // Mount the API routes under the "/api" endpoint
 app.use("/api", router);
 app.use(express.json());
-
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static("./public")); // Permet d'avoir accès au image dans le public
-app.use("/images", express.static(path.join(__dirname, "images")));
+/* app.use("/images", express.static(path.join(__dirname, "images"))); */
 
 // Configure it
 
@@ -55,7 +54,8 @@ app.use("/images", express.static(path.join(__dirname, "images")));
 // For example to access the body of a POST request.
 // The current code contains different parsing options as comments to demonstrate different ways of extracting data.
 
-// 1. `express.json()`: Parses requests with JSON data.
+express.json();
+// : Parses requests with JSON data.
 // 2. `express.urlencoded()`: Parses requests with URL-encoded data.
 // 3. `express.text()`: Parses requests with raw text data.
 // 4. `express.raw()`: Parses requests with raw binary data.

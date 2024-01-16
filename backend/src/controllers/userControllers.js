@@ -13,6 +13,17 @@ const browse = async (req, res, next) => {
   }
 };
 
+const register = async (req, res, next) => {
+  try {
+    const user = await tables.user.create();
+    res.json(user);
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
 module.exports = {
   browse,
+  register,
 };

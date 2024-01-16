@@ -32,6 +32,8 @@ router.get("/ustensil", ustensilControllers.browse);
 router.get("/tag", tagControllers.browseByTag);
 router.get("/user", userControllers.browse);
 
+router.post("/adduser", userControllers.register);
+
 router.get("/ingredient", ingredientControllers.browse);
 router.get("/step", stepControllers.browse);
 router.get("/step/:id", stepControllers.stepByRecipeId);

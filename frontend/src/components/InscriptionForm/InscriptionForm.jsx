@@ -4,7 +4,17 @@ import { useForm } from "react-hook-form";
 
 function InscriptionForm() {
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.warn(data);
+
+  const onSubmit = (data) => {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/adduser`, {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        data,
+      }),
+    });
+  };
+
   return (
     <form className="formInscription__inputs" onSubmit={handleSubmit(onSubmit)}>
       <label className="formInscription__label">
