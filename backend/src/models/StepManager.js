@@ -7,6 +7,16 @@ class StepManager extends AbstractManager {
     super({ table: "step" });
   }
 
+  async create(step) {
+    // Execute the SQL INSERT query to add a new item to the "item" table
+    const [result] = await this.database.query(
+      `INSERT INTO ${this.table} (number_step, description, recipe_id) VALUE (?, ?, ?)`,
+      [step.numberStep, step.description, 1]
+    );
+    // Return the ID of the newly inserted item
+    return result.insertId;
+  }
+
   async read(id) {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
     const [rows] = await this.database.query(

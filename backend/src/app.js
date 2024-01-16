@@ -1,10 +1,17 @@
 // Load the express module to create a web application
 
 const express = require("express");
+const bodyParser = require("body-parser");
 
 const app = express();
 const cors = require("cors");
 const path = require("path");
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
 
 // Import the API routes from the router module
 const router = require("./router");
@@ -55,7 +62,7 @@ app.use("/images", express.static(path.join(__dirname, "images")));
 // For example to access the body of a POST request.
 // The current code contains different parsing options as comments to demonstrate different ways of extracting data.
 
-// 1. `express.json()`: Parses requests with JSON data.
+express.json();
 // 2. `express.urlencoded()`: Parses requests with URL-encoded data.
 // 3. `express.text()`: Parses requests with raw text data.
 // 4. `express.raw()`: Parses requests with raw binary data.

@@ -6,8 +6,9 @@ import "./Search.scss";
 
 function Search() {
   const [tags, setTags] = useState();
-  const [stepCount, setStepCount] = useState(1);
-  const [stepsArr, setMyData] = useState([]);
+  const [numberStep, setNumberStep] = useState(10);
+  const [description, setDescription] = useState();
+  const [stepsArr, setStepsArr] = useState([]);
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/tag`)
@@ -22,20 +23,41 @@ function Search() {
     reset,
     formState: { isSubmitSuccessful },
   } = useForm();
+  // Example POST method implementation:
+  async function postData(url = "", data = { description, numberStep }) {
+    const response = await fetch(url, {
+      method: "POST", // *GET, POST, PUT, DELETE, etc.
+      mode: "cors", // no-cors, *cors, same-origin
+      cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+      credentials: "same-origin", // include, *same-origin, omit
+      headers: {
+        "Content-Type": "application/json",
+      },
+      redirect: "follow", // manual, *follow, error
+      referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+      body: JSON.stringify({
+        data,
+      }), // body data type must match "Content-Type" header
+    });
+    return response.json(); // parses JSON response into native JavaScript objects
+  }
 
   const onSubmit = (data, event) => {
     event.preventDefault();
-    setStepCount(stepCount + 1);
-    const stepObj = { id: stepCount, desc: data.stepDescription };
-    if (!stepsArr) {
-      setMyData(stepsArr);
-    } else {
-      setMyData([...stepsArr, stepObj]);
-    }
-    console.warn(stepsArr);
+    setNumberStep(numberStep + 1);
+    setDescription(data.stepDescription);
+    const stepObj = { id: numberStep, desc: data.stepDescription };
+    setStepsArr([...stepsArr, stepObj]);
+    postData(`${import.meta.env.VITE_BACKEND_URL}/api/add/steps`, {}).then(
+      (res) => {
+        console.warn(res); // JSON data parsed by `data.json()` call
+      }
+    );
   };
+
   useEffect(() => {
-    if (isSubmitSuccessful) reset();
+    if (isSubmitSuccessful);
+    reset();
   }, [isSubmitSuccessful, reset]);
 
   return (
@@ -45,7 +67,7 @@ function Search() {
           etape{step.id}: {step.desc}
         </p>
       ))}
-      <h1>step {stepCount} </h1>
+      <h1>step {numberStep} </h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           name="step description"
