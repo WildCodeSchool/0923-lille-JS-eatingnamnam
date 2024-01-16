@@ -31,7 +31,7 @@ function Homepage() {
     setActiveButton("recipe");
   };
   return (
-    <main className="home">
+    <main className="home page">
       <h1 className="home__recipeDay__title">Recette du jour</h1>
       <section className="home__recipeDay">
         {recipe ? (
