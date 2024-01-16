@@ -9,7 +9,7 @@ class UserManager extends AbstractManager {
 
   // The C of CRUD - Create operation
 
-  async create(myUser, mdp) {
+  async create(myUser, hashedPassword) {
     // Execute the SQL INSERT query to add a new item to the "item" table
     const [result] = await this.database.query(
       `INSERT INTO ${this.table} (first_name, last_name, pseudo, email, password, birth_date, role) VALUES (?,?,?,?,?,?,?)`,
@@ -18,13 +18,13 @@ class UserManager extends AbstractManager {
         myUser.lastname,
         myUser.Pseudo,
         myUser.mail,
-        mdp,
+        hashedPassword,
         myUser.birthdate,
         "user",
       ]
     );
     // Return the ID of the newly inserted item
-    return console.warn(result.insertId);
+    return result.insertId;
   }
 
   // The Rs of CRUD - Read operations
