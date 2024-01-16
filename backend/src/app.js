@@ -27,7 +27,6 @@ app.use(
 app.use("/api", router);
 app.use(express.json());
 app.use(express.static("./public")); // Permet d'avoir accès au image dans le public
-/* app.use("/images", express.static(path.join(__dirname, "images"))); */
 
 // Configure it
 
