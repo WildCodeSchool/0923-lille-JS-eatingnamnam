@@ -9,13 +9,6 @@ function AddComment() {
   // eslint-disable-next-line no-alert
   const onSubmit = (data) => alert(JSON.stringify(data));
   return (
-    // <form onSubmit={handleSubmit(onSubmit)}>
-    //   <label>
-    //     first Name
-    //     <input {...register("firstName")}/>
-    //     <input type="submit" value="submit"/>
-    //   </label>
-    // </form>
     <section className="addComment">
       <h1 className="addComment__title"> C'est terminé !</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="addComment__comment">
