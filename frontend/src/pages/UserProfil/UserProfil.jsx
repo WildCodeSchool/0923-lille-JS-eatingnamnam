@@ -20,7 +20,7 @@ function UserProfil() {
     <>
       <img
         className="UserProfil__img__fred"
-        src="src/assets/photo-fred.png"
+        src="src/assets/photo-profil-user.jpeg"
         alt=""
       />
       <img
