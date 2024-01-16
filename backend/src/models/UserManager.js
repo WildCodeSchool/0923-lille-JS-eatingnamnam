@@ -9,7 +9,7 @@ class UserManager extends AbstractManager {
 
   // The C of CRUD - Create operation
 
-  async create(myUser) {
+  async create(myUser, mdp) {
     // Execute the SQL INSERT query to add a new item to the "item" table
     const [result] = await this.database.query(
       `INSERT INTO ${this.table} (first_name, last_name, pseudo, email, password, birth_date, role) VALUES (?,?,?,?,?,?,?)`,
@@ -18,7 +18,7 @@ class UserManager extends AbstractManager {
         myUser.lastname,
         myUser.Pseudo,
         myUser.mail,
-        myUser.password,
+        mdp,
         myUser.birthdate,
         "user",
       ]
@@ -46,6 +46,16 @@ class UserManager extends AbstractManager {
 
     // Return the array of items
     return rows;
+  }
+
+  async readByEmailWithPassword(mail) {
+    // Execute the SQL SELECT query to retrieve a specific user by its email
+    const [rows] = await this.database.query(
+      `select * from ${this.table} where email = ?`,
+      [mail]
+    );
+    // Return the first row of the result, which represents the user
+    return rows[0];
   }
 
   // The U of CRUD - Update operation
