@@ -1,0 +1,106 @@
+@import "../../variables.scss";
+
+.formLogin {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  .formLogin__Button {
+    display: flex;
+    justify-content: space-evenly;
+    width: 70%;
+    font-size: 1.5em;
+  }
+
+  .active {
+    width: 50%;
+    height: 2em;
+    font-family: "Hubbali";
+    font-size: 19px;
+    color: #ffffff;
+    border: 0;
+    border-radius: 20px;
+    background-color: #d56c06;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  .noActive {
+    font-size: 17px;
+    background: none;
+    border: none;
+    border-bottom: 2.5px solid #d56c06;
+  }
+  .formLogin__inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 20vh;
+    width: 100%;
+    margin-bottom: 40%;
+
+    .formLogin__label {
+      width: 65%;
+    }
+
+    .formLogin__inputs__text {
+      border-radius: 20px;
+      border: 1px solid rgba(137, 137, 137, 1);
+      background-color: #ffffff;
+      height: 1.4em;
+      width: 100%;
+      font-size: 18px;
+      padding-left: 5px;
+    }
+    .formLogin__inputs__submit {
+      width: 30%;
+      height: 2em;
+      font-family: "Hubbali";
+      color: #ffffff;
+      border: 0;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 20px;
+      background-color: #97bf0d;
+    }
+  }
+
+  .formInscription__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    padding-top: 0.3em;
+    align-items: center;
+    height: 42vh;
+    width: 100%;
+
+    .formInscription__label {
+      display: flex;
+      flex-direction: column;
+      width: 65%;
+    }
+
+    .formInscription__inputs__text {
+      border-radius: 20px;
+      border: 1px solid rgba(137, 137, 137, 1);
+      background-color: #ffffff;
+      height: 1.4em;
+      width: 100%;
+      padding-left: 5px;
+    }
+    .formInscription__inputs__submit {
+      width: 30%;
+      height: 2em;
+      font-family: "Hubbali";
+      color: #ffffff;
+      border: 0;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 20px;
+      background-color: #97bf0d;
+    }
+  }
+}

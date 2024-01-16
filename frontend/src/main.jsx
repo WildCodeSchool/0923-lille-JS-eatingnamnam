@@ -10,6 +10,7 @@ import Favorites from "./pages/Favorites/Favorites";
 import Homepage from "./pages/Homepage/Homepage";
 import UserProfile from "./pages/UserProfile/UserProfile";
 import AddRecipe from "./pages/AddRecipe/AddRecipe";
+import Authentication from "./pages/Authentication/Authentication";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "/add/recipe",
         element: <AddRecipe />,
+      },
+      {
+        path: "/login",
+        element: <Authentication />,
       },
     ],
   },
