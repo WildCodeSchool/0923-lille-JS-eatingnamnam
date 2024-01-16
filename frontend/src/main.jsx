@@ -8,8 +8,9 @@ import Search from "./pages/Search/Search";
 import Recipe from "./pages/Recipe/Recipe";
 import Favorites from "./pages/Favorites/Favorites";
 import Homepage from "./pages/Homepage/Homepage";
-import UserProfil from "./pages/UserProfil/UserProfil";
+import UserProfile from "./pages/UserProfile/UserProfile";
 import AddRecipe from "./pages/AddRecipe/AddRecipe";
+import Authentication from "./pages/Authentication/Authentication";
 
 const router = createBrowserRouter([
   {
@@ -28,16 +29,20 @@ const router = createBrowserRouter([
         element: <Favorites />,
       },
       {
-        path: "/recipe",
+        path: "/recipe/:recipeId",
         element: <Recipe />,
       },
       {
-        path: "/profile",
-        element: <UserProfil />,
+        path: "/profile/:userId",
+        element: <UserProfile />,
       },
       {
         path: "/add/recipe",
         element: <AddRecipe />,
+      },
+      {
+        path: "/login",
+        element: <Authentication />,
       },
     ],
   },

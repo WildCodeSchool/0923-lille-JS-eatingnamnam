@@ -12,7 +12,7 @@ function Search() {
   }, []);
 
   return (
-    <>
+    <section className="page">
       <form className="searchBar">
         <input
           className="searchBar__form"
@@ -33,7 +33,7 @@ function Search() {
           ? tags.map((tag) => <TagCard key={tag.id} tag={tag} />)
           : "loading"}
       </section>
-    </>
+    </section>
   );
 }
 

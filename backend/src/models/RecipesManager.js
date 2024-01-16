@@ -25,16 +25,12 @@ class RecipeManager extends AbstractManager {
   async recipeById(id) {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
     const [rows] = await this.database.query(
-      `SELECT * FROM ${this.table}
-      INNER JOIN nam_nam.step 
-      ON recipe.id = step.recipe_id
-      where recipe.id = ?
-      ORDER BY number_step ASC `,
+      `SELECT * FROM ${this.table} where recipe.id = ?`,
       [id]
     );
 
     // Return the first row of the result, which represents the item
-    return rows;
+    return rows[0];
   }
 
   async randomRecipe() {
