@@ -5,6 +5,11 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
+
 // Import the API routes from the router module
 const router = require("./router");
 
@@ -21,7 +26,6 @@ app.use(
 // Mount the API routes under the "/api" endpoint
 app.use("/api", router);
 app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static("./public")); // Permet d'avoir accès au image dans le public
 /* app.use("/images", express.static(path.join(__dirname, "images"))); */
 
