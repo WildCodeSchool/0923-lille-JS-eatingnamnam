@@ -1,13 +1,14 @@
 // Load the express module to create a web application
 const bodyParser = require("body-parser");
 const express = require("express");
+// eslint-disable-next-line import/no-extraneous-dependencies
 const cookieParser = require("cookie-parser");
 
 const app = express();
 const cors = require("cors");
 
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // parse application/json
 app.use(bodyParser.json());

@@ -17,9 +17,9 @@ const commentControllers = require("./controllers/commentControllers");
 const stepControllers = require("./controllers/stepControllers");
 const { hashPassword } = require("./middleware/hashPassword");
 const authControllers = require("./controllers/authControllers");
-const { authorize } = require("./middleware/auth");
+/* const { authorize } = require("./middleware/auth"); */
 
-router.get("/me", authorize, userControllers.userByEmail);
+/* router.get("/me", authorize, userControllers.userByEmail); */
 router.get("/recipe", recipeControllers.browse);
 router.get("/recipe/:id", recipeControllers.recipeById);
 router.get("/recipe/:id/utensils", ustensilControllers.utensilByRecipeId);
@@ -32,15 +32,15 @@ router.get(
 );
 router.get("/randomrecipe", recipeControllers.randomRecipe);
 
-router.get("/ustensil", ustensilControllers.browse);
+/* router.get("/ustensil", ustensilControllers.browse); */
 router.get("/tag", tagControllers.browseByTag);
 router.get("/user", userControllers.browse);
 
 router.post("/adduser", hashPassword, userControllers.register);
 router.post("/login", authControllers.login);
 
-router.get("/ingredient", ingredientControllers.browse);
-router.get("/step", stepControllers.browse);
+/* router.get("/ingredient", ingredientControllers.browse); */
+/* router.get("/step", stepControllers.browse); */
 router.get("/step/:id", stepControllers.stepByRecipeId);
 
 router.get("/grade/:recipeID", commentControllers.rating);

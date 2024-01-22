@@ -11,6 +11,7 @@ function LoginForm() {
   const [auth, setAuth] = useState();
   const navigate = useNavigate();
   const onSubmit = (data) => {
+    console.warn("data:", data);
     try {
       fetch(`${import.meta.env.VITE_BACKEND_URL}/api/login`, {
         method: "post",

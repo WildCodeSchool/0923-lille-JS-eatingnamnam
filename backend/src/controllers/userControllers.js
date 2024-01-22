@@ -20,6 +20,7 @@ const register = async (req, res, next) => {
   try {
     const user = await tables.user.create(myUser, hashedPassword);
     res.json(user);
+    /*     console.log("created user:", user); */
   } catch (err) {
     next(err);
   }
