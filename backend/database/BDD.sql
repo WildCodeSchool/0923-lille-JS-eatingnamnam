@@ -290,7 +290,7 @@ CREATE TABLE `user` (
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
   `pseudo` varchar(50) NOT NULL,
-  `email` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL UNIQUE,
   `password` varchar(255) NOT NULL,
   `birth_date` date NOT NULL,
   `profile_picture` varchar(255) DEFAULT NULL,
