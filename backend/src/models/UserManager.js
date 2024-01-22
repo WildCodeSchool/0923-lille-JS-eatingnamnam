@@ -24,7 +24,7 @@ class UserManager extends AbstractManager {
       ]
     );
     // Return the ID of the newly inserted item
-    return result.insertId;
+    return result;
   }
 
   // The Rs of CRUD - Read operations

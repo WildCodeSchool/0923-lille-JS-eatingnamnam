@@ -17,7 +17,9 @@ const commentControllers = require("./controllers/commentControllers");
 const stepControllers = require("./controllers/stepControllers");
 const { hashPassword } = require("./middleware/hashPassword");
 const authControllers = require("./controllers/authControllers");
+const { authorize } = require("./middleware/auth");
 
+router.get("/me", authorize, userControllers.userByEmail);
 router.get("/recipe", recipeControllers.browse);
 router.get("/recipe/:id", recipeControllers.recipeById);
 router.get("/recipe/:id/utensils", ustensilControllers.utensilByRecipeId);

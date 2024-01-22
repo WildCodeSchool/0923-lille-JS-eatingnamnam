@@ -1,17 +1,33 @@
 /* eslint-disable react/jsx-props-no-spreading */
 // eslint-disable-next-line import/no-extraneous-dependencies
+/* import { useState } from "react"; */
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+/* import { UserContext } from "../Contexts/userContext"; */
 
 function LoginForm() {
   const { register, handleSubmit } = useForm();
+  const [auth, setAuth] = useState();
+  const navigate = useNavigate();
   const onSubmit = (data) => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/login`, {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        data,
-      }),
-    });
+    try {
+      fetch(`${import.meta.env.VITE_BACKEND_URL}/api/login`, {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          data,
+        }),
+      }).then((response) => {
+        if (response.status === 200) {
+          setAuth({ user: data.mail, isLogged: true });
+          console.warn(auth);
+          navigate("/");
+        } else console.error("Wrong password or email");
+      });
+    } catch (error) {
+      console.error("error:", error);
+    }
   };
 
   return (
