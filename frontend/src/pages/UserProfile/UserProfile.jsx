@@ -20,13 +20,17 @@ function UserProfil() {
     <>
       <img
         className="UserProfil__img__profil"
-        src="src/assets/photo-profil-user.jpeg"
+        src={`${
+          import.meta.env.VITE_BACKEND_URL
+        }/assets/images/photo-profil-user.jpeg`}
         alt=""
       />
       <img
         className="UserProfil__img"
-        src="src/assets/PlateauFromageProfil.jpg"
-        alt="a magnifying glass icon"
+        src={`${
+          import.meta.env.VITE_BACKEND_URL
+        }/assets/images/PlateauFromageProfil.jpg`}
+        alt=""
       />
       <h1 className="UserProfil__name">User Profil</h1>
       <section className="Userprofil__form">
