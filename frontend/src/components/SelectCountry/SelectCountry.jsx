@@ -2,7 +2,7 @@ import "./SelectCountry.scss";
 
 function SelectCountry() {
   return (
-    <select name="pays" className="selectContry">
+    <select name="pays" className="selectCountry">
       <option value="France" selected="selected">
         France{" "}
       </option>

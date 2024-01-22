@@ -8,6 +8,7 @@ import SelectCountry from "../../components/SelectCountry/SelectCountry";
 function AddRecipe() {
   const { register, handleSubmit } = useForm();
   const [imageUrl, setImageUrl] = useState(null);
+  const [form, setForm] = useState();
   function onImageChange(e) {
     const file = e.target.files[0];
     if (file) {
@@ -17,7 +18,25 @@ function AddRecipe() {
   }
 
   // eslint-disable-next-line no-alert
-  const onSubmit = (data) => alert(JSON.stringify(data));
+  // const onSubmit = (data) => alert(JSON.stringify(data));
+  const onSubmit = (data) => setForm(data);
+  /*  alert(JSON.stringify(dat), */
+  // console.log("data after submit:", form);
+  try {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/maroute`, {
+      method: "POST",
+      credentials: "same-origin",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        form,
+      }),
+    });
+  } catch (error) {
+    console.error(error);
+  }
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} method="post" className="form">
       <h1 className="form__title">CREER TA RECETTE</h1>
