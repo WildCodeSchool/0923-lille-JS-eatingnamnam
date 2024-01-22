@@ -32,10 +32,14 @@
   }
 
   .addComment__comment__addComment {
-    width: 90%;
-    border-radius: 5px;
-    border-color: $mainColor;
-    resize: none;
+    width: 100%;
+
+    .addComment__comment__addComment__text {
+      border-radius: 5px;
+      border-color: $mainColor;
+      resize: none;
+      width: 100%;
+    }
   }
 
   .addComment__comment__button {
