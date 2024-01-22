@@ -3,7 +3,7 @@
 import "./AddRecipe.scss";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import SelectContry from "../../components/SelectContry/SelectContry";
+import SelectCountry from "../../components/SelectCountry/SelectCountry";
 
 function AddRecipe() {
   const { register, handleSubmit } = useForm();
@@ -77,7 +77,6 @@ function AddRecipe() {
         </label>
       </div>
       {imageUrl ? (
-        // <img src={imageUrl} alt="recette" className="form__picture__on" />
         <label
           htmlFor="picture"
           className="form__picture__on"
@@ -107,11 +106,7 @@ function AddRecipe() {
           />
         </label>
       )}
-
-      {/* composant ingrédiant */}
-      {/* composant étapes */}
-      {/* composant ustencil */}
-      <SelectContry />
+      <SelectCountry />
       <fieldset className="form__fieldset">
         <legend className="form__fieldset__titre">Régime Alimentaire</legend>
         <label htmlFor="vegetarian" className="form__fieldset__textCheck">
@@ -122,7 +117,7 @@ function AddRecipe() {
             id="vegetarian"
             className="form__fieldset__Checkbox"
           />
-          &nbsp;Végétarien
+          Végétarien
         </label>
 
         <label htmlFor="vegan" className="form__fieldset__textCheck">
@@ -133,7 +128,7 @@ function AddRecipe() {
             id="vegan"
             className="form__fieldset__Checkbox"
           />
-          &nbsp;Végan
+          Végan
         </label>
 
         <label htmlFor="gourmet" className="form__fieldset__textCheck">
@@ -144,7 +139,7 @@ function AddRecipe() {
             id="gourmet"
             className="form__fieldset__Checkbox"
           />
-          &nbsp;Gourmand
+          Gourmand
         </label>
 
         <label htmlFor="light" className="form__fieldset__textCheck">
@@ -155,7 +150,7 @@ function AddRecipe() {
             id="light"
             className="form__fieldset__Checkbox"
           />
-          &nbsp;Light
+          Light
         </label>
 
         <label htmlFor="balanced" className="form__fieldset__textCheck">
@@ -166,7 +161,7 @@ function AddRecipe() {
             id="balanced"
             className="form__fieldset__Checkbox"
           />
-          &nbsp;Equilibré
+          Equilibré
         </label>
       </fieldset>
 
@@ -180,7 +175,7 @@ function AddRecipe() {
             id="starter "
             className="form__fieldset__Checkbox"
           />
-          &nbsp;Entrée
+          Entrée
         </label>
 
         <label htmlFor="main_course" className="form__fieldset__textCheck">
@@ -191,7 +186,7 @@ function AddRecipe() {
             id="main_course"
             className="form__fieldset__Checkbox"
           />
-          &nbsp;Plat
+          Plat
         </label>
 
         <label htmlFor="dessert" className="form__fieldset__textCheck">
@@ -202,7 +197,7 @@ function AddRecipe() {
             id="dessert"
             className="form__fieldset__Checkbox"
           />
-          &nbsp;Dessert
+          Dessert
         </label>
 
         <label htmlFor="aptizer" className="form__fieldset__textCheck">
@@ -213,7 +208,7 @@ function AddRecipe() {
             id="aptizer"
             className="form__fieldset__Checkbox"
           />
-          &nbsp;Apéritif
+          Apéritif
         </label>
 
         <label htmlFor="cocktail" className="form__fieldset__textCheck">
@@ -224,7 +219,7 @@ function AddRecipe() {
             id="cocktail"
             className="form__fieldset__Checkbox"
           />
-          &nbsp;Cocktail
+          Cocktail
         </label>
       </fieldset>
 
@@ -238,7 +233,7 @@ function AddRecipe() {
             id="allSeason"
             className="form__fieldset__Checkbox"
           />
-          &nbsp;Toute saison
+          Toute saison
         </label>
 
         <label htmlFor="spring" className="form__fieldset__textCheck">
@@ -249,7 +244,7 @@ function AddRecipe() {
             id="spring"
             className="form__fieldset__Checkbox"
           />
-          &nbsp;Printemps
+          Printemps
         </label>
 
         <label htmlFor="summer" className="form__fieldset__textCheck">
@@ -260,7 +255,7 @@ function AddRecipe() {
             id="summer"
             className="form__fieldset__Checkbox"
           />
-          &nbsp;Eté
+          Été
         </label>
 
         <label htmlFor="automn" className="form__fieldset__textCheck">
@@ -282,7 +277,7 @@ function AddRecipe() {
             id="winter"
             className="form__fieldset__Checkbox"
           />
-          &nbsp;Hiver
+          Hiver
         </label>
       </fieldset>
 

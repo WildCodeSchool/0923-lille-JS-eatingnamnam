@@ -1,6 +1,6 @@
-import "./SelectContry.scss";
+import "./SelectCountry.scss";
 
-function SelectContry() {
+function SelectCountry() {
   return (
     <select name="pays" className="selectContry">
       <option value="France" selected="selected">
@@ -265,4 +265,4 @@ function SelectContry() {
   );
 }
 
-export default SelectContry;
+export default SelectCountry;

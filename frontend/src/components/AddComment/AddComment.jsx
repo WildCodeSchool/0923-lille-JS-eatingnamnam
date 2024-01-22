@@ -13,7 +13,7 @@ function AddComment() {
       <h1 className="addComment__title"> C'est terminé !</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="addComment__comment">
         <h2 className="addComment__comment__texte">
-          N'hesite pas a faire un retour sur cette recette !
+          N'hésite pas à faire un retour sur cette recette !
         </h2>
         <StarRating className="addComment__comment__star" />
         <label className="addComment__comment__addComment">
