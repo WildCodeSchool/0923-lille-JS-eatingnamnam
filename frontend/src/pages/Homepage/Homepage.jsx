@@ -31,7 +31,7 @@ function Homepage() {
     setActiveButton("recipe");
   };
   return (
-    <main className="home">
+    <main className="home page">
       <h1 className="home__recipeDay__title">Recette du jour</h1>
       <section className="home__recipeDay">
         {recipe ? (
@@ -46,6 +46,7 @@ function Homepage() {
         <h2 className="home__Theme__title">Tous nos plats</h2>
         {vegan ? <Swipper recipes={vegan} /> : "loading"}
       </section>
+
       <section className="home__Theme">
         <h3 className="home__Theme__title">Recettes mexicaines</h3>
         {mexican ? <Swipper recipes={mexican} /> : "loading"}

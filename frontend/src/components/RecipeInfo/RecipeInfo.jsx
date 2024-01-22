@@ -4,9 +4,20 @@ import StarBar from "../StarBar/StarBar";
 import AddFavorite from "../AddFavorite/AddFavorite";
 
 function RecipeInfo({ recipe, id }) {
-  const nbEuro = Array(recipe.price).fill(
-    `${import.meta.env.VITE_BACKEND_URL}/assets/images/euro.svg`
-  );
+  const nbEuro = [
+    {
+      id: 1,
+      src: `${import.meta.env.VITE_BACKEND_URL}/assets/images/euro.svg`,
+    },
+    {
+      id: 2,
+      src: `${import.meta.env.VITE_BACKEND_URL}/assets/images/euro.svg`,
+    },
+    {
+      id: 3,
+      src: `${import.meta.env.VITE_BACKEND_URL}/assets/images/euro.svg`,
+    },
+  ];
 
   return (
     <section className="RecipeInfo">
@@ -67,12 +78,12 @@ function RecipeInfo({ recipe, id }) {
         />
 
         <div className="RecipeInfo__details__price">
-          {nbEuro.map((euro, index) => {
+          {nbEuro.map((euro) => {
             return (
               <img
-                key={euro[index]}
+                key={euro.id}
                 className="RecipeInfo__details__price__euro"
-                src={euro}
+                src={euro.src}
                 alt="pièce euro"
               />
             );

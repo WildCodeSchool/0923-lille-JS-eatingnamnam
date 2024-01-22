@@ -63,7 +63,7 @@ function StarBar({ id }) {
       {fullStars.slice(5 - averageGrade).map((fullStar) => {
         return (
           <img
-            key={`fullstarIndex:${fullStar.id}`}
+            key={`fullstarIndex-${fullStar.id}`}
             className="starContainer__img"
             src={fullStar.src}
             alt="star"
@@ -74,7 +74,7 @@ function StarBar({ id }) {
       {emptyStars.slice(averageGrade).map((emptyStar) => {
         return (
           <img
-            key={`emptyStarIndex:${emptyStar.id}`}
+            key={`emptyStarIndex-${emptyStar.id}`}
             className="starContainer__img"
             src={emptyStar.src}
             alt="empty star"

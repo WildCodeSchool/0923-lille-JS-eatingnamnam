@@ -70,7 +70,7 @@ function Recipe() {
   };
 
   return (
-    <div>
+    <div className="page">
       {recipe ? <RecipeInfo recipe={recipe} id={recipe.id} /> : "loading"}
 
       <main className="recipe__cardContainer">
