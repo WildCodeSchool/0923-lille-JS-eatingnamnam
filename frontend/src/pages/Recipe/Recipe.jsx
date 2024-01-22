@@ -1,36 +1,54 @@
+import "./Recipe.scss";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import RecipeInfo from "../../components/RecipeInfo/RecipeInfo";
 import IngredientCard from "../../components/IngredientCard/IngredientCard";
-import "./Recipe.scss";
 import AddComment from "../../components/AddComment/AddComment";
 import RecipeStep from "../../components/RecipeStep/RecipeStep";
 import UstensiltCard from "../../components/UtensilCard/UtensilCard";
+import CommentCard from "../../components/CommentCard/CommentCard";
 
 function Recipe() {
-  const [utensils, setUtensils] = useState();
   const [recipe, setRecipe] = useState();
+  const { recipeId } = useParams();
   const [ingredientList, setIngredientList] = useState();
+  const [utensils, setUtensils] = useState();
+  const [comments, setComments] = useState();
+  const [steps, setSteps] = useState();
   const [tab, setTab] = useState(1);
   const [ingredientIsActive, setIngredientIsActive] = useState(1);
   const [ustensilIsActive, setUstensilIsActive] = useState(0);
   const [stepIsActive, setStepIsActive] = useState(0);
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/1`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/${recipeId}`)
       .then((response) => response.json())
       .then((data) => setRecipe(data))
       .catch((error) => console.error(error));
 
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/ingredientlist/recipe/1`)
+    fetch(
+      `${import.meta.env.VITE_BACKEND_URL}/api/recipe/${recipeId}/ingredients`
+    )
       .then((response) => response.json())
       .then((data) => setIngredientList(data))
       .catch((error) => console.error(error));
 
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/1/utensil`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/${recipeId}/utensils`)
       .then((response) => response.json())
       .then((data) => setUtensils(data))
       .catch((error) => console.error(error));
+
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/${recipeId}/comments`)
+      .then((response) => response.json())
+      .then((data) => setComments(data))
+      .catch((error) => console.error(error));
+
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/${recipeId}/steps`)
+      .then((response) => response.json())
+      .then((data) => setSteps(data))
+      .catch((error) => console.error(error));
   }, []);
+
   const handleCLickIngredient = () => {
     setTab(1);
     setIngredientIsActive(1);
@@ -43,6 +61,7 @@ function Recipe() {
     setUstensilIsActive(1);
     setStepIsActive(0);
   };
+
   const handleClickSteps = () => {
     setTab(3);
     setIngredientIsActive(0);
@@ -51,8 +70,9 @@ function Recipe() {
   };
 
   return (
-    <div>
-      {recipe ? <RecipeInfo recipe={recipe[0]} /> : "loading"}
+    <div className="page">
+      {recipe ? <RecipeInfo recipe={recipe} id={recipe.id} /> : "loading"}
+
       <main className="recipe__cardContainer">
         <nav className="recipe__buttonBar">
           <button
@@ -79,28 +99,48 @@ function Recipe() {
             Préparation
           </button>
         </nav>
-        <section className="ingredientList">
+        <section className="ingredientsList">
           {tab === 1 && ingredientList
             ? ingredientList.map((ingredient) => (
-                <IngredientCard key={ingredient.id} ingredient={ingredient} />
+                <IngredientCard
+                  key={`ingredient:${ingredient.id}`}
+                  ingredient={ingredient}
+                />
               ))
             : ""}
         </section>
-        {tab === 2 && utensils
-          ? utensils.map((utensil) => (
-              <UstensiltCard name={utensil.name} img={utensil.picture} />
-            ))
-          : ""}
-        {tab === 3 && recipe
-          ? recipe.map((step) => (
+        <section className="utensilsList">
+          {tab === 2 && utensils
+            ? utensils.map((utensil) => (
+                <UstensiltCard
+                  key={`ustensil:${utensil.id}`}
+                  name={utensil.name}
+                  img={utensil.picture}
+                />
+              ))
+            : ""}
+        </section>
+        {tab === 3 && steps
+          ? steps.map((step) => (
               <RecipeStep
-                key={step.id}
+                key={`step:${step.id}`}
                 recipeStep={step.description}
                 stepNumber={step.number_step}
               />
             ))
           : ""}
-        <AddComment />
+        {ingredientList && utensils && comments ? <AddComment /> : ""}
+
+        {comments
+          ? comments.map((comment) => (
+              <CommentCard
+                key={`comment:${comment.id}`}
+                comment={comment}
+                recipe={recipe}
+                id={recipe.id}
+              />
+            ))
+          : ""}
       </main>
     </div>
   );
