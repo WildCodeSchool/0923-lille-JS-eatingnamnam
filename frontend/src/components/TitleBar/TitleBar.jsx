@@ -29,7 +29,7 @@ function TitleBar() {
           <img
             className="titleBar__userLogo__img"
             name="userLogo"
-            src="src/assets/icone-user.svg"
+            src={`${import.meta.env.VITE_BACKEND_URL}/assets/images/User.png`}
             alt="userLogo"
           />
         </Link>

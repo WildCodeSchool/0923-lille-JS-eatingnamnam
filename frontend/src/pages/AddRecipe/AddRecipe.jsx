@@ -6,8 +6,15 @@ import { useState } from "react";
 import SelectCountry from "../../components/SelectCountry/SelectCountry";
 
 function AddRecipe() {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    /*     reset,
+    formState: { isSubmitSuccessful }, */
+  } = useForm();
   const [imageUrl, setImageUrl] = useState(null);
+  const [data, setData] = useState();
+
   function onImageChange(e) {
     const file = e.target.files[0];
     if (file) {
@@ -16,8 +23,30 @@ function AddRecipe() {
     }
   }
 
-  // eslint-disable-next-line no-alert
-  const onSubmit = (data) => alert(JSON.stringify(data));
+  const onSubmit = (mySubmitedRecipe) => {
+    setData(mySubmitedRecipe);
+    if (data) {
+      try {
+        fetch(`${import.meta.env.VITE_BACKEND_URL}/api/add/recipe`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            data,
+          }),
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  };
+
+  /*  useEffect(() => {
+    if (isSubmitSuccessful);
+    reset();
+  }, [isSubmitSuccessful, reset]); */
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} method="post" className="form">
       <h1 className="form__title">CREER TA RECETTE</h1>
@@ -53,6 +82,7 @@ function AddRecipe() {
             className="form__evaluation__select"
             name="dificulty"
             id="dificultySelect"
+            defaultValue=""
           >
             <option value="">-- --</option>
             <option value="easy">Facile</option>
@@ -68,6 +98,7 @@ function AddRecipe() {
             className="form__evaluation__select"
             name="price"
             id="priceSelect"
+            defaultValue=""
           >
             <option value="">-- --</option>
             <option value="low">Bas</option>
@@ -106,6 +137,7 @@ function AddRecipe() {
           />
         </label>
       )}
+
       <SelectCountry />
       <fieldset className="form__fieldset">
         <legend className="form__fieldset__titre">Régime Alimentaire</legend>

@@ -96,7 +96,7 @@ function Search() {
         {tags
           ? tags.map((tag) => <TagCard key={tag.id} tag={tag} />)
           : "loading"}
-      </section>
+      </section>{" "}
     </>
   );
 }

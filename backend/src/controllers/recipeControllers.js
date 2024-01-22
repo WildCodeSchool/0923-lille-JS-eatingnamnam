@@ -1,5 +1,30 @@
 const tables = require("../tables");
 
+const add = async (req, res, next) => {
+  // Extract the item data from the request body
+  const { title, time, dificulty, price, picture, diet, type, season } =
+    req.body.data;
+  try {
+    // Insert the item into the database
+    const insertId = await tables.recipe.create(
+      title,
+      time,
+      dificulty,
+      price,
+      picture,
+      diet,
+      type,
+      season
+    );
+
+    // Respond with HTTP 201 (Created) and the ID of the newly inserted item
+    res.status(201).json({ insertId });
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
 const browse = async (req, res, next) => {
   try {
     // Fetch all items from the database
@@ -63,6 +88,7 @@ const recipeByTag = async (req, res, next) => {
 };
 
 module.exports = {
+  add,
   browse,
   randomRecipe,
   recipeByTag,
