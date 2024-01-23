@@ -26,7 +26,7 @@ function LoginForm() {
               mail: fetchedData.email,
               id: fetchedData.id,
               pseudo: fetchedData.pseudo,
-              role: "admin",
+              role: fetchedData.role,
               isLogged: true,
             }),
           navigate("/")
@@ -49,7 +49,7 @@ function LoginForm() {
         <input
           id="mail"
           className="formLogin__inputs__text"
-          type="mail"
+          type="email"
           {...register("mail", { required: true }, { type: "email" })}
           placeholder="azerty@gmail.com"
         />

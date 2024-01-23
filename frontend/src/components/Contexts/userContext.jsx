@@ -19,21 +19,9 @@ export function UserProvider({ children }) {
     }),
     [auth, setAuth]
   );
-
-  /*   const setConnection = async () => {
-    try {
-      const result = fetch(`${import.meta.env.VITE_BACKEND_URL}/api/me`);
-      console.log("result of fetch user:", result.data);
-    } catch (error) {
-      console.error(error);
-    } 
-   setAuth({ user: result.data, isLogged: true }); 
-  } */
   useEffect(() => {
     try {
       fetch(`${import.meta.env.VITE_BACKEND_URL}/api/me`)
-        /*       console
-        .log("fetching") */
         .then((response) => response.json())
         .then((data) => console.warn("data du fetch:", data));
     } catch (error) {

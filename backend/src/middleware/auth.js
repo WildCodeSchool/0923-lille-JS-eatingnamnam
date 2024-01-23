@@ -1,10 +1,6 @@
 const jwt = require("jsonwebtoken");
 
 const authorize = (req, res, next) => {
-  /*   console.log("inside mddleware auth");
-  console.log("cookies inside auth:", req.cookies);
-  console.log("my token:", token);
-  console.log("inside auth middleware"); */
   const token = req.cookies.access_token;
   if (!token) return res.sendStatus(401);
 

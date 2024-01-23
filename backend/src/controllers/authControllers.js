@@ -12,12 +12,10 @@ const login = async (req, res, next) => {
     // console.log("user", user);
     if (user == null) {
       res.sendStatus(422);
-      //  console.log("bad user or password");
       return;
     }
     const verified = await argon2.verify(user.password, req.body.data.password);
     if (verified) {
-      //   console.log("inside user verified");
       // Respond with the user and a signed token in JSON format (but without the hashed password)
       delete user.password;
       /* console.log("user verified gg !!!!"); */
@@ -37,7 +35,6 @@ const login = async (req, res, next) => {
         pseudo: user.pseudo,
         role: user.role,
       });
-      /*       console.log("response:", user.email, user.id, user.role); */
     } else {
       res.sendStatus(422);
     }

@@ -9,10 +9,7 @@ function Authentication() {
     setChoose(event.target.name);
   };
   return (
-    <section
-      className="formLogin"
-      style={{ backgroundImage: "URL(src/assets/loginPage.svg)" }}
-    >
+    <section className="formLogin">
       <div className="formLogin__Button">
         {choose === "connection" ? (
           <button

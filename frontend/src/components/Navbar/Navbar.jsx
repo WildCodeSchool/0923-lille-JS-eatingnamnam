@@ -69,7 +69,7 @@ function Navbar() {
         </li>
         <li className="navbar__item">
           <Link
-            to="/recipe"
+            to="/add/recipe"
             className="navbar__link"
             type="submit"
             onClick={handleClick}

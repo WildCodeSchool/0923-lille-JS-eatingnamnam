@@ -12,7 +12,7 @@ function TitleBar() {
   };
   return (
     <header className="titleBar">
-      {auth.isLogged === true ? <h1> hi hi {auth.pseudo}</h1> : ""}
+      {auth.isLogged === true ? <h1> hi {auth.pseudo}</h1> : ""}
       <img
         className="titleBar__logo"
         name="logo"
@@ -30,10 +30,10 @@ function TitleBar() {
           onClick={handleClick}
         >
           <img
-            className="titleBar__userLogo__img"
-            name="userLogo"
-            src="src/assets/icone-user.svg"
-            alt="userLogo"
+            className="titleBar__logo"
+            name="logo"
+            src={`${import.meta.env.VITE_BACKEND_URL}/assets/images/User.png`}
+            alt="logo"
           />
         </Link>
       ) : (
