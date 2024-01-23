@@ -1,6 +1,7 @@
 // Load the express module to create a web application
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
+
 const express = require("express");
 
 const app = express();
@@ -17,9 +18,7 @@ const router = require("./router");
 // CORS peremet de protéger notre server, en bloquant les requête
 app.use(
   cors({
-    origin: [
-      process.env.FRONTEND_URL, // keep this one, after checking the value in `backend/.env`
-    ],
+    origin: process.env.FRONTEND_URL, // keep this one, after checking the value in `backend/.env`
     credentials: true,
   })
 );

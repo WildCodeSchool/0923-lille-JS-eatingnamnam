@@ -1,7 +1,9 @@
 const jwt = require("jsonwebtoken");
 
 const authorize = (req, res, next) => {
+  console.warn("enter auth middlewares");
   const token = req.cookies.access_token;
+  console.warn("token", token);
   if (!token) return res.sendStatus(401);
 
   try {

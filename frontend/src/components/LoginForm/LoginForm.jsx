@@ -26,7 +26,6 @@ function LoginForm() {
               mail: fetchedData.email,
               id: fetchedData.id,
               pseudo: fetchedData.pseudo,
-              role: fetchedData.role,
               isLogged: true,
             }),
           navigate("/")

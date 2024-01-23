@@ -8,7 +8,6 @@ export function UserProvider({ children }) {
     email: null,
     id: null,
     pseudo: null,
-    role: null,
     isLogged: false,
   };
   const [auth, setAuth] = useState(initialState);
@@ -19,14 +18,24 @@ export function UserProvider({ children }) {
     }),
     [auth, setAuth]
   );
-  useEffect(() => {
+  const setConnection = async () => {
     try {
+      const result = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/me`);
+      setAuth({ user: result.data, isLogged: false });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  useEffect(() => {
+    setConnection();
+
+    /*  try {
       fetch(`${import.meta.env.VITE_BACKEND_URL}/api/me`)
         .then((response) => response.json())
         .then((data) => console.warn("data du fetch:", data));
     } catch (error) {
       console.error(error);
-    }
+    } */
   }, []);
 
   return (

@@ -16,8 +16,8 @@ class UserManager extends AbstractManager {
       [
         myUser.firstname,
         myUser.lastname,
-        myUser.Pseudo,
-        myUser.mail,
+        myUser.pseudo,
+        myUser.email,
         hashedPassword,
         myUser.birthdate,
         "user",
@@ -27,7 +27,13 @@ class UserManager extends AbstractManager {
     return result;
   }
 
-  // The Rs of CRUD - Read operations
+  async getById(id) {
+    const [user] = await this.database.query(
+      `SELECT id, username, email, role FROM ${this.table}  WHERE id = ?`,
+      [id]
+    );
+    return user;
+  }
 
   async read(id) {
     // Execute the SQL SELECT query to retrieve a specific item by its ID

@@ -13,6 +13,15 @@ const browse = async (req, res, next) => {
   }
 };
 
+const getCurrentUser = async (req, res, next) => {
+  try {
+    const [user] = await tables.user.getById(req.idUser);
+    res.status(200).json(user);
+  } catch (err) {
+    next(err);
+  }
+};
+
 const getUser = async (req, res, next) => {
   try {
     // Fetch all items from the database
@@ -41,6 +50,7 @@ const register = async (req, res, next) => {
 
 module.exports = {
   browse,
+  getCurrentUser,
   getUser,
   register,
 };

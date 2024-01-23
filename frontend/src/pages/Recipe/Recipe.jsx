@@ -11,7 +11,7 @@ import { UserContext } from "../../components/Contexts/userContext";
 
 function Recipe() {
   const navigate = useNavigate();
-  const { auth } = useContext(UserContext);
+  const { setAuth } = useContext(UserContext);
   const [recipe, setRecipe] = useState();
   const { recipeId } = useParams();
   const [ingredientList, setIngredientList] = useState();
@@ -75,7 +75,11 @@ function Recipe() {
     try {
       fetch(
         `${import.meta.env.VITE_BACKEND_URL}/api/recipe/${recipeId}/delete`,
-        { method: "delete" }
+        {
+          method: "delete",
+          credentials: "include",
+          headers: { "Content-Type": "application/json" },
+        }
       );
     } catch (error) {
       console.error(error);
@@ -83,15 +87,27 @@ function Recipe() {
     navigate("/");
   };
 
+  const handleLogout = () => {
+    try {
+      fetch(`${import.meta.env.VITE_BACKEND_URL}/api/logout`, {
+        method: "get",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+      });
+    } catch (error) {
+      console.error(error);
+    }
+    setAuth({ user: null, isLogged: false });
+  };
+
   return (
     <div className="page">
-      {auth.role === "admin" ? (
-        <button type="submit" onClick={handleDelete}>
-          click to delete
-        </button>
-      ) : (
-        ""
-      )}
+      <button type="submit" onClick={handleDelete}>
+        click to delete
+      </button>
+      <button type="submit" onClick={handleLogout}>
+        click to logout
+      </button>
 
       {recipe ? <RecipeInfo recipe={recipe} id={recipe.id} /> : "loading"}
 
