@@ -134,9 +134,9 @@
   .UserProfil__img__profil {
     width: 30%;
     margin: 4vw;
-    border-radius: 100px;
+    border-radius: 215px;
     position: absolute;
-    top: 19vh;
+    top: 79vh;
   }
   .UserProfil__name {
     font-size: 30px;
@@ -145,7 +145,7 @@
     margin: 2vw;
   }
   .UserProfil__img {
-    height: 20vh;
+    height: 90vh;
   }
   .UserProfil__myInfo {
     background-color: rgb(213, 108, 6);
@@ -169,12 +169,13 @@
     background-color: rgb(225, 152, 79);
     border-radius: 30px 0px 30px 30px;
     display: grid;
+    align-items: center;
     padding-left: 1em;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    height: 21vh;
+    height: 47vh;
     width: 100%;
   }
   .UserProfil__pseudo {
