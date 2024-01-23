@@ -81,14 +81,12 @@ function Recipe() {
       console.error(error);
     }
     navigate("/");
-    /*     console.log("coucou delete"); */
   };
 
   return (
     <div className="page">
-      {auth.isLogged === true ? (
+      {auth.role === "admin" ? (
         <button type="submit" onClick={handleDelete}>
-          {" "}
           click to delete
         </button>
       ) : (
