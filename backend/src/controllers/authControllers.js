@@ -3,9 +3,13 @@ const jwt = require("jsonwebtoken");
 const tables = require("../tables");
 
 const login = async (req, res, next) => {
-  //  console.log("inside authcontroller login");
+  // console.log("inside authcontroller login");
+  // console.log("body", req.body.data);
+  // console.log("email", req.body.data.mail);
+  // console.log("password", req.body.data.password);
   try {
     const user = await tables.user.readByEmail(req.body.data.mail);
+    // console.log("user", user);
     if (user == null) {
       res.sendStatus(422);
       //  console.log("bad user or password");
@@ -15,21 +19,18 @@ const login = async (req, res, next) => {
     if (verified) {
       //   console.log("inside user verified");
       // Respond with the user and a signed token in JSON format (but without the hashed password)
-      delete user.hashed_password;
+      delete user.password;
       /* console.log("user verified gg !!!!"); */
-      const token = await jwt.sign(
+      const token = jwt.sign(
         { sub: user.id, isAdmin: user.isAdmin },
-        process.env.APP_SECRET,
-        {
-          expiresIn: "1h",
-        }
+        process.env.APP_SECRET
+        // {
+        //   expiresIn: "1h",
+        // }
       );
-      res.cookies("access_token", token, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-      });
-      /*    console.log("token?", token);
-      console.log("Cookies: ", req.cookies); */
+      res.cookie("access_token", token, { sameSite: "None", secure: false });
+      // console.log("token?", token);
+      // console.log("Cookies: ", req.cookies);
       res.status(200).json({
         email: user.email,
         id: user.id,
@@ -41,6 +42,7 @@ const login = async (req, res, next) => {
       res.sendStatus(422);
     }
   } catch (err) {
+    // console.log(err);
     next();
   }
 };
