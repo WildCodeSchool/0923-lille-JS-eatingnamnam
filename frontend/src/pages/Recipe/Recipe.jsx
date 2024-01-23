@@ -1,14 +1,17 @@
 import "./Recipe.scss";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect, useState, useContext } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import RecipeInfo from "../../components/RecipeInfo/RecipeInfo";
 import IngredientCard from "../../components/IngredientCard/IngredientCard";
 import AddComment from "../../components/AddComment/AddComment";
 import RecipeStep from "../../components/RecipeStep/RecipeStep";
 import UstensiltCard from "../../components/UtensilCard/UtensilCard";
 import CommentCard from "../../components/CommentCard/CommentCard";
+import { UserContext } from "../../components/Contexts/userContext";
 
 function Recipe() {
+  const navigate = useNavigate();
+  const { auth } = useContext(UserContext);
   const [recipe, setRecipe] = useState();
   const { recipeId } = useParams();
   const [ingredientList, setIngredientList] = useState();
@@ -68,9 +71,30 @@ function Recipe() {
     setUstensilIsActive(0);
     setStepIsActive(1);
   };
+  const handleDelete = () => {
+    try {
+      fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/recipe/${recipeId}/delete`,
+        { method: "delete" }
+      );
+    } catch (error) {
+      console.error(error);
+    }
+    navigate("/");
+    /*     console.log("coucou delete"); */
+  };
 
   return (
     <div className="page">
+      {auth.isLogged === true ? (
+        <button type="submit" onClick={handleDelete}>
+          {" "}
+          click to delete
+        </button>
+      ) : (
+        ""
+      )}
+
       {recipe ? <RecipeInfo recipe={recipe} id={recipe.id} /> : "loading"}
 
       <main className="recipe__cardContainer">

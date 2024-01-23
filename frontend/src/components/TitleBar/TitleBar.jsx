@@ -2,14 +2,17 @@ import "./TitleBar.scss";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { NavContext } from "../Contexts/navBarContext";
+import { UserContext } from "../Contexts/userContext";
 
 function TitleBar() {
-  const { connected, setActiveButton } = useContext(NavContext);
+  const { setActiveButton } = useContext(NavContext);
+  const { auth } = useContext(UserContext);
   const handleClick = (event) => {
     setActiveButton(event.target.name);
   };
   return (
     <header className="titleBar">
+      {auth.isLogged === true ? <h1> hi hi {auth.pseudo}</h1> : ""}
       <img
         className="titleBar__logo"
         name="logo"
@@ -18,7 +21,7 @@ function TitleBar() {
         }/assets/images/Logo-nam-nam.png`}
         alt="logo"
       />
-      {connected === 0 ? (
+      {auth.isLogged === false ? (
         <Link
           to="/login"
           name="login"
@@ -35,7 +38,7 @@ function TitleBar() {
         </Link>
       ) : (
         <Link
-          to="/profile"
+          to="/profile/1"
           className="titleBar__userLogo"
           type="submit"
           name="profile"

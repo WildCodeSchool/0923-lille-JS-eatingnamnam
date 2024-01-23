@@ -13,6 +13,19 @@ const browse = async (req, res, next) => {
   }
 };
 
+const getUser = async (req, res, next) => {
+  try {
+    // Fetch all items from the database
+    const user = await tables.user.readByEmail();
+
+    // Respond with the items in JSON format
+    res.json(user);
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
 const register = async (req, res, next) => {
   const myUser = req.body.data;
   const { hashedPassword } = req.body;
@@ -28,5 +41,6 @@ const register = async (req, res, next) => {
 
 module.exports = {
   browse,
+  getUser,
   register,
 };

@@ -48,7 +48,7 @@ class UserManager extends AbstractManager {
     return rows;
   }
 
-  async readByEmailWithPassword(mail) {
+  async readByEmail(mail) {
     // Execute the SQL SELECT query to retrieve a specific user by its email
     const [rows] = await this.database.query(
       `select * from ${this.table} where email = ?`,

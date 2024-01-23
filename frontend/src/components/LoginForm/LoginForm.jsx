@@ -1,14 +1,12 @@
 /* eslint-disable react/jsx-props-no-spreading */
-// eslint-disable-next-line import/no-extraneous-dependencies
-/* import { useState } from "react"; */
-import { useState } from "react";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-/* import { UserContext } from "../Contexts/userContext"; */
+import { UserContext } from "../Contexts/userContext";
 
 function LoginForm() {
   const { register, handleSubmit } = useForm();
-  const [auth, setAuth] = useState();
+  const { setAuth } = useContext(UserContext);
   const navigate = useNavigate();
   const onSubmit = (data) => {
     console.warn("data:", data);
@@ -19,13 +17,25 @@ function LoginForm() {
         body: JSON.stringify({
           data,
         }),
-      }).then((response) => {
-        if (response.status === 200) {
-          setAuth({ user: data.mail, isLogged: true });
-          console.warn(auth);
-          navigate("/");
-        } else console.error("Wrong password or email");
-      });
+      })
+        .then((response) => response.json())
+        .then(
+          (fetchedData) =>
+            setAuth({
+              mail: fetchedData.email,
+              id: fetchedData.id,
+              pseudo: fetchedData.pseudo,
+              role: "admin",
+              isLogged: true,
+            }),
+          navigate("/")
+        );
+      /*  .then((response) => {
+          if (response.status === 200) {
+            console.warn("auth after loging:", auth);
+            // navigate("/");
+          } else console.error("Wrong password or email");
+        }); */
     } catch (error) {
       console.error("error:", error);
     }

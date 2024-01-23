@@ -5,7 +5,7 @@ const tables = require("../tables");
 const login = async (req, res, next) => {
   //  console.log("inside authcontroller login");
   try {
-    const user = await tables.user.readByEmailWithPassword(req.body.data.mail);
+    const user = await tables.user.readByEmail(req.body.data.mail);
     if (user == null) {
       res.sendStatus(422);
       //  console.log("bad user or password");
@@ -24,14 +24,19 @@ const login = async (req, res, next) => {
           expiresIn: "1h",
         }
       );
-      res.cookie("access_token", token, {
+      res.cookies("access_token", token, {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
       });
-      //     console.log("token?", token);
-      // console.log("Cookies: ", req.cookies);
-      res.status(200).json({ email: user.email, id: user.id, role: user.role });
-      // console.log("response:", user.email, user.id, user.role);
+      /*    console.log("token?", token);
+      console.log("Cookies: ", req.cookies); */
+      res.status(200).json({
+        email: user.email,
+        id: user.id,
+        pseudo: user.pseudo,
+        role: user.role,
+      });
+      /*       console.log("response:", user.email, user.id, user.role); */
     } else {
       res.sendStatus(422);
     }

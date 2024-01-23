@@ -7,7 +7,6 @@ const cookieParser = require("cookie-parser");
 const app = express();
 const cors = require("cors");
 
-app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // parse application/json
@@ -26,6 +25,8 @@ app.use(
     credentials: true,
   })
 );
+
+app.use(cookieParser());
 
 // Mount the API routes under the "/api" endpoint
 app.use("/api", router);

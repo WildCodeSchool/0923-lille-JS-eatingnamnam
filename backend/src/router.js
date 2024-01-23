@@ -19,7 +19,8 @@ const { hashPassword } = require("./middleware/hashPassword");
 const authControllers = require("./controllers/authControllers");
 /* const { authorize } = require("./middleware/auth"); */
 
-/* router.get("/me", authorize, userControllers.userByEmail); */
+router.get("/me", userControllers.getUser);
+router.delete("/recipe/:id/delete", recipeControllers.deleteById);
 router.get("/recipe", recipeControllers.browse);
 router.get("/recipe/:id", recipeControllers.recipeById);
 router.get("/recipe/:id/utensils", ustensilControllers.utensilByRecipeId);
