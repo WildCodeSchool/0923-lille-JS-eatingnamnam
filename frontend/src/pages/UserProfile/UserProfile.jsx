@@ -38,7 +38,7 @@ function UserProfil() {
 
         <form className="UserProfil__info" action="#" method="post">
           <section className="UserProfil__pseudo">
-            <label className="" htmlFor="pseudo">
+            <label className="testLabel" htmlFor="pseudo">
               Pseudo:
               <input
                 id="pseudo"
@@ -49,7 +49,7 @@ function UserProfil() {
           </section>
 
           <section className="UserProfil__anniversaire">
-            <label className="" htmlFor="anniversaire">
+            <label className="testLabel" htmlFor="anniversaire">
               Anniversaire:
               <input
                 id="anniversaire"
@@ -65,7 +65,7 @@ function UserProfil() {
             </label>
           </section>
           <section className="UserProfil__prenom">
-            <label className="" htmlFor="prenom">
+            <label className="testLabel" htmlFor="prenom">
               Prénom:
               <input
                 id="prenom"
@@ -75,7 +75,7 @@ function UserProfil() {
             </label>
           </section>
           <section className="UserProfil__mail">
-            <label className="" htmlFor="email">
+            <label className="testLabel" htmlFor="email">
               Email:
               <input
                 id="email"
