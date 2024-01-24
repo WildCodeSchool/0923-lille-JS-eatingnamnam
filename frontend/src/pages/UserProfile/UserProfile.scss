@@ -136,17 +136,17 @@
     margin: 4vw;
     border-radius: 215px;
     position: absolute;
-    top: 55vh;
+    top: 35vh;
   }
   .UserProfil__name {
     font-size: 50px;
     text-align: right;
     color: rgb(9, 9, 9);
-    margin-right: 6vw;
+    margin-right: 4vw;
     margin-top: 7vw;
   }
   .UserProfil__img {
-    height: 55vh;
+    height: 37vh;
     width: auto;
   }
   .UserProfil__myInfo {
@@ -191,7 +191,14 @@
     font-size: 25px;
     margin-bottom: 1vh;
     margin-left: 1vw;
-    margin-left: 6%;
+    margin-left: 3vw;
+  }
+
+  .UserProfil__text__right {
+    font-size: 25px;
+    margin-bottom: 1vh;
+    margin-left: 1vw;
+    margin-left: 5vw;
   }
   .UserProfil__pseudo__input {
     border-radius: 56px;
@@ -209,7 +216,7 @@
     border: none;
     width: 80%;
     height: 4vh;
-    margin-left: 2vw;
+    margin-left: 4vw;
   }
 
   .Label {
@@ -237,7 +244,7 @@
     border: none;
     width: 80%;
     height: 4vh;
-    margin-left: 2vw;
+    margin-left: 4vw;
   }
   .UserProfil__mail {
     grid-area: 3 / 1 / 4 / 3;
@@ -246,7 +253,7 @@
   .UserProfil__mail__input {
     border-radius: 56px;
     border: none;
-    width: 91%;
+    width: 93%;
     height: 4vh;
     margin-bottom: 1%;
     margin-left: 2vw;
