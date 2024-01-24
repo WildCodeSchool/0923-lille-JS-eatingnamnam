@@ -38,8 +38,8 @@ function UserProfil() {
 
         <form className="UserProfil__info" action="#" method="post">
           <section className="UserProfil__pseudo">
-            <label className="testLabel" htmlFor="pseudo">
-              Pseudo:
+            <label className="Label" htmlFor="pseudo">
+              <p className="UserProfil__text">Pseudo:</p>
               <input
                 id="pseudo"
                 className="UserProfil__pseudo__input"
@@ -49,8 +49,8 @@ function UserProfil() {
           </section>
 
           <section className="UserProfil__anniversaire">
-            <label className="testLabel" htmlFor="anniversaire">
-              Anniversaire:
+            <label className="Label" htmlFor="anniversaire">
+              <p className="UserProfil__text">Anniversaire:</p>
               <input
                 id="anniversaire"
                 className="UserProfil__anniversaire__input"
@@ -59,14 +59,14 @@ function UserProfil() {
             </label>
           </section>
           <section className="UserProfil__nom">
-            <label className="testLabel" htmlFor="nom">
-              Nom:
+            <label className="Label" htmlFor="nom">
+              <p className="UserProfil__text">Nom:</p>
               <input id="nom" className="UserProfil__nom__input" type="text" />
             </label>
           </section>
           <section className="UserProfil__prenom">
-            <label className="testLabel" htmlFor="prenom">
-              Prénom:
+            <label className="Label" htmlFor="prenom">
+              <p className="UserProfil__text">Prénom:</p>
               <input
                 id="prenom"
                 className="UserProfil__prenom__input"
@@ -75,8 +75,8 @@ function UserProfil() {
             </label>
           </section>
           <section className="UserProfil__mail">
-            <label className="testLabel" htmlFor="email">
-              Email:
+            <label className="Label" htmlFor="email">
+              <p className="UserProfil__text">Email:</p>
               <input
                 id="email"
                 className="UserProfil__mail__input"
