@@ -132,11 +132,11 @@
 }
 @media screen and (min-width: 500px) {
   .UserProfil__img__profil {
-    width: 30%;
+    width: 25%;
     margin: 4vw;
     border-radius: 215px;
     position: absolute;
-    top: 79vh;
+    top: 81vh;
   }
   .UserProfil__name {
     font-size: 30px;
@@ -149,8 +149,8 @@
   }
   .UserProfil__myInfo {
     background-color: rgb(213, 108, 6);
-    padding: 4%;
-    width: 25%;
+    padding: 2%;
+    width: 15%;
     border-radius: 30px 30px 0px 0px;
     text-align: center;
     color: aliceblue;
@@ -175,7 +175,7 @@
     grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    height: 47vh;
+    height: 33vh;
     width: 100%;
   }
   .UserProfil__pseudo {
@@ -236,13 +236,13 @@
   }
   .UserProfil__button__post {
     background-color: rgb(151, 191, 13);
-    font-size: 25px;
+    font-size: 30px;
     color: aliceblue;
-    height: 5vh;
-    width: 50vw;
+    height: 7vh;
+    width: 20vw;
     border-radius: 56px;
     border: none;
-    margin-left: 4vw;
+    margin-left: 5vw;
     margin-top: 5vh;
     margin-bottom: 3vh;
   }
