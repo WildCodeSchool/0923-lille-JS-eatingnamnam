@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
 import Swipper from "../../components/Swipper/Swipper";
 import { NavContext } from "../../components/Contexts/navBarContext";
+import LittleRecipeCard from "../../components/LittleRecipeCard/LittleRecipeCard";
 
 function Homepage() {
   const { setActiveButton } = useContext(NavContext);
@@ -30,18 +31,39 @@ function Homepage() {
   const handleClick = () => {
     setActiveButton("recipe");
   };
+
   return (
     <main className="home page">
       <h1 className="home__recipeDay__title">Recette du jour</h1>
-      <section className="home__recipeDay">
+      <section className="header__home">
         {recipe ? (
-          <Link to={`/recipe/${recipe.id}`} onClick={handleClick}>
-            <RecipeCard recipe={recipe} />{" "}
+          <Link
+            className="home__recipeDay"
+            to={`/recipe/${recipe.id}`}
+            onClick={handleClick}
+          >
+            <RecipeCard recipe={recipe} />
           </Link>
         ) : (
           "loading"
         )}
+
+        <section className="little_recipeCard">
+          {vegan ? (
+            <>
+              <LittleRecipeCard recipes={vegan[0]} />
+              <LittleRecipeCard recipes={vegan[1]} />
+              <LittleRecipeCard recipes={vegan[2]} />
+              <LittleRecipeCard recipes={vegan[0]} />
+              <LittleRecipeCard recipes={vegan[2]} />
+              <LittleRecipeCard recipes={vegan[1]} />
+            </>
+          ) : (
+            ""
+          )}
+        </section>
       </section>
+
       <section className="home__Theme">
         <h2 className="home__Theme__title">Tous nos plats</h2>
         {vegan ? <Swipper recipes={vegan} /> : "loading"}

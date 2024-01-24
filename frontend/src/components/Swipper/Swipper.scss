@@ -7,7 +7,14 @@
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: $tertiaryColor;
+
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (min-width: 500px) {
+  .swiper {
+    width: 90%;
+    height: 100%;
+  }
 }

@@ -6,6 +6,11 @@
   align-items: center;
   background-color: $tertiaryColor;
   padding: 1rem;
+
+  .titleBar__search {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 .titleBar__logo {
   width: 70%;
