@@ -1,40 +1,46 @@
-import { useState, useEffect } from "react";
-import TagCard from "../../components/TagCard/TagCard";
 import "./Search.scss";
+import { useState, useEffect } from "react";
+import RecipeCard from "../../components/RecipeCard/RecipeCard";
 
 function Search() {
-  const [tags, setTags] = useState();
+  const [searchInput, setSearchInput] = useState("");
+  const [recipes, setRecipes] = useState("");
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/tag`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe`)
       .then((response) => response.json())
-      .then((data) => setTags(data))
+      .then((data) => setRecipes(data))
       .catch((error) => console.error(error));
   }, []);
+  const handleChange = (e) => {
+    setSearchInput(e.target.value);
+  };
 
   return (
-    <section className="page">
-      <form className="searchBar">
+    <main className="page">
+      <search className="searchBar">
         <input
+          onChange={handleChange}
+          list="searchedRecipe"
+          value={searchInput}
           className="searchBar__form"
           type="search"
           placeholder="Rechercher une recette..."
           label="Rechercher une recette..."
         />
-        <button className="searchBar__searchButton" type="submit">
-          <img
-            className="searchBar__searchIcon"
-            src="src/assets/activeSearch.svg"
-            alt="a magnifying glass icon"
-          />
-        </button>
-      </form>
-      <section className="tagCardContainer">
-        {tags
-          ? tags.map((tag) => <TagCard key={tag.id} tag={tag} />)
-          : "loading"}
+      </search>
+      <section id="searchedRecipe" className="cardContainer">
+        {recipes &&
+          recipes.map((recipe) =>
+            recipe.title.toLowerCase().includes(searchInput) ? (
+              <RecipeCard key={recipe.id} recipe={recipe} />
+            ) : (
+              ""
+            )
+          )}
       </section>
-    </section>
+    </main>
   );
 }
+/* antoine chalifour */
 
 export default Search;
