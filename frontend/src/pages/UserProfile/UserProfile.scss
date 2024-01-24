@@ -136,7 +136,7 @@
     margin: 4vw;
     border-radius: 215px;
     position: absolute;
-    top: 65vh;
+    top: 55vh;
   }
   .UserProfil__name {
     font-size: 50px;
@@ -146,12 +146,12 @@
     margin-top: 7vw;
   }
   .UserProfil__img {
-    height: 70vh;
+    height: 55vh;
     width: auto;
   }
   .UserProfil__myInfo {
     background-color: rgb(213, 108, 6);
-    padding: 2%;
+    padding: 1%;
     width: 15%;
     border-radius: 30px 30px 0px 0px;
     font-size: 30px;
@@ -178,7 +178,7 @@
     grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    height: 33vh;
+    height: 40vh;
     width: 100%;
   }
   .UserProfil__pseudo {
@@ -191,12 +191,14 @@
     font-size: 25px;
     margin-bottom: 1vh;
     margin-left: 1vw;
+    margin-left: 6%;
   }
   .UserProfil__pseudo__input {
     border-radius: 56px;
     border: none;
     width: 80%;
     height: 4vh;
+    margin-left: 2vw;
   }
   .UserProfil__anniversaire {
     grid-area: 1 / 2 / 2 / 3;
@@ -207,6 +209,7 @@
     border: none;
     width: 80%;
     height: 4vh;
+    margin-left: 2vw;
   }
 
   .Label {
@@ -222,6 +225,8 @@
     border: none;
     width: 80%;
     height: 4vh;
+    margin-bottom: 2%;
+    margin-left: 2vw;
   }
   .UserProfil__prenom {
     grid-area: 2 / 2 / 3 / 3;
@@ -232,6 +237,7 @@
     border: none;
     width: 80%;
     height: 4vh;
+    margin-left: 2vw;
   }
   .UserProfil__mail {
     grid-area: 3 / 1 / 4 / 3;
@@ -240,8 +246,16 @@
   .UserProfil__mail__input {
     border-radius: 56px;
     border: none;
-    width: 90%;
+    width: 91%;
     height: 4vh;
+    margin-bottom: 1%;
+    margin-left: 2vw;
+  }
+  .UserProfil__text__email {
+    font-size: 25px;
+    margin-bottom: 1vh;
+    margin-left: 1vw;
+    margin-left: 3%;
   }
   .UserProfil__button__post {
     background-color: rgb(151, 191, 13);
