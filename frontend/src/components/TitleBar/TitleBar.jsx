@@ -2,9 +2,11 @@ import "./TitleBar.scss";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { NavContext } from "../Contexts/navBarContext";
+import { UserContext } from "../Contexts/userContext";
 
 function TitleBar() {
-  const { connected, setActiveButton } = useContext(NavContext);
+  const { setActiveButton } = useContext(NavContext);
+  const { auth } = useContext(UserContext);
   const handleClick = (event) => {
     setActiveButton(event.target.name);
   };
@@ -37,7 +39,7 @@ function TitleBar() {
             />
           </button>
         </form>
-        {connected === 0 ? (
+        {auth.isLogged === true ? (
           <Link
             to="/login"
             name="login"
@@ -64,7 +66,11 @@ function TitleBar() {
                 alt="userLogo"
               />
             )}
-            <p className="titleBar__userLogo__img__p">Connexion</p>
+            {auth.isLogged === true ? (
+              <p className="titleBar__userLogo__img__p">hi {auth.pseudo}</p>
+            ) : (
+              ""
+            )}
           </Link>
         ) : (
           <Link
