@@ -136,16 +136,18 @@
     margin: 4vw;
     border-radius: 215px;
     position: absolute;
-    top: 52vh;
+    top: 65vh;
   }
   .UserProfil__name {
     font-size: 50px;
     text-align: right;
     color: rgb(9, 9, 9);
-    margin-right: 5vw;
+    margin-right: 6vw;
+    margin-top: 7vw;
   }
   .UserProfil__img {
-    height: 60vh;
+    height: 70vh;
+    width: auto;
   }
   .UserProfil__myInfo {
     background-color: rgb(213, 108, 6);
