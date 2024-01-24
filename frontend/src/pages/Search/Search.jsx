@@ -41,6 +41,5 @@ function Search() {
     </main>
   );
 }
-/* antoine chalifour */
 
 export default Search;
