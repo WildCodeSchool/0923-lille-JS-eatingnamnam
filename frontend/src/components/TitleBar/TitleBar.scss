@@ -19,6 +19,12 @@
 .titleBar__userLogo {
   height: 2.8em;
 }
+.titleBar__userLogo__container {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
 .titleBar__userLogo__img {
   height: 100%;
 }

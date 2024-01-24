@@ -39,6 +39,7 @@ function TitleBar() {
             />
           </button>
         </form>
+        {/*         {auth.isLogged === true ? <h1>hi {auth.pseudo}</h1> : ""} */}
         {auth.isLogged === false ? (
           <Link
             to="/login"
@@ -47,48 +48,49 @@ function TitleBar() {
             type="submit"
             onClick={handleClick}
           >
-            {windowWidth < 500 ? (
+            <div className="titleBar__userLogo__container">
               <img
                 className="titleBar__userLogo__img"
                 name="userLogo"
-                src={`${
-                  import.meta.env.VITE_BACKEND_URL
-                }/assets/images/User.png`}
+                src={
+                  windowWidth < 500
+                    ? `${
+                        import.meta.env.VITE_BACKEND_URL
+                      }/assets/images/User.png`
+                    : `${
+                        import.meta.env.VITE_BACKEND_URL
+                      }/assets/images/Logo-vegan.png`
+                }
                 alt="userLogo"
               />
-            ) : (
-              <img
-                className="titleBar__userLogo__img"
-                name="userLogo"
-                src={`${
-                  import.meta.env.VITE_BACKEND_URL
-                }/assets/images/desktop_Connexion_Button.svg`}
-                alt="userLogo"
-              />
-            )}
-            {auth.isLogged === true ? (
-              <p className="titleBar__userLogo__img__p">hi {auth.pseudo}</p>
-            ) : (
-              ""
-            )}
+              <h2>Bonjour</h2>
+            </div>
           </Link>
         ) : (
           <Link
-            to="/profile"
+            to="/profile/1"
             className="titleBar__userLogo"
             type="submit"
             name="profile"
             onClick={handleClick}
           >
-            <img
-              className="titleBar__userLogo__img"
-              name="userLogo"
-              src={`${
-                import.meta.env.VITE_BACKEND_URL
-              }/assets/images/desktop_Connexion_Button.svg`}
-              alt="userLogo"
-            />
-            <p className="titleBar__userLogo__img__p">Connexion</p>
+            <div className="titleBar__userLogo__container">
+              <img
+                className="titleBar__userLogo__img"
+                name="userLogo"
+                src={
+                  windowWidth < 500
+                    ? `${
+                        import.meta.env.VITE_BACKEND_URL
+                      }/assets/images/User.png`
+                    : `${
+                        import.meta.env.VITE_BACKEND_URL
+                      }/assets/images/Logo-vegan.png`
+                }
+                alt="userLogo"
+              />
+              <h2>Bonjour {auth.pseudo}</h2>
+            </div>
           </Link>
         )}
       </section>
