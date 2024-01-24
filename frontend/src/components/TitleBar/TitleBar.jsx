@@ -30,7 +30,7 @@ function TitleBar() {
           onClick={handleClick}
         >
           <img
-            className="titleBar__logo"
+            className="titleBar__userLogo__img"
             name="logo"
             src={`${import.meta.env.VITE_BACKEND_URL}/assets/images/User.png`}
             alt="logo"
