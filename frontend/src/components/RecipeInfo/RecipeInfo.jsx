@@ -18,7 +18,7 @@ function RecipeInfo({ recipe, id }) {
       src: `${import.meta.env.VITE_BACKEND_URL}/assets/images/euro.svg`,
     },
   ];
-
+  const admin = true;
   return (
     <section className="RecipeInfo">
       <section
@@ -45,7 +45,21 @@ function RecipeInfo({ recipe, id }) {
         <StarBar className="RecipeInfo_info__stars" id={id} />
       </section>
 
-      <h1 className="RecipeInfo__info__title">{recipe.title}</h1>
+      <h1 className="RecipeInfo__info__title">
+        {recipe.title}
+        {admin === true ? (
+          <button className="RecipeInfo__deleteButton" type="submit">
+            <img
+              src={`${
+                import.meta.env.VITE_BACKEND_URL
+              }/assets/images/trashIcon.png`}
+              alt="A trashbin icon"
+            />
+          </button>
+        ) : (
+          ""
+        )}{" "}
+      </h1>
 
       <section className="RecipeInfo__details">
         <div className="RecipeInfo__details__difficulty">
