@@ -28,14 +28,6 @@ export function UserProvider({ children }) {
   };
   useEffect(() => {
     setConnection();
-
-    /*  try {
-      fetch(`${import.meta.env.VITE_BACKEND_URL}/api/me`)
-        .then((response) => response.json())
-        .then((data) => console.warn("data du fetch:", data));
-    } catch (error) {
-      console.error(error);
-    } */
   }, []);
 
   return (

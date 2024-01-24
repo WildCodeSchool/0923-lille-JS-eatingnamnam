@@ -1,9 +1,7 @@
 const jwt = require("jsonwebtoken");
 
 const authorize = (req, res, next) => {
-  console.warn("enter auth middlewares");
   const token = req.cookies.access_token;
-  console.warn("token", token);
   if (!token) return res.sendStatus(401);
 
   try {
@@ -14,7 +12,7 @@ const authorize = (req, res, next) => {
   } catch (error) {
     res.sendStatus(401);
   }
-  return console.warn("middleware ok");
+  return res.status;
 };
 
 const isAdmin = (req, res, next) => {

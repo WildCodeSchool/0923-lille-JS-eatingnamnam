@@ -9,7 +9,6 @@ function LoginForm() {
   const { setAuth } = useContext(UserContext);
   const navigate = useNavigate();
   const onSubmit = (data) => {
-    console.warn("data:", data);
     try {
       fetch(`${import.meta.env.VITE_BACKEND_URL}/api/login`, {
         method: "post",
@@ -30,12 +29,6 @@ function LoginForm() {
             }),
           navigate("/")
         );
-      /*  .then((response) => {
-          if (response.status === 200) {
-            console.warn("auth after loging:", auth);
-            // navigate("/");
-          } else console.error("Wrong password or email");
-        }); */
     } catch (error) {
       console.error("error:", error);
     }

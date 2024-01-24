@@ -36,12 +36,6 @@ router.get("/user", userControllers.browse);
 router.post("/adduser", hashPassword, userControllers.register);
 router.post("/login", authControllers.login);
 router.get("/logout", authControllers.logout);
-// router.post("/login", (req,res)=>{
-//   console.log("body",req.body);
-// });
-
-/* router.get("/ingredient", ingredientControllers.browse); */
-/* router.get("/step", stepControllers.browse); */
 router.get("/step/:id", stepControllers.stepByRecipeId);
 router.get("/grade/:recipeID", commentControllers.rating);
 
