@@ -76,7 +76,7 @@ function UserProfil() {
           </section>
           <section className="UserProfil__mail">
             <label className="Label" htmlFor="email">
-              <p className="UserProfil__text">Email:</p>
+              <p className="UserProfil__text__email">Email:</p>
               <input
                 id="email"
                 className="UserProfil__mail__input"
