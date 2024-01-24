@@ -3,10 +3,32 @@ const tables = require("../tables");
 const browse = async (req, res, next) => {
   try {
     // Fetch all items from the database
-    const recipe = await tables.user.readAll();
+    const user = await tables.user.readAll();
 
     // Respond with the items in JSON format
-    res.json(recipe);
+    res.json(user);
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
+const getCurrentUser = async (req, res, next) => {
+  try {
+    const [user] = await tables.user.getById(req.idUser);
+    res.status(200).json(user);
+  } catch (err) {
+    next(err);
+  }
+};
+
+const getUser = async (req, res, next) => {
+  try {
+    // Fetch all items from the database
+    const user = await tables.user.readByEmail();
+
+    // Respond with the items in JSON format
+    res.json(user);
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
@@ -27,5 +49,7 @@ const register = async (req, res, next) => {
 
 module.exports = {
   browse,
+  getCurrentUser,
+  getUser,
   register,
 };

@@ -3,8 +3,14 @@
 .titleBar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: $tertiaryColor;
   padding: 1rem;
+
+  .titleBar__search {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 .titleBar__logo {
   width: 70%;
@@ -15,4 +21,110 @@
 }
 .titleBar__userLogo__img {
   height: 100%;
+}
+
+.titleBar__searchBar {
+  display: none;
+}
+
+.titleBar__button__theme {
+  display: none;
+}
+.titleBar__userLogo__img__p {
+  display: none;
+}
+
+.line {
+  display: none;
+}
+
+@media screen and (min-width: 500px) {
+  .titleBar {
+    height: 7em;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+    padding: 1.3em;
+  }
+
+  .titleBar__logo {
+    width: 13%;
+  }
+  .titleBar__searchBar {
+    display: flex;
+    background-color: white;
+    width: 75%;
+    margin: 0 auto;
+    height: 3vh;
+    border: 2px solid $mainColor;
+    border-radius: 50px;
+  }
+  .titleBar__search {
+    display: flex;
+    width: 100%;
+    align-items: center;
+  }
+  .titleBar__searchBar__searchButton {
+    all: unset;
+  }
+  .titleBar__searchBar__form {
+    all: unset;
+    padding-left: 1vw;
+    font-family: "Handlee", sans-serif;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+  }
+  .titleBar__searchBar__form:focus {
+    background-color: white;
+  }
+  .titleBar__searchBar__searchIcon {
+    width: 3vh;
+    margin-right: 0.5em;
+    object-fit: contain;
+  }
+
+  .titleBar__button__theme {
+    display: flex;
+    width: 75%;
+    justify-content: space-evenly;
+
+    .active {
+      width: 20%;
+      height: 1.5em;
+      font-size: 1.5em;
+      color: #ffffff;
+      border: 0;
+      border-radius: 20px;
+      background-color: $secondaryColor;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .noActive {
+      font-size: 1.5em;
+      background: none;
+      border: none;
+      border-bottom: 2.5px solid $secondaryColor;
+    }
+  }
+  .titleBar__userLogo {
+    display: flex;
+    width: 10%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    border: 0;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    background-color: #97bf0d;
+  }
+  .titleBar__userLogo__img {
+    height: 2em;
+  }
+  .titleBar__userLogo__img__p {
+    display: inline;
+    font-size: 1.5em;
+    color: white;
+  }
 }

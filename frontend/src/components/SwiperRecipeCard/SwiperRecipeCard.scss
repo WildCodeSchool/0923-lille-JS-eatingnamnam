@@ -10,6 +10,13 @@
     width: 80%;
   }
 
+  .swiperCard__stats {
+    display: none;
+  }
+  .testSection {
+    width: 80%;
+  }
+
   .swiperCard__logo {
     width: 80%;
     height: 22vh;
@@ -29,8 +36,9 @@
     }
   }
   .swiperCard__info {
-    width: 80%;
+    width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     text-align: start;
 
@@ -42,6 +50,84 @@
     .swiperCard_info__stars {
       display: flex;
       width: 40%;
+    }
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .swiperCard {
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    width: 55%;
+    height: 19em;
+    justify-content: space-between;
+    border: 1px solid $mainColor;
+    border-radius: 30px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+
+    .swiperCard__img {
+      width: 80%;
+    }
+    .swiperCard__stats {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      .swiperCard__stats__div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5em;
+      }
+      .swiperCard__p {
+        font-size: 1em;
+      }
+      .swiperCard__stats__img {
+        height: 1em;
+      }
+    }
+    .swiperCard__logo {
+      width: 99%;
+      height: 50%;
+      display: flex;
+      justify-content: space-evenly;
+      flex-direction: column-reverse;
+      align-items: flex-end;
+      background-image: url("/src/assets/recipePicture.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border: solid 2px #d56c06;
+      border-radius: 30px 30px 0 0;
+      .swiperCard__logo__diet__vegan {
+        width: 2em;
+        margin: 0.3em;
+      }
+    }
+    .testSection {
+      height: 50%;
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      .swiperCard__info {
+        width: 100%;
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        text-align: start;
+
+        .swiperCard__info__title {
+          margin: 0;
+          width: 100%;
+          font-size: 1.25em;
+        }
+        .swiperCard_info__stars {
+          display: flex;
+          width: 40%;
+        }
+      }
     }
   }
 }
