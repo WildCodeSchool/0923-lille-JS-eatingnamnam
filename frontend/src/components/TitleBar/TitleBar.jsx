@@ -39,7 +39,7 @@ function TitleBar() {
             />
           </button>
         </form>
-        {auth.isLogged === true ? (
+        {auth.isLogged === false ? (
           <Link
             to="/login"
             name="login"

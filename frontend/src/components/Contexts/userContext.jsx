@@ -18,16 +18,16 @@ export function UserProvider({ children }) {
     }),
     [auth, setAuth]
   );
-  const setConnection = async () => {
+  /*  const setConnection = async () => {
     try {
       const result = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/me`);
       setAuth({ user: result.data, isLogged: false });
     } catch (error) {
       console.error(error);
     }
-  };
+  }; */
   useEffect(() => {
-    setConnection();
+    /*  setConnection(); */
   }, []);
 
   return (
