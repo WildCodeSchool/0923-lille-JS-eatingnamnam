@@ -136,16 +136,16 @@
     margin: 4vw;
     border-radius: 215px;
     position: absolute;
-    top: 81vh;
+    top: 52vh;
   }
   .UserProfil__name {
-    font-size: 30px;
+    font-size: 50px;
     text-align: right;
     color: rgb(9, 9, 9);
-    margin: 2vw;
+    margin-right: 5vw;
   }
   .UserProfil__img {
-    height: 90vh;
+    height: 60vh;
   }
   .UserProfil__myInfo {
     background-color: rgb(213, 108, 6);
@@ -182,12 +182,18 @@
     grid-area: 1 / 1 / 2 / 2;
     flex-direction: column;
     color: aliceblue;
+    font-size: 30px;
+  }
+  .UserProfil__text {
+    font-size: 25px;
+    margin-bottom: 1vh;
+    margin-left: 1vw;
   }
   .UserProfil__pseudo__input {
     border-radius: 56px;
     border: none;
     width: 80%;
-    height: 3vh;
+    height: 4vh;
   }
   .UserProfil__anniversaire {
     grid-area: 1 / 2 / 2 / 3;
@@ -197,10 +203,10 @@
     border-radius: 56px;
     border: none;
     width: 80%;
-    height: 3vh;
+    height: 4vh;
   }
 
-  .testLabel {
+  .Label {
     display: flex;
     flex-direction: column;
   }
@@ -212,7 +218,7 @@
     border-radius: 56px;
     border: none;
     width: 80%;
-    height: 3vh;
+    height: 4vh;
   }
   .UserProfil__prenom {
     grid-area: 2 / 2 / 3 / 3;
@@ -222,7 +228,7 @@
     border-radius: 56px;
     border: none;
     width: 80%;
-    height: 3vh;
+    height: 4vh;
   }
   .UserProfil__mail {
     grid-area: 3 / 1 / 4 / 3;
@@ -232,7 +238,7 @@
     border-radius: 56px;
     border: none;
     width: 90%;
-    height: 3vh;
+    height: 4vh;
   }
   .UserProfil__button__post {
     background-color: rgb(151, 191, 13);
@@ -247,8 +253,8 @@
     margin-bottom: 3vh;
   }
   .UserProfil__post__fav {
-    font-size: 25px;
-    margin-left: 4vw;
+    font-size: 43px;
+    margin-left: 5vw;
     margin-bottom: 4vw;
     margin-top: 6vw;
   }
