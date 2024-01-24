@@ -50,7 +50,7 @@ function UserProfil() {
 
           <section className="UserProfil__anniversaire">
             <label className="Label" htmlFor="anniversaire">
-              <p className="UserProfil__text">Anniversaire:</p>
+              <p className="UserProfil__text__right">Anniversaire:</p>
               <input
                 id="anniversaire"
                 className="UserProfil__anniversaire__input"
@@ -66,7 +66,7 @@ function UserProfil() {
           </section>
           <section className="UserProfil__prenom">
             <label className="Label" htmlFor="prenom">
-              <p className="UserProfil__text">Prénom:</p>
+              <p className="UserProfil__text__right">Prénom:</p>
               <input
                 id="prenom"
                 className="UserProfil__prenom__input"
