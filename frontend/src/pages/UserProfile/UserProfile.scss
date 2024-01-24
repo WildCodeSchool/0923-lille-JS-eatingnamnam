@@ -178,7 +178,7 @@
     grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    height: 40vh;
+    height: 30vh;
     width: 100%;
   }
   .UserProfil__pseudo {
@@ -274,13 +274,12 @@
     border: none;
     margin-left: 5vw;
     margin-top: 5vh;
-    margin-bottom: 3vh;
   }
   .UserProfil__post__fav {
     font-size: 43px;
     margin-left: 5vw;
     margin-bottom: 4vw;
-    margin-top: 6vw;
+    margin-top: 3vw;
   }
   .UserProfil__Theme {
     display: flex;
