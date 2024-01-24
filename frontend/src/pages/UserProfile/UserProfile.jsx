@@ -29,7 +29,7 @@ function UserProfil() {
         className="UserProfil__img"
         src={`${
           import.meta.env.VITE_BACKEND_URL
-        }/assets/images/PlateauFromageProfil.jpg`}
+        }/assets/images/PlateauFromageProfil.png`}
         alt=""
       />
       <h1 className="UserProfil__name">User Profil</h1>
