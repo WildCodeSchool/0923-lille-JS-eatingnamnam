@@ -10,9 +10,16 @@ import "swiper/css/pagination";
 import "./Swipper.scss";
 
 function Swipper({ recipes }) {
+  const windowWidth = window.innerWidth;
+  let test = 0;
+  if (windowWidth <= 500) {
+    test = 1.25;
+  } else {
+    test = 4;
+  }
   return (
     <Swiper
-      slidesPerView={1.25}
+      slidesPerView={test}
       spaceBetween={-30}
       pagination={{
         clickable: true,
@@ -20,7 +27,7 @@ function Swipper({ recipes }) {
       className="mySwiper"
     >
       {recipes.map((recipe) => (
-        <SwiperSlide key={recipe.title}>
+        <SwiperSlide style={{ height: "22em" }} key={recipe.title}>
           <SwiperRecipeCard recipe={recipe} />
         </SwiperSlide>
       ))}
