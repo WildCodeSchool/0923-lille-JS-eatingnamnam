@@ -1,73 +1,75 @@
-import "./RecipeCard.scss";
+import "./LittleRecipeCard.scss";
 import PropTypes from "prop-types";
 import StarBar from "../StarBar/StarBar";
 import AddFavorite from "../AddFavorite/AddFavorite";
 
-function RecipeCard({ recipe }) {
+function LittleRecipeCard({ recipes }) {
   return (
-    <section className="card">
+    <section className="LittleRecipeCardcard">
       <article
-        className="card__logo"
+        className="LittleRecipeCardcard__logo"
         style={{
           backgroundImage: `url("${import.meta.env.VITE_BACKEND_URL}${
-            recipe.picture
+            recipes.picture
           }")`,
         }}
       >
-        <AddFavorite className="card__logo__favorite" />
-        <div className="card__logo__diet">
-          <img
-            className="card__logo__diet__vegan"
-            src="/src/assets/Logo-vegan.png"
-            alt="this recipe is vegan"
-          />
-        </div>
+        <AddFavorite className="LittleRecipeCardcard__logo__favorite" />
       </article>
-      <article className="card__info">
-        <section className="card__info__name">
-          <h1 className="card__info__title">{recipe.title}</h1>
-          <StarBar className="card_info__stars" id={recipe.id} />
+
+      <article className="LittleRecipeCardcard__info">
+        <section className="LittleRecipeCardcard__info__name">
+          <h1 className="LittleRecipeCardcard__info__title">{recipes.title}</h1>
+
+          <StarBar
+            className="LittleRecipeCardcard_info__stars"
+            id={recipes.id}
+          />
         </section>
-        <section className="card__info__stats">
-          <div className="card__info__stats__div">
+
+        <section className="LittleRecipeCardcard__info__stats">
+          <div className="LittleRecipeCardcard__info__stats__div">
             <img
-              className="card__info__stats__img"
+              className="LittleRecipeCardcard__info__stats__img"
               src={`${import.meta.env.VITE_BACKEND_URL}/assets/images/time.svg`}
               alt="logo time"
             />
-            <p className="card__info__p">{recipe.time}</p>
+
+            <p className="LittleRecipeCardcard__info__p">{recipes.time}</p>
           </div>
-          <div className="card__info__stats__div">
+          <div className="LittleRecipeCardcard__info__stats__div">
             <img
-              className="card__info__stats__img"
+              className="LittleRecipeCardcard__info__stats__img"
               src={`${
                 import.meta.env.VITE_BACKEND_URL
               }/assets/images/toque.svg`}
               alt="logo toque"
             />
-            <p className="card__info__p">{recipe.difficulty}</p>
+            <p className="LittleRecipeCardcard__info__p">
+              {recipes.difficulty}
+            </p>
           </div>
-          <div className="card__info__stats__div">
-            {recipe.price === 1 && (
+          <div className="LittleRecipeCardcard__info__stats__div littleCard__price">
+            {recipes.price === 1 && (
               <img
-                className="card__info__stats__img"
+                className="LittleRecipeCardcard__info__stats__img"
                 src={`${
                   import.meta.env.VITE_BACKEND_URL
                 }/assets/images/euro.svg`}
                 alt="logo euro"
               />
             )}
-            {recipe.price === 2 && (
+            {recipes.price === 2 && (
               <>
                 <img
-                  className="card__info__stats__img"
+                  className="LittleRecipeCardcard__info__stats__img"
                   src={`${
                     import.meta.env.VITE_BACKEND_URL
                   }/assets/images/euro.svg`}
                   alt="logo euro"
                 />
                 <img
-                  className="card__info__stats__img"
+                  className="LittleRecipeCardcard__info__stats__img"
                   src={`${
                     import.meta.env.VITE_BACKEND_URL
                   }/assets/images/euro.svg`}
@@ -75,24 +77,24 @@ function RecipeCard({ recipe }) {
                 />
               </>
             )}
-            {recipe.price === 3 && (
+            {recipes.price === 3 && (
               <>
                 <img
-                  className="card__info__stats__img"
+                  className="LittleRecipeCardcard__info__stats__img"
                   src={`${
                     import.meta.env.VITE_BACKEND_URL
                   }/assets/images/euro.svg`}
                   alt="logo euro"
                 />{" "}
                 <img
-                  className="card__info__stats__img"
+                  className="LittleRecipeCardcard__info__stats__img"
                   src={`${
                     import.meta.env.VITE_BACKEND_URL
                   }/assets/images/euro.svg`}
                   alt="logo euro"
                 />
                 <img
-                  className="card__info__stats__img"
+                  className="LittleRecipeCardcard__info__stats__img"
                   src={`${
                     import.meta.env.VITE_BACKEND_URL
                   }/assets/images/euro.svg`}
@@ -106,8 +108,8 @@ function RecipeCard({ recipe }) {
     </section>
   );
 }
-RecipeCard.propTypes = {
-  recipe: PropTypes.shape({
+LittleRecipeCard.propTypes = {
+  recipes: PropTypes.shape({
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     picture: PropTypes.string.isRequired,
@@ -117,4 +119,4 @@ RecipeCard.propTypes = {
   }).isRequired,
 };
 
-export default RecipeCard;
+export default LittleRecipeCard;

@@ -73,6 +73,38 @@ class RecipeManager extends AbstractManager {
     return rows;
   }
 
+  async delete(id) {
+    try {
+      await this.database.query("START TRANSACTION");
+      const [rows] = await this.database.query(
+        `DELETE FROM nam_nam.step WHERE recipe_id = ?`,
+        [id]
+      );
+      await this.database.query(
+        `DELETE FROM nam_nam.list_ustensils_recip WHERE recipe_id = ?`,
+        [id]
+      );
+      await this.database.query(
+        `DELETE FROM nam_nam.comment_recipe_user WHERE recipe_id = ?`,
+        [id]
+      );
+      await this.database.query(
+        `DELETE FROM nam_nam.list_tags_recipe WHERE recipe_id = ?`,
+        [id]
+      );
+      await this.database.query(
+        `DELETE FROM nam_nam.list_ingredients_recip WHERE recipe_id = ?`,
+        [id]
+      );
+      await this.database.query(`DELETE FROM ${this.table} WHERE id = ?`, [id]);
+      await this.database.query("COMMIT");
+      return rows[0];
+    } catch (error) {
+      await this.database.query("ROLLBACK");
+      console.error(error);
+      return error;
+    }
+  }
   // The U of CRUD - Update operation
   // TODO: Implement the update operation to modify an existing item
 

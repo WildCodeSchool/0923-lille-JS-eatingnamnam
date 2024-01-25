@@ -1,5 +1,7 @@
 // Load the express module to create a web application
+const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
+
 const express = require("express");
 
 const app = express();
@@ -18,10 +20,8 @@ const router = require("./router");
 // CORS peremet de protéger notre server, en bloquant les requête
 app.use(
   cors({
-    origin: [
-      process.env.FRONTEND_URL, // keep this one, after checking the value in `backend/.env`
-      "http://localhost:3310/",
-    ],
+    origin: process.env.FRONTEND_URL, // keep this one, after checking the value in `backend/.env`
+    credentials: true,
   })
 );
 
@@ -84,8 +84,7 @@ express.json();
 
 // Then, require the module and use it as middleware in your Express application:
 
-// const cookieParser = require("cookie-parser");
-// app.use(cookieParser());
+app.use(cookieParser());
 
 // Once `cookie-parser` is set up, you can read and set cookies in your routes.
 // For example, to set a cookie named "username" with the value "john":

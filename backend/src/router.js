@@ -18,6 +18,8 @@ const stepControllers = require("./controllers/stepControllers");
 const { hashPassword } = require("./middleware/hashPassword");
 const authControllers = require("./controllers/authControllers");
 
+router.get("/me", userControllers.getUser);
+router.delete("/recipe/:id/delete", recipeControllers.deleteById);
 router.get("/recipe", recipeControllers.browse);
 router.get("/recipe/:id", recipeControllers.recipeById);
 router.get("/recipe/:id/utensils", ustensilControllers.utensilByRecipeId);
@@ -32,18 +34,12 @@ router.get(
   ingredientControllers.ingredientListByRecipId
 );
 router.get("/randomrecipe", recipeControllers.randomRecipe);
-
-router.get("/ustensil", ustensilControllers.browse);
 router.get("/tag", tagControllers.browseByTag);
 router.get("/user", userControllers.browse);
-
 router.post("/adduser", hashPassword, userControllers.register);
 router.post("/login", authControllers.login);
-
-router.get("/ingredients", ingredientControllers.browse);
-router.get("/step", stepControllers.browse);
+router.get("/logouts", authControllers.logout);
 router.get("/step/:id", stepControllers.stepByRecipeId);
-
 router.get("/grade/:recipeID", commentControllers.rating);
 
 router.get("/items/:id", itemControllers.read);
