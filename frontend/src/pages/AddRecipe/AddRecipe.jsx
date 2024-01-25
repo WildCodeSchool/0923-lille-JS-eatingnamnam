@@ -27,9 +27,6 @@ function AddRecipe() {
 
   const onSubmitInfo = (mySubmitedRecipe) => {
     setInfo(mySubmitedRecipe);
-    // console.log("info", info);
-    // console.log("nqsjex", country);
-    // console.log("tit", titleRef.current.value);
     if (info) {
       try {
         fetch(`${import.meta.env.VITE_BACKEND_URL}/api/add/recipe`, {

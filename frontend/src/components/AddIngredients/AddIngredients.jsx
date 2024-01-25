@@ -6,7 +6,6 @@ import "./AddIngredients.scss";
 
 function AddIgredients({ ingredientArr, setIngredientArr }) {
   const [ingredientsBdd, setIngredientsBdd] = useState();
-  //   const [ingredientArr, setIngredientArr] = useState([]);
 
   const { register, handleSubmit } = useForm();
 
