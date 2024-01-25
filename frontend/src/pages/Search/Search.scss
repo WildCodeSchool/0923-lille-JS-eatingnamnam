@@ -2,11 +2,21 @@
 
 .tagCardContainer {
   background-color: $tertiaryColor;
-  row-gap: 20px;
+  padding: 0 1vw;
   justify-content: space-around;
   display: flex;
   flex-flow: wrap;
 }
+
+.cardContainer {
+  row-gap: 3vh;
+  background-color: $tertiaryColor;
+  padding: 0 1vw;
+  justify-content: space-around;
+  display: flex;
+  flex-flow: wrap;
+}
+
 .title {
   background-color: red;
   width: 100%;
@@ -14,19 +24,17 @@
   font-size: 30px;
   margin-bottom: 50px;
 }
+
 .searchBar {
   display: flex;
   background-color: $tertiaryColor;
   width: 80%;
-  margin: 0 auto;
+  margin: 0 auto 3vh auto;
   height: 5vh;
   border: 2px solid $mainColor;
   border-radius: 10px;
 }
 
-.searchBar__searchButton {
-  all: unset;
-}
 .searchBar__form {
   all: unset;
   padding-left: 1vw;
@@ -42,4 +50,33 @@
   padding: 5px;
   width: 5vh;
   object-fit: contain;
+}
+.search__tag__button {
+  all: unset;
+}
+
+.tagCard {
+  all: unset;
+  position: relative;
+  display: inline-block;
+  width: 45%;
+}
+.tagname {
+  width: 45vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  height: 6vh;
+  position: absolute;
+  top: 35%;
+  background-color: rgba($color: #ffffff, $alpha: 0.5);
+}
+
+.tagCard__img {
+  display: block;
+  width: 100%;
+  object-fit: contain;
+  border: 2px solid $mainColor;
+  border-radius: 20px;
 }
