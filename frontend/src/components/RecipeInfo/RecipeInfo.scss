@@ -44,11 +44,15 @@
   }
 
   .RecipeInfo__info__title {
+    display: flex;
     font-family: "hubballi";
     font-size: 2em;
     margin: 0.5em 0 0.5em 0;
     width: 98%;
     text-align: center;
+  }
+  .RecipeInfo__deleteButton {
+    all: unset;
   }
 
   .RecipeInfo__details {

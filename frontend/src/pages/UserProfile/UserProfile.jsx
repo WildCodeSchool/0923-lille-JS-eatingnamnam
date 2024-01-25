@@ -32,7 +32,19 @@ function UserProfil() {
         }/assets/images/PlateauFromageProfil.jpg`}
         alt=""
       />
-      <h1 className="UserProfil__name">User Profil</h1>
+      <header className="UserProfil__header">
+        <h1 className="UserProfil__name">Thomas NIGON</h1>
+        <button className="UserProfil__logoutButton" type="submit">
+          {" "}
+          <img
+            className="UserProfil__logoutIcon"
+            src={`${
+              import.meta.env.VITE_BACKEND_URL
+            }/assets/images/logoutIcon.png`}
+            alt="a logout icon"
+          />
+        </button>
+      </header>
       <section className="Userprofil__form">
         <h4 className="UserProfil__myInfo">Mes infos</h4>
 
