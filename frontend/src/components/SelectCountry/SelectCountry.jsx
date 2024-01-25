@@ -1,11 +1,20 @@
 import "./SelectCountry.scss";
+import { useRef } from "react";
+import PropTypes from "prop-types";
 
-function SelectCountry() {
+function SelectCountry({ setCountry }) {
+  const countryRef = useRef();
+  const handleChange = () => {
+    setCountry(countryRef.current.value);
+  };
   return (
-    <select name="pays" className="selectContry">
-      <option value="France" selected="selected">
-        France{" "}
-      </option>
+    <select
+      className="selectCountry"
+      name="country"
+      ref={countryRef}
+      onChange={handleChange}
+    >
+      <option defaultValue=""> Origine </option>
 
       <option value="Afghanistan">Afghanistan </option>
       <option value="Afrique_Centrale">Afrique Centrale </option>
@@ -264,5 +273,8 @@ function SelectCountry() {
     </select>
   );
 }
+SelectCountry.propTypes = {
+  setCountry: PropTypes.func.isRequired,
+};
 
 export default SelectCountry;
