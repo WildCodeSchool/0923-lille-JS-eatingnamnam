@@ -1,0 +1,121 @@
+@import "../../variables.scss";
+
+.LittleRecipeCardcard {
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+  .LittleRecipeCardcard__img {
+    width: 80%;
+  }
+
+  .LittleRecipeCardcard__logo {
+    width: 84%;
+    height: 22vh;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: flex-end;
+    border: solid 2px $mainColor;
+    border-radius: 0 20px 0 20px;
+    background-size: 100%;
+    .LittleRecipeCardcard__logo__diet__vegan {
+      width: 2em;
+      margin: 0.3em;
+    }
+  }
+  .LittleRecipeCardcard__info {
+    width: 84%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 1em;
+
+    .LittleRecipeCardcard__info__title {
+      margin: 0;
+      width: 74%;
+      font-size: 1.25em;
+    }
+    .LittleRecipeCardcard_info__stars {
+      width: 30%;
+    }
+    .LittleRecipeCardcard__info__stats {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .LittleRecipeCardcard {
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-content: space-between;
+    display: flex;
+    width: 25%;
+    height: 45%;
+    border: 1px solid $mainColor;
+    border-radius: 30px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+
+    .littleCard__price {
+      gap: 0;
+    }
+
+    .LittleRecipeCardcard__logo {
+      width: 99%;
+      height: 55%;
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: space-between;
+      align-items: flex-end;
+      border: solid 2px $mainColor;
+      border-radius: 30px 30px 0 0;
+      background-size: 110%;
+      background-repeat: no-repeat;
+
+      .logo {
+        margin: 0.3em;
+      }
+      .LittleRecipeCardcard__logo__diet__vegan {
+        padding: 1em;
+        width: 2em;
+        margin: 0.3em;
+      }
+    }
+    .LittleRecipeCardcard__info__name {
+      display: flex;
+      flex-direction: column;
+    }
+    .LittleRecipeCardcard__info {
+      width: 90%;
+      display: flex;
+      height: 45%;
+      justify-content: space-evenly;
+
+      .LittleRecipeCardcard__info__title {
+        margin: 0;
+        width: 75%;
+        font-size: 0.8em;
+        font-family: handlee;
+      }
+      .LittleRecipeCardcard__info__stats {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        .LittleRecipeCardcard__info__stats__div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 0.5em;
+        }
+        .LittleRecipeCardcard__info__p {
+          font-size: 1em;
+        }
+        .LittleRecipeCardcard__info__stats__img {
+          height: 1em;
+        }
+      }
+    }
+  }
+}

@@ -22,5 +22,49 @@
   {
     "name": "sauteuse",
     "picture": "/assets/ustensils/sauteuse.jpg"
+  },
+  {
+    "name": "cocotte",
+    "picture": "/assets/ustensils/cocotte.jpg"
+  },
+  {
+    "name": "four",
+    "picture": "/assets/ustensils/four.jpg"
+  },
+  {
+    "name": "fourchette",
+    "picture": "/assets/ustensils/fourchette.jpg"
+  },
+  {
+    "name": "plat a gratin",
+    "picture": "/assets/ustensils/plat_a_gratin.jpg"
+  },
+  {
+    "name": "plat",
+    "picture": "/assets/ustensils/plat.jpg"
+  },
+  {
+    "name": "saladier",
+    "picture": "/assets/ustensils/saladier.jpg"
+  },
+  {
+    "name": "set de 3 poeles",
+    "picture": "/assets/ustensils/set_de_3_poeles.jpg"
+  },
+  {
+    "name": "économe",
+    "picture": "/assets/ustensils/econome.jpg"
+  },
+  {
+    "name": "lot de 3 casseroles",
+    "picture": "/assets/ustensils/lot_de_3_casseroles.jpg"
+  },
+  {
+    "name": "mijoteuse électrique",
+    "picture": "/assets/ustensils/mijoteuse_electrique.jpg"
+  },
+  {
+    "name": "cuillière en bois",
+    "picture": "/assets/ustensils/cuilliere_en_bois.jpg"
   }
 ]

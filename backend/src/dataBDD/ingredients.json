@@ -16,12 +16,20 @@
     "picture": "/assets/ingredients/biere_brune.jpg"
   },
   {
+    "name": "boeuf",
+    "picture": "/assets/ingredients/boeuf.jpg"
+  },
+  {
     "name": "boeuf haché",
     "picture": "/assets/ingredients/boeuf_hache.jpg"
   },
   {
     "name": "bouillon de légumes",
     "picture": "/assets/ingredients/bouillon_legume.webp"
+  },
+  {
+    "name": "carotte",
+    "picture": "/assets/ingredients/carotte.jpg"
   },
   {
     "name": "cassonade",
@@ -32,13 +40,39 @@
     "picture": "/assets/ingredients/champignon_paris_brun.jpg"
   },
   {
+    "name": "chorizo",
+    "picture": "/assets/ingredients/chorizo.jpg"
+  },
+  {
+    "name": "chou",
+    "picture": "/assets/ingredients/chou.jpg"
+  },
+
+  {
     "name": "cognac",
     "picture": "/assets/ingredients/cognac.jpg"
+  },
+  {
+    "name": "concentré de tomate",
+    "picture": "/assets/ingredients/concentre_de_tomate.jpg"
   },
   {
     "name": "coulis de tomates",
     "picture": "/assets/ingredients/coulis_tomate.jpg"
   },
+  {
+    "name": "courge",
+    "picture": "/assets/ingredients/courge.jpg"
+  },
+  {
+    "name": "crème de soja",
+    "picture": "/assets/ingredients/creme_soja.jpg"
+  },
+  {
+    "name": "créme fraiche liquide",
+    "picture": "/assets/ingredients/creme_fraiche_liquide.jpg"
+  },
+
   {
     "name": "cumin en poudre",
     "picture": "/assets/ingredients/cumin_poudre.jpg"
@@ -46,6 +80,10 @@
   {
     "name": "échalote",
     "picture": "/assets/ingredients/echalotes.jpg"
+  },
+  {
+    "name": "gruyére",
+    "picture": "/assets/ingredients/gruyere.jpg"
   },
   {
     "name": "haricots rouge",
@@ -64,6 +102,10 @@
     "picture": "/assets/ingredients/laitue.jpg"
   },
   {
+    "name": "lard",
+    "picture": "/assets/ingredients/lard.jpg"
+  },
+  {
     "name": "lardons",
     "picture": "/assets/ingredients/lardons.jpg"
   },
@@ -76,12 +118,20 @@
     "picture": "/assets/ingredients/moutarde.jpg"
   },
   {
+    "name": "navet",
+    "picture": "/assets/ingredients/navet.jpg"
+  },
+  {
     "name": "oignon blanc",
     "picture": "/assets/ingredients/oignon_blanc.jpg"
   },
   {
     "name": "oignon jaune",
     "picture": "/assets/ingredients/oignon_jaune.jpg"
+  },
+  {
+    "name": "os a moelle",
+    "picture": "/assets/ingredients/os_a_moelle.jpg"
   },
   {
     "name": "pain d'épice",
@@ -92,20 +142,45 @@
     "picture": "/assets/ingredients/pain.jpg"
   },
   {
+    "name": "persil",
+    "picture": "/assets/ingredients/persil.jpg"
+  },
+  {
     "name": "petit épautre",
     "picture": "/assets/ingredients/petit_epautre.jpg"
+  },
+  {
+    "name": "poireau",
+    "picture": "/assets/ingredients/poireau.jpg"
   },
   {
     "name": "poivre",
     "picture": "/assets/ingredients/poivre.jpg"
   },
   {
+    "name": "poivron rouge",
+    "picture": "/assets/ingredients/poivron_rouge.jpg"
+  },
+  {
     "name": "poivron vert",
     "picture": "/assets/ingredients/poivront_vert.jpg"
+  },
+
+  {
+    "name": "riz long",
+    "picture": "/assets/ingredients/riz_long.jpg"
+  },
+  {
+    "name": "sauce soja",
+    "picture": "/assets/ingredients/sauce_soja.jpg"
   },
   {
     "name": "sel",
     "picture": "/assets/ingredients/sel.jpg"
+  },
+  {
+    "name": "semoule",
+    "picture": "/assets/ingredients/semoule.jpg"
   },
   {
     "name": "tabasco",
@@ -123,5 +198,9 @@
   {
     "name": "tortillas",
     "picture": "/assets/ingredients/tortillas.jpg"
+  },
+  {
+    "name": "vin",
+    "picture": "/assets/ingredients/vin.jpg"
   }
 ]

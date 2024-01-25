@@ -1,27 +1,31 @@
 // Load the express module to create a web application
+const cookieParser = require("cookie-parser");
+const bodyParser = require("body-parser");
 
 const express = require("express");
 
 const app = express();
 const cors = require("cors");
 
-app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
 
 // Import the API routes from the router module
 const router = require("./router");
 
-// Mount the API routes under the "/api" endpoint
-app.use("/api", router);
 // CORS peremet de protéger notre server, en bloquant les requête
 app.use(
   cors({
-    origin: [
-      process.env.FRONTEND_URL, // keep this one, after checking the value in `backend/.env`
-      "http://localhost:3310/",
-    ],
+    origin: process.env.FRONTEND_URL, // keep this one, after checking the value in `backend/.env`
+    credentials: true,
   })
 );
 
+// Mount the API routes under the "/api" endpoint
+app.use("/api", router);
+app.use(express.json());
 app.use(express.static("./public")); // Permet d'avoir accès au image dans le public
 
 // Configure it
@@ -53,7 +57,8 @@ app.use(express.static("./public")); // Permet d'avoir accès au image dans le p
 // For example to access the body of a POST request.
 // The current code contains different parsing options as comments to demonstrate different ways of extracting data.
 
-// 1. `express.json()`: Parses requests with JSON data.
+express.json();
+// : Parses requests with JSON data.
 // 2. `express.urlencoded()`: Parses requests with URL-encoded data.
 // 3. `express.text()`: Parses requests with raw text data.
 // 4. `express.raw()`: Parses requests with raw binary data.
@@ -77,8 +82,7 @@ app.use(express.static("./public")); // Permet d'avoir accès au image dans le p
 
 // Then, require the module and use it as middleware in your Express application:
 
-// const cookieParser = require("cookie-parser");
-// app.use(cookieParser());
+app.use(cookieParser());
 
 // Once `cookie-parser` is set up, you can read and set cookies in your routes.
 // For example, to set a cookie named "username" with the value "john":

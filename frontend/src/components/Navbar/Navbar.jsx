@@ -1,11 +1,12 @@
 import "./Navbar.scss";
-import { useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { NavContext } from "../Contexts/navBarContext";
 
 function Navbar() {
-  const [isActive, setIsActive] = useState("home");
+  const { activeButton, setActiveButton } = useContext(NavContext);
   const handleClick = (event) => {
-    setIsActive(event.target.name);
+    setActiveButton(event.target.name);
   };
   return (
     <nav className="navbar">
@@ -17,18 +18,22 @@ function Navbar() {
             type="submit"
             onClick={handleClick}
           >
-            {isActive !== "home" ? (
+            {activeButton !== "home" ? (
               <img
                 className="navbar__icon"
                 name="home"
-                src="src/assets/Home.svg"
+                src={`${
+                  import.meta.env.VITE_BACKEND_URL
+                }/assets/images/Home.svg`}
                 alt="bouton accueil"
               />
             ) : (
               <img
                 className="navbar__icon"
                 name="home"
-                src="src/assets/activeHome.svg"
+                src={`${
+                  import.meta.env.VITE_BACKEND_URL
+                }/assets/images/activeHome.svg`}
                 alt="bouton accueil"
               />
             )}
@@ -41,18 +46,22 @@ function Navbar() {
             type="submit"
             onClick={handleClick}
           >
-            {isActive !== "search" ? (
+            {activeButton !== "search" ? (
               <img
                 className="navbar__icon"
                 name="search"
-                src="src/assets/search.svg"
+                src={`${
+                  import.meta.env.VITE_BACKEND_URL
+                }/assets/images/search.svg`}
                 alt="bouton accueil"
               />
             ) : (
               <img
                 className="navbar__icon"
                 name="search"
-                src="src/assets/activeSearch.svg"
+                src={`${
+                  import.meta.env.VITE_BACKEND_URL
+                }/assets/images/activeSearch.svg`}
                 alt="bouton accueil"
               />
             )}
@@ -60,23 +69,27 @@ function Navbar() {
         </li>
         <li className="navbar__item">
           <Link
-            to="/recipe"
+            to="/add/recipe"
             className="navbar__link"
             type="submit"
             onClick={handleClick}
           >
-            {isActive !== "add" ? (
+            {activeButton !== "add" ? (
               <img
                 className="navbar__icon"
                 name="add"
-                src="src/assets/add.svg"
+                src={`${
+                  import.meta.env.VITE_BACKEND_URL
+                }/assets/images/add.svg`}
                 alt="bouton accueil"
               />
             ) : (
               <img
                 className="navbar__icon"
                 name="add"
-                src="src/assets/activeAdd.svg"
+                src={`${
+                  import.meta.env.VITE_BACKEND_URL
+                }/assets/images/activeAdd.svg`}
                 alt="bouton accueil"
               />
             )}
@@ -89,18 +102,22 @@ function Navbar() {
             type="submit"
             onClick={handleClick}
           >
-            {isActive !== "bookmark" ? (
+            {activeButton !== "bookmark" ? (
               <img
                 className="navbar__icon"
                 name="bookmark"
-                src="src/assets/bookmark.svg"
+                src={`${
+                  import.meta.env.VITE_BACKEND_URL
+                }/assets/images/bookmark.svg`}
                 alt="bouton accueil"
               />
             ) : (
               <img
                 className="navbar__icon"
                 name="bookmark"
-                src="src/assets/activeBookmark.svg"
+                src={`${
+                  import.meta.env.VITE_BACKEND_URL
+                }/assets/images/activeBookmark.svg`}
                 alt="bouton accueil"
               />
             )}
