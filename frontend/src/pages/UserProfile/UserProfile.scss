@@ -5,7 +5,7 @@
   margin: 4vw;
   border-radius: 100px;
   position: absolute;
-  top: 38vh;
+  top: 21vh;
 }
 .UserProfil__header {
   display: flex;
@@ -35,7 +35,7 @@
 }
 .UserProfil__myInfo {
   background-color: rgb(213, 108, 6);
-  padding: 4%;
+  padding: 3%;
   width: 25%;
   border-radius: 30px 30px 0px 0px;
   text-align: center;
@@ -60,7 +60,7 @@
   grid-template-rows: repeat(3, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  height: 21vh;
+  height: 25vh;
   width: 100%;
 }
 .UserProfil__pseudo {
@@ -83,6 +83,7 @@
   border: none;
   width: 80%;
   height: 3vh;
+  margin-left: 3vw;
 }
 
 .UserProfil__Label {
@@ -108,6 +109,25 @@
   border: none;
   width: 80%;
   height: 3vh;
+  margin-left: 3vw;
+}
+.UserProfil__text__email {
+  margin-bottom: 1vh;
+  margin-left: 1vw;
+  margin-left: 3%;
+  margin-top: 1vh;
+}
+.UserProfil__text {
+  margin-bottom: 1vh;
+  margin-left: 1vw;
+  margin-left: 3vw;
+  margin-top: 1vh;
+}
+.UserProfil__text__right {
+  margin-bottom: 1vh;
+  margin-left: 1vw;
+  margin-left: 5vw;
+  margin-top: 1vh;
 }
 .UserProfil__mail {
   grid-area: 3 / 1 / 4 / 3;
@@ -116,7 +136,7 @@
 .UserProfil__mail__input {
   border-radius: 56px;
   border: none;
-  width: 90%;
+  width: 94%;
   height: 3vh;
 }
 .UserProfil__button__post {
