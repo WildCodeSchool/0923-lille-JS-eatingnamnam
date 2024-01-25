@@ -22,6 +22,20 @@ class RecipeManager extends AbstractManager {
 
   // The Rs of CRUD - Read operations
 
+  async recipeByFav(id) {
+    // Execute the SQL SELECT query to retrieve a specific item by its ID
+    const [rows] = await this.database.query(
+      ` SELECT * FROM ${this.table}
+      INNER JOIN nam_nam.list_favorites_recipe_user AS fav
+      ON recipe.id = fav.recipe_id
+      WHERE fav.user_id = ?`,
+      [id]
+    );
+
+    // Return the first row of the result, which represents the item
+    return rows;
+  }
+
   async recipeById(id) {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
     const [rows] = await this.database.query(

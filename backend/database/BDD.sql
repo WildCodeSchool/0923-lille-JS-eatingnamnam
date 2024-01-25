@@ -97,6 +97,7 @@ CREATE TABLE `list_favorites_recipe_user` (
 
 LOCK TABLES `list_favorites_recipe_user` WRITE;
 /*!40000 ALTER TABLE `list_favorites_recipe_user` DISABLE KEYS */;
+INSERT INTO `list_favorites_recipe_user` VALUES (1, 1, 1), (2, 1, 2), (3, 2, 5),(3, 3, 5), (4,4,5), (5,5,5),(6,3,3),(7,4,4),(8,2,1), (8,3,1);
 /*!40000 ALTER TABLE `list_favorites_recipe_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
