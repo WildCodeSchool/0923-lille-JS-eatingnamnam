@@ -1,10 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../components/Contexts/userContext";
 import Swipper from "../../components/Swipper/Swipper";
 import "./UserProfile.scss";
 
 function UserProfil() {
   const [vegan, setVegan] = useState();
   const [mexican, setMexican] = useState();
+  const { setAuth } = useContext(UserContext);
+  const navigate = useNavigate();
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe`)
       .then((response) => response.json())
@@ -15,6 +19,19 @@ function UserProfil() {
       .then((data) => setMexican(data))
       .catch((error) => console.error(error));
   }, []);
+  const handleLogout = () => {
+    try {
+      fetch(`${import.meta.env.VITE_BACKEND_URL}/api/logout`, {
+        method: "get",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+      });
+    } catch (error) {
+      console.error(error);
+    }
+    setAuth({ user: null, isLogged: false });
+    navigate("/login");
+  };
 
   return (
     <>
@@ -34,8 +51,11 @@ function UserProfil() {
       />
       <header className="UserProfil__header">
         <h1 className="UserProfil__name">Thomas NIGON</h1>
-        <button className="UserProfil__logoutButton" type="submit">
-          {" "}
+        <button
+          className="UserProfil__logoutButton"
+          type="submit"
+          onClick={handleLogout}
+        >
           <img
             className="UserProfil__logoutIcon"
             src={`${
