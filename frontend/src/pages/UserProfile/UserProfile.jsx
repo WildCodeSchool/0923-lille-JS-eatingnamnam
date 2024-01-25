@@ -1,16 +1,10 @@
 import "./UserProfile.scss";
 import { useEffect, useState } from "react";
 import RecipeCardUser from "../../components/RecipeCardUser/RecipeCardUser";
-import Swipper from "../../components/Swipper/Swipper";
 
 function UserProfil() {
-  const [vegan, setVegan] = useState();
   const [recipes, setRecipes] = useState();
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe`)
-      .then((response) => response.json())
-      .then((data) => setVegan(data))
-      .catch((error) => console.error(error));
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe`)
       .then((response) => response.json())
       .then((data) => setRecipes(data))
@@ -103,9 +97,6 @@ function UserProfil() {
         Créer un post +
       </button>
       <h1 className="UserProfil__post__fav">Mes postes</h1>
-      <section className="UserProfil__Theme">
-        {vegan ? <Swipper recipes={vegan} /> : "loading"}
-      </section>
 
       <div className="toto">
         {recipes
