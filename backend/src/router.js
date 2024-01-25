@@ -30,6 +30,7 @@ router.get(
   "/recipe/:id/ingredients",
   ingredientControllers.ingredientListByRecipId
 );
+router.get("/recipe/fav/user/:id", recipeControllers.recipeByFav);
 router.get("/randomrecipe", recipeControllers.randomRecipe);
 router.get("/tag", tagControllers.browseByTag);
 router.get("/user", userControllers.browse);
