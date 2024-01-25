@@ -19,6 +19,7 @@
     border: solid 2px $mainColor;
     border-radius: 0 20px 0 20px;
     background-size: cover;
+    background-repeat: no-repeat;
     .card__logo__diet__vegan {
       width: 2em;
       margin: 0.3em;
@@ -46,6 +47,10 @@
       display: none;
     }
   }
+}
+
+a {
+  all: unset;
 }
 
 @media screen and (min-width: 500px) {
