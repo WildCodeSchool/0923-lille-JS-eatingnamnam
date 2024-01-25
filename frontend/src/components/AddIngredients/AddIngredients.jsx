@@ -25,13 +25,16 @@ function AddIgredients({ ingredientArr, setIngredientArr }) {
     <section className="addIngredients">
       <h5 className="addIngredients__title">Ajout d'ingrédients</h5>
       <form onSubmit={handleSubmit(onSubmit)} className="addIngredients__form">
-        <label htmlFor="ingredient" className="addIngredients__form__label">
+        <label
+          htmlFor="ingredient"
+          className="addIngredients__form__ingredient"
+        >
           Ingredient
           <select
             id="ingredient"
             name="ingredientName"
             {...register("ingredientName")}
-            className="addIngredients__form__ingredient"
+            className="addIngredients__form__ingredient__select"
           >
             <option defaultValue="">-- -- </option>
             {ingredientsBdd &&
@@ -49,16 +52,16 @@ function AddIgredients({ ingredientArr, setIngredientArr }) {
             id="quantity"
             name="quantity"
             {...register("quantity")}
-            className="addIngredients__form__quantity"
+            className="addIngredients__form__quantity__input"
           />
         </label>
-        <label htmlFor="unit" className="addIngredients__form__label">
+        <label htmlFor="unit" className="addIngredients__form__unit">
           Unité
           <select
             id="unit"
             name="unit"
             {...register("unit")}
-            className="addIngredients__form__unit"
+            className="addIngredients__form__unit__select"
           >
             <option defaultValue="">-- -- </option>
             <option value="pièce(s)">Pièce(s)</option>

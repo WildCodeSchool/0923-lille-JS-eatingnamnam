@@ -1,46 +1,69 @@
 @import "../../variables.scss";
 
 .addIngredients {
-  margin: 2em 0;
+  margin: 2.5em 0 0;
 
   .addIngredients__title {
-    font-size: 2em;
+    font-size: 2.4em;
   }
   .addIngredients__form {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     background-color: $mainColor;
     border-radius: 20px;
     padding: 1em;
     margin: 2em 0;
+    grid-column-gap: 1em;
 
-    .addIngredients__form__label {
-      display: flex;
-      flex-direction: column;
-      font-size: 1.5em;
-    }
     .addIngredients__form__ingredient {
-      border-radius: 30px;
-      font-size: 1.5rem;
-      margin-bottom: 0.25em;
-      padding: 0.2em 0;
+      font-size: 1.5em;
+      color: $secondaryFontColor;
+      grid-area: 1 / 1 / 2 / 4;
+      width: 100%;
+      height: auto;
+      .addIngredients__form__ingredient__select {
+        border-radius: 30px;
+        font-size: 1.5rem;
+        margin-top: 0.25em;
+        padding: 0.2em 0;
+        width: 100%;
+      }
     }
     .addIngredients__form__quantity {
-      border-radius: 30px;
-      font-size: 1.5rem;
-      margin-bottom: 0.25em;
-      padding: 0.2em 0;
-      width: 50%;
+      font-size: 1.5em;
+      color: $secondaryFontColor;
+      grid-area: 2 / 1 / 3 / 2;
+      width: 100%;
+
+      .addIngredients__form__quantity__input {
+        border-radius: 30px;
+        font-size: 1.5rem;
+        margin-top: 0.25em;
+        padding: 0.24em;
+        width: 100%;
+        border: none;
+      }
     }
     .addIngredients__form__unit {
-      border-radius: 30px;
-      font-size: 1.5rem;
-      margin-bottom: 0.25em;
-      padding: 0.2em 0;
+      font-size: 1.5em;
+      color: $secondaryFontColor;
+      grid-area: 2 / 2 / 3 / 4;
+      width: 100%;
+
+      .addIngredients__form__unit__select {
+        border-radius: 30px;
+        font-size: 1.5rem;
+        margin-top: 0.25em;
+        padding: 0.2em;
+        width: 100%;
+        border: none;
+      }
     }
     .addIngredients__form__button {
-      margin: 0.5em 0;
-      font-size: 2rem;
+      grid-area: 3 / 1 / 4 / 4;
+      margin: 1em 0 0;
+      font-size: clamp(10px, 8.5vw, 32px);
       background-color: #97bf0d;
       color: #ffffff;
       border: none;
