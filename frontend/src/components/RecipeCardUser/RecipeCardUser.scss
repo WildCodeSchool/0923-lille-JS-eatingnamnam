@@ -8,7 +8,9 @@
   height: 17vh;
   border: solid 2px $mainColor;
   border-radius: 20px 20px 20px 20px;
-  margin: 2%;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-bottom: 3%;
 
   .card__img {
     width: 80%;
@@ -24,27 +26,28 @@
     border: solid 2px $mainColor;
     border-radius: 0 20px 0 20px;
     background-size: cover;
-    margin-left: 2%;
+    margin-left: 4%;
 
     .card__logo__diet__vegan {
-      width: 2em;
+      width: 1em;
       margin: 0.3em;
     }
   }
   .card__info {
-    width: 84%;
     display: flex;
+    height: 13vh;
     justify-content: space-between;
     flex-direction: column;
     gap: 1em;
     .card__info__name {
       display: flex;
+      margin-right: 4%;
     }
 
     .card__info__title {
       margin-left: 2%;
       width: 74%;
-      font-size: 20px;
+      font-size: 17px;
     }
     .card_info__stars {
       width: 30%;
@@ -90,10 +93,11 @@
     .card__info {
       width: 85%;
       display: flex;
+      height: 33vh;
       justify-content: space-between;
 
       .card__info__title {
-        margin: 0;
+        margin-left: 4%;
         width: 75%;
         font-size: 2em;
         font-family: handlee;
@@ -113,6 +117,7 @@
         }
         .card__info__stats__img {
           height: 2em;
+          margin-left: 4%;
         }
       }
     }
