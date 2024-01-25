@@ -5,7 +5,7 @@
   margin: 4vw;
   border-radius: 100px;
   position: absolute;
-  top: 28vh;
+  top: 38vh;
 }
 .UserProfil__header {
   display: flex;
@@ -307,5 +307,11 @@
       width: 84%;
       margin: 0.5em 0 0.25em 0;
     }
+  }
+  .toto {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3em;
+    width: 90%;
   }
 }
