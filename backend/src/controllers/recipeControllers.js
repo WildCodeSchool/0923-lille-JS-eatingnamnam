@@ -2,14 +2,14 @@ const tables = require("../tables");
 
 const add = async (req, res, next) => {
   // Extract the item data from the request body
-  const { title, time, dificulty, price, picture, diet, type, season } =
+  const { title, time, difficulty, price, picture, diet, type, season } =
     req.body.data;
   try {
     // Insert the item into the database
     const insertId = await tables.recipe.create(
       title,
       time,
-      dificulty,
+      difficulty,
       price,
       picture,
       diet,
