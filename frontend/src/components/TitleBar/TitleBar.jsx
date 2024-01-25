@@ -11,8 +11,6 @@ function TitleBar() {
     setActiveButton(event.target.name);
   };
 
-  const windowWidth = window.innerWidth;
-
   return (
     <header className="titleBar">
       <section className="titleBar__search">
@@ -51,15 +49,9 @@ function TitleBar() {
               <img
                 className="titleBar__userLogo__img"
                 name="userLogo"
-                src={
-                  windowWidth < 500
-                    ? `${
-                        import.meta.env.VITE_BACKEND_URL
-                      }/assets/images/User.png`
-                    : `${
-                        import.meta.env.VITE_BACKEND_URL
-                      }/assets/images/Logo-vegan.png`
-                }
+                src={`${
+                  import.meta.env.VITE_BACKEND_URL
+                }/assets/images/User.png`}
                 alt="userLogo"
               />
               <h2>Bonjour</h2>
@@ -77,44 +69,15 @@ function TitleBar() {
               <img
                 className="titleBar__userLogo__img"
                 name="userLogo"
-                src={
-                  windowWidth < 500
-                    ? `${
-                        import.meta.env.VITE_BACKEND_URL
-                      }/assets/images/User.png`
-                    : `${
-                        import.meta.env.VITE_BACKEND_URL
-                      }/assets/images/Logo-vegan.png`
-                }
+                src={`${
+                  import.meta.env.VITE_BACKEND_URL
+                }/assets/images/User.png`}
                 alt="userLogo"
               />
               <h2>Bonjour {auth.pseudo}</h2>
             </div>
           </Link>
         )}
-      </section>
-      <section className="titleBar__button__theme">
-        <button className="titleBar__button__theme-change active" type="button">
-          Recette aléatoire
-        </button>
-        <button
-          className="titleBar__button__theme-change noActive"
-          type="button"
-        >
-          Entrées
-        </button>
-        <button
-          className="titleBar__button__theme-change noActive"
-          type="button"
-        >
-          Plats
-        </button>
-        <button
-          className="titleBar__button__theme-change noActive"
-          type="button"
-        >
-          Desserts
-        </button>
       </section>
     </header>
   );

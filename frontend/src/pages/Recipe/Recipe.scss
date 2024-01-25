@@ -5,17 +5,29 @@ body {
   margin-bottom: 6vh;
 }
 
+.page__recipe {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  width: clamp(375px, 80vw, 800px);
+  align-self: center;
+}
+
 .ingredientsList {
   display: flex;
   flex-wrap: wrap;
   gap: 0.8em;
   justify-content: center;
+  width: clamp(375px, 80%, 500px);
 }
 .utensilsList {
   display: flex;
   flex-wrap: wrap;
   gap: 0.8em;
   justify-content: center;
+}
+.commentList {
+  width: 90%;
 }
 .recipe__cardContainer {
   background-color: $mainColorTransparent;
@@ -46,7 +58,6 @@ body {
   all: unset;
   padding: 5px;
   border-bottom: 1px solid $mainColor;
-  /*   box-shadow: 0px 25px 17px -16px #000000; */
 }
 .button__Focus {
   all: unset;

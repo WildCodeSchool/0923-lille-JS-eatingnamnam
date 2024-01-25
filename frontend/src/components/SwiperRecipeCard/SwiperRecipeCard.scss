@@ -54,12 +54,12 @@
   }
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 800px) {
   .swiperCard {
     align-items: center;
     flex-direction: column;
     display: flex;
-    width: 55%;
+    width: 75%;
     height: 19em;
     justify-content: space-between;
     border: 1px solid $mainColor;
