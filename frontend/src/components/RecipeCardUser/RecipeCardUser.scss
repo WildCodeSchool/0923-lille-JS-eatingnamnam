@@ -57,7 +57,7 @@
       display: flex;
       margin-left: 1vw;
       justify-content: left;
-      // width: 75%;
+
       .card__info__stats__div {
         display: flex;
         justify-content: center;
@@ -70,7 +70,6 @@
       }
       .card__info__stats__img {
         height: 1em;
-        //margin-left: 3%;
       }
     }
   }
@@ -124,19 +123,18 @@
         display: flex;
         justify-content: space-between;
         width: 75%;
-        .card__info__stats__div {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 1em;
-        }
-        .card__info__p {
-          font-size: 1.5em;
-        }
-        .card__info__stats__img {
-          height: 2em;
-          margin-left: 4%;
-        }
+      }
+      .card__info__stats__div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .card__info__p {
+        font-size: 20px;
+      }
+      .card__info__stats__img {
+        width: 2vw;
+        //margin-left: 4%;
       }
     }
   }
