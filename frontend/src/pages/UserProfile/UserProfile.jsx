@@ -1,20 +1,15 @@
 import "./UserProfile.scss";
 import { useEffect, useState } from "react";
-import RecipeCard from "../../components/LittleRecipeCard/LittleRecipeCard";
+import RecipeCardUser from "../../components/RecipeCardUser/RecipeCardUser";
 import Swipper from "../../components/Swipper/Swipper";
 
 function UserProfil() {
   const [vegan, setVegan] = useState();
-  const [mexican, setMexican] = useState();
   const [recipes, setRecipes] = useState();
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe`)
       .then((response) => response.json())
       .then((data) => setVegan(data))
-      .catch((error) => console.error(error));
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe`)
-      .then((response) => response.json())
-      .then((data) => setMexican(data))
       .catch((error) => console.error(error));
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe`)
       .then((response) => response.json())
@@ -112,14 +107,10 @@ function UserProfil() {
         {vegan ? <Swipper recipes={vegan} /> : "loading"}
       </section>
 
-      <h1 className="UserProfil__post__fav">Mes favorits</h1>
-      <section className="home__Theme">
-        {mexican ? <Swipper recipes={mexican} /> : "loading"}
-      </section>
       <div className="toto">
         {recipes
           ? recipes.map((recipe) => (
-              <RecipeCard key={`recipe:${recipe.id}`} recipes={recipe} />
+              <RecipeCardUser key={`recipe:${recipe.id}`} recipe={recipe} />
             ))
           : ""}
       </div>
