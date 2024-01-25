@@ -39,7 +39,6 @@ function TitleBar() {
             />
           </button>
         </form>
-        {/*         {auth.isLogged === true ? <h1>hi {auth.pseudo}</h1> : ""} */}
         {auth.isLogged === false ? (
           <Link
             to="/login"
