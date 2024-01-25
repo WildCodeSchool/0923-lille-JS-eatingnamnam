@@ -6,7 +6,6 @@ function SelectCountry({ setCountry }) {
   const countryRef = useRef();
   const handleChange = () => {
     setCountry(countryRef.current.value);
-    // console.log(countryRef.current.value);
   };
   return (
     <select

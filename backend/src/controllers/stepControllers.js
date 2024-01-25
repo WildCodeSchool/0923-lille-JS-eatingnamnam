@@ -39,7 +39,6 @@ const browse = async (req, res, next) => {
 const add = async (req, res, next) => {
   // Extract the item data from the request body
   const step = req.body;
-  console.warn("step:", step);
   try {
     // Insert the item into the database
     const insertStep = await tables.step.create(step);

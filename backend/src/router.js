@@ -38,7 +38,7 @@ router.get("/tag", tagControllers.browseByTag);
 router.get("/user", userControllers.browse);
 router.post("/adduser", hashPassword, userControllers.register);
 router.post("/login", authControllers.login);
-router.get("/logouts", authControllers.logout);
+router.get("/logout", authControllers.logout);
 router.get("/step/:id", stepControllers.stepByRecipeId);
 router.get("/grade/:recipeID", commentControllers.rating);
 
