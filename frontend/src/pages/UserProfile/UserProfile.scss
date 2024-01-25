@@ -7,6 +7,23 @@
   position: absolute;
   top: 19vh;
 }
+.UserProfil__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: center;
+}
+.UserProfil__logoutIcon {
+  width: 100%;
+  aspect-ratio: 4/3;
+}
+.UserProfil__logoutButton {
+  all: unset;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+}
 .UserProfil__name {
   font-size: 30px;
   text-align: right;

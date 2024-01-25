@@ -1,17 +1,37 @@
 /* eslint-disable react/jsx-props-no-spreading */
-// eslint-disable-next-line import/no-extraneous-dependencies
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../Contexts/userContext";
 
 function LoginForm() {
   const { register, handleSubmit } = useForm();
+  const { setAuth } = useContext(UserContext);
+  const navigate = useNavigate();
   const onSubmit = (data) => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/login`, {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        data,
-      }),
-    });
+    try {
+      fetch(`${import.meta.env.VITE_BACKEND_URL}/api/login`, {
+        method: "post",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          data,
+        }),
+      })
+        .then((response) => response.json())
+        .then(
+          (fetchedData) =>
+            setAuth({
+              mail: fetchedData.email,
+              id: fetchedData.id,
+              pseudo: fetchedData.pseudo,
+              isLogged: true,
+            }),
+          navigate("/")
+        );
+    } catch (error) {
+      console.error("error:", error);
+    }
   };
 
   return (
