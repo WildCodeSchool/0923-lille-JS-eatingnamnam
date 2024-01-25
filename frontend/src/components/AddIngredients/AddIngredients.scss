@@ -1,0 +1,66 @@
+@import "../../variables.scss";
+
+.addIngredients {
+  margin: 2em 0;
+
+  .addIngredients__title {
+    font-size: 2em;
+  }
+  .addIngredients__form {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: $mainColor;
+    border-radius: 20px;
+    padding: 1em;
+    margin: 2em 0;
+
+    .addIngredients__form__label {
+      display: flex;
+      flex-direction: column;
+      font-size: 1.5em;
+    }
+    .addIngredients__form__ingredient {
+      border-radius: 30px;
+      font-size: 1.5rem;
+      margin-bottom: 0.25em;
+      padding: 0.2em 0;
+    }
+    .addIngredients__form__quantity {
+      border-radius: 30px;
+      font-size: 1.5rem;
+      margin-bottom: 0.25em;
+      padding: 0.2em 0;
+      width: 50%;
+    }
+    .addIngredients__form__unit {
+      border-radius: 30px;
+      font-size: 1.5rem;
+      margin-bottom: 0.25em;
+      padding: 0.2em 0;
+    }
+    .addIngredients__form__button {
+      margin: 0.5em 0;
+      font-size: 2rem;
+      background-color: #97bf0d;
+      color: #ffffff;
+      border: none;
+      border-radius: 30px;
+      padding: 0.2em;
+    }
+  }
+  .addIngredients__List {
+    .addIngredients__List__element {
+      background-color: $mainColorTransparent;
+      padding: 0.5em;
+      border-radius: 20px;
+      text-align: center;
+      margin: 0.5em 0;
+      .addIngredients__List__element__title {
+        font-size: 1.5rem;
+      }
+      .addIngredients__List__element__quantity {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

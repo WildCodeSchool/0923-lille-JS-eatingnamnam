@@ -40,7 +40,7 @@ router.get("/user", userControllers.browse);
 router.post("/adduser", hashPassword, userControllers.register);
 router.post("/login", authControllers.login);
 
-router.get("/ingredient", ingredientControllers.browse);
+router.get("/ingredients", ingredientControllers.browse);
 router.get("/step", stepControllers.browse);
 router.get("/step/:id", stepControllers.stepByRecipeId);
 

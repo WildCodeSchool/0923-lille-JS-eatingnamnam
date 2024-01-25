@@ -1,18 +1,13 @@
 @import "../../variables.scss";
-
-.form {
+main {
   margin: 1.5em;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 
-  .form__title {
+  .titleAddRecipe {
     font-size: 2.4rem;
     text-align: center;
     margin: 0 0 0.5em 0;
   }
-
-  .form__addTitle {
+  .addTitle {
     display: flex;
     width: 100%;
     border-radius: 30px;
@@ -20,117 +15,173 @@
     margin-bottom: 0.25em;
     padding: 0.2em 0;
   }
-
-  .form__fontLabel {
-    font-size: 1.5rem;
+  .selectCountry {
+    margin-top: 0.5em;
+  }
+  .form {
     display: flex;
     flex-direction: column;
-  }
-
-  .form__evaluation {
-    display: flex;
-    justify-content: space-between;
-    margin: 0.5em 0;
-
-    .form__evaluation__select {
-      border-radius: 30px;
-      font-size: 1.5rem;
-      margin: 0.25em 0;
-      border: 1px solid $mainFontColor;
-      height: 1.25em;
-    }
-  }
-
-  .form__picture {
-    color: $secondaryColor;
-    background-color: #fff;
-    font-weight: bold;
-    font-size: 1.7rem;
-    text-align: center;
-    display: flex;
     justify-content: center;
-    border: 3px dashed $secondaryColor;
-    padding: 0.2em;
-    align-items: center;
-    border-radius: 30px;
-    margin: 1em 0;
 
-    span {
-      font-size: 3em;
-      font-weight: 1.5;
+    .form__fontLabel {
+      font-size: 1.5rem;
+      display: flex;
+      flex-direction: column;
     }
 
-    .form__picture__button {
-      display: none;
+    .form__evaluation {
+      display: flex;
+      justify-content: space-between;
+      margin: 0.5em 0;
+
+      .form__evaluation__select {
+        border-radius: 30px;
+        font-size: 1.5rem;
+        margin: 0.25em 0;
+        border: 1px solid $mainFontColor;
+        height: 1.25em;
+      }
     }
-  }
 
-  .form__picture__on {
-    color: $secondaryColor;
-    width: 100%;
-    height: 25vh;
-    display: block;
-    background-size: cover;
-    background-position: center;
-    border: 3px solid $secondaryColor;
-    align-items: center;
-    border-radius: 30px;
-    margin: 1em 0;
+    .form__picture {
+      color: $secondaryColor;
+      background-color: #fff;
+      font-weight: bold;
+      font-size: 1.7rem;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      border: 3px dashed $secondaryColor;
+      padding: 0.2em;
+      align-items: center;
+      border-radius: 30px;
+      margin: 1em 0;
 
-    .form__picture__button {
-      display: none;
-    }
-  }
-
-  .form__fieldset {
-    border: none;
-    margin: 1em 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1em;
-
-    .form__fieldset__titre {
-      font-size: 2em;
-      margin-bottom: 0.25em;
-    }
-    .form__fieldset__textCheck {
-      font-size: 1.5em;
-
-      .form__fieldset__Checkbox {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        -ms-appearance: none;
-
-        border-radius: 50%;
-        height: 20px;
-        width: 20px;
-        background: #fff;
-        border: 1px solid #ccc;
-        margin-right: 0.5em;
+      span {
+        font-size: 3em;
+        font-weight: 1.5;
       }
 
-      .form__fieldset__Checkbox:checked {
-        background: $secondaryColor;
-        margin: 0px;
-        position: relative;
-        border: 1px solid #ccc;
-        margin-right: 0.5em;
-        &:before {
-          display: block;
-          font-size: 13px;
-          position: absolute;
+      .form__picture__button {
+        display: none;
+      }
+    }
+
+    .form__picture__on {
+      color: $secondaryColor;
+      width: 100%;
+      height: 25vh;
+      display: block;
+      background-size: cover;
+      background-position: center;
+      border: 3px solid $secondaryColor;
+      align-items: center;
+      border-radius: 30px;
+      margin: 1em 0;
+
+      .form__picture__button {
+        display: none;
+      }
+    }
+
+    .form__fieldset {
+      border: none;
+      margin: 1em 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+
+      .form__fieldset__titre {
+        font-size: 2em;
+        margin-bottom: 0.25em;
+      }
+      .form__fieldset__textCheck {
+        font-size: 1.5em;
+
+        .form__fieldset__Checkbox {
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          -ms-appearance: none;
+
+          border-radius: 50%;
+          height: 20px;
+          width: 20px;
+          background: #fff;
+          border: 1px solid #ccc;
+          margin-right: 0.5em;
+        }
+
+        .form__fieldset__Checkbox:checked {
+          background: $secondaryColor;
+          margin: 0px;
+          position: relative;
+          border: 1px solid #ccc;
+          margin-right: 0.5em;
+          &:before {
+            display: block;
+            font-size: 13px;
+            position: absolute;
+          }
         }
       }
     }
+
+    .form__submit {
+      border: none;
+      background-color: $mainColor;
+      color: $secondaryFontColor;
+      border-radius: 30px;
+      font-size: 2em;
+      margin-top: 0.5em;
+      padding: 0.2em 0;
+    }
   }
 
-  .form__submit {
-    border: none;
-    background-color: $mainColor;
-    color: $secondaryFontColor;
-    border-radius: 30px;
-    font-size: 2em;
-    margin-top: 0.5em;
-    padding: 0.2em 0;
+  .step {
+    .step__title {
+      font-size: 2.4rem;
+      margin: 1.5em 0 0.5em 0;
+    }
+    .step__liste {
+      list-style: none;
+      margin: 2em 0;
+      .step__liste__texte {
+        font-size: 1.5rem;
+        margin: 0.5em 0;
+        background-color: #96bf0238;
+        padding: 0.5em;
+        border-radius: 20px;
+        resize: none;
+        span {
+          font-size: 1.8rem;
+          font-weight: 900;
+        }
+      }
+    }
+    .step__titleNumber {
+      font-size: 2rem;
+      margin: 0.2em 0;
+      font-weight: normal;
+    }
+    .step__form {
+      display: flex;
+      flex-direction: column;
+
+      .step__form__addTexte {
+        font-size: 1.5rem;
+        border: solid 2px $secondaryColor;
+        border-radius: 20px;
+        padding: 0.2em;
+      }
+      .step__form__button {
+        margin: 0.5em 0;
+        font-size: 2rem;
+        background-color: $secondaryColor;
+        color: $secondaryFontColor;
+        border: none;
+        border-radius: 30px;
+        padding: 0.2em 0;
+      }
+    }
   }
 }
