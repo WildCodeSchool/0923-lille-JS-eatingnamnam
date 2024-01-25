@@ -52,8 +52,26 @@
     .card_info__stars {
       width: 30%;
     }
+
     .card__info__stats {
-      display: none;
+      display: flex;
+      margin-left: 1vw;
+      justify-content: left;
+      // width: 75%;
+      .card__info__stats__div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .card__info__p {
+        font-size: 12px;
+        margin-left: 2vw;
+        margin-right: 2vw;
+      }
+      .card__info__stats__img {
+        height: 1em;
+        //margin-left: 3%;
+      }
     }
   }
 }
