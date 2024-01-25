@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
-import Swipper from "../../components/Swipper/Swipper";
 import "./UserProfile.scss";
+import { useEffect, useState } from "react";
+import RecipeCard from "../../components/LittleRecipeCard/LittleRecipeCard";
+import Swipper from "../../components/Swipper/Swipper";
 
 function UserProfil() {
   const [vegan, setVegan] = useState();
   const [mexican, setMexican] = useState();
+  const [recipes, setRecipes] = useState();
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe`)
       .then((response) => response.json())
@@ -13,6 +15,10 @@ function UserProfil() {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe`)
       .then((response) => response.json())
       .then((data) => setMexican(data))
+      .catch((error) => console.error(error));
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe`)
+      .then((response) => response.json())
+      .then((data) => setRecipes(data))
       .catch((error) => console.error(error));
   }, []);
 
@@ -110,6 +116,13 @@ function UserProfil() {
       <section className="home__Theme">
         {mexican ? <Swipper recipes={mexican} /> : "loading"}
       </section>
+      <div className="toto">
+        {recipes
+          ? recipes.map((recipe) => (
+              <RecipeCard key={`recipe:${recipe.id}`} recipes={recipe} />
+            ))
+          : ""}
+      </div>
     </>
   );
 }
