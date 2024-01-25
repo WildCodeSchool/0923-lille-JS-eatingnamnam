@@ -101,13 +101,13 @@ function AddRecipe() {
                 required
               />
             </label>
-            <label className="form__fontLabel" htmlFor="dificultySelect">
+            <label className="form__fontLabel" htmlFor="difficultySelect">
               Difficulté
               <select
-                {...register("dificulty")}
+                {...register("difficulty")}
                 className="form__evaluation__select"
-                name="dificulty"
-                id="dificultySelect"
+                name="difficulty"
+                id="difficultySelect"
                 defaultValue=""
               >
                 <option value="">-- --</option>
