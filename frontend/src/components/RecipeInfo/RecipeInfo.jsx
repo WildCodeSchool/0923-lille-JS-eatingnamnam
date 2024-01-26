@@ -1,9 +1,11 @@
 import "./RecipeInfo.scss";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import StarBar from "../StarBar/StarBar";
 import AddFavorite from "../AddFavorite/AddFavorite";
 
 function RecipeInfo({ recipe, id }) {
+  const navigate = useNavigate();
   const nbEuro = [
     {
       id: 1,
@@ -18,6 +20,22 @@ function RecipeInfo({ recipe, id }) {
       src: `${import.meta.env.VITE_BACKEND_URL}/assets/images/euro.svg`,
     },
   ];
+
+  const handleDelete = () => {
+    try {
+      fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/recipe/${recipe.id}/delete`,
+        {
+          method: "delete",
+          credentials: "include",
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+    } catch (error) {
+      console.error(error);
+    }
+    navigate("/");
+  };
   const admin = true;
   return (
     <section className="RecipeInfo">
@@ -44,12 +62,16 @@ function RecipeInfo({ recipe, id }) {
         <p className="RecipeInfo_info__p">"nb commentaire(s)"</p>
         <StarBar className="RecipeInfo_info__stars" id={id} />
       </section>
-
-      <h1 className="RecipeInfo__info__title">
-        {recipe.title}
+      <div className="RecipeInfo__info__title__container">
+        <h1 className="RecipeInfo__info__title">{recipe.title}</h1>
         {admin === true ? (
-          <button className="RecipeInfo__deleteButton" type="submit">
+          <button
+            className="RecipeInfo__deleteButton"
+            type="submit"
+            onClick={handleDelete}
+          >
             <img
+              className="recipeInfo__deleteIcon"
               src={`${
                 import.meta.env.VITE_BACKEND_URL
               }/assets/images/trashIcon.png`}
@@ -59,7 +81,7 @@ function RecipeInfo({ recipe, id }) {
         ) : (
           ""
         )}{" "}
-      </h1>
+      </div>
 
       <section className="RecipeInfo__details">
         <div className="RecipeInfo__details__difficulty">

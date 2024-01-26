@@ -25,11 +25,15 @@ router.get("/recipe/:id", recipeControllers.recipeById);
 router.get("/recipe/:id/utensils", ustensilControllers.utensilByRecipeId);
 router.get("/recipe/:id/comments", commentControllers.commentByRecipeId);
 router.get("/recipe/:id/steps", stepControllers.stepByRecipeId);
+router.post("/add/recipe", recipeControllers.add);
+router.post("/add/steps", stepControllers.add);
+
 router.get("/recipe/tag/:id", recipeControllers.recipeByTag);
 router.get(
   "/recipe/:id/ingredients",
   ingredientControllers.ingredientListByRecipId
 );
+router.get("/recipe/fav/user/:id", recipeControllers.recipeByFav);
 router.get("/randomrecipe", recipeControllers.randomRecipe);
 router.get("/tag", tagControllers.browseByTag);
 router.get("/user", userControllers.browse);

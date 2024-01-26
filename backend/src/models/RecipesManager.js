@@ -9,11 +9,11 @@ class RecipeManager extends AbstractManager {
 
   // The C of CRUD - Create operation
 
-  async create(recipe) {
+  async create(title, time, difficulty) {
     // Execute the SQL INSERT query to add a new item to the "item" table
     const [result] = await this.database.query(
-      `INSERT INTO ${this.table} (title) VALUE (?)`,
-      [recipe.title]
+      `INSERT INTO ${this.table} (title, time, date, price, difficulty, number_share, user_id) VALUE (?,?,?,?,?,?,?)`,
+      [title, time, "1970-01-01 00:00:01", 1, difficulty, 4, 1]
     );
 
     // Return the ID of the newly inserted item
@@ -21,6 +21,20 @@ class RecipeManager extends AbstractManager {
   }
 
   // The Rs of CRUD - Read operations
+
+  async recipeByFav(id) {
+    // Execute the SQL SELECT query to retrieve a specific item by its ID
+    const [rows] = await this.database.query(
+      ` SELECT * FROM ${this.table}
+      INNER JOIN nam_nam.list_favorites_recipe_user AS fav
+      ON recipe.id = fav.recipe_id
+      WHERE fav.user_id = ?`,
+      [id]
+    );
+
+    // Return the first row of the result, which represents the item
+    return rows;
+  }
 
   async recipeById(id) {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
