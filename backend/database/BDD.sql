@@ -203,7 +203,7 @@ CREATE TABLE `recipe` (
   `picture` varchar(255) DEFAULT NULL,
   `time` varchar(50) NOT NULL,
   `date` date NOT NULL,
-  `price` int NOT NULL,
+  `price` varchar(50) NOT NULL,
   `difficulty` varchar(50) NOT NULL,
   `number_share` int NOT NULL,
   `user_id` int NOT NULL,

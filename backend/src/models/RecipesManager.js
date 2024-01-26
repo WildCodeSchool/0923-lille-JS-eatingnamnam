@@ -1,137 +1,196 @@
-const AbstractManager = require("./AbstractManager");
+// const AbstractManager = require("./AbstractManager");
 
-class RecipeManager extends AbstractManager {
-  constructor() {
-    // Call the constructor of the parent class (AbstractManager)
-    // and pass the table name "item" as configuration
-    super({ table: "recipe" });
-  }
+// class RecipeManager extends AbstractManager {
+//   constructor() {
+//     // Call the constructor of the parent class (AbstractManager)
+//     // and pass the table name "item" as configuration
+//     super({ table: "recipe" });
+//   }
 
-  // The C of CRUD - Create operation
+//   // The C of CRUD - Create operation
 
-  async create(title, time, difficulty) {
-    // Execute the SQL INSERT query to add a new item to the "item" table
-    const [result] = await this.database.query(
-      `INSERT INTO ${this.table} (title, time, date, price, difficulty, number_share, user_id) VALUE (?,?,?,?,?,?,?)`,
-      [title, time, "1970-01-01 00:00:01", 1, difficulty, 4, 1]
-    );
+//   async create(
+//     title,
+//     picture,
+//     time,
+//     date,
+//     price,
+//     difficulty,
+//     user_id,
+//     stepsArr,
+//     ingredientArr,
+//     ingredientID
+//   ) {
+//     try {
+//       console.log("s<csf!!!!!!!!!!!");
+//       const [resultRecipe] = await this.database.query(
+//         `INSERT INTO ${this.table} (title, picture, time, date, price, difficulty, number_share, user_id) VALUE (?,?,?,?,?,?,?,?)`,
+//         [title, picture, time, "2024-02-01", price, difficulty, 4, user_id]
+//       );
+//       const recipeId = resultRecipe.insertId;
+//       console.log("recipe :", recipeId);
 
-    // Return the ID of the newly inserted item
-    return result.insertId;
-  }
+//       for (let i = 0; i < stepsArr.length; i += 1) {
+//         this.database.query(
+//           `INSERT INTO nam_nam.step ( number_step, description, recipe_id) VALUE (?,?,?);`,
+//           [stepsArr[i].id, stepsArr[i].desc, recipeId]
+//         );
+//       }
 
-  // The Rs of CRUD - Read operations
+//       const ingredienArrOfId = [];
+//       for (let i = 0; i < ingredientArr.length; i += 1) {
+//         const toto = this.database.query(
+//           `SELECT id FROM nam_nam.ingredient WHERE name="?";`[
+//             ingredientArr[i].ingredientName
+//           ]
+//         );
+//         ingredienArrOfId.push(toto);
+//       }
+//       console.log("ingredienArrOfId :", ingredienArrOfId);
 
-  async recipeByFav(id) {
-    // Execute the SQL SELECT query to retrieve a specific item by its ID
-    const [rows] = await this.database.query(
-      ` SELECT * FROM ${this.table}
-      INNER JOIN nam_nam.list_favorites_recipe_user AS fav
-      ON recipe.id = fav.recipe_id
-      WHERE fav.user_id = ?`,
-      [id]
-    );
+//       for (let i = 0; i < ingredientArr.length; i += 1) {
+//         this.database.query(
+//           `INSERT INTO nam_nam.list_ingredients_recip ( recipe_id,ingredient_id,quantity,unit) VALUE (?,?,?,?);`,
+//           [
+//             recipeId,
+//             ingredienArrOfId[i],
+//             ingredientArr[i].quantity,
+//             ingredientArr[i].unit,
+//           ]
+//         );
+//       }
 
-    // Return the first row of the result, which represents the item
-    return rows;
-  }
+//       // Return the ID of the newly inserted item
+//       return resultRecipe.insertId;
+//     } catch (error) {
+//       return error;
+//     }
+//   }
 
-  async recipeById(id) {
-    // Execute the SQL SELECT query to retrieve a specific item by its ID
-    const [rows] = await this.database.query(
-      `SELECT * FROM ${this.table} where recipe.id = ?`,
-      [id]
-    );
+//   // async createsteps(stepsArr, insertId) {
+//   //   const [result] = await this.database
+//   //     .query
+//   //     // stepsArr.map(
+//   //     //   (step) => (
+//   //     //     `INSERT INTO nam_nam.step ( number_step, description, recipe_id) VALUE (?,?,?)`,
+//   //     //     [step.id, step.desc, insertId]
+//   //     //   )
+//   //     // )
+//   //     ();
+//   // }
 
-    // Return the first row of the result, which represents the item
-    return rows[0];
-  }
+//   // The Rs of CRUD - Read operations
 
-  async randomRecipe() {
-    // check the length of the database and store the length in a variable count
-    const [count] = await this.database.query(`
-      SELECT COUNT(id) as result FROM ${this.table}`);
+//   async recipeByFav(id) {
+//     // Execute the SQL SELECT query to retrieve a specific item by its ID
+//     const [rows] = await this.database.query(
+//       ` SELECT * FROM ${this.table}
+//       INNER JOIN nam_nam.list_favorites_recipe_user AS fav
+//       ON recipe.id = fav.recipe_id
+//       WHERE fav.user_id = ?`,
+//       [id]
+//     );
 
-    // randomize a number in range of the database length
-    const random = Math.floor(Math.random() * count[0].result + 1);
+//     // Return the first row of the result, which represents the item
+//     return rows;
+//   }
 
-    // Execute the SQL request to display the recipe with the random number generated
-    const [rows] = await this.database.query(
-      `SELECT * FROM ${this.table}
-       WHERE recipe.id = ?`,
-      [random]
-    );
+//   async recipeById(id) {
+//     // Execute the SQL SELECT query to retrieve a specific item by its ID
+//     const [rows] = await this.database.query(
+//       `SELECT * FROM ${this.table} where recipe.id = ?`,
+//       [id]
+//     );
 
-    // Return the first row of the result, which represents the item
-    return rows[0];
-  }
+//     // Return the first row of the result, which represents the item
+//     return rows[0];
+//   }
 
-  async readAll() {
-    // Execute the SQL SELECT query to retrieve all items from the "item" table
-    const [rows] = await this.database.query(`SELECT * FROM ${this.table}`);
+//   async randomRecipe() {
+//     // check the length of the database and store the length in a variable count
+//     const [count] = await this.database.query(`
+//       SELECT COUNT(id) as result FROM ${this.table}`);
 
-    // Return the array of items
-    return rows;
-  }
+//     // randomize a number in range of the database length
+//     const random = Math.floor(Math.random() * count[0].result + 1);
 
-  async recipeByTag(id) {
-    // Execute the SQL SELECT query to retrieve all items from the "item" table
-    const [rows] = await this.database.query(
-      `SELECT recipe.* FROM recipe 
-      INNER JOIN list_tags_recipe AS tags_id 
-      ON recipe.id=tags_id.recipe_id 
-      WHERE tags_id.tag_id = ?`,
-      [id]
-    );
-    // Return the array of items
-    return rows;
-  }
+//     // Execute the SQL request to display the recipe with the random number generated
+//     const [rows] = await this.database.query(
+//       `SELECT * FROM ${this.table}
+//        WHERE recipe.id = ?`,
+//       [random]
+//     );
 
-  async delete(id) {
-    try {
-      await this.database.query("START TRANSACTION");
-      const [rows] = await this.database.query(
-        `DELETE FROM nam_nam.step WHERE recipe_id = ?`,
-        [id]
-      );
-      await this.database.query(
-        `DELETE FROM nam_nam.list_ustensils_recip WHERE recipe_id = ?`,
-        [id]
-      );
-      await this.database.query(
-        `DELETE FROM nam_nam.comment_recipe_user WHERE recipe_id = ?`,
-        [id]
-      );
-      await this.database.query(
-        `DELETE FROM nam_nam.list_tags_recipe WHERE recipe_id = ?`,
-        [id]
-      );
-      await this.database.query(
-        `DELETE FROM nam_nam.list_ingredients_recip WHERE recipe_id = ?`,
-        [id]
-      );
-      await this.database.query(`DELETE FROM ${this.table} WHERE id = ?`, [id]);
-      await this.database.query("COMMIT");
-      return rows[0];
-    } catch (error) {
-      await this.database.query("ROLLBACK");
-      console.error(error);
-      return error;
-    }
-  }
-  // The U of CRUD - Update operation
-  // TODO: Implement the update operation to modify an existing item
+//     // Return the first row of the result, which represents the item
+//     return rows[0];
+//   }
 
-  // async update(item) {
-  //   ...
-  // }
+//   async readAll() {
+//     // Execute the SQL SELECT query to retrieve all items from the "item" table
+//     const [rows] = await this.database.query(`SELECT * FROM ${this.table}`);
 
-  // The D of CRUD - Delete operation
-  // TODO: Implement the delete operation to remove an item by its ID
+//     // Return the array of items
+//     return rows;
+//   }
 
-  // async delete(id) {
-  //   ...
-  // }
-}
+//   async recipeByTag(id) {
+//     // Execute the SQL SELECT query to retrieve all items from the "item" table
+//     const [rows] = await this.database.query(
+//       `SELECT recipe.* FROM recipe
+//       INNER JOIN list_tags_recipe AS tags_id
+//       ON recipe.id=tags_id.recipe_id
+//       WHERE tags_id.tag_id = ?`,
+//       [id]
+//     );
+//     // Return the array of items
+//     return rows;
+//   }
 
-module.exports = RecipeManager;
+//   async delete(id) {
+//     try {
+//       await this.database.query("START TRANSACTION");
+//       const [rows] = await this.database.query(
+//         `DELETE FROM nam_nam.step WHERE recipe_id = ?`,
+//         [id]
+//       );
+//       await this.database.query(
+//         `DELETE FROM nam_nam.list_ustensils_recip WHERE recipe_id = ?`,
+//         [id]
+//       );
+//       await this.database.query(
+//         `DELETE FROM nam_nam.comment_recipe_user WHERE recipe_id = ?`,
+//         [id]
+//       );
+//       await this.database.query(
+//         `DELETE FROM nam_nam.list_tags_recipe WHERE recipe_id = ?`,
+//         [id]
+//       );
+//       await this.database.query(
+//         `DELETE FROM nam_nam.list_ingredients_recip WHERE recipe_id = ?`,
+//         [id]
+//       );
+//       await this.database.query(`DELETE FROM ${this.table} WHERE id = ?`, [id]);
+//       await this.database.query("COMMIT");
+//       return rows[0];
+//     } catch (error) {
+//       await this.database.query("ROLLBACK");
+//       console.error(error);
+//       return error;
+//     }
+//   }
+//   // The U of CRUD - Update operation
+//   // TODO: Implement the update operation to modify an existing item
+
+//   // async update(item) {
+//   //   ...
+//   // }
+
+//   // The D of CRUD - Delete operation
+//   // TODO: Implement the delete operation to remove an item by its ID
+
+//   // async delete(id) {
+//   //   ...
+//   // }
+// }
+
+// module.exports = RecipeManager;

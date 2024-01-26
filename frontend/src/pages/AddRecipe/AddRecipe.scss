@@ -184,4 +184,12 @@ main {
       }
     }
   }
+  .buttonFetch {
+    font-size: 2em;
+    background-color: $mainColor;
+    border-radius: 20px;
+    border: none;
+    padding: 0.2em 0.5em;
+    color: $secondaryFontColor;
+  }
 }

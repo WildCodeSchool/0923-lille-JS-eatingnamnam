@@ -25,26 +25,31 @@ function AddRecipe() {
     formState: { isSubmitSuccessful },
   } = useForm();
 
-  const onSubmitInfo = (mySubmitedRecipe) => {
-    setInfo(mySubmitedRecipe);
-    if (info) {
-      try {
-        fetch(`${import.meta.env.VITE_BACKEND_URL}/api/add/recipe`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            title: titleRef.current.value,
-            country,
-            info,
-            description,
-          }),
-        });
-      } catch (error) {
-        console.error(error);
-      }
+  const handleSubmitForm = () => {
+    const date = new Date().toLocaleDateString();
+    try {
+      fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user/1/add/recipe`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title: titleRef.current.value,
+          country,
+          info,
+          stepsArr,
+          ingredientArr,
+          description,
+          date,
+        }),
+      });
+    } catch (error) {
+      console.error(error);
     }
+  };
+  const onSubmitInfo = (mySubmitedRecipe) => {
+    // console.log(info);
+    setInfo(mySubmitedRecipe);
   };
 
   const onSubmitStep = (data, event) => {
@@ -374,6 +379,9 @@ function AddRecipe() {
         setIngredientArr={setIngredientArr}
         ingredientArr={ingredientArr}
       />
+      <button type="button" onClick={handleSubmitForm} className="buttonFetch">
+        click
+      </button>
     </main>
   );
 }
