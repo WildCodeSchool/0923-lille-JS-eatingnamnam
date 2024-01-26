@@ -116,7 +116,7 @@
     align-items: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    background-image: URL(src/assets/backgroundDes.svg);
+    background-image: url(src/assets/backgroundDes.svg);
 
     .formLogin__Button {
       display: flex;
@@ -163,10 +163,10 @@
     .formInscription__inputs {
       display: flex;
       flex-direction: column;
-      gap: 0.5em;
+      gap: 2px;
       padding-top: 0.3em;
       align-items: center;
-      height: 38vh;
+      height: 40vh;
       width: 40%;
 
       .formInscription__label {

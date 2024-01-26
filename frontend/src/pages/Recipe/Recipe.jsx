@@ -70,7 +70,7 @@ function Recipe() {
   };
 
   return (
-    <div className="page">
+    <div className="page__recipe">
       {recipe ? <RecipeInfo recipe={recipe} id={recipe.id} /> : "loading"}
 
       <main className="recipe__cardContainer">
@@ -130,17 +130,18 @@ function Recipe() {
             ))
           : ""}
         {ingredientList && utensils && comments ? <AddComment /> : ""}
-
-        {comments
-          ? comments.map((comment) => (
-              <CommentCard
-                key={`comment:${comment.id}`}
-                comment={comment}
-                recipe={recipe}
-                id={recipe.id}
-              />
-            ))
-          : ""}
+        <section className="commentList">
+          {comments
+            ? comments.map((comment) => (
+                <CommentCard
+                  key={`comment:${comment.id}`}
+                  comment={comment}
+                  recipe={recipe}
+                  id={recipe.id}
+                />
+              ))
+            : ""}
+        </section>
       </main>
     </div>
   );
