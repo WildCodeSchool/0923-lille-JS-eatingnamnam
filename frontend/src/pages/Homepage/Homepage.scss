@@ -39,9 +39,10 @@
   .little_recipeCard {
     display: flex;
     justify-content: space-between;
+    align-content: space-between;
     flex-wrap: wrap;
     width: 50%;
-    height: 65vh;
+    height: 70vh;
   }
 
   .home__Theme {
