@@ -2,6 +2,7 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import { UserContext } from "../Contexts/userContext";
 
 function LoginForm() {
@@ -18,7 +19,16 @@ function LoginForm() {
           data,
         }),
       })
-        .then((response) => response.json())
+        .then((response) => {
+          if (!response.ok) {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Identifiant ou mot de passe incorrects",
+            });
+          }
+          return response.json();
+        })
         .then(
           (fetchedData) =>
             setAuth({
