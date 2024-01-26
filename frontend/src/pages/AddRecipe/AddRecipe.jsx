@@ -67,7 +67,7 @@ function AddRecipe() {
     }
   }
   return (
-    <main>
+    <main className="addRecipe_page">
       <h1 className="titleAddRecipe">CREER TA RECETTE</h1>
       <section>
         <label className="addTitle" htmlFor="title">
