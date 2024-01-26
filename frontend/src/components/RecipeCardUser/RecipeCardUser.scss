@@ -1,0 +1,145 @@
+@import "../../variables.scss";
+
+.cardUser {
+  align-items: center;
+  flex-direction: row;
+  display: flex;
+  width: 95%;
+  height: 17vh;
+  border: solid 2px $mainColor;
+  border-radius: 20px 20px 20px 20px;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-bottom: 3%;
+
+  .cardUser__img {
+    width: 80%;
+  }
+
+  .cardUser__logo {
+    width: 36vw;
+    height: 13vh;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: flex-end;
+    border: solid 2px $mainColor;
+    border-radius: 0 20px 0 20px;
+    background-size: cover;
+    margin-left: 4%;
+
+    .cardUser__logo__diet__vegan {
+      width: 1em;
+      margin: 0.3em;
+    }
+  }
+  .cardUser__info {
+    width: 51vw;
+    display: flex;
+    height: 13vh;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 1em;
+    .cardUser__info__name {
+      display: flex;
+      margin-right: 4%;
+    }
+
+    .cardUser__info__title {
+      margin-left: 2%;
+      width: 74%;
+      font-size: 17px;
+    }
+    .cardUser_info__stars {
+      width: 30%;
+    }
+
+    .cardUser__info__stats {
+      display: flex;
+      margin-left: 1vw;
+      justify-content: left;
+
+      .cardUser__info__stats__div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .cardUser__info__p {
+        font-size: 15px;
+        margin-left: 1vw;
+        margin-right: 1vw;
+      }
+      .cardUser__info__stats__img {
+        height: 1em;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .cardUser {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-evenly;
+    display: flex;
+    width: 45%;
+    height: 40vh;
+    border: 1px solid $mainColor;
+    border-radius: 30px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    margin: 0;
+
+    .cardUser__logo {
+      width: 90%;
+      height: 80%;
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: space-between;
+      align-items: flex-end;
+      border: solid 2px $mainColor;
+      border-radius: 30px;
+      background-size: cover;
+      .logo {
+        padding: 1em;
+        margin: 0.3em;
+      }
+      .cardUser__logo__diet__vegan {
+        padding: 1em;
+        width: 2em;
+        margin: 0.3em;
+      }
+    }
+    .cardUser__info {
+      width: 85%;
+      display: flex;
+      height: 33vh;
+      justify-content: space-evenly;
+
+      .cardUser__info__title {
+        margin-left: 4%;
+        width: 75%;
+        font-size: 26px;
+        font-family: handlee;
+      }
+      .cardUser__info__stats {
+        display: flex;
+        justify-content: flex-start;
+        width: 18vw;
+        height: 5vh;
+
+        .cardUser__info__stats__div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .cardUser__info__p {
+          font-size: 13px;
+          //margin: 0;
+        }
+        .cardUser__info__stats__img {
+          height: 59%;
+        }
+      }
+    }
+  }
+}
