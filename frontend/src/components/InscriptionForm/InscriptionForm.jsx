@@ -20,9 +20,11 @@ function InscriptionForm() {
         }),
       }).then((response) =>
         response.status === 200
-          ? Swal.fire(
-              "Création de compte terminée, utilisez le bouton connection pour naviguer"
-            )
+          ? Swal.fire({
+              title: "Inscription complète",
+              text: "Utilisez le bouton <Se connecter> pour vous authentifier",
+              icon: "success",
+            })
           : Swal.fire({
               icon: "error",
               title: "Oops...",
