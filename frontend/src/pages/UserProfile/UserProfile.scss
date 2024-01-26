@@ -332,6 +332,9 @@
     display: flex;
     flex-wrap: wrap;
     gap: 3em;
-    width: 90%;
+    max-width: 90%;
+
+    align-self: center;
+    justify-content: space-evenly;
   }
 }
