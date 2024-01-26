@@ -1,10 +1,12 @@
 import "./Search.scss";
 import { useState, useEffect } from "react";
-import RecipeCard from "../../components/RecipeCard/RecipeCard";
+import SearchRecipeCard from "../../components/SearchRecipeCard/SearchRecipeCard";
 
 function Search() {
   const [searchInput, setSearchInput] = useState("");
   const [recipes, setRecipes] = useState("");
+
+  // fetch of all recipes
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe`)
       .then((response) => response.json())
@@ -16,7 +18,7 @@ function Search() {
   };
 
   return (
-    <main className="page">
+    <main className="page_search">
       <search className="searchBar">
         <input
           onChange={handleChange}
@@ -32,7 +34,7 @@ function Search() {
         {recipes &&
           recipes.map((recipe) =>
             recipe.title.toLowerCase().includes(searchInput) ? (
-              <RecipeCard key={recipe.id} recipe={recipe} />
+              <SearchRecipeCard key={recipe.id} recipe={recipe} />
             ) : (
               ""
             )

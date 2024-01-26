@@ -8,13 +8,25 @@
   flex-flow: wrap;
 }
 
+.page_search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 6vw;
+}
+
 .cardContainer {
+  width: clamp(375px, 80vw, 900px);
   row-gap: 3vh;
   background-color: $tertiaryColor;
   padding: 0 1vw;
-  justify-content: space-around;
   display: flex;
+  justify-content: space-around;
   flex-flow: wrap;
+
+  .cardContainer_article_recipeCard {
+    width: 50%;
+  }
 }
 
 .title {
