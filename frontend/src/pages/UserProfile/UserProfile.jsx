@@ -98,7 +98,7 @@ function UserProfil() {
       </button>
       <h1 className="UserProfil__post__fav">Mes postes</h1>
 
-      <div className="toto">
+      <div className="UserProfil__post__contener">
         {recipes
           ? recipes.map((recipe) => (
               <RecipeCardUser key={`recipe:${recipe.id}`} recipe={recipe} />
