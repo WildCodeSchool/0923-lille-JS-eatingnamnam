@@ -82,7 +82,10 @@ function AddIgredients({ ingredientArr, setIngredientArr }) {
       <aside className="addIngredients__List">
         {ingredientArr &&
           ingredientArr.map((ingredient) => (
-            <div className="addIngredients__List__element">
+            <div
+              key={ingredient.name}
+              className="addIngredients__List__element"
+            >
               <h6 className="addIngredients__List__element__title">
                 {ingredient.ingredientName}{" "}
               </h6>
