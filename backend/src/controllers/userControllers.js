@@ -13,9 +13,22 @@ const browse = async (req, res, next) => {
   }
 };
 
+const readById = async (req, res, next) => {
+  try {
+    // Fetch all items from the database
+    const user = await tables.user.read(req.params.id);
+
+    // Respond with the items in JSON format
+    res.json(user);
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
 const getCurrentUser = async (req, res, next) => {
   try {
-    const [user] = await tables.user.getById(req.idUser);
+    const [user] = await tables.user.getById(req.id);
     res.status(200).json(user);
   } catch (err) {
     next(err);
@@ -52,4 +65,5 @@ module.exports = {
   getCurrentUser,
   getUser,
   register,
+  readById,
 };
