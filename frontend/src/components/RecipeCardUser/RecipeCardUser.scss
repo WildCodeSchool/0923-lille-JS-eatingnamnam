@@ -122,20 +122,21 @@
       }
       .cardUser__info__stats {
         display: flex;
-        justify-content: space-between;
-        width: 75%;
-      }
-      .cardUser__info__stats__div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .cardUser__info__p {
-        font-size: 50px;
-      }
-      .cardUser__info__stats__img {
-        width: 2vw;
-        margin-left: 4%;
+        justify-content: space-around;
+        width: 18vw;
+        height: 5vh;
+
+        .cardUser__info__stats__div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .cardUser__info__p {
+          font-size: 2empx;
+        }
+        .cardUser__info__stats__img {
+          height: 2em;
+        }
       }
     }
   }
