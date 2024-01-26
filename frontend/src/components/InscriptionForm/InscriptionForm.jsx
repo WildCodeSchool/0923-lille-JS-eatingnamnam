@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 function InscriptionForm() {
   const {
@@ -10,13 +11,27 @@ function InscriptionForm() {
   } = useForm();
 
   const onSubmit = (data) => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/adduser`, {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        data,
-      }),
-    });
+    try {
+      fetch(`${import.meta.env.VITE_BACKEND_URL}/api/adduser`, {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          data,
+        }),
+      }).then((response) =>
+        response.status === 200
+          ? Swal.fire(
+              "Création de compte terminée, utilisez le bouton connection pour naviguer"
+            )
+          : Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Something went wrong!",
+            })
+      );
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
