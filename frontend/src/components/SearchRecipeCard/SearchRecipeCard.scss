@@ -1,15 +1,15 @@
 @import "../../variables.scss";
 
-.card {
+.SearchRecipeCard {
   align-items: center;
   flex-direction: column;
   display: flex;
   width: 100%;
-  .card__img {
+  .SearchRecipeCard__img {
     width: 80%;
   }
 
-  .card__logo {
+  .SearchRecipeCard__logo {
     width: 84%;
     height: 22vh;
     display: flex;
@@ -20,30 +20,30 @@
     border-radius: 0 20px 0 20px;
     background-size: cover;
     background-repeat: no-repeat;
-    .card__logo__diet__vegan {
+    .SearchRecipeCard__logo__diet__vegan {
       width: 2em;
       margin: 0.3em;
     }
   }
-  .card__info {
+  .SearchRecipeCard__info {
     width: 84%;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     gap: 1em;
-    .card__info__name {
+    .SearchRecipeCard__info__name {
       display: flex;
     }
 
-    .card__info__title {
+    .SearchRecipeCard__info__title {
       margin: 0;
       width: 74%;
       font-size: 1.25em;
     }
-    .card_info__stars {
+    .SearchRecipeCard_info__stars {
       width: 30%;
     }
-    .card__info__stats {
+    .SearchRecipeCard__info__stats {
       display: none;
     }
   }
@@ -52,66 +52,45 @@
 a {
   all: unset;
 }
-
 @media screen and (min-width: 800px) {
-  .card {
+  .SearchRecipeCard {
     align-items: center;
     flex-direction: column;
     justify-content: space-evenly;
     display: flex;
-    width: 100%;
-    height: 70vh;
+    width: 45%;
+    height: 40vh;
     border: 1px solid $mainColor;
     border-radius: 30px;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
     padding: 5px;
 
-    .card__logo {
-      width: 90%;
-      height: 80%;
-      display: flex;
-      flex-direction: column-reverse;
-      justify-content: space-between;
-      align-items: flex-end;
-      border: solid 2px $mainColor;
-      border-radius: 30px;
-      background-size: cover;
-      .logo {
-        padding: 1em;
-        margin: 0.3em;
-      }
-      .card__logo__diet__vegan {
-        padding: 1em;
-        width: 2em;
-        margin: 0.3em;
-      }
-    }
-    .card__info {
+    .SearchRecipeCard__info {
       width: 85%;
       display: flex;
       justify-content: space-between;
 
-      .card__info__title {
+      .SearchRecipeCard__info__title {
         margin: 0;
         width: 75%;
-        font-size: 2em;
+        font-size: 1em;
         font-family: handlee;
       }
-      .card__info__stats {
+      .SearchRecipeCard__info__stats {
         display: flex;
         justify-content: space-between;
         width: 75%;
-        .card__info__stats__div {
+        .SearchRecipeCard__info__stats__div {
           display: flex;
           justify-content: center;
           align-items: center;
           gap: 1em;
         }
-        .card__info__p {
-          font-size: 1.5em;
+        .SearchRecipeCard__info__p {
+          font-size: 16px;
         }
-        .card__info__stats__img {
-          height: 2em;
+        .SearchRecipeCard__info__stats__img {
+          height: 1em;
         }
       }
     }

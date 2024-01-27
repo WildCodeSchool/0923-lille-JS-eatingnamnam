@@ -1,66 +1,73 @@
 import "./LittleRecipeCard.scss";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { NavContext } from "../Contexts/navBarContext";
 import StarBar from "../StarBar/StarBar";
 import AddFavorite from "../AddFavorite/AddFavorite";
 
 function LittleRecipeCard({ recipes }) {
+  const { setActiveButton, setRecipeID } = useContext(NavContext);
+  const handleClick = () => {
+    setRecipeID(recipes.id);
+    setActiveButton("recipe");
+  };
   return (
-    <section className="LittleRecipeCardcard">
-      <article
-        className="LittleRecipeCardcard__logo"
-        style={{
-          backgroundImage: `url("${import.meta.env.VITE_BACKEND_URL}${
-            recipes.picture
-          }")`,
-        }}
-      >
-        <AddFavorite className="LittleRecipeCardcard__logo__favorite" />
-      </article>
+    <Link
+      className="LittleRecipeCardcard"
+      to={`/recipe/${recipes.id}`}
+      onClick={handleClick}
+    >
+      <section className="LittleRecipeCardcard__section">
+        <article
+          className="LittleRecipeCardcard__logo"
+          style={{
+            backgroundImage: `url("${import.meta.env.VITE_BACKEND_URL}${
+              recipes.picture
+            }")`,
+          }}
+        >
+          <AddFavorite className="LittleRecipeCardcard__logo__favorite" />
+        </article>
 
-      <article className="LittleRecipeCardcard__info">
-        <section className="LittleRecipeCardcard__info__name">
-          <h1 className="LittleRecipeCardcard__info__title">{recipes.title}</h1>
+        <article className="LittleRecipeCardcard__info">
+          <section className="LittleRecipeCardcard__info__name">
+            <h1 className="LittleRecipeCardcard__info__title">
+              {recipes.title}
+            </h1>
 
-          <StarBar
-            className="LittleRecipeCardcard_info__stars"
-            id={recipes.id}
-          />
-        </section>
-
-        <section className="LittleRecipeCardcard__info__stats">
-          <div className="LittleRecipeCardcard__info__stats__div">
-            <img
-              className="LittleRecipeCardcard__info__stats__img"
-              src={`${import.meta.env.VITE_BACKEND_URL}/assets/images/time.svg`}
-              alt="logo time"
+            <StarBar
+              className="LittleRecipeCardcard_info__stars"
+              id={recipes.id}
             />
+          </section>
 
-            <p className="LittleRecipeCardcard__info__p">{recipes.time}</p>
-          </div>
-          <div className="LittleRecipeCardcard__info__stats__div">
-            <img
-              className="LittleRecipeCardcard__info__stats__img"
-              src={`${
-                import.meta.env.VITE_BACKEND_URL
-              }/assets/images/toque.svg`}
-              alt="logo toque"
-            />
-            <p className="LittleRecipeCardcard__info__p">
-              {recipes.difficulty}
-            </p>
-          </div>
-          <div className="LittleRecipeCardcard__info__stats__div littleCard__price">
-            {recipes.price === 1 && (
+          <section className="LittleRecipeCardcard__info__stats">
+            <div className="LittleRecipeCardcard__info__stats__div">
               <img
                 className="LittleRecipeCardcard__info__stats__img"
                 src={`${
                   import.meta.env.VITE_BACKEND_URL
-                }/assets/images/euro.svg`}
-                alt="logo euro"
+                }/assets/images/time.svg`}
+                alt="logo time"
               />
-            )}
-            {recipes.price === 2 && (
-              <>
+
+              <p className="LittleRecipeCardcard__info__p">{recipes.time}</p>
+            </div>
+            <div className="LittleRecipeCardcard__info__stats__div">
+              <img
+                className="LittleRecipeCardcard__info__stats__img"
+                src={`${
+                  import.meta.env.VITE_BACKEND_URL
+                }/assets/images/toque.svg`}
+                alt="logo toque"
+              />
+              <p className="LittleRecipeCardcard__info__p">
+                {recipes.difficulty}
+              </p>
+            </div>
+            <div className="LittleRecipeCardcard__info__stats__div littleCard__price">
+              {recipes.price === 1 && (
                 <img
                   className="LittleRecipeCardcard__info__stats__img"
                   src={`${
@@ -68,44 +75,55 @@ function LittleRecipeCard({ recipes }) {
                   }/assets/images/euro.svg`}
                   alt="logo euro"
                 />
-                <img
-                  className="LittleRecipeCardcard__info__stats__img"
-                  src={`${
-                    import.meta.env.VITE_BACKEND_URL
-                  }/assets/images/euro.svg`}
-                  alt="logo euro"
-                />
-              </>
-            )}
-            {recipes.price === 3 && (
-              <>
-                <img
-                  className="LittleRecipeCardcard__info__stats__img"
-                  src={`${
-                    import.meta.env.VITE_BACKEND_URL
-                  }/assets/images/euro.svg`}
-                  alt="logo euro"
-                />{" "}
-                <img
-                  className="LittleRecipeCardcard__info__stats__img"
-                  src={`${
-                    import.meta.env.VITE_BACKEND_URL
-                  }/assets/images/euro.svg`}
-                  alt="logo euro"
-                />
-                <img
-                  className="LittleRecipeCardcard__info__stats__img"
-                  src={`${
-                    import.meta.env.VITE_BACKEND_URL
-                  }/assets/images/euro.svg`}
-                  alt="logo euro"
-                />
-              </>
-            )}
-          </div>
-        </section>
-      </article>
-    </section>
+              )}
+              {recipes.price === 2 && (
+                <>
+                  <img
+                    className="LittleRecipeCardcard__info__stats__img"
+                    src={`${
+                      import.meta.env.VITE_BACKEND_URL
+                    }/assets/images/euro.svg`}
+                    alt="logo euro"
+                  />
+                  <img
+                    className="LittleRecipeCardcard__info__stats__img"
+                    src={`${
+                      import.meta.env.VITE_BACKEND_URL
+                    }/assets/images/euro.svg`}
+                    alt="logo euro"
+                  />
+                </>
+              )}
+              {recipes.price === 3 && (
+                <>
+                  <img
+                    className="LittleRecipeCardcard__info__stats__img"
+                    src={`${
+                      import.meta.env.VITE_BACKEND_URL
+                    }/assets/images/euro.svg`}
+                    alt="logo euro"
+                  />{" "}
+                  <img
+                    className="LittleRecipeCardcard__info__stats__img"
+                    src={`${
+                      import.meta.env.VITE_BACKEND_URL
+                    }/assets/images/euro.svg`}
+                    alt="logo euro"
+                  />
+                  <img
+                    className="LittleRecipeCardcard__info__stats__img"
+                    src={`${
+                      import.meta.env.VITE_BACKEND_URL
+                    }/assets/images/euro.svg`}
+                    alt="logo euro"
+                  />
+                </>
+              )}
+            </div>
+          </section>
+        </article>
+      </section>
+    </Link>
   );
 }
 LittleRecipeCard.propTypes = {

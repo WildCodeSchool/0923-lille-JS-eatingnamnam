@@ -50,11 +50,21 @@
     margin: 0.5em 0 0.5em 0;
     width: 98%;
     text-align: center;
+    align-items: center;
   }
   .RecipeInfo__deleteButton {
     all: unset;
   }
-
+  .recipeInfo__deleteIcon {
+    width: 40px;
+  }
+  .RecipeInfo__info__title__container {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
   .RecipeInfo__details {
     display: flex;
     justify-content: space-between;

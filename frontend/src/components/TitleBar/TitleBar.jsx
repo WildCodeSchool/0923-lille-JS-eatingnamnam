@@ -11,8 +11,6 @@ function TitleBar() {
     setActiveButton(event.target.name);
   };
 
-  const windowWidth = window.innerWidth;
-
   return (
     <header className="titleBar">
       <section className="titleBar__search">
@@ -39,7 +37,7 @@ function TitleBar() {
             />
           </button>
         </form>
-        {auth.isLogged === true ? (
+        {auth.isLogged === false ? (
           <Link
             to="/login"
             name="login"
@@ -47,7 +45,7 @@ function TitleBar() {
             type="submit"
             onClick={handleClick}
           >
-            {windowWidth < 500 ? (
+            <div className="titleBar__userLogo__container">
               <img
                 className="titleBar__userLogo__img"
                 name="userLogo"
@@ -56,64 +54,30 @@ function TitleBar() {
                 }/assets/images/User.png`}
                 alt="userLogo"
               />
-            ) : (
-              <img
-                className="titleBar__userLogo__img"
-                name="userLogo"
-                src={`${
-                  import.meta.env.VITE_BACKEND_URL
-                }/assets/images/desktop_Connexion_Button.svg`}
-                alt="userLogo"
-              />
-            )}
-            {auth.isLogged === true ? (
-              <p className="titleBar__userLogo__img__p">hi {auth.pseudo}</p>
-            ) : (
-              ""
-            )}
+              <h2>Bonjour</h2>
+            </div>
           </Link>
         ) : (
           <Link
-            to="/profile"
+            to="/profile/1"
             className="titleBar__userLogo"
             type="submit"
             name="profile"
             onClick={handleClick}
           >
-            <img
-              className="titleBar__userLogo__img"
-              name="userLogo"
-              src={`${
-                import.meta.env.VITE_BACKEND_URL
-              }/assets/images/desktop_Connexion_Button.svg`}
-              alt="userLogo"
-            />
-            <p className="titleBar__userLogo__img__p">Connexion</p>
+            <div className="titleBar__userLogo__container">
+              <img
+                className="titleBar__userLogo__img"
+                name="userLogo"
+                src={`${
+                  import.meta.env.VITE_BACKEND_URL
+                }/assets/images/User.png`}
+                alt="userLogo"
+              />
+              <h2>Bonjour {auth.pseudo}</h2>
+            </div>
           </Link>
         )}
-      </section>
-      <section className="titleBar__button__theme">
-        <button className="titleBar__button__theme-change active" type="button">
-          Recette aléatoire
-        </button>
-        <button
-          className="titleBar__button__theme-change noActive"
-          type="button"
-        >
-          Entrées
-        </button>
-        <button
-          className="titleBar__button__theme-change noActive"
-          type="button"
-        >
-          Plats
-        </button>
-        <button
-          className="titleBar__button__theme-change noActive"
-          type="button"
-        >
-          Desserts
-        </button>
       </section>
     </header>
   );

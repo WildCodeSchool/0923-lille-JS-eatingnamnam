@@ -6,14 +6,18 @@ export const NavContext = createContext();
 export function NavBarProvider({ children }) {
   const [activeButton, setActiveButton] = useState("home");
   const [connected, setConnected] = useState(0);
+  const [choose, setChoose] = useState("connection");
+
   const stateButton = useMemo(
     () => ({
       activeButton,
       setActiveButton,
       connected,
       setConnected,
+      choose,
+      setChoose,
     }),
-    [activeButton, setActiveButton, connected, setConnected]
+    [activeButton, setActiveButton, connected, setConnected, choose, setChoose]
   );
 
   return (

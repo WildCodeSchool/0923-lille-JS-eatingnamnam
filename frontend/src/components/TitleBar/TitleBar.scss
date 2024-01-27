@@ -9,15 +9,22 @@
 
   .titleBar__search {
     display: flex;
+    width: 100%;
     justify-content: space-between;
   }
 }
 .titleBar__logo {
-  width: 70%;
+  width: 240px;
   height: 100%;
 }
 .titleBar__userLogo {
   height: 2.8em;
+}
+.titleBar__userLogo__container {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 .titleBar__userLogo__img {
   height: 100%;
@@ -38,9 +45,8 @@
   display: none;
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 900px) {
   .titleBar {
-    height: 7em;
     display: flex;
     flex-direction: column;
     margin-bottom: 1em;
