@@ -11,6 +11,7 @@ import Homepage from "./pages/Homepage/Homepage";
 import UserProfile from "./pages/UserProfile/UserProfile";
 import AddRecipe from "./pages/AddRecipe/AddRecipe";
 import Authentication from "./pages/Authentication/Authentication";
+import Upload from "./pages/Upload/Upload";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Homepage />,
+      },
+      {
+        path: "/upload",
+        element: <Upload />,
       },
       {
         path: "/search",

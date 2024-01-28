@@ -1,148 +1,103 @@
-// const tables = require("../tables");
+const tables = require("../tables");
 
-// const add = async (req, res, next) => {
-//   // Extract the item data from the request body
-//   // console.log("njqskn", req.params.id, req.body);
-//   const { title, date, picture, stepsArr, ingredientArr } = req.body;
-//   const { time, price, difficulty, diet, type, season } = req.body.info;
-//   const user_id = req.params.id;
-//   try {
-//     // console.log("body ingredient", req.body.ingredientArr[0].ingredientName);
-//     for (let i = 0; i < req.body.ingredientArr.length; i += 1) {
-//       const ingredientID = tables.ingredient.getByName(
-//         req.body.ingredientArr.ingredientName
-//       );
-//       // console.log("reult boucle ingredient", ingredientID);
-//     }
+const uploadPicture = async (req, res, next) => {
+  try {
+    if (!req.file) {
+      return res.status(400).send("No file uploaded.");
+    }
+    // Le nom du fichier stocké est accessible via req.file.filename
+    const imageName = req.file.filename;
+    return res
+      .status(201)
+      .send({ message: "Image uploaded successfully", filename: imageName });
+  } catch (err) {
+    next(err);
+  }
+  return undefined;
+};
 
-//     if (ingredientID !== null) {
-//       // Insert the item into the database
-//       const insertId = await tables.recipe.create(
-//         title,
-//         picture,
-//         time,
-//         date,
-//         price,
-//         difficulty,
-//         user_id,
-//         stepsArr,
-//         ingredientArr,
-//         diet,
-//         type,
-//         season
-//       );
-//       return insertId;
-//     }
-//   } catch (err) {
-//     // Pass any errors to the error-handling middleware
-//     next(err);
-//   }
-// };
+const browse = async (req, res, next) => {
+  try {
+    const recipe = await tables.recipe.readAll();
 
-// const browse = async (req, res, next) => {
-//   try {
-//     // Fetch all items from the database
-//     const recipe = await tables.recipe.readAll();
+    res.json(recipe);
+  } catch (err) {
+    next(err);
+  }
+};
 
-//     // Respond with the items in JSON format
-//     res.json(recipe);
-//   } catch (err) {
-//     // Pass any errors to the error-handling middleware
-//     next(err);
-//   }
-// };
+const recipeByFav = async (req, res, next) => {
+  try {
+    const recipe = await tables.recipe.recipeByFav(req.params.id);
 
-// const recipeByFav = async (req, res, next) => {
-//   try {
-//     // Fetch a specific item from the database based on the provided ID
-//     const recipe = await tables.recipe.recipeByFav(req.params.id);
+    if (recipe == null) {
+      res.sendStatus(404);
+    } else {
+      res.json(recipe);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
 
-//     // If the item is not found, respond with HTTP 404 (Not Found)
-//     // Otherwise, respond with the item in JSON format
-//     if (recipe == null) {
-//       res.sendStatus(404);
-//     } else {
-//       res.json(recipe);
-//     }
-//   } catch (err) {
-//     // Pass any errors to the error-handling middleware
-//     next(err);
-//   }
-// };
+const recipeById = async (req, res, next) => {
+  try {
+    const recipe = await tables.recipe.recipeById(req.params.id);
 
-// const recipeById = async (req, res, next) => {
-//   try {
-//     // Fetch a specific item from the database based on the provided ID
-//     const recipe = await tables.recipe.recipeById(req.params.id);
+    if (recipe == null) {
+      res.sendStatus(404);
+    } else {
+      res.json(recipe);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
 
-//     // If the item is not found, respond with HTTP 404 (Not Found)
-//     // Otherwise, respond with the item in JSON format
-//     if (recipe == null) {
-//       res.sendStatus(404);
-//     } else {
-//       res.json(recipe);
-//     }
-//   } catch (err) {
-//     // Pass any errors to the error-handling middleware
-//     next(err);
-//   }
-// };
+const deleteById = async (req, res, next) => {
+  try {
+    const recipe = await tables.recipe.delete(req.params.id);
 
-// const deleteById = async (req, res, next) => {
-//   try {
-//     // Fetch a specific item from the database based on the provided ID
-//     const recipe = await tables.recipe.delete(req.params.id);
+    if (recipe == null) {
+      res.sendStatus(404);
+    } else {
+      res.json(recipe);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
 
-//     // If the item is not found, respond with HTTP 404 (Not Found)
-//     // Otherwise, respond with the item in JSON format
-//     if (recipe == null) {
-//       res.sendStatus(404);
-//     } else {
-//       res.json(recipe);
-//     }
-//   } catch (err) {
-//     // Pass any errors to the error-handling middleware
-//     next(err);
-//   }
-// };
+const randomRecipe = async (req, res, next) => {
+  try {
+    const recipe = await tables.recipe.randomRecipe();
 
-// const randomRecipe = async (req, res, next) => {
-//   try {
-//     // Fetch all items from the database
-//     const recipe = await tables.recipe.randomRecipe();
+    res.json(recipe);
+  } catch (err) {
+    next(err);
+  }
+};
 
-//     // Respond with the items in JSON format
-//     res.json(recipe);
-//   } catch (err) {
-//     // Pass any errors to the error-handling middleware
-//     next(err);
-//   }
-// };
+const recipeByTag = async (req, res, next) => {
+  try {
+    const recipes = await tables.recipe.recipeByTag(req.params.id);
 
-// const recipeByTag = async (req, res, next) => {
-//   try {
-//     // Fetch a specific item from the database based on the provided ID
-//     const recipes = await tables.recipe.recipeByTag(req.params.id);
+    if (recipes == null) {
+      res.sendStatus(404);
+    } else {
+      res.json(recipes);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
 
-//     // If the item is not found, respond with HTTP 404 (Not Found)
-//     // Otherwise, respond with the item in JSON format
-//     if (recipes == null) {
-//       res.sendStatus(404);
-//     } else {
-//       res.json(recipes);
-//     }
-//   } catch (err) {
-//     // Pass any errors to the error-handling middleware
-//     next(err);
-//   }
-// };
-
-// module.exports = {
-//   add,
-//   browse,
-//   deleteById,
-//   randomRecipe,
-//   recipeByFav,
-//   recipeById,
-//   recipeByTag,
-// };
+module.exports = {
+  browse,
+  deleteById,
+  randomRecipe,
+  recipeByFav,
+  recipeById,
+  recipeByTag,
+  uploadPicture,
+};

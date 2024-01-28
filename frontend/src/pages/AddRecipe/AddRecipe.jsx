@@ -13,9 +13,7 @@ function AddRecipe() {
   const [stepsArr, setStepsArr] = useState([]);
   const [info, setInfo] = useState();
   const [country, setCountry] = useState();
-
   const [ingredientArr, setIngredientArr] = useState([]);
-
   const titleRef = useRef();
 
   const {
@@ -41,6 +39,7 @@ function AddRecipe() {
           ingredientArr,
           description,
           date,
+          imageUrl,
         }),
       });
     } catch (error) {
@@ -48,7 +47,6 @@ function AddRecipe() {
     }
   };
   const onSubmitInfo = (mySubmitedRecipe) => {
-    // console.log(info);
     setInfo(mySubmitedRecipe);
   };
 
