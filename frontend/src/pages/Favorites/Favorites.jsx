@@ -1,13 +1,13 @@
 import "./Favorites.scss";
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
+import { UserContext } from "../../components/Contexts/userContext";
 
 function Favorites() {
-  const { userId } = useParams();
+  const { auth } = useContext(UserContext);
   const [recipes, setRecipes] = useState();
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/fav/user/${userId}`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/fav/user/${auth.id}`)
       .then((response) => response.json())
       .then((data) => setRecipes(data))
       .catch((error) => console.error(error));

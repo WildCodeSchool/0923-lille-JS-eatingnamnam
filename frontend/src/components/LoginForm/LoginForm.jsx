@@ -7,7 +7,7 @@ import { UserContext } from "../Contexts/userContext";
 
 function LoginForm() {
   const { register, handleSubmit } = useForm();
-  const { setAuth } = useContext(UserContext);
+  const { setAuth, setFavorites, auth } = useContext(UserContext);
   const navigate = useNavigate();
   const onSubmit = (data) => {
     try {
@@ -38,6 +38,14 @@ function LoginForm() {
               isLogged: true,
             }),
           navigate("/")
+        )
+        .then(
+          fetch(
+            `${import.meta.env.VITE_BACKEND_URL}/api/recipe/fav/user/${auth.id}`
+          )
+            .then((response) => response.json())
+            .then((userFav) => setFavorites(userFav))
+            .catch((error) => console.error(error))
         );
     } catch (error) {
       console.error("error:", error);

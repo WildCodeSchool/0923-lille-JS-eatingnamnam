@@ -5,9 +5,11 @@ import RecipeCard from "../../components/RecipeCard/RecipeCard";
 import Swipper from "../../components/Swipper/Swipper";
 import { NavContext } from "../../components/Contexts/navBarContext";
 import LittleRecipeCard from "../../components/LittleRecipeCard/LittleRecipeCard";
+import { UserContext } from "../../components/Contexts/userContext";
 
 function Homepage() {
   const { setActiveButton } = useContext(NavContext);
+  const { setFavorites, auth } = useContext(UserContext);
   const [recipe, setRecipe] = useState();
   const [vegan, setVegan] = useState();
   const [mexican, setMexican] = useState();
@@ -27,11 +29,16 @@ function Homepage() {
       .then((response) => response.json())
       .then((data) => setMexican(data))
       .catch((error) => console.error(error));
+
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/fav/user/${auth.id}`)
+      .then((response) => response.json())
+      .then((data) => setFavorites(data))
+      .catch((error) => console.error(error));
   }, []);
+
   const handleClick = () => {
     setActiveButton("recipe");
   };
-
   return (
     <main className="home page">
       <h1 className="home__recipeDay__title">Recette du jour</h1>

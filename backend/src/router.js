@@ -9,6 +9,7 @@ const router = express.Router();
 // Import itemControllers module for handling item-related operations
 const itemControllers = require("./controllers/itemControllers");
 const recipeControllers = require("./controllers/recipeControllers");
+const favoriteControllers = require("./controllers/favoriteControllers");
 const ustensilControllers = require("./controllers/ustensilControllers");
 const tagControllers = require("./controllers/tagControllers");
 const userControllers = require("./controllers/userControllers");
@@ -20,11 +21,13 @@ const authControllers = require("./controllers/authControllers");
 
 router.get("/me", userControllers.getUser);
 router.delete("/recipe/:id/delete", recipeControllers.deleteById);
+
 router.get("/recipe", recipeControllers.browse);
 router.get("/recipe/:id", recipeControllers.recipeById);
 router.get("/recipe/:id/utensils", ustensilControllers.utensilByRecipeId);
 router.get("/recipe/:id/comments", commentControllers.commentByRecipeId);
 router.get("/recipe/:id/steps", stepControllers.stepByRecipeId);
+router.get("/favorites", favoriteControllers.browse);
 router.post("/add/recipe", recipeControllers.add);
 router.post("/add/steps", stepControllers.add);
 
@@ -34,6 +37,11 @@ router.get(
   ingredientControllers.ingredientListByRecipId
 );
 router.get("/recipe/fav/user/:id", recipeControllers.recipeByFav);
+
+router.delete(
+  "/api/user/:userid/recipe/:recipeid/delete",
+  favoriteControllers.deleteFav
+);
 router.get("/randomrecipe", recipeControllers.randomRecipe);
 router.get("/tag", tagControllers.browseByTag);
 router.get("/user", userControllers.browse);

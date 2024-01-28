@@ -5,8 +5,10 @@ import { useContext } from "react";
 import { NavContext } from "../Contexts/navBarContext";
 import StarBar from "../StarBar/StarBar";
 import AddFavorite from "../AddFavorite/AddFavorite";
+import { UserContext } from "../Contexts/userContext";
 
 function LittleRecipeCard({ recipes }) {
+  const { favorites } = useContext(UserContext);
   const { setActiveButton, setRecipeID } = useContext(NavContext);
   const handleClick = () => {
     setRecipeID(recipes.id);
@@ -27,7 +29,18 @@ function LittleRecipeCard({ recipes }) {
             }")`,
           }}
         >
-          <AddFavorite className="LittleRecipeCardcard__logo__favorite" />
+          {favorites &&
+            favorites.map((favorite) =>
+              favorite.recipe_id === recipes.id ? (
+                <AddFavorite
+                  key={favorite.id}
+                  recipe={recipes}
+                  className="card__logo__favorite"
+                />
+              ) : (
+                ""
+              )
+            )}
         </article>
 
         <article className="LittleRecipeCardcard__info">

@@ -1,10 +1,13 @@
 import "./RecipeInfo.scss";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import StarBar from "../StarBar/StarBar";
 import AddFavorite from "../AddFavorite/AddFavorite";
+import { UserContext } from "../Contexts/userContext";
 
 function RecipeInfo({ recipe, id }) {
+  const { favorites } = useContext(UserContext);
   const navigate = useNavigate();
   const nbEuro = [
     {
@@ -47,7 +50,19 @@ function RecipeInfo({ recipe, id }) {
           }")`,
         }}
       >
-        <AddFavorite className="RecipeInfo__header__favorite" />
+        {favorites &&
+          favorites.map((favorite) =>
+            favorite.recipe_id === recipe.id ? (
+              <AddFavorite
+                key={favorite.id}
+                recipe={recipe}
+                id={recipe.id}
+                className="card__logo__favorite"
+              />
+            ) : (
+              ""
+            )
+          )}
         <div className="RecipeInfo__header__diet">
           <img
             className="RecipeInfo__header__diet__vegan"

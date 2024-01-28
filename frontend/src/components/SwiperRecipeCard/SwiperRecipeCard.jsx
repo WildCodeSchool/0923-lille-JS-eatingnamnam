@@ -5,8 +5,10 @@ import PropTypes from "prop-types";
 import StarBar from "../StarBar/StarBar";
 import AddFavorite from "../AddFavorite/AddFavorite";
 import { NavContext } from "../Contexts/navBarContext";
+import { UserContext } from "../Contexts/userContext";
 
 function SwiperRecipeCard({ recipe }) {
+  const { favorites } = useContext(UserContext);
   const { setActiveButton, setRecipeID } = useContext(NavContext);
   const handleClick = () => {
     setRecipeID(recipe.id);
@@ -23,7 +25,18 @@ function SwiperRecipeCard({ recipe }) {
             }")`,
           }}
         >
-          <AddFavorite className="swiperCard__logo__favorite" />
+          {favorites &&
+            favorites.map((favorite) =>
+              favorite.recipe_id === recipe.id ? (
+                <AddFavorite
+                  key={favorite.id}
+                  recipe={recipe}
+                  className="card__logo__favorite"
+                />
+              ) : (
+                ""
+              )
+            )}
           <div className="swiperCard__logo__diet">
             <img
               className="swiperCard__logo__diet__vegan"

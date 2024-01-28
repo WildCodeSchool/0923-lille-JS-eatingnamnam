@@ -1,26 +1,34 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { UserContext } from "../Contexts/userContext";
 import "./AddFavorite.scss";
 
-function AddFavorite() {
-  const [isFavorite, setIsFavorite] = useState(false);
+function AddFavorite(recipe) {
+  const { id } = recipe;
+  const { auth } = useContext(UserContext);
+
   const handleClickFavorite = () => {
-    setIsFavorite(!isFavorite);
+    try {
+      fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/${
+          auth.id
+        }/recipe/${id}/delete`,
+        {
+          method: "delete",
+          credentials: "include",
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+    } catch (error) {
+      console.error(error);
+    }
   };
   return (
     <button type="button" className="logo" onClick={handleClickFavorite}>
-      {isFavorite ? (
-        <img
-          className="logo__isFavorite"
-          src="/src/assets/Heart.png"
-          alt="favorite icon"
-        />
-      ) : (
-        <img
-          className="logo__notFavorite"
-          src="/src/assets/emptyHeart.png"
-          alt="add to favorite icon"
-        />
-      )}
+      <img
+        className="logo__isFavorite"
+        src={`${import.meta.env.VITE_BACKEND_URL}/assets/images/Heart.png`}
+        alt="favorite icon"
+      />
     </button>
   );
 }

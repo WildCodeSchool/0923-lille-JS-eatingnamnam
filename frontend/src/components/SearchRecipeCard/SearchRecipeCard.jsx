@@ -1,9 +1,12 @@
 import "./SearchRecipeCard.scss";
+import { useContext } from "react";
 import PropTypes from "prop-types";
 import StarBar from "../StarBar/StarBar";
 import AddFavorite from "../AddFavorite/AddFavorite";
+import { UserContext } from "../Contexts/userContext";
 
 function SearchRecipeCard({ recipe }) {
+  const { favorites } = useContext(UserContext);
   return (
     <section className="SearchRecipeCard">
       <article
@@ -14,7 +17,19 @@ function SearchRecipeCard({ recipe }) {
           }")`,
         }}
       >
-        <AddFavorite className="SearchRecipeCard__logo__favorite" />
+        {favorites &&
+          favorites.map((favorite) =>
+            favorite.recipe_id === recipe.id ? (
+              <AddFavorite
+                key={favorite.id}
+                recipe={recipe}
+                className="card__logo__favorite"
+              />
+            ) : (
+              ""
+            )
+          )}
+        {/* <AddFavorite className="SearchRecipeCard__logo__favorite" /> */}
         <div className="SearchRecipeCard__logo__diet">
           <img
             className="SearchRecipeCard__logo__diet__vegan"

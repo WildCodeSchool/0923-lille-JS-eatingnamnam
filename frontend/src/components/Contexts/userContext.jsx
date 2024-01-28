@@ -11,12 +11,15 @@ export function UserProvider({ children }) {
     isLogged: false,
   };
   const [auth, setAuth] = useState(initialState);
+  const [favorites, setFavorites] = useState("");
   const userState = useMemo(
     () => ({
       auth,
       setAuth,
+      favorites,
+      setFavorites,
     }),
-    [auth, setAuth]
+    [auth, setAuth, favorites, setFavorites]
   );
 
   return (
