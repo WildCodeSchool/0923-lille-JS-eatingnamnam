@@ -9,6 +9,10 @@ function AddIgredients({ ingredientArr, setIngredientArr }) {
 
   const { register, handleSubmit } = useForm();
 
+  // const ingredientRef = useRef();
+  // const quantityRef = useRef();
+  // const unitRef = useRef();
+
   const onSubmit = (ingredientData, event) => {
     event.preventDefault();
     setIngredientArr([...ingredientArr, ingredientData]);
@@ -20,6 +24,7 @@ function AddIgredients({ ingredientArr, setIngredientArr }) {
       .then((data) => setIngredientsBdd(data))
       .catch((error) => console.error(error));
   }, []);
+
   return (
     <section className="addIngredients">
       <h5 className="addIngredients__title">Ajout d'ingrédients</h5>
@@ -32,13 +37,18 @@ function AddIgredients({ ingredientArr, setIngredientArr }) {
           <select
             id="ingredient"
             name="ingredientName"
+            // ref={ingredientRef}
             {...register("ingredientName")}
             className="addIngredients__form__ingredient__select"
           >
             <option defaultValue="">-- -- </option>
             {ingredientsBdd &&
               ingredientsBdd.map((ingredient) => (
-                <option key={ingredient.id} value={ingredient.name}>
+                <option
+                  key={ingredient.id}
+                  id={ingredient.id}
+                  value={ingredient.name}
+                >
                   {ingredient.name}
                 </option>
               ))}
@@ -51,6 +61,7 @@ function AddIgredients({ ingredientArr, setIngredientArr }) {
             id="quantity"
             name="quantity"
             {...register("quantity")}
+            // ref={quantityRef}
             className="addIngredients__form__quantity__input"
           />
         </label>
@@ -59,6 +70,7 @@ function AddIgredients({ ingredientArr, setIngredientArr }) {
           <select
             id="unit"
             name="unit"
+            // ref={unitRef}
             {...register("unit")}
             className="addIngredients__form__unit__select"
           >
@@ -87,7 +99,7 @@ function AddIgredients({ ingredientArr, setIngredientArr }) {
               className="addIngredients__List__element"
             >
               <h6 className="addIngredients__List__element__title">
-                {ingredient.ingredientName}{" "}
+                {ingredient.ingredientName}
               </h6>
               <p className="addIngredients__List__element__quantity">
                 {ingredient.quantity} {ingredient.unit}

@@ -17,7 +17,7 @@ const commentControllers = require("./controllers/commentControllers");
 const stepControllers = require("./controllers/stepControllers");
 const { hashPassword } = require("./middleware/hashPassword");
 const authControllers = require("./controllers/authControllers");
-const { ingredientId } = require("./middleware/ingredientId");
+// const { ingredientId } = require("./middleware/ingredientId");
 
 router.get("/me", userControllers.getUser);
 router.delete("/recipe/:id/delete", recipeControllers.deleteById);
@@ -26,8 +26,9 @@ router.get("/recipe/:id", recipeControllers.recipeById);
 router.get("/recipe/:id/utensils", ustensilControllers.utensilByRecipeId);
 router.get("/recipe/:id/comments", commentControllers.commentByRecipeId);
 router.get("/recipe/:id/steps", stepControllers.stepByRecipeId);
-router.post("/user/:id/add/recipe", ingredientId, recipeControllers.add);
+
 router.post("/add/steps", stepControllers.add);
+router.post("/user/:id/add/recipe", recipeControllers.add);
 
 router.get("/recipe/tag/:id", recipeControllers.recipeByTag);
 router.get(
