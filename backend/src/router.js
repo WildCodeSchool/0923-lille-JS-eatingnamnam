@@ -29,6 +29,7 @@ router.get("/recipe/:id/steps", stepControllers.stepByRecipeId);
 
 router.post("/add/steps", stepControllers.add);
 router.post("/user/:id/add/recipe", recipeControllers.add);
+router.post("/add/comment", commentControllers.addComments);
 
 router.get("/recipe/tag/:id", recipeControllers.recipeByTag);
 router.get(
@@ -39,6 +40,7 @@ router.get("/recipe/fav/user/:id", recipeControllers.recipeByFav);
 router.get("/randomrecipe", recipeControllers.randomRecipe);
 router.get("/tag", tagControllers.browseByTag);
 router.get("/user", userControllers.browse);
+router.get("/user/:id", userControllers.readById);
 router.post("/adduser", hashPassword, userControllers.register);
 router.post("/login", authControllers.login);
 router.get("/logout", authControllers.logout);

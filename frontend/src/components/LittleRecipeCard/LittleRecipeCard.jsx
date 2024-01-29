@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { NavContext } from "../Contexts/navBarContext";
 import StarBar from "../StarBar/StarBar";
-import AddFavorite from "../AddFavorite/AddFavorite";
 
 function LittleRecipeCard({ recipes }) {
   const { setActiveButton, setRecipeID } = useContext(NavContext);
@@ -19,16 +18,11 @@ function LittleRecipeCard({ recipes }) {
       onClick={handleClick}
     >
       <section className="LittleRecipeCardcard__section">
-        <article
+        <img
           className="LittleRecipeCardcard__logo"
-          style={{
-            backgroundImage: `url("${import.meta.env.VITE_BACKEND_URL}${
-              recipes.picture
-            }")`,
-          }}
-        >
-          <AddFavorite className="LittleRecipeCardcard__logo__favorite" />
-        </article>
+          src={`${import.meta.env.VITE_BACKEND_URL}${recipes.picture}`}
+          alt="une recette de cuisine"
+        />
 
         <article className="LittleRecipeCardcard__info">
           <section className="LittleRecipeCardcard__info__name">
