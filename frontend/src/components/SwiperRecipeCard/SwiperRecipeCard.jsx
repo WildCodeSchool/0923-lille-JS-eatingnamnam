@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import PropTypes from "prop-types";
 import StarBar from "../StarBar/StarBar";
-import AddFavorite from "../AddFavorite/AddFavorite";
 import { NavContext } from "../Contexts/navBarContext";
 
 function SwiperRecipeCard({ recipe }) {
@@ -15,23 +14,11 @@ function SwiperRecipeCard({ recipe }) {
   return (
     <Link to={`/recipe/${recipe.id}`} onClick={handleClick}>
       <section className="swiperCard">
-        <article
+        <img
           className="swiperCard__logo"
-          style={{
-            backgroundImage: `url("${import.meta.env.VITE_BACKEND_URL}${
-              recipe.picture
-            }")`,
-          }}
-        >
-          <AddFavorite className="swiperCard__logo__favorite" />
-          <div className="swiperCard__logo__diet">
-            <img
-              className="swiperCard__logo__diet__vegan"
-              src="/src/assets/Logo-vegan.png"
-              alt="this recipe is vegan"
-            />
-          </div>
-        </article>
+          src={`${import.meta.env.VITE_BACKEND_URL}${recipe.picture}`}
+          alt="une recette de cuisine"
+        />
 
         <section className="testSection">
           <article className="swiperCard__info">

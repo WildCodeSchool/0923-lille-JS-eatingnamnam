@@ -2,7 +2,6 @@ import "./RecipeInfo.scss";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import StarBar from "../StarBar/StarBar";
-import AddFavorite from "../AddFavorite/AddFavorite";
 
 function RecipeInfo({ recipe, id }) {
   const navigate = useNavigate();
@@ -39,25 +38,11 @@ function RecipeInfo({ recipe, id }) {
   const admin = true;
   return (
     <section className="RecipeInfo">
-      <section
+      <img
         className="RecipeInfo__header"
-        style={{
-          backgroundImage: `url("${import.meta.env.VITE_BACKEND_URL}${
-            recipe.picture
-          }")`,
-        }}
-      >
-        <AddFavorite className="RecipeInfo__header__favorite" />
-        <div className="RecipeInfo__header__diet">
-          <img
-            className="RecipeInfo__header__diet__vegan"
-            src={`${
-              import.meta.env.VITE_BACKEND_URL
-            }/assets/images/Logo-vegan.png`}
-            alt="logo signalant une recette vegan"
-          />
-        </div>
-      </section>
+        src={`${import.meta.env.VITE_BACKEND_URL}${recipe.picture}`}
+        alt="une recette de cuisine"
+      />
       <section className="RecipeInfo__info">
         <p className="RecipeInfo_info__p">"nb commentaire(s)"</p>
         <StarBar className="RecipeInfo_info__stars" id={id} />
