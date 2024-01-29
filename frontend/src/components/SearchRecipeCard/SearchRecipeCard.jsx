@@ -1,28 +1,15 @@
 import "./SearchRecipeCard.scss";
 import PropTypes from "prop-types";
 import StarBar from "../StarBar/StarBar";
-import AddFavorite from "../AddFavorite/AddFavorite";
 
 function SearchRecipeCard({ recipe }) {
   return (
     <section className="SearchRecipeCard">
-      <article
+      <img
         className="SearchRecipeCard__logo"
-        style={{
-          backgroundImage: `url("${import.meta.env.VITE_BACKEND_URL}${
-            recipe.picture
-          }")`,
-        }}
-      >
-        <AddFavorite className="SearchRecipeCard__logo__favorite" />
-        <div className="SearchRecipeCard__logo__diet">
-          <img
-            className="SearchRecipeCard__logo__diet__vegan"
-            src="/src/assets/Logo-vegan.png"
-            alt="this recipe is vegan"
-          />
-        </div>
-      </article>
+        src={`${import.meta.env.VITE_BACKEND_URL}${recipe.picture}`}
+        alt="une recette de cuisine"
+      />
       <article className="SearchRecipeCard__info">
         <section className="SearchRecipeCard__info__name">
           <h1 className="SearchRecipeCard__info__title">{recipe.title}</h1>
