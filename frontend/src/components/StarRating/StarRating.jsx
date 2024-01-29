@@ -1,20 +1,24 @@
-import React, { useState } from "react";
 import { Rating } from "react-simple-star-rating";
+import PropTypes from "prop-types";
 
-function StarRating() {
-  const [rating, setRating] = useState(0);
-
+function StarRating({ grade, setGrade }) {
   const handleRating = (rate) => {
-    setRating(rate);
+    setGrade(rate);
   };
 
   return (
     <Rating
       onClick={handleRating}
-      ratingValue={rating}
+      ratingValue={grade}
       transition
       fillColor="#D56C06"
     />
   );
 }
+
+StarRating.propTypes = {
+  grade: PropTypes.number.isRequired,
+  setGrade: PropTypes.func.isRequired,
+};
+
 export default StarRating;
