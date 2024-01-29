@@ -352,7 +352,7 @@ function AddRecipe() {
             onClick={handleSubmitForm}
             className="buttonFetch"
           >
-            Créé la recette !
+            Créer la recette !
           </button>
         </>
       )}

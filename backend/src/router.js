@@ -17,7 +17,6 @@ const commentControllers = require("./controllers/commentControllers");
 const stepControllers = require("./controllers/stepControllers");
 const { hashPassword } = require("./middleware/hashPassword");
 const authControllers = require("./controllers/authControllers");
-// const { ingredientId } = require("./middleware/ingredientId");
 
 router.get("/me", userControllers.getUser);
 router.delete("/recipe/:id/delete", recipeControllers.deleteById);

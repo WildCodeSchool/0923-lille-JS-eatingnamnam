@@ -9,10 +9,6 @@ function AddIgredients({ ingredientArr, setIngredientArr }) {
 
   const { register, handleSubmit } = useForm();
 
-  // const ingredientRef = useRef();
-  // const quantityRef = useRef();
-  // const unitRef = useRef();
-
   const onSubmit = (ingredientData, event) => {
     event.preventDefault();
     setIngredientArr([...ingredientArr, ingredientData]);
@@ -33,11 +29,10 @@ function AddIgredients({ ingredientArr, setIngredientArr }) {
           htmlFor="ingredient"
           className="addIngredients__form__ingredient"
         >
-          Ingredient
+          Ingrédient
           <select
             id="ingredient"
             name="ingredientName"
-            // ref={ingredientRef}
             {...register("ingredientName")}
             className="addIngredients__form__ingredient__select"
           >
@@ -55,13 +50,12 @@ function AddIgredients({ ingredientArr, setIngredientArr }) {
           </select>
         </label>
         <label htmlFor="quantity" className="addIngredients__form__quantity">
-          Quantitée
+          Quantité
           <input
             type="number"
             id="quantity"
             name="quantity"
             {...register("quantity")}
-            // ref={quantityRef}
             className="addIngredients__form__quantity__input"
           />
         </label>
@@ -70,7 +64,6 @@ function AddIgredients({ ingredientArr, setIngredientArr }) {
           <select
             id="unit"
             name="unit"
-            // ref={unitRef}
             {...register("unit")}
             className="addIngredients__form__unit__select"
           >
