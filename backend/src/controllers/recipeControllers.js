@@ -18,11 +18,8 @@ const add = async (req, res, next) => {
       season
     );
 
-    //    console.log("insertId test test:", newRecipeId);
     // eslint-disable-next-line prefer-const
     for (let element of ingredientArr) {
-      // console.log("boucle ingredient", element.ingredientName);
-
       // eslint-disable-next-line no-await-in-loop
       const ingredientId = await tables.ingredient.getByName(
         element.ingredientName
@@ -30,19 +27,13 @@ const add = async (req, res, next) => {
       if (ingredientId == null) {
         res.sendStatus(404);
       } else {
-        //  console.log("resultat ingredientIdByName ==>", ingredientId);
-
         element.ingredientId = ingredientId.id;
-        //  console.log(element);
         tables.recipe.addIngredients(newRecipeId, element);
-        //  console.log("element aprés ajout de l'id :", element);
       }
-      // console.log("final ingredient list:", ingredientId);
     }
   } catch (err) {
     next(err);
   }
-  // return insertId;
 };
 
 const uploadPicture = async (req, res, next) => {
