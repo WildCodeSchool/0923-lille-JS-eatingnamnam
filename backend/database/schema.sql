@@ -33,7 +33,7 @@ CREATE TABLE
         `picture` VARCHAR(255) NULL,
         `time` VARCHAR(50) NOT NULL,
         `date` DATE NOT NULL,
-        `price` INT NOT NULL,
+        `price` VARCHAR(50) NOT NULL,
         `difficulty` VARCHAR(50) NOT NULL,
         `number_share` INT NOT NULL,
         `user_id` INT NOT NULL,

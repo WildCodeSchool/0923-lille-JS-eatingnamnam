@@ -2,23 +2,27 @@ const tables = require("../tables");
 
 const add = async (req, res, next) => {
   // Extract the item data from the request body
-  const { title, time, difficulty, price, picture, diet, type, season } =
-    req.body.data;
+
+  const { title, date, picture, stepsArr, ingredientArr } = req.body;
+  const { time, price, difficulty, diet, type, season } = req.body.info;
+  const userId = req.params.id;
   try {
-    // Insert the item into the database
     const insertId = await tables.recipe.create(
       title,
-      time,
-      difficulty,
-      price,
       picture,
+      time,
+      date,
+      price,
+      difficulty,
+      userId,
+      stepsArr,
+      ingredientArr,
       diet,
       type,
       season
     );
 
-    // Respond with HTTP 201 (Created) and the ID of the newly inserted item
-    res.status(201).json({ insertId });
+    res.json(insertId);
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);

@@ -20,6 +20,7 @@ function AddIgredients({ ingredientArr, setIngredientArr }) {
       .then((data) => setIngredientsBdd(data))
       .catch((error) => console.error(error));
   }, []);
+
   return (
     <section className="addIngredients">
       <h5 className="addIngredients__title">Ajout d'ingrédients</h5>
@@ -28,7 +29,7 @@ function AddIgredients({ ingredientArr, setIngredientArr }) {
           htmlFor="ingredient"
           className="addIngredients__form__ingredient"
         >
-          Ingredient
+          Ingrédient
           <select
             id="ingredient"
             name="ingredientName"
@@ -38,14 +39,18 @@ function AddIgredients({ ingredientArr, setIngredientArr }) {
             <option defaultValue="">-- -- </option>
             {ingredientsBdd &&
               ingredientsBdd.map((ingredient) => (
-                <option key={ingredient.id} value={ingredient.name}>
+                <option
+                  key={ingredient.id}
+                  id={ingredient.id}
+                  value={ingredient.name}
+                >
                   {ingredient.name}
                 </option>
               ))}
           </select>
         </label>
         <label htmlFor="quantity" className="addIngredients__form__quantity">
-          Quantitée
+          Quantité
           <input
             type="number"
             id="quantity"
@@ -82,9 +87,12 @@ function AddIgredients({ ingredientArr, setIngredientArr }) {
       <aside className="addIngredients__List">
         {ingredientArr &&
           ingredientArr.map((ingredient) => (
-            <div className="addIngredients__List__element">
+            <div
+              key={ingredient.name}
+              className="addIngredients__List__element"
+            >
               <h6 className="addIngredients__List__element__title">
-                {ingredient.ingredientName}{" "}
+                {ingredient.ingredientName}
               </h6>
               <p className="addIngredients__List__element__quantity">
                 {ingredient.quantity} {ingredient.unit}

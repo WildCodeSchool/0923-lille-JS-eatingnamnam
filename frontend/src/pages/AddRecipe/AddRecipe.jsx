@@ -2,62 +2,55 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import "./AddRecipe.scss";
 import { useForm } from "react-hook-form";
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import SelectCountry from "../../components/SelectCountry/SelectCountry";
 import AddIgredients from "../../components/AddIngredients/AddIngredients";
+import AddSteps from "../../components/AddSteps/AddSteps";
 
 function AddRecipe() {
   const [imageUrl, setImageUrl] = useState(null);
-  const [numberStep, setNumberStep] = useState(1);
   const [description, setDescription] = useState();
-  const [stepsArr, setStepsArr] = useState([]);
   const [info, setInfo] = useState();
   const [country, setCountry] = useState();
+  const [show, setShow] = useState(false);
 
+  const [stepsArr, setStepsArr] = useState([]);
   const [ingredientArr, setIngredientArr] = useState([]);
 
   const titleRef = useRef();
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { isSubmitSuccessful },
-  } = useForm();
+  const { register, handleSubmit } = useForm();
 
-  const onSubmitInfo = (mySubmitedRecipe) => {
-    setInfo(mySubmitedRecipe);
-    if (info) {
-      try {
-        fetch(`${import.meta.env.VITE_BACKEND_URL}/api/add/recipe`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            title: titleRef.current.value,
-            country,
-            info,
-            description,
-          }),
-        });
-      } catch (error) {
-        console.error(error);
-      }
+  const handleSubmitForm = () => {
+    const date = new Date().toLocaleDateString();
+    try {
+      fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user/1/add/recipe`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title: titleRef.current.value,
+          country,
+          info,
+          stepsArr,
+          ingredientArr,
+          description,
+          date,
+        }),
+      });
+    } catch (error) {
+      console.error(error);
     }
   };
-
-  const onSubmitStep = (data, event) => {
-    event.preventDefault();
-    setNumberStep(numberStep + 1);
-    setDescription(data.stepDescription);
-    const stepObj = { id: numberStep, desc: data.stepDescription };
-    setStepsArr([...stepsArr, stepObj]);
+  const onSubmitInfo = (mySubmitedRecipe) => {
+    setShow(true);
+    setInfo(mySubmitedRecipe);
   };
-  useEffect(() => {
-    if (isSubmitSuccessful);
-    reset();
-  }, [isSubmitSuccessful, reset]);
+
+  const handleChange = () => {
+    setShow(false);
+  };
 
   function onImageChange(e) {
     const file = e.target.files[0];
@@ -69,7 +62,7 @@ function AddRecipe() {
   return (
     <main className="addRecipe_page">
       <h1 className="titleAddRecipe">CREER TA RECETTE</h1>
-      <section>
+      <section onChange={handleChange}>
         <label className="addTitle" htmlFor="title">
           Titre
         </label>
@@ -336,44 +329,33 @@ function AddRecipe() {
               Hiver
             </label>
           </fieldset>
-          <input type="submit" value="Suivant" className="form__submit" />
+          {show === false && (
+            <input type="submit" value="Suivant" className="form__submit" />
+          )}
         </form>
       </section>
 
-      <section className="step">
-        <h2 className="step__title">Préparation</h2>
-        <ul className="step__liste">
-          {stepsArr.map((step) => (
-            <li key={step.id} className="step__liste__texte">
-              <span>
-                Étape {step.id}:<br />
-              </span>
-              {step.desc}
-            </li>
-          ))}
-        </ul>
-        <h3 className="step__titleNumber">Étape {numberStep}: </h3>
-        <form className="step__form" onSubmit={handleSubmit(onSubmitStep)}>
-          <textarea
-            className="step__form__addTexte"
-            name="step description"
-            rows="3"
-            defaultValue=""
-            placeholder="Décrivez l'étape"
-            {...register("stepDescription")}
+      {show === true && (
+        <>
+          <AddSteps
+            stepsArr={stepsArr}
+            setStepsArr={setStepsArr}
+            setDescription={setDescription}
           />
-
-          <input
-            type="submit"
-            value="Ajouter une étape"
-            className="step__form__button"
+          <AddIgredients
+            setIngredientArr={setIngredientArr}
+            ingredientArr={ingredientArr}
+            show={show}
           />
-        </form>
-      </section>
-      <AddIgredients
-        setIngredientArr={setIngredientArr}
-        ingredientArr={ingredientArr}
-      />
+          <button
+            type="button"
+            onClick={handleSubmitForm}
+            className="buttonFetch"
+          >
+            Créer la recette !
+          </button>
+        </>
+      )}
     </main>
   );
 }

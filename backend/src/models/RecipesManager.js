@@ -7,20 +7,36 @@ class RecipeManager extends AbstractManager {
     super({ table: "recipe" });
   }
 
-  // The C of CRUD - Create operation
+  async create(
+    title,
+    picture,
+    time,
+    date,
+    price,
+    difficulty,
+    userId,
+    stepsArr
+  ) {
+    try {
+      const [resultRecipe] = await this.database.query(
+        `INSERT INTO ${this.table} (title, picture, time, date, price, difficulty, number_share, user_id) VALUE (?,?,?,?,?,?,?,?)`,
+        [title, picture, time, "2024-02-01", price, difficulty, 4, userId]
+      );
+      const recipeId = resultRecipe.insertId;
 
-  async create(title, time, difficulty) {
-    // Execute the SQL INSERT query to add a new item to the "item" table
-    const [result] = await this.database.query(
-      `INSERT INTO ${this.table} (title, time, date, price, difficulty, number_share, user_id) VALUE (?,?,?,?,?,?,?)`,
-      [title, time, "1970-01-01 00:00:01", 1, difficulty, 4, 1]
-    );
+      for (let i = 0; i < stepsArr.length; i += 1) {
+        this.database.query(
+          `INSERT INTO nam_nam.step ( number_step, description, recipe_id) VALUE (?,?,?);`,
+          [stepsArr[i].id, stepsArr[i].desc, recipeId]
+        );
+      }
 
-    // Return the ID of the newly inserted item
-    return result.insertId;
+      // Return the ID of the newly inserted item
+      return resultRecipe.insertId;
+    } catch (error) {
+      return error;
+    }
   }
-
-  // The Rs of CRUD - Read operations
 
   async recipeByFav(id) {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
@@ -77,9 +93,9 @@ class RecipeManager extends AbstractManager {
   async recipeByTag(id) {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
     const [rows] = await this.database.query(
-      `SELECT recipe.* FROM recipe 
-      INNER JOIN list_tags_recipe AS tags_id 
-      ON recipe.id=tags_id.recipe_id 
+      `SELECT recipe.* FROM recipe
+      INNER JOIN list_tags_recipe AS tags_id
+      ON recipe.id=tags_id.recipe_id
       WHERE tags_id.tag_id = ?`,
       [id]
     );

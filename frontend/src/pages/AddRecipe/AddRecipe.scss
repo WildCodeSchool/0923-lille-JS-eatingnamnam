@@ -1,4 +1,5 @@
 @import "../../variables.scss";
+
 .addRecipe_page {
   margin: 1.5em;
   width: clamp(375px, 80vw, 800px);
@@ -18,6 +19,7 @@
     font-size: 1.5rem;
     margin-bottom: 0.25em;
     padding: 0.2em 0;
+    resize: none;
   }
   .selectCountry {
     margin-top: 0.5em;
@@ -136,56 +138,22 @@
       color: $secondaryFontColor;
       border-radius: 30px;
       font-size: 2em;
-      margin-top: 0.5em;
+      margin: 0.5em 0 2em;
       padding: 0.2em 0;
     }
   }
 
-  .step {
-    .step__title {
-      font-size: 2.4rem;
-      margin: 1.5em 0 0.5em 0;
-    }
-    .step__liste {
-      list-style: none;
-      margin: 2em 0;
-      .step__liste__texte {
-        font-size: 1.5rem;
-        margin: 0.5em 0;
-        background-color: #96bf0238;
-        padding: 0.5em;
-        border-radius: 20px;
-        resize: none;
-        span {
-          font-size: 1.8rem;
-          font-weight: 900;
-        }
-      }
-    }
-    .step__titleNumber {
-      font-size: 2rem;
-      margin: 0.2em 0;
-      font-weight: normal;
-    }
-    .step__form {
-      display: flex;
-      flex-direction: column;
-
-      .step__form__addTexte {
-        font-size: 1.5rem;
-        border: solid 2px $secondaryColor;
-        border-radius: 20px;
-        padding: 0.2em;
-      }
-      .step__form__button {
-        margin: 0.5em 0;
-        font-size: clamp(10px, 8.5vw, 32px);
-        background-color: $secondaryColor;
-        color: $secondaryFontColor;
-        border: none;
-        border-radius: 30px;
-        padding: 0.2em 0;
-      }
-    }
+  .buttonFetch {
+    font-size: 2em;
+    background-color: $secondaryColor;
+    border-radius: 20px;
+    border: none;
+    padding: 0.2em 0.5em;
+    color: $secondaryFontColor;
+    margin: 1em 0 2em;
+  }
+  .buttonFetch:active {
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: $secondaryColor;
   }
 }
