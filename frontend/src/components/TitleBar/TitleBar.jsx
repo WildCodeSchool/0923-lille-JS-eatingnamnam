@@ -59,7 +59,7 @@ function TitleBar() {
           </Link>
         ) : (
           <Link
-            to="/profile/1"
+            to={`/profile/${auth.id}`}
             className="titleBar__userLogo"
             type="submit"
             name="profile"
