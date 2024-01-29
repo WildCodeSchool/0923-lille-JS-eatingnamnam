@@ -51,9 +51,10 @@ class IngredientManager extends AbstractManager {
     return rows;
   }
 
-  async getByName(ingredientId) {
+  async getByName(name) {
     const [rows] = await this.database.query(
-      `SELECT id FROM ingredient WHERE name=?;`[ingredientId]
+      `SELECT id FROM ingredient WHERE name=?`,
+      [name]
     );
     return rows[0];
   }

@@ -1,5 +1,50 @@
 const tables = require("../tables");
 
+const add = async (req, res, next) => {
+  const { title, stepsArr, ingredientArr } = req.body;
+  const { time, price, difficulty, diet, type, season } = req.body.info;
+  const userId = req.params.id;
+
+  try {
+    const newRecipeId = await tables.recipe.create(
+      title,
+      time,
+      price,
+      difficulty,
+      userId,
+      stepsArr,
+      diet,
+      type,
+      season
+    );
+
+    //    console.log("insertId test test:", newRecipeId);
+    // eslint-disable-next-line prefer-const
+    for (let element of ingredientArr) {
+      // console.log("boucle ingredient", element.ingredientName);
+
+      // eslint-disable-next-line no-await-in-loop
+      const ingredientId = await tables.ingredient.getByName(
+        element.ingredientName
+      );
+      if (ingredientId == null) {
+        res.sendStatus(404);
+      } else {
+        //  console.log("resultat ingredientIdByName ==>", ingredientId);
+
+        element.ingredientId = ingredientId.id;
+        //  console.log(element);
+        tables.recipe.addIngredients(newRecipeId, element);
+        //  console.log("element aprés ajout de l'id :", element);
+      }
+      // console.log("final ingredient list:", ingredientId);
+    }
+  } catch (err) {
+    next(err);
+  }
+  // return insertId;
+};
+
 const uploadPicture = async (req, res, next) => {
   try {
     if (!req.file) {
@@ -93,6 +138,7 @@ const recipeByTag = async (req, res, next) => {
 };
 
 module.exports = {
+  add,
   browse,
   deleteById,
   randomRecipe,

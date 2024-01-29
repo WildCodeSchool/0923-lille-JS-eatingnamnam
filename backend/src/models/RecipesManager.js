@@ -7,6 +7,32 @@ class RecipeManager extends AbstractManager {
     super({ table: "recipe" });
   }
 
+  async addIngredients(insertId, element) {
+    const [rows] = await this.database.query(
+      `INSERT INTO list_ingredients_recip (recipe_id,ingredient_id,quantity,unit) VALUE (?,?,?,?)`,
+      [insertId, element.ingredientId, element.quantity, element.unit]
+    );
+    return rows[0];
+  }
+
+  async create(title, time, price, difficulty, userId, stepsArr) {
+    const [resultRecipe] = await this.database.query(
+      `INSERT INTO nam_nam.recipe (title, picture, time, date, price, difficulty, number_share, user_id) VALUES (?,?,?,?,?,?,?,?)`,
+      [title, "toBeChanged", time, "2024-11-01", 1, difficulty, 4, userId]
+    );
+
+    const recipeId = resultRecipe.insertId;
+
+    for (let i = 0; i < stepsArr.length; i += 1) {
+      this.database.query(
+        `INSERT INTO nam_nam.step ( number_step, description, recipe_id) VALUE (?,?,?)`,
+        [stepsArr[i].id, stepsArr[i].desc, recipeId]
+      );
+    }
+    // Return the ID of the newly inserted item
+    return resultRecipe.insertId;
+  }
+
   async recipeByFav(id) {
     const [rows] = await this.database.query(
       ` SELECT * FROM ${this.table}

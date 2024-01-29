@@ -83,7 +83,7 @@ function AddIgredients({ ingredientArr, setIngredientArr }) {
         {ingredientArr &&
           ingredientArr.map((ingredient) => (
             <div
-              key={ingredient.name}
+              key={`ingredient-${ingredient.ingredientName}-${Math.random()}`}
               className="addIngredients__List__element"
             >
               <h6 className="addIngredients__List__element__title">
