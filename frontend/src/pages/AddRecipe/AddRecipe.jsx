@@ -16,7 +16,6 @@ function AddRecipe() {
 
   const [stepsArr, setStepsArr] = useState([]);
   const [ingredientArr, setIngredientArr] = useState([]);
-
   const titleRef = useRef();
 
   const { register, handleSubmit } = useForm();
@@ -37,6 +36,7 @@ function AddRecipe() {
           ingredientArr,
           description,
           date,
+          imageUrl,
         }),
       });
     } catch (error) {

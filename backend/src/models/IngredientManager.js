@@ -50,6 +50,28 @@ class IngredientManager extends AbstractManager {
     // Return the array of items
     return rows;
   }
+
+  async getByName(name) {
+    const [rows] = await this.database.query(
+      `SELECT id FROM ingredient WHERE name=?`,
+      [name]
+    );
+    return rows[0];
+  }
+
+  // The U of CRUD - Update operation
+  // TODO: Implement the update operation to modify an existing item
+
+  // async update(item) {
+  //   ...
+  // }
+
+  // The D of CRUD - Delete operation
+  // TODO: Implement the delete operation to remove an item by its ID
+
+  // async delete(id) {
+  //   ...
+  // }
 }
 
 module.exports = IngredientManager;
