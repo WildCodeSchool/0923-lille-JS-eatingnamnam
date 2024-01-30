@@ -119,6 +119,14 @@ class RecipeManager extends AbstractManager {
       return error;
     }
   }
+
+  async updatePic(imageName, recipeId) {
+    const [rows] = await this.database.query(
+      `UPDATE recipe SET picture = "?" WHERE recipe_id = ?`,
+      [imageName, recipeId]
+    );
+    return rows[0];
+  }
 }
 
 module.exports = RecipeManager;

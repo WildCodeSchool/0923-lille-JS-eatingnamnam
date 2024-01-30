@@ -1,7 +1,9 @@
 import "./RecipeInfo.scss";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import StarBar from "../StarBar/StarBar";
+import UploadComponant from "../UploadComponant/UploadComponant";
 
 function RecipeInfo({ recipe, id }) {
   const navigate = useNavigate();
@@ -36,6 +38,44 @@ function RecipeInfo({ recipe, id }) {
     navigate("/");
   };
   const admin = true;
+
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  const onFileChange = (e) => {
+    const file = e.target.files[0];
+    setSelectedFile(file);
+  };
+
+  const onSubmit = async () => {
+    if (!selectedFile) {
+      console.error("No file selected");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("file", selectedFile);
+
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/recipe/${recipe.id}/upload`,
+        {
+          method: "POST",
+          body: formData,
+          credentials: "include",
+        }
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        console.info("File uploaded successfully:", data);
+      } else {
+        console.error("Error uploading file:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Error uploading file:", error);
+    }
+  };
+
   return (
     <section className="RecipeInfo">
       <img
@@ -66,6 +106,14 @@ function RecipeInfo({ recipe, id }) {
         ) : (
           ""
         )}{" "}
+      </div>
+
+      <UploadComponant recipe={recipe} />
+      <div>
+        <input type="file" onChange={onFileChange} />
+        <button type="submit" onClick={onSubmit}>
+          Submit
+        </button>
       </div>
 
       <section className="RecipeInfo__details">
