@@ -18,8 +18,7 @@ const add = async (req, res, next) => {
       season
     );
 
-    // eslint-disable-next-line prefer-const
-    for (let element of ingredientArr) {
+    for (const element of ingredientArr) {
       // eslint-disable-next-line no-await-in-loop
       const ingredientId = await tables.ingredient.getByName(
         element.ingredientName
@@ -41,7 +40,6 @@ const uploadPicture = async (req, res, next) => {
     if (!req.file) {
       return res.status(400).send("No file uploaded.");
     }
-    // Le nom du fichier stocké est accessible via req.file.filename
     const imageName = req.file.filename;
     return res
       .status(201)
