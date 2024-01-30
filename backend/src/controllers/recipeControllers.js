@@ -30,6 +30,7 @@ const add = async (req, res, next) => {
         tables.recipe.addIngredients(newRecipeId, element);
       }
     }
+    res.json(newRecipeId);
   } catch (err) {
     next(err);
   }
