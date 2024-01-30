@@ -18,7 +18,16 @@ class RecipeManager extends AbstractManager {
   async create(title, time, price, difficulty, userId, stepsArr) {
     const [resultRecipe] = await this.database.query(
       `INSERT INTO nam_nam.recipe (title, picture, time, date, price, difficulty, number_share, user_id) VALUES (?,?,?,?,?,?,?,?)`,
-      [title, "toBeChanged", time, "2024-11-01", 1, difficulty, 4, userId]
+      [
+        title,
+        "/assets/recette/defaultPictureRecipe.png",
+        time,
+        "2024-11-01",
+        1,
+        difficulty,
+        4,
+        userId,
+      ]
     );
 
     const recipeId = resultRecipe.insertId;
