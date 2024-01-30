@@ -20,10 +20,19 @@ class RecipeManager extends AbstractManager {
     try {
       const [resultRecipe] = await this.database.query(
         `INSERT INTO ${this.table} (title, picture, time, date, price, difficulty, number_share, user_id) VALUE (?,?,?,?,?,?,?,?)`,
-        [title, picture, time, "2024-02-01", price, difficulty, 4, userId]
+        [
+          title,
+          "/assets/recette/defaultPictureRecipe.png",
+          time,
+          "2024-02-01",
+          price,
+          difficulty,
+          4,
+          userId,
+        ]
       );
-      const recipeId = resultRecipe.insertId;
 
+      const recipeId = resultRecipe.insertId;
       for (let i = 0; i < stepsArr.length; i += 1) {
         this.database.query(
           `INSERT INTO nam_nam.step ( number_step, description, recipe_id) VALUE (?,?,?);`,
