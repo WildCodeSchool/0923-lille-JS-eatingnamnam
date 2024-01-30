@@ -3,6 +3,7 @@
 import "./AddRecipe.scss";
 import { useForm } from "react-hook-form";
 import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import SelectCountry from "../../components/SelectCountry/SelectCountry";
 import AddIgredients from "../../components/AddIngredients/AddIngredients";
 import AddSteps from "../../components/AddSteps/AddSteps";
@@ -13,12 +14,14 @@ function AddRecipe() {
   const [info, setInfo] = useState();
   const [country, setCountry] = useState();
   const [show, setShow] = useState(false);
+  const navigate = useNavigate();
 
   const [stepsArr, setStepsArr] = useState([]);
   const [ingredientArr, setIngredientArr] = useState([]);
   const titleRef = useRef();
 
   const { register, handleSubmit } = useForm();
+  const showNewRecipe = (id) => navigate(`/recipe/${id}`);
 
   const handleSubmitForm = () => {
     const date = new Date().toLocaleDateString();
@@ -38,11 +41,17 @@ function AddRecipe() {
           date,
           imageUrl,
         }),
-      });
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          showNewRecipe(data);
+        })
+        .catch((error) => console.error(error));
     } catch (error) {
       console.error(error);
     }
   };
+
   const onSubmitInfo = (mySubmitedRecipe) => {
     setShow(true);
     setInfo(mySubmitedRecipe);
@@ -345,6 +354,7 @@ function AddRecipe() {
           <AddIgredients
             setIngredientArr={setIngredientArr}
             ingredientArr={ingredientArr}
+            showNewRecipe
             show={show}
           />
           <button
