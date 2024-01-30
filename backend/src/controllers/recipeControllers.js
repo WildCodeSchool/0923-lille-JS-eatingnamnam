@@ -50,6 +50,26 @@ const uploadPicture = async (req, res, next) => {
   }
   return undefined;
 };
+const uploadPic = async (req, res, next) => {
+  const recipeId = req.params.id;
+  try {
+    if (!req.file) {
+      return res.status(400);
+    }
+    const imageName = req.file.filename;
+    const originalName = req.file.originalname;
+    const update = await tables.recipe.updatePic(
+      recipeId,
+      imageName,
+      originalName
+    );
+    console.warn(update);
+    return res.status(201);
+  } catch (err) {
+    next(err);
+  }
+  return undefined;
+};
 
 const browse = async (req, res, next) => {
   try {
@@ -135,5 +155,6 @@ module.exports = {
   recipeByFav,
   recipeById,
   recipeByTag,
+  uploadPic,
   uploadPicture,
 };
