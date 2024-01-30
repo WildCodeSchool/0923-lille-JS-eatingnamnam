@@ -1,10 +1,19 @@
-import { useState } from "react";
 import "./Authentication.scss";
+import { useState } from "react";
+
+// Components
 import InscriptionForm from "../../components/InscriptionForm/InscriptionForm";
 import LoginForm from "../../components/LoginForm/LoginForm";
 
+/**
+ * @returns  Authentication page component displaying the login and inscription forms
+ */
+
 function Authentication() {
+  //  State hooks for switching between display of login or inscription form
   const [choose, setChoose] = useState("connection");
+
+  //  Function to switch between display of login or inscription form
   const handleClick = (event) => {
     setChoose(event.target.name);
   };

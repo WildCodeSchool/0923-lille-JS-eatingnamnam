@@ -2,6 +2,12 @@ import "./RecipeCardUser.scss";
 import PropTypes from "prop-types";
 import StarBar from "../StarBar/StarBar";
 
+/**
+ *
+ * @param {recipe: object}  props - Recipe card user component properties
+ * @returns The rendered recipe card user element on the user page
+ */
+
 function RecipeCard({ recipe }) {
   return (
     <section className="cardUser">

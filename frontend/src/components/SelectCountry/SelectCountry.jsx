@@ -2,6 +2,12 @@ import "./SelectCountry.scss";
 import { useRef } from "react";
 import PropTypes from "prop-types";
 
+/**
+ *
+ * @param {setCountry} function
+ * @returns Country selector to add country add recipe component
+ */
+
 function SelectCountry({ setCountry }) {
   const countryRef = useRef();
   const handleChange = () => {

@@ -2,6 +2,12 @@ import "./CommentCard.scss";
 import PropTypes from "prop-types";
 import StarBar from "../StarBar/StarBar";
 
+/**
+ *
+ * @param {comment: string, id: number}  props - The comment card properties object.
+ * @returns display the recipe's comment on the recipe page.
+ */
+
 function CommentCard({ comment, id }) {
   const datTime = new Date(comment.date_time);
   const formattedDate = datTime.toLocaleDateString("en-GB", {

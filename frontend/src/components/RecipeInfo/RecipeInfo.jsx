@@ -3,6 +3,12 @@ import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import StarBar from "../StarBar/StarBar";
 
+/**
+ *
+ * @param {recipe: object, id: number}  props - recipe and its ID to display the information of a specific recipe
+ * @returns Recipe Info component
+ */
+
 function RecipeInfo({ recipe, id }) {
   const navigate = useNavigate();
   const nbEuro = [

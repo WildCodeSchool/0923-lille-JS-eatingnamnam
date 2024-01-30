@@ -9,8 +9,16 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "./Swipper.scss";
 
+/**
+ *
+ * @param {recipes: array}  props - An array of recipe objects to be displayed in the swiper component.
+ * @returns  A JSX component displaying a Swiper component with cards for each provided recipe object.
+ */
+
 function Swipper({ recipes }) {
+  //  Set up parameters for Swiper
   const windowWidth = window.innerWidth;
+
   let test = 0;
   if (windowWidth <= 500) {
     test = 1.25;

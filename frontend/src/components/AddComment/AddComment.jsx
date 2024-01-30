@@ -4,16 +4,24 @@ import { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { useForm } from "react-hook-form";
+
+// Components
 import StarRating from "../StarRating/StarRating";
 import { UserContext } from "../Contexts/userContext";
 
+/**
+ * @returns Add Comment component that allows users to add a comment with an optional rating to a specific review
+ */
+
 function AddComment() {
+  // check if user is logged in to display form fields
   const { auth } = useContext(UserContext);
   const { recipeId } = useParams();
+  const userId = auth.id;
   const { register, handleSubmit } = useForm();
   const [grade, setGrade] = useState(0);
-  const userId = auth.id;
 
+  // when submitted send data to server
   // eslint-disable-next-line no-alert
   const onSubmit = (data) => {
     try {
@@ -35,6 +43,7 @@ function AddComment() {
       console.error("je suis l'érreur du fetch de ADD COMMENT", error);
     }
   };
+
   return (
     <section className="addComment">
       <h1 className="addComment__title"> C'est terminé !</h1>

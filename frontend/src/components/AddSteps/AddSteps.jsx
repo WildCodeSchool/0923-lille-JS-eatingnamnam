@@ -4,6 +4,11 @@ import { useForm } from "react-hook-form";
 import PropTypes, { shape } from "prop-types";
 import "./AddSteps.scss";
 
+/**
+ *
+ * @returns add steps to the add recipe page
+ */
+
 function AddSteps({ stepsArr, setStepsArr, setDescription }) {
   const [numberStep, setNumberStep] = useState(1);
 

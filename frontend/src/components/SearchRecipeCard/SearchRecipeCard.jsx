@@ -2,6 +2,12 @@ import "./SearchRecipeCard.scss";
 import PropTypes from "prop-types";
 import StarBar from "../StarBar/StarBar";
 
+/**
+ *
+ * @param {recipe: object}  props - Recipe data to be displayed in the card
+ * @returns  Search recipe card component with a star bar and title, author, servings, cooking time and ingredients list
+ */
+
 function SearchRecipeCard({ recipe }) {
   return (
     <section className="SearchRecipeCard">

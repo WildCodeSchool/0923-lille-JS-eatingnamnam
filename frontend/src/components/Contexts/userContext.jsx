@@ -3,6 +3,11 @@ import PropTypes from "prop-types";
 
 export const UserContext = createContext();
 
+/**
+ *
+ * @returns return a provider component that provides user data to its children components.
+ */
+
 export function UserProvider({ children }) {
   const initialState = {
     email: null,

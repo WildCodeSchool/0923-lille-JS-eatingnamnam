@@ -1,6 +1,8 @@
 import "./Recipe.scss";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+
+//  Components
 import RecipeInfo from "../../components/RecipeInfo/RecipeInfo";
 import IngredientCard from "../../components/IngredientCard/IngredientCard";
 import AddComment from "../../components/AddComment/AddComment";
@@ -8,9 +10,16 @@ import RecipeStep from "../../components/RecipeStep/RecipeStep";
 import UstensiltCard from "../../components/UtensilCard/UtensilCard";
 import CommentCard from "../../components/CommentCard/CommentCard";
 
+/**
+ * @returns  the Recipe Page show you the recipe you click on with the id on the params URL
+ */
+
 function Recipe() {
-  const [recipe, setRecipe] = useState();
+  //  Get the Id of the recipe we want to display in the url
   const { recipeId } = useParams();
+
+  //  State for the data of the recipe
+  const [recipe, setRecipe] = useState();
   const [ingredientList, setIngredientList] = useState();
   const [utensils, setUtensils] = useState();
   const [comments, setComments] = useState();
@@ -20,6 +29,7 @@ function Recipe() {
   const [ustensilIsActive, setUstensilIsActive] = useState(0);
   const [stepIsActive, setStepIsActive] = useState(0);
 
+  // fetch the recipe, ingredients, utensils, comments and steps from the database when the component is mounted
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/${recipeId}`)
       .then((response) => response.json())
@@ -49,6 +59,7 @@ function Recipe() {
       .catch((error) => console.error(error));
   }, []);
 
+  // navigation between ingredients, utensils, steps
   const handleCLickIngredient = () => {
     setTab(1);
     setIngredientIsActive(1);

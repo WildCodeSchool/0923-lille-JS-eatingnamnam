@@ -1,17 +1,28 @@
 import "./Homepage.scss";
+
 import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
+
+// Components
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
 import Swipper from "../../components/Swipper/Swipper";
 import { NavContext } from "../../components/Contexts/navBarContext";
 import LittleRecipeCard from "../../components/LittleRecipeCard/LittleRecipeCard";
 
+/**
+ *
+ * @returns HomePage component with a swiper and recipe cards
+ */
+
 function Homepage() {
   const { setActiveButton } = useContext(NavContext);
-  const [recipe, setRecipe] = useState();
-  const [vegan, setVegan] = useState();
-  const [mexican, setMexican] = useState();
 
+  // state for the  array of recipes to be displayed on home page
+  const [recipe, setRecipe] = useState([]);
+  const [vegan, setVegan] = useState([]);
+  const [mexican, setMexican] = useState([]);
+
+  //  Fetches data from the API when the component mounts
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/randomrecipe`)
       .then((response) => response.json())
@@ -28,6 +39,7 @@ function Homepage() {
       .then((data) => setMexican(data))
       .catch((error) => console.error(error));
   }, []);
+
   const handleClick = () => {
     setActiveButton("recipe");
   };

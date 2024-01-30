@@ -1,16 +1,29 @@
 import "./UserProfile.scss";
+
 import { useEffect, useState, useContext } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { UserContext } from "../../components/Contexts/userContext";
 import RecipeCardUser from "../../components/RecipeCardUser/RecipeCardUser";
 
+/**
+ *
+ * @returns the  user profile page where users can see their own recipes and other users publicly shared recipes
+ */
+
 function UserProfil() {
-  const [recipes, setRecipes] = useState();
   const { setAuth } = useContext(UserContext);
   const navigate = useNavigate();
+
+  // Connected user's id from URL parmas
   const { userId } = useParams();
+
+  /**
+   *  State for the recipes of the user we are looking at.
+   */
+  const [recipes, setRecipes] = useState([]);
   const [user, setUser] = useState({});
 
+  //  Get all recipe related to this user when component mount
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe`)
       .then((response) => response.json())
@@ -23,6 +36,7 @@ function UserProfil() {
       .catch((error) => console.error(error));
   }, []);
 
+  // change the format of the date from de BDD
   const dateTime = new Date(user.birth_date);
   const newFormatDate = dateTime.toLocaleDateString("en-GB", {
     day: "2-digit",
@@ -30,6 +44,7 @@ function UserProfil() {
     year: "numeric",
   });
 
+  // function  that handle logout action
   const handleLogout = () => {
     try {
       fetch(`${import.meta.env.VITE_BACKEND_URL}/api/logout`, {

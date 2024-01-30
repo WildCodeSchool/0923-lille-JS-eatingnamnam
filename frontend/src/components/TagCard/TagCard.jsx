@@ -1,6 +1,12 @@
 import "./TagCard.scss";
 import PropTypes from "prop-types";
 
+/**
+ *
+ * @param {tag: object}  props - The properties of the component.
+ * @returns The Tag Card Component.
+ */
+
 function TagCard({ tag }) {
   return (
     <button className="tagCard" type="submit">

@@ -2,6 +2,10 @@ import "./Search.scss";
 import { useState, useEffect } from "react";
 import SearchRecipeCard from "../../components/SearchRecipeCard/SearchRecipeCard";
 
+/**
+ * @returns  The search page component displaying a list of recipes based on the user
+ */
+
 function Search() {
   const [searchInput, setSearchInput] = useState("");
   const [recipes, setRecipes] = useState("");
@@ -13,6 +17,8 @@ function Search() {
       .then((data) => setRecipes(data))
       .catch((error) => console.error(error));
   }, []);
+
+  //  function to handle input change in the search bar
   const handleChange = (e) => {
     setSearchInput(e.target.value);
   };

@@ -2,8 +2,15 @@ import "./StarBar.scss";
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
+/**
+ *
+ * @param {id: number}  props - The id of the star bar to display
+ * @returns Star Bar component with filled and empty stars based on given rating
+ */
+
 function StarBar({ id }) {
   const [grade, setGrade] = useState();
+  // fetch grade from specific id from backend when component mounts
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/grade/${id}`)
       .then((response) => response.json())
@@ -11,6 +18,7 @@ function StarBar({ id }) {
       .catch((error) => console.error(error));
   }, []);
 
+  //  render stars based on the grade received from the server
   const averageGrade = Math.round(grade?.average_grade);
 
   const fullStars = [

@@ -1,6 +1,12 @@
 import "./UtensilCard.scss";
 import PropTypes from "prop-types";
 
+/**
+ *
+ * @param {name: string, img: string}  props - the properties of UtensilCard component
+ * @returns Utensil Car
+ */
+
 function UtensilCard({ name, img }) {
   return (
     <div className="UtensilCard">

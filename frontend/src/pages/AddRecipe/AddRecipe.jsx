@@ -3,26 +3,34 @@
 import "./AddRecipe.scss";
 import { useForm } from "react-hook-form";
 import { useState, useRef } from "react";
+
+// Components
 import SelectCountry from "../../components/SelectCountry/SelectCountry";
 import AddIgredients from "../../components/AddIngredients/AddIngredients";
 import AddSteps from "../../components/AddSteps/AddSteps";
 
+/**
+ * @returns Render add recipe page
+ */
+
 function AddRecipe() {
+  // all the states and ref for adding a recipe
   const [imageUrl, setImageUrl] = useState(null);
   const [description, setDescription] = useState();
   const [info, setInfo] = useState();
   const [country, setCountry] = useState();
   const [show, setShow] = useState(false);
-
   const [stepsArr, setStepsArr] = useState([]);
   const [ingredientArr, setIngredientArr] = useState([]);
-
   const titleRef = useRef();
-
   const { register, handleSubmit } = useForm();
 
+  // Function to submit the form and add recipe at the database
   const handleSubmitForm = () => {
+    // change date's format
     const date = new Date().toLocaleDateString();
+
+    // fetch methode POST to add a recipe in the DB with imageUrl, description, info, country, date and steps & ingredients.
     try {
       fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user/1/add/recipe`, {
         method: "POST",

@@ -1,6 +1,12 @@
 import "./IngredientCard.scss";
 import PropTypes from "prop-types";
 
+/**
+ *
+ * @param {ingredient: object}  props - Ingredient data to display in the card
+ * @returns  Ingredient Card Component for recipe
+ */
+
 function IngredientCard({ ingredient }) {
   return (
     <div className="ingredientCard">

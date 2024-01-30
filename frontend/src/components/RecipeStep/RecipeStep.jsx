@@ -1,6 +1,12 @@
 import "./RecipeStep.scss";
 import PropTypes from "prop-types";
 
+/**
+ *
+ * @param {*} param0
+ * @returns display the recipe's step on the recie page
+ */
+
 function RecipeSteps({ recipeStep, stepNumber }) {
   return (
     <section className="stepCard">

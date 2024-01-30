@@ -4,6 +4,10 @@ import { useForm } from "react-hook-form";
 import PropTypes, { shape } from "prop-types";
 import "./AddIngredients.scss";
 
+/**
+ * @returns component to add ingredients to the add recipe form
+ */
+
 function AddIgredients({ ingredientArr, setIngredientArr }) {
   const [ingredientsBdd, setIngredientsBdd] = useState();
 

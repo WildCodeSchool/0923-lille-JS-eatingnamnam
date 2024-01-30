@@ -3,7 +3,13 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { NavContext } from "../Contexts/navBarContext";
 
+/**
+ *
+ * @returns The nav bar component for the application
+ */
+
 function Navbar() {
+  // Get the current page that is being displayed using the context API
   const { activeButton, setActiveButton } = useContext(NavContext);
   const handleClick = (event) => {
     setActiveButton(event.target.name);

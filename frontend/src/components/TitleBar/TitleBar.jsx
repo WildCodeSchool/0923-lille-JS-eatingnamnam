@@ -4,7 +4,13 @@ import { useContext } from "react";
 import { NavContext } from "../Contexts/navBarContext";
 import { UserContext } from "../Contexts/userContext";
 
+/**
+ *
+ * @returns  Title bar component with a title and navigation links to different pages of the app
+ */
+
 function TitleBar() {
+  //  Get user data context
   const { setActiveButton } = useContext(NavContext);
   const { auth } = useContext(UserContext);
   const handleClick = (event) => {

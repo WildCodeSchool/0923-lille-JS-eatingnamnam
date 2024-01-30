@@ -1,6 +1,10 @@
 import { useState } from "react";
 import "./AddFavorite.scss";
 
+/**
+ * @returns  Component who allows users to add a new favorite recipe
+ */
+
 function AddFavorite() {
   const [isFavorite, setIsFavorite] = useState(false);
   const handleClickFavorite = () => {

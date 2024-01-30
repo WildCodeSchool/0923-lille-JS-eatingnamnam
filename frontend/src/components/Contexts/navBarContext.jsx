@@ -3,6 +3,11 @@ import PropTypes from "prop-types";
 
 export const NavContext = createContext();
 
+/**
+ *
+ * @returns return the context provider for navigation
+ */
+
 export function NavBarProvider({ children }) {
   const [activeButton, setActiveButton] = useState("home");
   const [connected, setConnected] = useState(0);

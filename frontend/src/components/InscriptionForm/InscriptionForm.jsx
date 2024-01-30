@@ -1,15 +1,24 @@
 /* eslint-disable react/jsx-props-no-spreading */
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { useForm } from "react-hook-form";
+
+// import library to format the alert
 import Swal from "sweetalert2";
 
+/**
+ *
+ * @returns component to handle form submission and display alert message.
+ */
+
 function InscriptionForm() {
+  // Get the functions registered by the `useForm` hook
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
+  //  Function that handles the form submission process
   const onSubmit = (data) => {
     try {
       fetch(`${import.meta.env.VITE_BACKEND_URL}/api/adduser`, {

@@ -5,7 +5,14 @@ import { useContext } from "react";
 import { NavContext } from "../Contexts/navBarContext";
 import StarBar from "../StarBar/StarBar";
 
+/**
+ *
+ * @param {recipes: object}  props - the recipe to be displayed in the card, contains name, ingredients and instructions
+ * @returns  a component that displays the recipe card for each individual recipe in the search results or home page
+ */
+
 function LittleRecipeCard({ recipes }) {
+  //  Context for the navbar to change page when clicking on a card
   const { setActiveButton, setRecipeID } = useContext(NavContext);
   const handleClick = () => {
     setRecipeID(recipes.id);

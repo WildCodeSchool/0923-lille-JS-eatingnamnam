@@ -5,8 +5,15 @@ import PropTypes from "prop-types";
 import StarBar from "../StarBar/StarBar";
 import { NavContext } from "../Contexts/navBarContext";
 
+/**
+ *
+ * @param {recipe: object}  props - the recipe card that will be displayed in the Swiper component
+ * @returns to render the Recipe Card Component
+ */
+
 function SwiperRecipeCard({ recipe }) {
   const { setActiveButton, setRecipeID } = useContext(NavContext);
+  //  Handles which button is active when a new recipe card is clicked on
   const handleClick = () => {
     setRecipeID(recipe.id);
     setActiveButton("recipe");

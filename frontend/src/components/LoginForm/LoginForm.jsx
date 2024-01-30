@@ -2,13 +2,23 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+
+// import library to format the alert
 import Swal from "sweetalert2";
 import { UserContext } from "../Contexts/userContext";
 
+/**
+ *
+ * @returns display a form to add new user in the database.
+ */
+
 function LoginForm() {
   const { register, handleSubmit } = useForm();
+  //  get the current user data and setter function
   const { setAuth } = useContext(UserContext);
   const navigate = useNavigate();
+
+  //  Function that send data to server and redirect if login is successful or not.
   const onSubmit = (data) => {
     try {
       fetch(`${import.meta.env.VITE_BACKEND_URL}/api/login`, {
