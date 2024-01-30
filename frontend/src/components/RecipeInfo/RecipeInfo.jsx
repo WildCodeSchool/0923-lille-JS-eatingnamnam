@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import StarBar from "../StarBar/StarBar";
-import UploadComponant from "../UploadComponant/UploadComponant";
 
 function RecipeInfo({ recipe, id }) {
   const navigate = useNavigate();
@@ -80,7 +79,7 @@ function RecipeInfo({ recipe, id }) {
     <section className="RecipeInfo">
       <img
         className="RecipeInfo__header"
-        src={`${import.meta.env.VITE_BACKEND_URL}${recipe.picture}`}
+        src={`${import.meta.env.VITE_BACKEND_URL}/${recipe.picture}`}
         alt="une recette de cuisine"
       />
       <section className="RecipeInfo__info">
@@ -108,7 +107,7 @@ function RecipeInfo({ recipe, id }) {
         )}{" "}
       </div>
 
-      <UploadComponant recipe={recipe} />
+      {/*    <UploadComponant recipe={recipe} /> */}
       <div>
         <input type="file" onChange={onFileChange} />
         <button type="submit" onClick={onSubmit}>

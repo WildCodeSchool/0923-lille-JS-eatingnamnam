@@ -17,7 +17,7 @@ const commentControllers = require("./controllers/commentControllers");
 const stepControllers = require("./controllers/stepControllers");
 const { hashPassword } = require("./middleware/hashPassword");
 const authControllers = require("./controllers/authControllers");
-const upload = require("./middleware/upload");
+const { uploadService, handleFileUpload } = require("./services/upload");
 
 router.get("/me", userControllers.getUser);
 router.delete("/recipe/:id/delete", recipeControllers.deleteById);
@@ -26,10 +26,16 @@ router.get("/recipe/:id", recipeControllers.recipeById);
 router.get("/recipe/:id/utensils", ustensilControllers.utensilByRecipeId);
 router.get("/recipe/:id/comments", commentControllers.commentByRecipeId);
 router.get("/recipe/:id/steps", stepControllers.stepByRecipeId);
-router.post("/upload", upload.single("file"), recipeControllers.uploadPicture);
 router.post(
-  "./recipe/:id/upload",
-  upload.single("file"),
+  "/upload",
+  uploadService,
+  handleFileUpload,
+  recipeControllers.uploadPic
+);
+router.post(
+  "/recipe/:id/upload",
+  uploadService,
+  handleFileUpload,
   recipeControllers.uploadPic
 );
 router.post("/user/:id/add/recipe", recipeControllers.add);

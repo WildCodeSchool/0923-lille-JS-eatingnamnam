@@ -120,10 +120,10 @@ class RecipeManager extends AbstractManager {
     }
   }
 
-  async updatePic(imageName, recipeId) {
+  async updatePic(recipeId, imageName, originalName) {
     const [rows] = await this.database.query(
-      `UPDATE recipe SET picture = "?" WHERE recipe_id = ?`,
-      [imageName, recipeId]
+      `UPDATE recipe SET picture = ? WHERE id = ?`,
+      [`/assets/uploads/${imageName}-${originalName}`, recipeId]
     );
     return rows[0];
   }

@@ -48,7 +48,6 @@ function Recipe() {
       .then((data) => setSteps(data))
       .catch((error) => console.error(error));
   }, []);
-
   const handleCLickIngredient = () => {
     setTab(1);
     setIngredientIsActive(1);

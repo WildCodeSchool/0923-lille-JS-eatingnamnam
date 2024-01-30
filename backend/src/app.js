@@ -1,6 +1,7 @@
 // Load the express module to create a web application
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
+const path = require("path");
 
 const express = require("express");
 
@@ -28,6 +29,7 @@ app.use(
 app.use("/api", router);
 app.use(express.json());
 app.use(express.static("./public")); // Permet d'avoir accès au image dans le public
+app.use("public", express.static(path.join(__dirname, "/public")));
 
 // Configure it
 

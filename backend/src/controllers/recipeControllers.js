@@ -53,14 +53,17 @@ const uploadPic = async (req, res, next) => {
   const recipeId = req.params.id;
   try {
     if (!req.file) {
-      return res.status(400).send("No file uploaded.");
+      return res.status(400);
     }
     const imageName = req.file.filename;
-    const update = await tables.recipe.updatePic(recipeId, imageName);
+    const originalName = req.file.originalname;
+    const update = await tables.recipe.updatePic(
+      recipeId,
+      imageName,
+      originalName
+    );
     console.warn(update);
-    return res
-      .status(201)
-      .send({ message: "Image uploaded successfully", filename: imageName });
+    return res.status(201);
   } catch (err) {
     next(err);
   }
