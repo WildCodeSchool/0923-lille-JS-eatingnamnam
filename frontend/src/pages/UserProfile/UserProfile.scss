@@ -4,13 +4,6 @@
   margin-bottom: 6vw;
 }
 
-.UserProfil__img__profil {
-  width: 30%;
-  margin: 4vw;
-  border-radius: 100px;
-  position: absolute;
-  top: 21vh;
-}
 .UserProfil__header {
   display: flex;
   flex-direction: row;
@@ -178,13 +171,6 @@
     flex-direction: column;
     align-self: center;
 
-    .UserProfil__img__profil {
-      width: 15rem;
-
-      border-radius: 50%;
-      position: absolute;
-      top: 15rem;
-    }
     .UserProfil__name {
       font-size: 50px;
       text-align: right;
