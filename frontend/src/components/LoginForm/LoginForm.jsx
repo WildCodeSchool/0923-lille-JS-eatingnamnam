@@ -71,10 +71,9 @@ function LoginForm() {
         type="submit"
         value="Connexion"
       />
-      <p>
-        Souhaitez-vous continuer sans vous connecter ?{" "}
-        <Link to="/">Cliquez ici</Link>
-      </p>
+      <Link className="Link_to_home" to="/">
+        Continuer sans se connecter
+      </Link>
     </form>
   );
 }

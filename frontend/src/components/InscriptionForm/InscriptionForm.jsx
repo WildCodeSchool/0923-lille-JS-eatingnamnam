@@ -130,10 +130,10 @@ function InscriptionForm() {
       <button className="formInscription__inputs__submit" type="submit">
         Inscription
       </button>
-      <p>
-        Souhaitez-vous continuer sans vous connecter ?{" "}
-        <Link to="/"> Cliquez ici</Link>
-      </p>
+
+      <Link className="Link_to_home" to="/">
+        Continuer sans se connecter
+      </Link>
     </form>
   );
 }
