@@ -88,41 +88,44 @@ function RecipeInfo({ recipe, id, auth }) {
       <div className="RecipeInfo__info__title__container">
         <h1 className="RecipeInfo__info__title">{recipe.title}</h1>
       </div>
-      {auth.role === "admin" || auth.id === recipe.user_id}
-      <section className="recipeInfo__RecipeControl">
-        <div className="recipeInfo__upload">
-          <input
-            className="recipeInfo__upload-Container-inputFile"
-            type="file"
-            onChange={onFileChange}
-          />
-          <button
-            className="recipeInfo__upload-Container_button-submit"
-            type="submit"
-            onClick={onSubmit}
-          >
-            Sauvegarder
-          </button>
-        </div>
-        {auth.role === "admin" ? (
-          <button
-            className="RecipeInfo__deleteButton"
-            type="submit"
-            onClick={handleDelete}
-          >
-            Supprimer la recette
-            <img
-              className="recipeInfo__deleteIcon"
-              src={`${
-                import.meta.env.VITE_BACKEND_URL
-              }/assets/images/trashIcon.png`}
-              alt="A trashbin icon"
+      {auth.role === "admin" || auth.id === recipe.user_id ? (
+        <section className="recipeInfo__RecipeControl">
+          <div className="recipeInfo__upload">
+            <input
+              className="recipeInfo__upload-Container-inputFile"
+              type="file"
+              onChange={onFileChange}
             />
-          </button>
-        ) : (
-          ""
-        )}
-      </section>
+            <button
+              className="recipeInfo__upload-Container_button-submit"
+              type="submit"
+              onClick={onSubmit}
+            >
+              Sauvegarder
+            </button>
+          </div>
+          {auth.role === "admin" ? (
+            <button
+              className="RecipeInfo__deleteButton"
+              type="submit"
+              onClick={handleDelete}
+            >
+              Supprimer la recette
+              <img
+                className="recipeInfo__deleteIcon"
+                src={`${
+                  import.meta.env.VITE_BACKEND_URL
+                }/assets/images/trashIcon.png`}
+                alt="A trashbin icon"
+              />
+            </button>
+          ) : (
+            ""
+          )}
+        </section>
+      ) : (
+        ""
+      )}
 
       <section className="RecipeInfo__details">
         <div className="RecipeInfo__details__difficulty">
