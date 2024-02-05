@@ -1,5 +1,5 @@
 import "./Recipe.scss";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import RecipeInfo from "../../components/RecipeInfo/RecipeInfo";
 import IngredientCard from "../../components/IngredientCard/IngredientCard";
@@ -7,8 +7,10 @@ import AddComment from "../../components/AddComment/AddComment";
 import RecipeStep from "../../components/RecipeStep/RecipeStep";
 import UstensiltCard from "../../components/UtensilCard/UtensilCard";
 import CommentCard from "../../components/CommentCard/CommentCard";
+import { UserContext } from "../../components/Contexts/userContext";
 
 function Recipe() {
+  const { auth } = useContext(UserContext);
   const [recipe, setRecipe] = useState();
   const { recipeId } = useParams();
   const [ingredientList, setIngredientList] = useState();
@@ -70,7 +72,11 @@ function Recipe() {
 
   return (
     <div className="page__recipe">
-      {recipe ? <RecipeInfo recipe={recipe} id={recipe.id} /> : "loading"}
+      {recipe ? (
+        <RecipeInfo recipe={recipe} id={recipe.id} auth={auth} />
+      ) : (
+        "loading"
+      )}
 
       <main className="recipe__cardContainer">
         <nav className="recipe__buttonBar">

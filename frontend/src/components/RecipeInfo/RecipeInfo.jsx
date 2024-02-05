@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import StarBar from "../StarBar/StarBar";
 
-function RecipeInfo({ recipe, id }) {
+function RecipeInfo({ recipe, id, auth }) {
   const navigate = useNavigate();
   const nbEuro = [
     {
@@ -36,7 +36,6 @@ function RecipeInfo({ recipe, id }) {
     }
     navigate("/");
   };
-  const admin = true;
 
   const [selectedFile, setSelectedFile] = useState(null);
 
@@ -88,12 +87,30 @@ function RecipeInfo({ recipe, id }) {
       </section>
       <div className="RecipeInfo__info__title__container">
         <h1 className="RecipeInfo__info__title">{recipe.title}</h1>
-        {admin === true ? (
+      </div>
+      {auth.role === "admin" || auth.id === recipe.user_id}
+      <section className="recipeInfo__RecipeControl">
+        <div className="recipeInfo__upload">
+          <input
+            className="recipeInfo__upload-Container-inputFile"
+            type="file"
+            onChange={onFileChange}
+          />
+          <button
+            className="recipeInfo__upload-Container_button-submit"
+            type="submit"
+            onClick={onSubmit}
+          >
+            Sauvegarder
+          </button>
+        </div>
+        {auth.role === "admin" ? (
           <button
             className="RecipeInfo__deleteButton"
             type="submit"
             onClick={handleDelete}
           >
+            Supprimer la recette
             <img
               className="recipeInfo__deleteIcon"
               src={`${
@@ -104,16 +121,8 @@ function RecipeInfo({ recipe, id }) {
           </button>
         ) : (
           ""
-        )}{" "}
-      </div>
-
-      {/*    <UploadComponant recipe={recipe} /> */}
-      <div>
-        <input type="file" onChange={onFileChange} />
-        <button type="submit" onClick={onSubmit}>
-          Submit
-        </button>
-      </div>
+        )}
+      </section>
 
       <section className="RecipeInfo__details">
         <div className="RecipeInfo__details__difficulty">
@@ -171,8 +180,17 @@ RecipeInfo.propTypes = {
     time: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     number_share: PropTypes.number.isRequired,
+    user_id: PropTypes.number.isRequired,
   }).isRequired,
+
   id: PropTypes.number.isRequired,
+
+  auth: PropTypes.shape({
+    mail: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    pseudo: PropTypes.string.isRequired,
+    role: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default RecipeInfo;
