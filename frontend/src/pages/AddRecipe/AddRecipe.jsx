@@ -2,13 +2,15 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import "./AddRecipe.scss";
 import { useForm } from "react-hook-form";
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import SelectCountry from "../../components/SelectCountry/SelectCountry";
 import AddIgredients from "../../components/AddIngredients/AddIngredients";
 import AddSteps from "../../components/AddSteps/AddSteps";
+import { UserContext } from "../../components/Contexts/userContext";
 
 function AddRecipe() {
+  const { auth } = useContext(UserContext);
   const [description, setDescription] = useState();
   const [info, setInfo] = useState();
   const [country, setCountry] = useState();
@@ -21,25 +23,27 @@ function AddRecipe() {
 
   const { register, handleSubmit } = useForm();
   const showNewRecipe = (id) => navigate(`/recipe/${id}`);
-
   const handleSubmitForm = () => {
     const date = new Date().toLocaleDateString();
     try {
-      fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user/1/add/recipe`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          title: titleRef.current.value,
-          country,
-          info,
-          stepsArr,
-          ingredientArr,
-          description,
-          date,
-        }),
-      })
+      fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/${auth.id}/add/recipe`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            title: titleRef.current.value,
+            country,
+            info,
+            stepsArr,
+            ingredientArr,
+            description,
+            date,
+          }),
+        }
+      )
         .then((response) => response.json())
         .then((data) => {
           showNewRecipe(data);
@@ -58,9 +62,10 @@ function AddRecipe() {
   const handleChange = () => {
     setShow(false);
   };
+
   return (
     <main className="addRecipe_page">
-      <h1 className="titleAddRecipe">CREER TA RECETTE</h1>
+      <h1 className="titleAddRecipe">CRÉE TA RECETTE</h1>
       <section onChange={handleChange}>
         <label className="addTitle" htmlFor="title">
           Titre
@@ -121,10 +126,23 @@ function AddRecipe() {
                 <option value="">-- --</option>
                 <option value="low">Bas</option>
                 <option value="medium">Moyen</option>
-                <option value="raise">Elevé</option>
+                <option value="raise">Élevé</option>
               </select>
             </label>
           </div>
+          <label className="form__fontLabel" htmlFor="share">
+            Nombre de part
+            <input
+              {...register("share")}
+              className="form__evaluation__select__numberShare"
+              type="number"
+              id="share"
+              name="share"
+              min="1"
+              max="100"
+              required
+            />
+          </label>
           <fieldset className="form__fieldset">
             <legend className="form__fieldset__titre">
               Régime Alimentaire
@@ -181,7 +199,7 @@ function AddRecipe() {
                 id="balanced"
                 className="form__fieldset__Checkbox"
               />
-              Equilibré
+              Équilibré
             </label>
           </fieldset>
           <fieldset className="form__fieldset">
@@ -251,7 +269,7 @@ function AddRecipe() {
                 id="allSeason"
                 className="form__fieldset__Checkbox"
               />
-              Toute saison
+              Toutes saisons
             </label>
 
             <label htmlFor="spring" className="form__fieldset__textCheck">
