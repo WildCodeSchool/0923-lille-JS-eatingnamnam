@@ -1,11 +1,12 @@
 @import "../../variables.scss";
 
 .SearchRecipeCard {
+  position: relative;
   align-items: center;
   flex-direction: column;
   display: flex;
   width: 100%;
-  background-color: $tertiaryColor;
+  //  background-color: $tertiaryColor;
   .SearchRecipeCard__img {
     width: 80%;
   }
@@ -45,12 +46,25 @@
     }
   }
 }
+.recipeInfo__Link-button {
+  height: 0;
+  width: 0;
+  font-size: 1px;
+  opacity: 0;
+  &::after {
+    position: absolute;
+    cursor: pointer;
+    content: "";
+    inset: 0;
+  }
+}
 
 a {
   all: unset;
 }
 @media screen and (min-width: 800px) {
   .SearchRecipeCard {
+    background-color: $tertiaryColor;
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
@@ -66,6 +80,8 @@ a {
     }
 
     .SearchRecipeCard__info {
+      height: 100%;
+      margin: 1em 0;
       width: 85%;
       display: flex;
       justify-content: space-between;
