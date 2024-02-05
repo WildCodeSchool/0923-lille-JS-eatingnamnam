@@ -2,14 +2,15 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import "./AddRecipe.scss";
 import { useForm } from "react-hook-form";
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import SelectCountry from "../../components/SelectCountry/SelectCountry";
 import AddIgredients from "../../components/AddIngredients/AddIngredients";
 import AddSteps from "../../components/AddSteps/AddSteps";
+import { UserContext } from "../../components/Contexts/userContext";
 
 function AddRecipe() {
-  const [imageUrl, setImageUrl] = useState(null);
+  const { auth } = useContext(UserContext);
   const [description, setDescription] = useState();
   const [info, setInfo] = useState();
   const [country, setCountry] = useState();
@@ -22,26 +23,27 @@ function AddRecipe() {
 
   const { register, handleSubmit } = useForm();
   const showNewRecipe = (id) => navigate(`/recipe/${id}`);
-
   const handleSubmitForm = () => {
     const date = new Date().toLocaleDateString();
     try {
-      fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user/1/add/recipe`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          title: titleRef.current.value,
-          country,
-          info,
-          stepsArr,
-          ingredientArr,
-          description,
-          date,
-          imageUrl,
-        }),
-      })
+      fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/${auth.id}/add/recipe`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            title: titleRef.current.value,
+            country,
+            info,
+            stepsArr,
+            ingredientArr,
+            description,
+            date,
+          }),
+        }
+      )
         .then((response) => response.json())
         .then((data) => {
           showNewRecipe(data);
@@ -61,13 +63,6 @@ function AddRecipe() {
     setShow(false);
   };
 
-  function onImageChange(e) {
-    const file = e.target.files[0];
-    if (file) {
-      const objectUrl = URL.createObjectURL(file);
-      setImageUrl(objectUrl);
-    }
-  }
   return (
     <main className="addRecipe_page">
       <h1 className="titleAddRecipe">CREER TA RECETTE</h1>
@@ -135,36 +130,6 @@ function AddRecipe() {
               </select>
             </label>
           </div>
-          {imageUrl ? (
-            <label
-              htmlFor="picture"
-              className="form__picture__on"
-              style={{ backgroundImage: `url( "${imageUrl}"` }}
-            >
-              <input
-                {...register("picture")}
-                type="file"
-                id="picture"
-                name="picture"
-                accept="image/png, image/jpeg"
-                className="form__picture__button"
-                onChange={onImageChange}
-              />
-            </label>
-          ) : (
-            <label htmlFor="picture" className="form__picture">
-              Ajouter une photo <span>&nbsp;+</span>
-              <input
-                {...register("picture")}
-                type="file"
-                id="picture"
-                name="picture"
-                accept="image/png, image/jpeg"
-                className="form__picture__button"
-                onChange={onImageChange}
-              />
-            </label>
-          )}
           <fieldset className="form__fieldset">
             <legend className="form__fieldset__titre">
               Régime Alimentaire
