@@ -16,9 +16,8 @@
 }
 
 .cardContainer {
-  width: clamp(375px, 80vw, 900px);
+  width: clamp(375px, 80vw, 800px);
   row-gap: 3vh;
-  background-color: $tertiaryColor;
   padding: 0 1vw;
   display: flex;
   justify-content: space-around;
@@ -43,7 +42,7 @@
   width: 80%;
   margin: 0 auto 3vh auto;
   height: 5vh;
-  border: 2px solid $mainColor;
+  border: 1px solid $mainColor;
   border-radius: 10px;
 }
 
