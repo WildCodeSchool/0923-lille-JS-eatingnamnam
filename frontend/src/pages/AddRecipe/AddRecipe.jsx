@@ -9,7 +9,6 @@ import AddIgredients from "../../components/AddIngredients/AddIngredients";
 import AddSteps from "../../components/AddSteps/AddSteps";
 
 function AddRecipe() {
-  const [imageUrl, setImageUrl] = useState(null);
   const [description, setDescription] = useState();
   const [info, setInfo] = useState();
   const [country, setCountry] = useState();
@@ -39,7 +38,6 @@ function AddRecipe() {
           ingredientArr,
           description,
           date,
-          imageUrl,
         }),
       })
         .then((response) => response.json())
@@ -60,14 +58,6 @@ function AddRecipe() {
   const handleChange = () => {
     setShow(false);
   };
-
-  function onImageChange(e) {
-    const file = e.target.files[0];
-    if (file) {
-      const objectUrl = URL.createObjectURL(file);
-      setImageUrl(objectUrl);
-    }
-  }
   return (
     <main className="addRecipe_page">
       <h1 className="titleAddRecipe">CREER TA RECETTE</h1>
@@ -135,36 +125,6 @@ function AddRecipe() {
               </select>
             </label>
           </div>
-          {imageUrl ? (
-            <label
-              htmlFor="picture"
-              className="form__picture__on"
-              style={{ backgroundImage: `url( "${imageUrl}"` }}
-            >
-              <input
-                {...register("picture")}
-                type="file"
-                id="picture"
-                name="picture"
-                accept="image/png, image/jpeg"
-                className="form__picture__button"
-                onChange={onImageChange}
-              />
-            </label>
-          ) : (
-            <label htmlFor="picture" className="form__picture">
-              Ajouter une photo <span>&nbsp;+</span>
-              <input
-                {...register("picture")}
-                type="file"
-                id="picture"
-                name="picture"
-                accept="image/png, image/jpeg"
-                className="form__picture__button"
-                onChange={onImageChange}
-              />
-            </label>
-          )}
           <fieldset className="form__fieldset">
             <legend className="form__fieldset__titre">
               Régime Alimentaire
