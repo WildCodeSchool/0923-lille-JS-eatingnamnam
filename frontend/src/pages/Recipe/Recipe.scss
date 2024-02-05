@@ -8,7 +8,7 @@ body {
   display: flex;
   flex-direction: column;
   align-content: center;
-  width: clamp(375px, 80vw, 800px);
+  width: clamp(375px, 100vw, 800px);
   align-self: center;
 }
 

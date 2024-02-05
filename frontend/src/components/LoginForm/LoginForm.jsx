@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { UserContext } from "../Contexts/userContext";
 
@@ -72,6 +72,9 @@ function LoginForm() {
         type="submit"
         value="Connexion"
       />
+      <Link className="Link_to_home" to="/">
+        Continuer sans se connecter
+      </Link>
     </form>
   );
 }

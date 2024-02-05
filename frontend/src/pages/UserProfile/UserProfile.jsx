@@ -47,13 +47,6 @@ function UserProfil() {
   return (
     <section className="userProfil_mainSection">
       <img
-        className="UserProfil__img__profil"
-        src={`${
-          import.meta.env.VITE_BACKEND_URL
-        }/assets/images/photo-profil-user.jpeg`}
-        alt=""
-      />
-      <img
         className="UserProfil__img"
         src={`${
           import.meta.env.VITE_BACKEND_URL

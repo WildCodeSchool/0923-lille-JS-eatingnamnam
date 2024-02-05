@@ -58,9 +58,6 @@
   }
 }
 
-a {
-  all: unset;
-}
 @media screen and (min-width: 800px) {
   .SearchRecipeCard {
     background-color: $tertiaryColor;

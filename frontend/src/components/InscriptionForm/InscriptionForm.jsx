@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 function InscriptionForm() {
@@ -129,6 +130,10 @@ function InscriptionForm() {
       <button className="formInscription__inputs__submit" type="submit">
         Inscription
       </button>
+
+      <Link className="Link_to_home" to="/">
+        Continuer sans se connecter
+      </Link>
     </form>
   );
 }
