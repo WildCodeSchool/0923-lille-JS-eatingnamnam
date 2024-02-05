@@ -52,6 +52,11 @@
   }
   .RecipeInfo__deleteButton {
     all: unset;
+    padding: 2vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .recipeInfo__deleteIcon {
     width: 40px;
@@ -114,4 +119,35 @@
     margin-top: 1em;
     font-size: 26px;
   }
+}
+.recipeInfo__upload {
+  width: 100%;
+
+  font-size: 2rem;
+  padding: 2vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.recipeInfo__upload-Container-inputFile {
+  font-size: clamp(16px, 2vw, 20px);
+}
+.recipeInfo__upload-Container_button-submit {
+  border-radius: 10px;
+  border: none;
+  background-color: $mainColor;
+  width: 40%;
+  height: 30px;
+  color: $secondaryFontColor;
+}
+
+.recipeInfo__RecipeControl {
+  width: clamp(375px, 100vw, 800px);
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: $mainColorTransparent;
 }
