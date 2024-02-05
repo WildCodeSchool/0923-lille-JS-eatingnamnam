@@ -65,7 +65,7 @@ function AddRecipe() {
 
   return (
     <main className="addRecipe_page">
-      <h1 className="titleAddRecipe">CREER TA RECETTE</h1>
+      <h1 className="titleAddRecipe">CRÉE TA RECETTE</h1>
       <section onChange={handleChange}>
         <label className="addTitle" htmlFor="title">
           Titre
@@ -126,10 +126,23 @@ function AddRecipe() {
                 <option value="">-- --</option>
                 <option value="low">Bas</option>
                 <option value="medium">Moyen</option>
-                <option value="raise">Elevé</option>
+                <option value="raise">Élevé</option>
               </select>
             </label>
           </div>
+          <label className="form__fontLabel" htmlFor="share">
+            Nombre de part
+            <input
+              {...register("share")}
+              className="form__evaluation__select__numberShare"
+              type="number"
+              id="share"
+              name="share"
+              min="1"
+              max="100"
+              required
+            />
+          </label>
           <fieldset className="form__fieldset">
             <legend className="form__fieldset__titre">
               Régime Alimentaire
@@ -186,7 +199,7 @@ function AddRecipe() {
                 id="balanced"
                 className="form__fieldset__Checkbox"
               />
-              Equilibré
+              Équilibré
             </label>
           </fieldset>
           <fieldset className="form__fieldset">
@@ -256,7 +269,7 @@ function AddRecipe() {
                 id="allSeason"
                 className="form__fieldset__Checkbox"
               />
-              Toute saison
+              Toutes saisons
             </label>
 
             <label htmlFor="spring" className="form__fieldset__textCheck">
