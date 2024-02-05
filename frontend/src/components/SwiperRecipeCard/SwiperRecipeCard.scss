@@ -1,5 +1,7 @@
 @import "../../variables.scss";
-
+.swipper__Link {
+  all: unset;
+}
 .swiperCard {
   align-items: center;
   flex-direction: column;

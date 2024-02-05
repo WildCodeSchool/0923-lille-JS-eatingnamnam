@@ -12,7 +12,11 @@ function SwiperRecipeCard({ recipe }) {
     setActiveButton("recipe");
   };
   return (
-    <Link to={`/recipe/${recipe.id}`} onClick={handleClick}>
+    <Link
+      className="swipper__Link"
+      to={`/recipe/${recipe.id}`}
+      onClick={handleClick}
+    >
       <section className="swiperCard">
         <img
           className="swiperCard__logo"
