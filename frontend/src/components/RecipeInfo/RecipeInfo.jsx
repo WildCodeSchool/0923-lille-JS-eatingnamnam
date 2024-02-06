@@ -2,6 +2,7 @@ import "./RecipeInfo.scss";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
+import Swal from "sweetalert2";
 import StarBar from "../StarBar/StarBar";
 
 function RecipeInfo({ recipe, id, auth }) {
@@ -64,8 +65,12 @@ function RecipeInfo({ recipe, id, auth }) {
       );
 
       if (response.ok) {
-        const data = await response.json();
-        console.info("File uploaded successfully:", data);
+        Swal.fire({
+          title: "succès",
+          text: "Image uploadée avec succès, redirection.",
+          icon: "success",
+        });
+        navigate(`/`);
       } else {
         console.error("Error uploading file:", response.statusText);
       }
@@ -189,10 +194,10 @@ RecipeInfo.propTypes = {
   id: PropTypes.number.isRequired,
 
   auth: PropTypes.shape({
-    mail: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired,
-    pseudo: PropTypes.string.isRequired,
-    role: PropTypes.string.isRequired,
+    mail: PropTypes.string,
+    id: PropTypes.number,
+    pseudo: PropTypes.string,
+    role: PropTypes.string,
   }).isRequired,
 };
 
