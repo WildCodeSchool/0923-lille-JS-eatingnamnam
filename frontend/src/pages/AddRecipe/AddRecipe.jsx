@@ -108,9 +108,9 @@ function AddRecipe() {
                 defaultValue=""
               >
                 <option value="">-- --</option>
-                <option value="easy">Facile</option>
-                <option value="medium">Moyen</option>
-                <option value="difficult">Difficile</option>
+                <option value="Facile">Facile</option>
+                <option value="Moyen">Moyen</option>
+                <option value="Difficile">Difficile</option>
               </select>
             </label>
 

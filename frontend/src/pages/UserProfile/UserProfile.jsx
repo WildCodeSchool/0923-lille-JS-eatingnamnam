@@ -84,7 +84,7 @@ function UserProfil() {
                   id="pseudo"
                   className="UserProfil__pseudo__input"
                   type="text"
-                  value={user.pseudo}
+                  defaultValue={user.pseudo}
                 />
               )}
             </label>
@@ -98,7 +98,7 @@ function UserProfil() {
                   id="anniversaire"
                   className="UserProfil__anniversaire__input"
                   type="text"
-                  value={newFormatDate}
+                  defaultValue={newFormatDate}
                 />
               )}
             </label>
@@ -111,7 +111,7 @@ function UserProfil() {
                   id="nom"
                   className="UserProfil__nom__input"
                   type="text"
-                  value={user.last_name}
+                  defaultValue={user.last_name}
                 />
               )}
             </label>
@@ -124,7 +124,7 @@ function UserProfil() {
                   id="prenom"
                   className="UserProfil__prenom__input"
                   type="text"
-                  value={user.first_name}
+                  defaultValue={user.first_name}
                 />
               )}
             </label>
@@ -137,7 +137,7 @@ function UserProfil() {
                   id="email"
                   className="UserProfil__mail__input"
                   type="text"
-                  value={user.email}
+                  defaultValue={user.email}
                 />
               )}
             </label>
