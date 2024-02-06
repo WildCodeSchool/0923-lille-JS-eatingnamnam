@@ -109,6 +109,19 @@ const recipeById = async (req, res, next) => {
     next(err);
   }
 };
+const recipeByUserId = async (req, res, next) => {
+  try {
+    const recipe = await tables.recipe.recipeByUserId(req.params.id);
+
+    if (recipe == null) {
+      res.sendStatus(404);
+    } else {
+      res.json(recipe);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
 
 const deleteById = async (req, res, next) => {
   try {
@@ -156,6 +169,7 @@ module.exports = {
   recipeByFav,
   recipeById,
   recipeByTag,
+  recipeByUserId,
   uploadPic,
   uploadPicture,
 };

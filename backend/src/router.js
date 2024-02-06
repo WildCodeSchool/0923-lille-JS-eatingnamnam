@@ -53,6 +53,7 @@ router.get("/randomrecipe", recipeControllers.randomRecipe);
 router.get("/tag", tagControllers.browseByTag);
 router.get("/user", userControllers.browse);
 router.get("/user/:id", userControllers.readById);
+router.get("/recipe/user/:id", recipeControllers.recipeByUserId);
 router.post("/adduser", hashPassword, userControllers.register);
 router.post("/login", authControllers.login);
 router.get("/logout", authControllers.logout);

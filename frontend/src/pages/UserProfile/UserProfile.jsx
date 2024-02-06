@@ -5,14 +5,14 @@ import { UserContext } from "../../components/Contexts/userContext";
 import RecipeCardUser from "../../components/RecipeCardUser/RecipeCardUser";
 
 function UserProfil() {
-  const [recipes, setRecipes] = useState();
-  const { setAuth } = useContext(UserContext);
+  const [recipes, setRecipes] = useState([]);
+  const { auth, setAuth } = useContext(UserContext);
   const navigate = useNavigate();
   const { userId } = useParams();
   const [user, setUser] = useState({});
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/user/${auth.id}`)
       .then((response) => response.json())
       .then((data) => setRecipes(data))
       .catch((error) => console.error(error));
@@ -29,7 +29,6 @@ function UserProfil() {
     month: "2-digit",
     year: "numeric",
   });
-
   const handleLogout = () => {
     try {
       fetch(`${import.meta.env.VITE_BACKEND_URL}/api/logout`, {
@@ -151,11 +150,15 @@ function UserProfil() {
       <h1 className="UserProfil__post__fav">Mes postes</h1>
 
       <div className="UserProfil__post__contener">
-        {recipes
-          ? recipes.map((recipe) => (
+        {recipes.length > 0 ? (
+          recipes.map((recipe) => {
+            return (
               <RecipeCardUser key={`recipe:${recipe.id}`} recipe={recipe} />
-            ))
-          : ""}
+            );
+          })
+        ) : (
+          <p>Vous n'avez pas encore posté de recette</p>
+        )}
       </div>
     </section>
   );
