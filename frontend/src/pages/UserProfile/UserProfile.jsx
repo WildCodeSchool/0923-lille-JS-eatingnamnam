@@ -185,7 +185,9 @@ function UserProfil() {
               );
             })
           ) : (
-            <p>Vous n'avez pas encore posté de recette</p>
+            <p className="UserProfil__myRecipes__noCard">
+              Vous n'avez pas encore posté de recette
+            </p>
           )}
         </div>
       </div>
