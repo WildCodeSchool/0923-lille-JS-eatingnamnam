@@ -1,16 +1,18 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
 import "./AddComment.scss";
 import { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { useForm } from "react-hook-form";
 import StarRating from "../StarRating/StarRating";
 import { UserContext } from "../Contexts/userContext";
 
-function AddComment() {
+function AddComment({ post, setPost }) {
   const { auth } = useContext(UserContext);
   const { recipeId } = useParams();
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const [grade, setGrade] = useState(0);
   const userId = auth.id;
 
@@ -30,10 +32,21 @@ function AddComment() {
           comment,
         }),
         credentials: "include",
+      }).then((response) => {
+        if (response.ok) {
+          Swal.fire({
+            title: "Commentaire envoyé !",
+            text: "Merci !!!! Votre commentaire a été correctement ajouté !",
+            icon: "success",
+          });
+        }
+        return response.json();
       });
+      setPost(!post);
     } catch (error) {
       console.error("je suis l'érreur du fetch de ADD COMMENT", error);
     }
+    reset();
   };
   return (
     <section className="addComment">
