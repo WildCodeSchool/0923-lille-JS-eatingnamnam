@@ -11,6 +11,9 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
+    .titleBar__button-navigate {
+      all: unset;
+    }
   }
 }
 .titleBar__logo {
@@ -18,8 +21,8 @@
   height: 100%;
 }
 .titleBar__userLogo {
-  height: 2.8em;
   all: unset;
+  height: 2.8em;
 }
 .titleBar__userLogo__container {
   display: flex;
@@ -63,9 +66,6 @@
     padding: 1.3em;
   }
 
-  .titleBar__logo {
-    width: 20%;
-  }
   .titleBar__searchBar {
     display: flex;
     background-color: white;

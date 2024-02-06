@@ -63,6 +63,15 @@ class RecipeManager extends AbstractManager {
     return rows[0];
   }
 
+  async recipeByUserId(userId) {
+    const [rows] = await this.database.query(
+      `SELECT * FROM ${this.table} where recipe.user_id = ?`,
+      [userId]
+    );
+
+    return rows;
+  }
+
   async randomRecipe() {
     const [count] = await this.database.query(`
        SELECT COUNT(id) as result FROM ${this.table}`);

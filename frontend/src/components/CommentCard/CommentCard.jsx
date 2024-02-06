@@ -1,8 +1,8 @@
 import "./CommentCard.scss";
 import PropTypes from "prop-types";
-import StarBar from "../StarBar/StarBar";
+import StarBarComment from "../StarBarComment/StarBarComment";
 
-function CommentCard({ comment, id }) {
+function CommentCard({ comment }) {
   const datTime = new Date(comment.date_time);
   const formattedDate = datTime.toLocaleDateString("en-GB", {
     day: "2-digit",
@@ -26,7 +26,7 @@ function CommentCard({ comment, id }) {
           <h2 className="comment__user__name">
             {comment.first_name} {comment.last_name}
           </h2>
-          <StarBar id={id} />
+          <StarBarComment grade={comment.grade} />
         </div>
       </div>
       <p className="comment__text">{comment.comment}</p>
@@ -36,11 +36,11 @@ function CommentCard({ comment, id }) {
 }
 
 CommentCard.propTypes = {
-  id: PropTypes.number.isRequired,
   comment: PropTypes.shape({
     last_name: PropTypes.string.isRequired,
     first_name: PropTypes.string.isRequired,
     date_time: PropTypes.string.isRequired,
+    grade: PropTypes.number,
     comment: PropTypes.string,
   }).isRequired,
 };

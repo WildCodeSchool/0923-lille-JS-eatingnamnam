@@ -6,7 +6,6 @@ function Search() {
   const [searchInput, setSearchInput] = useState("");
   const [recipes, setRecipes] = useState("");
 
-  // fetch of all recipes
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe`)
       .then((response) => response.json())
