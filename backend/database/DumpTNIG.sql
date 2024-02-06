@@ -79,7 +79,28 @@ INSERT INTO `ingredient` VALUES (1,'Ail','/assets/ingredients/ail.jpg'),(2,'Baie
 (85,'Pois chiches','/assets/ingredients/pois_chiches.jpeg'),(86,'Poulet','/assets/ingredients/poulet.jpeg'),
 (87,'Ras el Hanout','/assets/ingredients/ras_et_hanout.jpeg'),(88,'Safran','/assets/ingredients/safran.jpeg'),
 (89,'Semoule moyenne','/assets/ingredients/semoule_moyenne.jpeg'),(90,'Tomates pelées','/assets/ingredients/tomates_pelees.jpeg'),
-(87,'Tomates cerises','/assets/ingredients/tomate_cerise.jpeg');
+(91,"Jus d'ananas",'/assets/ingredients/jus_ananas.jpeg'),(92,"Jus d'orange",'/assets/ingredients/jus_orange.jpeg'),
+(93,'Jus de pamplemousse',"/assets/ingredients/jus_pamplemousse.jpeg"),(94,'Malibu',"/assets/ingredients/malibu.jpeg"),
+(95,'Sirop de grenadine','/assets/ingredients/sirop_grenadine.png'),(96,'Alcool de Litchi','/assets/ingredients/alcool_litchi.png'),(97,'Champagne','/assets/ingredients/champagne.jpeg'),(98,'Fraises','/assets/ingredients/fraises.jpeg'),
+(99,'Gingembre confit','/assets/ingredients/gingembre_confit.jpeg'),(100,'Litchi','/assets/ingredients/litchi.jpeg'),
+(101,'Bouillon','/assets/ingredients/bouillon.jpeg'),(102,'Bouquet garni','/assets/ingredients/bouquet_garni.jpeg'),
+(103,'Choucroute crue','/assets/ingredients/choucroute_crue.jpeg'),(104,'Echine de porc','/assets/ingredients/echine_de_porc.jpeg'),(105,'Genievre','/assets/ingredients/genievre.jpeg'),(106,'Lard fumé','/assets/ingredients/lard_fume.jpeg'),
+(107,'Poitrine de porc','/assets/ingredients/poitrine_de_porc.jpeg'),(108,'Pommes de terre','/assets/ingredients/pomme_de_terre.jpeg'),(109,'Saucisse de Strasbourg','/assets/ingredients/saucisse_de_strasbourg.jpeg'),(110,'Saucisson fumé','/assets/ingredients/saucisson_fumé.jpeg');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
