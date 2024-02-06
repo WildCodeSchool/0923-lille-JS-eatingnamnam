@@ -2,7 +2,7 @@ const tables = require("../tables");
 
 const add = async (req, res, next) => {
   const { title, stepsArr, ingredientArr } = req.body;
-  const { time, price, difficulty, diet, type, season } = req.body.info;
+  const { time, price, difficulty, share, diet, type, season } = req.body.info;
   const userId = req.params.id;
 
   try {
@@ -11,6 +11,7 @@ const add = async (req, res, next) => {
       time,
       price,
       difficulty,
+      share,
       userId,
       stepsArr,
       diet,

@@ -8,6 +8,7 @@ export function UserProvider({ children }) {
     email: null,
     id: null,
     pseudo: null,
+    role: "user",
     isLogged: false,
   };
   const [auth, setAuth] = useState(initialState);

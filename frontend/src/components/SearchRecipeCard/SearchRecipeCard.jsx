@@ -1,8 +1,13 @@
 import "./SearchRecipeCard.scss";
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 import StarBar from "../StarBar/StarBar";
 
 function SearchRecipeCard({ recipe }) {
+  const navigate = useNavigate();
+  const handleNavigate = () => {
+    navigate(`/recipe/${recipe.id}`);
+  };
   return (
     <section className="SearchRecipeCard">
       <img
@@ -10,6 +15,7 @@ function SearchRecipeCard({ recipe }) {
         src={`${import.meta.env.VITE_BACKEND_URL}${recipe.picture}`}
         alt="une recette de cuisine"
       />
+
       <article className="SearchRecipeCard__info">
         <section className="SearchRecipeCard__info__name">
           <h1 className="SearchRecipeCard__info__title">{recipe.title}</h1>
@@ -90,6 +96,13 @@ function SearchRecipeCard({ recipe }) {
           </div>
         </section>
       </article>
+      <button
+        onClick={handleNavigate}
+        type="button"
+        className="recipeInfo__Link-button"
+      >
+        {recipe.title}
+      </button>
     </section>
   );
 }

@@ -15,7 +15,7 @@ class RecipeManager extends AbstractManager {
     return rows[0];
   }
 
-  async create(title, time, price, difficulty, userId, stepsArr) {
+  async create(title, time, price, difficulty, share, userId, stepsArr) {
     const [resultRecipe] = await this.database.query(
       `INSERT INTO nam_nam.recipe (title, picture, time, date, price, difficulty, number_share, user_id) VALUES (?,?,?,?,?,?,?,?)`,
       [
@@ -25,7 +25,7 @@ class RecipeManager extends AbstractManager {
         "2024-11-01",
         1,
         difficulty,
-        4,
+        share,
         userId,
       ]
     );
