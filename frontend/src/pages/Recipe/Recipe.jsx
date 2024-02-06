@@ -15,12 +15,13 @@ function Recipe() {
   const { recipeId } = useParams();
   const [ingredientList, setIngredientList] = useState();
   const [utensils, setUtensils] = useState();
-  const [comments, setComments] = useState();
+  const [comments, setComments] = useState([]);
   const [steps, setSteps] = useState();
   const [tab, setTab] = useState(1);
   const [ingredientIsActive, setIngredientIsActive] = useState(1);
   const [ustensilIsActive, setUstensilIsActive] = useState(0);
   const [stepIsActive, setStepIsActive] = useState(0);
+  const [post, setPost] = useState(false);
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/${recipeId}`)
@@ -49,7 +50,7 @@ function Recipe() {
       .then((response) => response.json())
       .then((data) => setSteps(data))
       .catch((error) => console.error(error));
-  }, []);
+  }, [post]);
   const handleCLickIngredient = () => {
     setTab(1);
     setIngredientIsActive(1);
@@ -134,18 +135,23 @@ function Recipe() {
               />
             ))
           : ""}
-        {ingredientList && utensils && comments ? <AddComment /> : ""}
+        {ingredientList && utensils && comments ? (
+          <AddComment post={post} setPost={setPost} />
+        ) : (
+          ""
+        )}
         <section className="commentList">
           {comments
-            ? comments.map((comment) => (
-                <CommentCard
-                  key={`comment:${comment.id}`}
-                  comment={comment}
-                  recipe={recipe}
-                  id={recipe.id}
-                />
-              ))
-            : ""}
+            .slice()
+            .reverse()
+            .map((comment) => (
+              <CommentCard
+                key={`comment:${comment.comment} + ${comment.id}`}
+                comment={comment}
+                recipe={recipe}
+                id={recipe.id}
+              />
+            ))}
         </section>
       </main>
     </div>

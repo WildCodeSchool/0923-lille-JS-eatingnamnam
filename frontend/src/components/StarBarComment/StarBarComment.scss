@@ -1,0 +1,19 @@
+.starContainer {
+  display: flex;
+
+  .starContainer__img {
+    width: 1em;
+    height: 1em;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .starContainer {
+    display: flex;
+
+    .starContainer__img {
+      height: 1em;
+      width: 1.5em;
+    }
+  }
+}

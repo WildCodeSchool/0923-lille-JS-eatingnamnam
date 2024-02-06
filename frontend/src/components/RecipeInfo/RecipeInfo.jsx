@@ -189,10 +189,10 @@ RecipeInfo.propTypes = {
   id: PropTypes.number.isRequired,
 
   auth: PropTypes.shape({
-    mail: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired,
-    pseudo: PropTypes.string.isRequired,
-    role: PropTypes.string.isRequired,
+    mail: PropTypes.string,
+    id: PropTypes.number,
+    pseudo: PropTypes.string,
+    role: PropTypes.string,
   }).isRequired,
 };
 
