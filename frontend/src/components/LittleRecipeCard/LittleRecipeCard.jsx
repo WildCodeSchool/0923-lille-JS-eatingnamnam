@@ -1,21 +1,18 @@
 import "./LittleRecipeCard.scss";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { NavContext } from "../Contexts/navBarContext";
+import { useNavigate } from "react-router-dom";
 import StarBar from "../StarBar/StarBar";
 
 function LittleRecipeCard({ recipes }) {
-  const { setActiveButton, setRecipeID } = useContext(NavContext);
-  const handleClick = () => {
-    setRecipeID(recipes.id);
-    setActiveButton("recipe");
-  };
+  const navigate = useNavigate();
+
   return (
-    <Link
+    <button
+      type="button"
       className="LittleRecipeCardcard"
-      to={`/recipe/${recipes.id}`}
-      onClick={handleClick}
+      onClick={() => {
+        navigate(`/recipe/${recipes.id}`);
+      }}
     >
       <section className="LittleRecipeCardcard__section">
         <img
@@ -37,7 +34,7 @@ function LittleRecipeCard({ recipes }) {
           </section>
         </article>
       </section>
-    </Link>
+    </button>
   );
 }
 LittleRecipeCard.propTypes = {
