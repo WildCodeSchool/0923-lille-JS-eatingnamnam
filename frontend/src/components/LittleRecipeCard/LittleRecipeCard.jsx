@@ -36,7 +36,7 @@ function LittleRecipeCard({ recipes }) {
             />
           </section>
 
-          <section className="LittleRecipeCardcard__info__stats">
+          {/* <section className="LittleRecipeCardcard__info__stats">
             <div className="LittleRecipeCardcard__info__stats__div">
               <img
                 className="LittleRecipeCardcard__info__stats__img"
@@ -114,7 +114,7 @@ function LittleRecipeCard({ recipes }) {
                 </>
               )}
             </div>
-          </section>
+          </section> */}
         </article>
       </section>
     </Link>
