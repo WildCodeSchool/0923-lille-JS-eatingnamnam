@@ -5,13 +5,14 @@ import RecipeCard from "../../components/RecipeCard/RecipeCard";
 import Swipper from "../../components/Swipper/Swipper";
 import { NavContext } from "../../components/Contexts/navBarContext";
 import LittleRecipeCard from "../../components/LittleRecipeCard/LittleRecipeCard";
+import { UserContext } from "../../components/Contexts/userContext";
 
 function Homepage() {
   const { setActiveButton } = useContext(NavContext);
   const [recipe, setRecipe] = useState();
   const [vegan, setVegan] = useState();
   const [mexican, setMexican] = useState();
-
+  const { updateRecipe } = useContext(UserContext);
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/randomrecipe`)
       .then((response) => response.json())
@@ -27,7 +28,7 @@ function Homepage() {
       .then((response) => response.json())
       .then((data) => setMexican(data))
       .catch((error) => console.error(error));
-  }, []);
+  }, [updateRecipe]);
   const handleClick = () => {
     setActiveButton("recipe");
   };

@@ -1,12 +1,14 @@
 import "./RecipeInfo.scss";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import Swal from "sweetalert2";
 import StarBar from "../StarBar/StarBar";
+import { UserContext } from "../Contexts/userContext";
 
 function RecipeInfo({ recipe, id, auth }) {
   const navigate = useNavigate();
+  const { updateRecipe, setUpdateRecipe } = useContext(UserContext);
   const nbEuro = [
     {
       id: 1,
@@ -35,7 +37,7 @@ function RecipeInfo({ recipe, id, auth }) {
     } catch (error) {
       console.error(error);
     }
-    navigate("/");
+    setUpdateRecipe(!updateRecipe);
   };
 
   const [selectedFile, setSelectedFile] = useState(null);
