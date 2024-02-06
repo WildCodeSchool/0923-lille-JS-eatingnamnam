@@ -151,3 +151,9 @@
   border-radius: 10px;
   background-color: $mainColorTransparent;
 }
+
+@media screen and (min-width: 500px) {
+  .RecipeInfo {
+    margin-top: -1em;
+  }
+}

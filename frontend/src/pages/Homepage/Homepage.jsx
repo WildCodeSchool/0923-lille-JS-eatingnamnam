@@ -33,34 +33,37 @@ function Homepage() {
   };
 
   return (
-    <main className="home page">
-      <h1 className="home__recipeDay__title">Recette du jour</h1>
-      <section className="header__home">
-        {recipe ? (
-          <Link
-            className="home__recipeDay"
-            to={`/recipe/${recipe.id}`}
-            onClick={handleClick}
-          >
-            <RecipeCard recipe={recipe} />
-          </Link>
-        ) : (
-          "loading"
-        )}
-
-        <section className="little_recipeCard">
-          {vegan ? (
-            <>
-              <LittleRecipeCard recipes={vegan[0]} />
-              <LittleRecipeCard recipes={vegan[1]} />
-              <LittleRecipeCard recipes={vegan[2]} />
-              <LittleRecipeCard recipes={vegan[0]} />
-              <LittleRecipeCard recipes={vegan[2]} />
-              <LittleRecipeCard recipes={vegan[1]} />
-            </>
+    <main className="homePage">
+      <section className="homePage__day">
+        <h1 className="home__recipeDay__title">Recette du jour</h1>
+        <h2 className="home__recipeDay__title2">Recettes du jour</h2>
+        <section className="header__home">
+          {recipe ? (
+            <Link
+              className="home__recipeDay"
+              to={`/recipe/${recipe.id}`}
+              onClick={handleClick}
+            >
+              <RecipeCard recipe={recipe} />
+            </Link>
           ) : (
-            ""
+            "loading"
           )}
+
+          <section className="little_recipeCard">
+            {vegan ? (
+              <>
+                <LittleRecipeCard recipes={vegan[0]} />
+                <LittleRecipeCard recipes={vegan[1]} />
+                <LittleRecipeCard recipes={vegan[2]} />
+                <LittleRecipeCard recipes={vegan[0]} />
+                <LittleRecipeCard recipes={vegan[2]} />
+                <LittleRecipeCard recipes={vegan[1]} />
+              </>
+            ) : (
+              ""
+            )}
+          </section>
         </section>
       </section>
 
