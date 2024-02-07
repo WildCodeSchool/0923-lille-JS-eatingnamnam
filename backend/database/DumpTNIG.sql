@@ -32,7 +32,7 @@ CREATE TABLE `comment_recipe_user` (
   PRIMARY KEY (`id`,`recipe_id`,`user_id`),
   KEY `fk_recipe_has_user_user1_comment_idx` (`user_id`),
   KEY `fk_recipe_has_user_recipe1_comment_idx` (`recipe_id`),
-  CONSTRAINT `fk_recipe_has_user_recipe1_comment` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`id`),
+  CONSTRAINT `fk_recipe_has_user_recipe1_comment` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`id`)ON DELETE CASCADE,
   CONSTRAINT `fk_recipe_has_user_user1_comment` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -86,7 +86,7 @@ CREATE TABLE `list_favorites_recipe_user` (
   PRIMARY KEY (`id`,`recipe_id`,`user_id`),
   KEY `fk_recipe_has_user_user1_favorite_idx` (`user_id`),
   KEY `fk_recipe_has_user_recipe1_favorite_idx` (`recipe_id`),
-  CONSTRAINT `fk_recipe_has_user_recipe1_favorite` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`id`),
+  CONSTRAINT `fk_recipe_has_user_recipe1_favorite` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`id`) ON DELETE CASCADE,
   CONSTRAINT `fk_recipe_has_user_user1_favorite` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -118,7 +118,7 @@ CREATE TABLE `list_ingredients_recip` (
   KEY `fk_recipe_has_ingredient_ingredient1_idx` (`ingredient_id`),
   KEY `fk_recipe_has_ingredient_recipe1_idx` (`recipe_id`),
   CONSTRAINT `fk_recipe_has_ingredient_ingredient1` FOREIGN KEY (`ingredient_id`) REFERENCES `ingredient` (`id`),
-  CONSTRAINT `fk_recipe_has_ingredient_recipe1` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`id`)
+  CONSTRAINT `fk_recipe_has_ingredient_recipe1` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -146,7 +146,7 @@ CREATE TABLE `list_tags_recipe` (
   PRIMARY KEY (`id`,`recipe_id`,`tag_id`),
   KEY `fk_recipe_has_tag_tag1_idx` (`tag_id`),
   KEY `fk_recipe_has_tag_recipe1_idx` (`recipe_id`),
-  CONSTRAINT `fk_recipe_has_tag_recipe1` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`id`),
+  CONSTRAINT `fk_recipe_has_tag_recipe1` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`id`) ON DELETE CASCADE,
   CONSTRAINT `fk_recipe_has_tag_tag1` FOREIGN KEY (`tag_id`) REFERENCES `tag` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -175,7 +175,7 @@ CREATE TABLE `list_ustensils_recip` (
   PRIMARY KEY (`id`,`recipe_id`,`ustensil_id`),
   KEY `fk_recipe_has_ustensil_ustensil1_idx` (`ustensil_id`),
   KEY `fk_recipe_has_ustensil_recipe1_idx` (`recipe_id`),
-  CONSTRAINT `fk_recipe_has_ustensil_recipe1` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`id`),
+  CONSTRAINT `fk_recipe_has_ustensil_recipe1` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`id`) ON DELETE CASCADE,
   CONSTRAINT `fk_recipe_has_ustensil_ustensil1` FOREIGN KEY (`ustensil_id`) REFERENCES `ustensil` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -237,7 +237,7 @@ CREATE TABLE `step` (
   `recipe_id` int NOT NULL,
   PRIMARY KEY (`id`,`recipe_id`),
   KEY `fk_step_has_recipe_idx` (`recipe_id`),
-  CONSTRAINT `fk_step_has_recipe` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`id`)
+  CONSTRAINT `fk_step_has_recipe` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
