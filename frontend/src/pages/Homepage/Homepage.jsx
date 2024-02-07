@@ -5,13 +5,14 @@ import RecipeCard from "../../components/RecipeCard/RecipeCard";
 import Swipper from "../../components/Swipper/Swipper";
 import { NavContext } from "../../components/Contexts/navBarContext";
 import LittleRecipeCard from "../../components/LittleRecipeCard/LittleRecipeCard";
+import { UserContext } from "../../components/Contexts/userContext";
 
 function Homepage() {
   const { setActiveButton } = useContext(NavContext);
   const [recipe, setRecipe] = useState();
   const [vegan, setVegan] = useState();
   const [mexican, setMexican] = useState();
-
+  const { updateRecipe } = useContext(UserContext);
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/randomrecipe`)
       .then((response) => response.json())
@@ -27,40 +28,43 @@ function Homepage() {
       .then((response) => response.json())
       .then((data) => setMexican(data))
       .catch((error) => console.error(error));
-  }, []);
+  }, [updateRecipe]);
   const handleClick = () => {
     setActiveButton("recipe");
   };
 
   return (
-    <main className="home page">
-      <h1 className="home__recipeDay__title">Recette du jour</h1>
-      <section className="header__home">
-        {recipe ? (
-          <Link
-            className="home__recipeDay"
-            to={`/recipe/${recipe.id}`}
-            onClick={handleClick}
-          >
-            <RecipeCard recipe={recipe} />
-          </Link>
-        ) : (
-          "loading"
-        )}
-
-        <section className="little_recipeCard">
-          {vegan ? (
-            <>
-              <LittleRecipeCard recipes={vegan[0]} />
-              <LittleRecipeCard recipes={vegan[1]} />
-              <LittleRecipeCard recipes={vegan[2]} />
-              <LittleRecipeCard recipes={vegan[0]} />
-              <LittleRecipeCard recipes={vegan[2]} />
-              <LittleRecipeCard recipes={vegan[1]} />
-            </>
+    <main className="homePage">
+      <section className="homePage__day">
+        <h1 className="home__recipeDay__title">Recette du jour</h1>
+        <h2 className="home__recipeDay__title2">Recettes du jour</h2>
+        <section className="header__home">
+          {recipe ? (
+            <Link
+              className="home__recipeDay"
+              to={`/recipe/${recipe.id}`}
+              onClick={handleClick}
+            >
+              <RecipeCard recipe={recipe} />
+            </Link>
           ) : (
-            ""
+            "loading"
           )}
+
+          <section className="little_recipeCard">
+            {vegan ? (
+              <>
+                <LittleRecipeCard recipes={vegan[0]} />
+                <LittleRecipeCard recipes={vegan[1]} />
+                <LittleRecipeCard recipes={vegan[2]} />
+                <LittleRecipeCard recipes={vegan[3]} />
+                <LittleRecipeCard recipes={vegan[4]} />
+                <LittleRecipeCard recipes={vegan[5]} />
+              </>
+            ) : (
+              ""
+            )}
+          </section>
         </section>
       </section>
 

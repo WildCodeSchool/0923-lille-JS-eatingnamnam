@@ -33,7 +33,11 @@ function Search() {
         {recipes &&
           recipes.map((recipe) =>
             recipe.title.toLowerCase().includes(searchInput) ? (
-              <SearchRecipeCard key={recipe.id} recipe={recipe} />
+              <SearchRecipeCard
+                className="cardContainer__card"
+                key={recipe.id}
+                recipe={recipe}
+              />
             ) : (
               ""
             )

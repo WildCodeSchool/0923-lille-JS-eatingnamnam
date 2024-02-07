@@ -12,12 +12,15 @@ export function UserProvider({ children }) {
     isLogged: false,
   };
   const [auth, setAuth] = useState(initialState);
+  const [updateRecipe, setUpdateRecipe] = useState(false);
   const userState = useMemo(
     () => ({
       auth,
       setAuth,
+      updateRecipe,
+      setUpdateRecipe,
     }),
-    [auth, setAuth]
+    [auth, setAuth, updateRecipe, setUpdateRecipe]
   );
 
   return (
