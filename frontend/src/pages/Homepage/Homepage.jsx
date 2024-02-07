@@ -56,9 +56,9 @@ function Homepage() {
                 <LittleRecipeCard recipes={vegan[0]} />
                 <LittleRecipeCard recipes={vegan[1]} />
                 <LittleRecipeCard recipes={vegan[2]} />
-                <LittleRecipeCard recipes={vegan[0]} />
-                <LittleRecipeCard recipes={vegan[2]} />
-                <LittleRecipeCard recipes={vegan[1]} />
+                <LittleRecipeCard recipes={vegan[3]} />
+                <LittleRecipeCard recipes={vegan[4]} />
+                <LittleRecipeCard recipes={vegan[5]} />
               </>
             ) : (
               ""
