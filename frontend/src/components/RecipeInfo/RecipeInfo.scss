@@ -149,7 +149,8 @@
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  background-color: $mainColorTransparent;
+  border: 2px solid $mainColor;
+  margin-bottom: 25px;
 }
 
 @media screen and (min-width: 500px) {
