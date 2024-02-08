@@ -1,6 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 function InscriptionForm() {
   const {
@@ -10,13 +12,29 @@ function InscriptionForm() {
   } = useForm();
 
   const onSubmit = (data) => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/adduser`, {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        data,
-      }),
-    });
+    try {
+      fetch(`${import.meta.env.VITE_BACKEND_URL}/api/adduser`, {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          data,
+        }),
+      }).then((response) =>
+        response.status === 200
+          ? Swal.fire({
+              title: "Inscription complète",
+              text: "Utilisez le bouton <Se connecter> pour vous authentifier",
+              icon: "success",
+            })
+          : Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Something went wrong!",
+            })
+      );
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -112,6 +130,10 @@ function InscriptionForm() {
       <button className="formInscription__inputs__submit" type="submit">
         Inscription
       </button>
+
+      <Link className="Link_to_home" to="/">
+        Continuer sans se connecter
+      </Link>
     </form>
   );
 }

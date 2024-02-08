@@ -5,11 +5,14 @@
   width: 84%;
   margin: 0 auto;
 }
+.home__recipeDay__title2 {
+  display: none;
+}
 .home__recipeDay {
-  /* display: flex; */
   flex-direction: column;
   align-items: center;
   margin: 0 0 0.5em 0;
+  all: unset;
 }
 .little_recipeCard {
   display: none;
@@ -26,23 +29,37 @@
   }
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 800px) {
+  .homePage__day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .home__recipeDay__title {
     display: none;
   }
+  .home__recipeDay__title2 {
+    display: block;
+    font-size: 2.5rem;
+    width: 90%;
+    margin: 0 0 0.2em 0;
+  }
+
   .home__recipeDay {
     width: 45%;
   }
   .header__home {
     display: flex;
     justify-content: space-evenly;
+    width: 92.5%;
   }
   .little_recipeCard {
     display: flex;
     justify-content: space-between;
+    align-content: space-between;
     flex-wrap: wrap;
     width: 50%;
-    height: 65vh;
+    height: 70vh;
   }
 
   .home__Theme {
@@ -50,10 +67,11 @@
     flex-direction: column;
     align-items: center;
     height: auto;
+    margin: 3em 5%;
 
     .home__Theme__title {
       font-size: 2.5rem;
-      width: 84%;
+      width: 100%;
       margin: 0.5em 0 0.25em 0;
     }
   }

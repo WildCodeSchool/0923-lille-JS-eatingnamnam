@@ -1,5 +1,7 @@
 @import "../../variables.scss";
-
+.swipper__Link {
+  all: unset;
+}
 .swiperCard {
   align-items: center;
   flex-direction: column;
@@ -20,14 +22,7 @@
   .swiperCard__logo {
     width: 80%;
     height: 22vh;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column-reverse;
-    align-items: flex-end;
-    background-image: url("/src/assets/recipePicture.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    object-fit: cover;
     border: solid 2px #d56c06;
     border-radius: 0 20px 0 20px;
     .swiperCard__logo__diet__vegan {
@@ -44,7 +39,7 @@
 
     .swiperCard__info__title {
       margin: 0;
-      width: 70%;
+      width: 100%;
       font-size: 1.25em;
     }
     .swiperCard_info__stars {
@@ -54,12 +49,12 @@
   }
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 800px) {
   .swiperCard {
     align-items: center;
     flex-direction: column;
     display: flex;
-    width: 55%;
+    width: 75%;
     height: 19em;
     justify-content: space-between;
     border: 1px solid $mainColor;
@@ -87,17 +82,10 @@
       }
     }
     .swiperCard__logo {
-      width: 99%;
+      width: 100%;
       height: 50%;
-      display: flex;
-      justify-content: space-evenly;
-      flex-direction: column-reverse;
-      align-items: flex-end;
-      background-image: url("/src/assets/recipePicture.png");
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      border: solid 2px #d56c06;
+      object-fit: cover;
+      border: none;
       border-radius: 30px 30px 0 0;
       .swiperCard__logo__diet__vegan {
         width: 2em;

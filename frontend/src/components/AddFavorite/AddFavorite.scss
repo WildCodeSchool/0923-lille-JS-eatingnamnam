@@ -3,9 +3,9 @@
   margin: 0.3em;
 
   .logo__isFavorite {
-    width: 2em;
+    width: clamp(15px, 2.5vw, 1.5em);
   }
   .logo__notFavorite {
-    width: 2em;
+    width: clamp(15px, 2.5vh, 2em);
   }
 }

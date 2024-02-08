@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import { UserContext } from "../Contexts/userContext";
 
 function LoginForm() {
@@ -18,13 +19,23 @@ function LoginForm() {
           data,
         }),
       })
-        .then((response) => response.json())
+        .then((response) => {
+          if (!response.ok) {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Identifiant ou mot de passe incorrects",
+            });
+          }
+          return response.json();
+        })
         .then(
           (fetchedData) =>
             setAuth({
               mail: fetchedData.email,
               id: fetchedData.id,
               pseudo: fetchedData.pseudo,
+              role: fetchedData.role,
               isLogged: true,
             }),
           navigate("/")
@@ -61,6 +72,9 @@ function LoginForm() {
         type="submit"
         value="Connexion"
       />
+      <Link className="Link_to_home" to="/">
+        Continuer sans se connecter
+      </Link>
     </form>
   );
 }

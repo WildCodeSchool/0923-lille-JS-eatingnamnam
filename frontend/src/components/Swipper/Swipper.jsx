@@ -1,4 +1,5 @@
-// Import Swiper React components
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import PropTypes from "prop-types";
 import SwiperRecipeCard from "../SwiperRecipeCard/SwiperRecipeCard";
@@ -8,6 +9,7 @@ import SwiperRecipeCard from "../SwiperRecipeCard/SwiperRecipeCard";
 import "swiper/css";
 import "swiper/css/pagination";
 import "./Swipper.scss";
+import { NavContext } from "../Contexts/navBarContext";
 
 function Swipper({ recipes }) {
   const windowWidth = window.innerWidth;
@@ -17,6 +19,9 @@ function Swipper({ recipes }) {
   } else {
     test = 4;
   }
+  const navigate = useNavigate();
+  const { setActiveButton } = useContext(NavContext);
+
   return (
     <Swiper
       slidesPerView={test}
@@ -27,7 +32,14 @@ function Swipper({ recipes }) {
       className="mySwiper"
     >
       {recipes.map((recipe) => (
-        <SwiperSlide style={{ height: "22em" }} key={recipe.title}>
+        <SwiperSlide
+          style={{ height: "22em" }}
+          key={recipe.title}
+          onClick={() => {
+            setActiveButton("recipe");
+            navigate(`/recipe/${recipe.id}`);
+          }}
+        >
           <SwiperRecipeCard recipe={recipe} />
         </SwiperSlide>
       ))}

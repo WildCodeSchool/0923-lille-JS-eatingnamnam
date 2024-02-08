@@ -1,45 +1,104 @@
 @import "../../variables.scss";
 
-.tagCardContainer {
-  background-color: $tertiaryColor;
-  row-gap: 20px;
-  justify-content: space-around;
+.page_search {
+  margin-bottom: 15vw;
   display: flex;
-  flex-flow: wrap;
-}
-.title {
-  background-color: red;
-  width: 100%;
-  text-align: center;
-  font-size: 30px;
-  margin-bottom: 50px;
-}
-.searchBar {
-  display: flex;
-  background-color: $tertiaryColor;
-  width: 80%;
-  margin: 0 auto;
-  height: 5vh;
-  border: 2px solid $mainColor;
-  border-radius: 10px;
-}
+  flex-direction: column;
+  align-items: center;
+  .page_search-Link {
+    all: unset;
+  }
 
-.searchBar__searchButton {
-  all: unset;
+  .tagCardContainer {
+    background-color: $tertiaryColor;
+    padding: 0 1vw;
+    justify-content: space-around;
+    display: flex;
+    flex-flow: wrap;
+  }
+
+  .page_search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 6vw;
+  }
+
+  .cardContainer {
+    width: clamp(375px, 80vw, 800px);
+    row-gap: 3vh;
+    padding: 0 1vw;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: wrap;
+  }
+
+  .title {
+    background-color: red;
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 50px;
+  }
+
+  .searchBar {
+    display: flex;
+    background-color: $tertiaryColor;
+    width: 80%;
+    margin: 0 auto 3vh auto;
+    height: 5vh;
+    border: 1px solid $mainColor;
+    border-radius: 10px;
+  }
+
+  .searchBar__form {
+    all: unset;
+    padding-left: 1vw;
+    font-family: "Handlee", sans-serif;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+  }
+  .searchBar__form:focus {
+    background-color: white;
+  }
+  .searchBar__searchIcon {
+    padding: 5px;
+    width: 5vh;
+    object-fit: contain;
+  }
+  .search__tag__button {
+    all: unset;
+  }
+
+  .tagCard {
+    all: unset;
+    position: relative;
+    display: inline-block;
+    width: 45%;
+  }
+  .tagname {
+    width: 45vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    height: 6vh;
+    position: absolute;
+    top: 35%;
+    background-color: rgba($color: #ffffff, $alpha: 0.5);
+  }
+
+  .tagCard__img {
+    display: block;
+    width: 100%;
+    object-fit: contain;
+    border: 2px solid $mainColor;
+    border-radius: 20px;
+  }
 }
-.searchBar__form {
-  all: unset;
-  padding-left: 1vw;
-  font-family: "Handlee", sans-serif;
-  border-radius: 10px;
-  width: 100%;
-  height: 100%;
-}
-.searchBar__form:focus {
-  background-color: white;
-}
-.searchBar__searchIcon {
-  padding: 5px;
-  width: 5vh;
-  object-fit: contain;
+@media screen and (min-width: 800px) {
+  .page_search {
+    margin-bottom: 6vw;
+  }
 }

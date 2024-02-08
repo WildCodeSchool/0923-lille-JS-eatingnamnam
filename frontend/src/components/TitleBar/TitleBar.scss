@@ -9,18 +9,38 @@
 
   .titleBar__search {
     display: flex;
+    width: 100%;
     justify-content: space-between;
+    .titleBar__button-navigate {
+      all: unset;
+    }
   }
 }
 .titleBar__logo {
-  width: 70%;
+  width: 240px;
   height: 100%;
 }
 .titleBar__userLogo {
+  all: unset;
   height: 2.8em;
 }
-.titleBar__userLogo__img {
+.titleBar__userLogo__container {
+  display: flex;
+  align-items: center;
   height: 100%;
+
+  .titleBar__userLogo__img {
+    height: 100%;
+  }
+}
+.titleBar__userLogo__img__connect {
+  height: 100%;
+  background-color: $secondaryColor;
+  border-radius: 50%;
+  padding: 0.1em;
+}
+.titleBar__userLogo__container__title {
+  display: none;
 }
 
 .titleBar__searchBar {
@@ -38,18 +58,14 @@
   display: none;
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 900px) {
   .titleBar {
-    height: 7em;
     display: flex;
     flex-direction: column;
     margin-bottom: 1em;
     padding: 1.3em;
   }
 
-  .titleBar__logo {
-    width: 13%;
-  }
   .titleBar__searchBar {
     display: flex;
     background-color: white;
@@ -109,11 +125,8 @@
   }
   .titleBar__userLogo {
     display: flex;
-    width: 10%;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 1em;
+    height: 1.5em;
+    padding: 0.2em;
     border: 0;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
@@ -126,5 +139,14 @@
     display: inline;
     font-size: 1.5em;
     color: white;
+  }
+  .titleBar__userLogo__container__title {
+    display: block;
+  }
+  .titleBar__userLogo__container {
+    gap: 0.2em;
+  }
+  .titleBar__userLogo__img__connect {
+    padding: 0;
   }
 }

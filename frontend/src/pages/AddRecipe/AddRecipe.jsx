@@ -2,287 +2,349 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import "./AddRecipe.scss";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useState, useRef, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import SelectCountry from "../../components/SelectCountry/SelectCountry";
+import AddIgredients from "../../components/AddIngredients/AddIngredients";
+import AddSteps from "../../components/AddSteps/AddSteps";
+import { UserContext } from "../../components/Contexts/userContext";
 
 function AddRecipe() {
+  const { auth } = useContext(UserContext);
+  const [description, setDescription] = useState();
+  const [info, setInfo] = useState();
+  const [country, setCountry] = useState();
+  const [show, setShow] = useState(false);
+  const navigate = useNavigate();
+
+  const [stepsArr, setStepsArr] = useState([]);
+  const [ingredientArr, setIngredientArr] = useState([]);
+  const titleRef = useRef();
+
   const { register, handleSubmit } = useForm();
-  const [imageUrl, setImageUrl] = useState(null);
-  function onImageChange(e) {
-    const file = e.target.files[0];
-    if (file) {
-      const objectUrl = URL.createObjectURL(file);
-      setImageUrl(objectUrl);
+  const showNewRecipe = (id) => navigate(`/recipe/${id}`);
+  const handleSubmitForm = () => {
+    const date = new Date().toLocaleDateString();
+    try {
+      fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/${auth.id}/add/recipe`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            title: titleRef.current.value,
+            country,
+            info,
+            stepsArr,
+            ingredientArr,
+            description,
+            date,
+          }),
+        }
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          showNewRecipe(data);
+        })
+        .catch((error) => console.error(error));
+    } catch (error) {
+      console.error(error);
     }
-  }
+  };
 
-  // eslint-disable-next-line no-alert
-  const onSubmit = (data) => alert(JSON.stringify(data));
+  const onSubmitInfo = (mySubmitedRecipe) => {
+    setShow(true);
+    setInfo(mySubmitedRecipe);
+  };
+
+  const handleChange = () => {
+    setShow(false);
+  };
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)} method="post" className="form">
-      <h1 className="form__title">CREER TA RECETTE</h1>
-      <label className="form__addTitle" htmlFor="title">
-        Titre
-      </label>
-      <textarea
-        {...register("title")}
-        id="title"
-        name="title"
-        rows="1"
-        className="form__addTitle"
-        placeholder="&nbsp;Titre"
-      />
-      <div className="form__evaluation">
-        <label className="form__fontLabel" htmlFor="time">
-          Temps
-          <input
-            {...register("time")}
-            className="form__evaluation__select"
-            type="time"
-            id="time"
-            name="time"
-            min="00:01"
-            max="24:00"
-            required
-          />
+    <main className="addRecipe_page">
+      <h1 className="titleAddRecipe">CRÉE TA RECETTE</h1>
+      <section onChange={handleChange}>
+        <label className="addTitle" htmlFor="title">
+          Titre
         </label>
-        <label className="form__fontLabel" htmlFor="dificultySelect">
-          Difficulté
-          <select
-            {...register("dificulty")}
-            className="form__evaluation__select"
-            name="dificulty"
-            id="dificultySelect"
-          >
-            <option value="">-- --</option>
-            <option value="easy">Facile</option>
-            <option value="medium">Moyen</option>
-            <option value="difficult">Difficile</option>
-          </select>
-        </label>
-
-        <label htmlFor="priceSelect" className="form__fontLabel">
-          Prix
-          <select
-            {...register("price")}
-            className="form__evaluation__select"
-            name="price"
-            id="priceSelect"
-          >
-            <option value="">-- --</option>
-            <option value="low">Bas</option>
-            <option value="medium">Moyen</option>
-            <option value="raise">Elevé</option>
-          </select>
-        </label>
-      </div>
-      {imageUrl ? (
-        <label
-          htmlFor="picture"
-          className="form__picture__on"
-          style={{ backgroundImage: `url( "${imageUrl}"` }}
+        <textarea
+          id="title"
+          name="title"
+          ref={titleRef}
+          rows="1"
+          className="addTitle"
+          placeholder="&nbsp;Titre"
+        />
+        <SelectCountry setCountry={setCountry} className="selectCountry" />
+        <form
+          onSubmit={handleSubmit(onSubmitInfo)}
+          method="post"
+          className="form"
         >
-          <input
-            {...register("picture")}
-            type="file"
-            id="picture"
-            name="picture"
-            accept="image/png, image/jpeg"
-            className="form__picture__button"
-            onChange={onImageChange}
+          <div className="form__evaluation">
+            <label className="form__fontLabel" htmlFor="time">
+              Temps
+              <input
+                {...register("time")}
+                className="form__evaluation__select"
+                type="time"
+                id="time"
+                name="time"
+                min="00:01"
+                max="24:00"
+                required
+              />
+            </label>
+            <label className="form__fontLabel" htmlFor="difficultySelect">
+              Difficulté
+              <select
+                {...register("difficulty")}
+                className="form__evaluation__select"
+                name="difficulty"
+                id="difficultySelect"
+                defaultValue=""
+              >
+                <option value="">-- --</option>
+                <option value="Facile">Facile</option>
+                <option value="Moyen">Moyen</option>
+                <option value="Difficile">Difficile</option>
+              </select>
+            </label>
+
+            <label htmlFor="priceSelect" className="form__fontLabel">
+              Prix
+              <select
+                {...register("price")}
+                className="form__evaluation__select"
+                name="price"
+                id="priceSelect"
+                defaultValue=""
+              >
+                <option value="">-- --</option>
+                <option value="low">Bas</option>
+                <option value="medium">Moyen</option>
+                <option value="raise">Élevé</option>
+              </select>
+            </label>
+          </div>
+          <label className="form__fontLabel" htmlFor="share">
+            Nombre de part
+            <input
+              {...register("share")}
+              className="form__evaluation__select__numberShare"
+              type="number"
+              id="share"
+              name="share"
+              min="1"
+              max="100"
+              required
+            />
+          </label>
+          <fieldset className="form__fieldset">
+            <legend className="form__fieldset__titre">
+              Régime Alimentaire
+            </legend>
+            <label htmlFor="vegetarian" className="form__fieldset__textCheck">
+              <input
+                value="vegetarian"
+                {...register("diet")}
+                type="checkbox"
+                id="vegetarian"
+                className="form__fieldset__Checkbox"
+              />
+              Végétarien
+            </label>
+
+            <label htmlFor="vegan" className="form__fieldset__textCheck">
+              <input
+                value="vegan"
+                {...register("diet")}
+                type="checkbox"
+                id="vegan"
+                className="form__fieldset__Checkbox"
+              />
+              Végan
+            </label>
+
+            <label htmlFor="gourmet" className="form__fieldset__textCheck">
+              <input
+                value="gourmet"
+                {...register("diet")}
+                type="checkbox"
+                id="gourmet"
+                className="form__fieldset__Checkbox"
+              />
+              Gourmand
+            </label>
+
+            <label htmlFor="light" className="form__fieldset__textCheck">
+              <input
+                value="light"
+                {...register("diet")}
+                type="checkbox"
+                id="light"
+                className="form__fieldset__Checkbox"
+              />
+              Light
+            </label>
+
+            <label htmlFor="balanced" className="form__fieldset__textCheck">
+              <input
+                value="balanced"
+                {...register("diet")}
+                type="checkbox"
+                id="balanced"
+                className="form__fieldset__Checkbox"
+              />
+              Équilibré
+            </label>
+          </fieldset>
+          <fieldset className="form__fieldset">
+            <legend className="form__fieldset__titre">Type</legend>
+            <label htmlFor="starter" className="form__fieldset__textCheck">
+              <input
+                value="starter"
+                {...register("type")}
+                type="radio"
+                id="starter "
+                className="form__fieldset__Checkbox"
+              />
+              Entrée
+            </label>
+
+            <label htmlFor="main_course" className="form__fieldset__textCheck">
+              <input
+                value="main_course"
+                {...register("type")}
+                type="radio"
+                id="main_course"
+                className="form__fieldset__Checkbox"
+              />
+              Plat
+            </label>
+
+            <label htmlFor="dessert" className="form__fieldset__textCheck">
+              <input
+                value="dessert"
+                {...register("type")}
+                type="radio"
+                id="dessert"
+                className="form__fieldset__Checkbox"
+              />
+              Dessert
+            </label>
+
+            <label htmlFor="aptizer" className="form__fieldset__textCheck">
+              <input
+                value="aptizer"
+                {...register("type")}
+                type="radio"
+                id="aptizer"
+                className="form__fieldset__Checkbox"
+              />
+              Apéritif
+            </label>
+
+            <label htmlFor="cocktail" className="form__fieldset__textCheck">
+              <input
+                value="cocktail"
+                {...register("type")}
+                type="radio"
+                id="cocktail"
+                className="form__fieldset__Checkbox"
+              />
+              Cocktail
+            </label>
+          </fieldset>
+          <fieldset className="form__fieldset">
+            <legend className="form__fieldset__titre">Saison</legend>
+            <label className="form__fieldset__textCheck" htmlFor="allSeason">
+              <input
+                value="allSeason"
+                {...register("season")}
+                type="checkbox"
+                id="allSeason"
+                className="form__fieldset__Checkbox"
+              />
+              Toutes saisons
+            </label>
+
+            <label htmlFor="spring" className="form__fieldset__textCheck">
+              <input
+                value="spring"
+                {...register("season")}
+                type="checkbox"
+                id="spring"
+                className="form__fieldset__Checkbox"
+              />
+              Printemps
+            </label>
+
+            <label htmlFor="summer" className="form__fieldset__textCheck">
+              <input
+                value="summer"
+                {...register("season")}
+                type="checkbox"
+                id="summer"
+                className="form__fieldset__Checkbox"
+              />
+              Été
+            </label>
+
+            <label htmlFor="automn" className="form__fieldset__textCheck">
+              <input
+                value="automn"
+                {...register("season")}
+                type="checkbox"
+                id="automn"
+                className="form__fieldset__Checkbox"
+              />
+              &nbsp;Automne
+            </label>
+
+            <label htmlFor="winter" className="form__fieldset__textCheck">
+              <input
+                value="winter"
+                {...register("season")}
+                type="checkbox"
+                id="winter"
+                className="form__fieldset__Checkbox"
+              />
+              Hiver
+            </label>
+          </fieldset>
+          {show === false && (
+            <input type="submit" value="Suivant" className="form__submit" />
+          )}
+        </form>
+      </section>
+
+      {show === true && (
+        <>
+          <AddSteps
+            stepsArr={stepsArr}
+            setStepsArr={setStepsArr}
+            setDescription={setDescription}
           />
-        </label>
-      ) : (
-        <label htmlFor="picture" className="form__picture">
-          Ajouter une photo <span>&nbsp;+</span>
-          <input
-            {...register("picture")}
-            type="file"
-            id="picture"
-            name="picture"
-            accept="image/png, image/jpeg"
-            className="form__picture__button"
-            onChange={onImageChange}
+          <AddIgredients
+            setIngredientArr={setIngredientArr}
+            ingredientArr={ingredientArr}
+            showNewRecipe
+            show={show}
           />
-        </label>
+          <button
+            type="button"
+            onClick={handleSubmitForm}
+            className="buttonFetch"
+          >
+            Créer la recette !
+          </button>
+        </>
       )}
-      <SelectCountry />
-      <fieldset className="form__fieldset">
-        <legend className="form__fieldset__titre">Régime Alimentaire</legend>
-        <label htmlFor="vegetarian" className="form__fieldset__textCheck">
-          <input
-            value="vegetarian"
-            {...register("diet")}
-            type="checkbox"
-            id="vegetarian"
-            className="form__fieldset__Checkbox"
-          />
-          Végétarien
-        </label>
-
-        <label htmlFor="vegan" className="form__fieldset__textCheck">
-          <input
-            value="vegan"
-            {...register("diet")}
-            type="checkbox"
-            id="vegan"
-            className="form__fieldset__Checkbox"
-          />
-          Végan
-        </label>
-
-        <label htmlFor="gourmet" className="form__fieldset__textCheck">
-          <input
-            value="gourmet"
-            {...register("diet")}
-            type="checkbox"
-            id="gourmet"
-            className="form__fieldset__Checkbox"
-          />
-          Gourmand
-        </label>
-
-        <label htmlFor="light" className="form__fieldset__textCheck">
-          <input
-            value="light"
-            {...register("diet")}
-            type="checkbox"
-            id="light"
-            className="form__fieldset__Checkbox"
-          />
-          Light
-        </label>
-
-        <label htmlFor="balanced" className="form__fieldset__textCheck">
-          <input
-            value="balanced"
-            {...register("diet")}
-            type="checkbox"
-            id="balanced"
-            className="form__fieldset__Checkbox"
-          />
-          Equilibré
-        </label>
-      </fieldset>
-
-      <fieldset className="form__fieldset">
-        <legend className="form__fieldset__titre">Type</legend>
-        <label htmlFor="starter" className="form__fieldset__textCheck">
-          <input
-            value="starter"
-            {...register("type")}
-            type="radio"
-            id="starter "
-            className="form__fieldset__Checkbox"
-          />
-          Entrée
-        </label>
-
-        <label htmlFor="main_course" className="form__fieldset__textCheck">
-          <input
-            value="main_course"
-            {...register("type")}
-            type="radio"
-            id="main_course"
-            className="form__fieldset__Checkbox"
-          />
-          Plat
-        </label>
-
-        <label htmlFor="dessert" className="form__fieldset__textCheck">
-          <input
-            value="dessert"
-            {...register("type")}
-            type="radio"
-            id="dessert"
-            className="form__fieldset__Checkbox"
-          />
-          Dessert
-        </label>
-
-        <label htmlFor="aptizer" className="form__fieldset__textCheck">
-          <input
-            value="aptizer"
-            {...register("type")}
-            type="radio"
-            id="aptizer"
-            className="form__fieldset__Checkbox"
-          />
-          Apéritif
-        </label>
-
-        <label htmlFor="cocktail" className="form__fieldset__textCheck">
-          <input
-            value="cocktail"
-            {...register("type")}
-            type="radio"
-            id="cocktail"
-            className="form__fieldset__Checkbox"
-          />
-          Cocktail
-        </label>
-      </fieldset>
-
-      <fieldset className="form__fieldset">
-        <legend className="form__fieldset__titre">Saison</legend>
-        <label className="form__fieldset__textCheck" htmlFor="allSeason">
-          <input
-            value="allSeason"
-            {...register("season")}
-            type="checkbox"
-            id="allSeason"
-            className="form__fieldset__Checkbox"
-          />
-          Toute saison
-        </label>
-
-        <label htmlFor="spring" className="form__fieldset__textCheck">
-          <input
-            value="spring"
-            {...register("season")}
-            type="checkbox"
-            id="spring"
-            className="form__fieldset__Checkbox"
-          />
-          Printemps
-        </label>
-
-        <label htmlFor="summer" className="form__fieldset__textCheck">
-          <input
-            value="summer"
-            {...register("season")}
-            type="checkbox"
-            id="summer"
-            className="form__fieldset__Checkbox"
-          />
-          Été
-        </label>
-
-        <label htmlFor="automn" className="form__fieldset__textCheck">
-          <input
-            value="automn"
-            {...register("season")}
-            type="checkbox"
-            id="automn"
-            className="form__fieldset__Checkbox"
-          />
-          &nbsp;Automne
-        </label>
-
-        <label htmlFor="winter" className="form__fieldset__textCheck">
-          <input
-            value="winter"
-            {...register("season")}
-            type="checkbox"
-            id="winter"
-            className="form__fieldset__Checkbox"
-          />
-          Hiver
-        </label>
-      </fieldset>
-
-      <input type="submit" value="Partager" className="form__submit" />
-    </form>
+    </main>
   );
 }
 

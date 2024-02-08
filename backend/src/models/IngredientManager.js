@@ -51,6 +51,14 @@ class IngredientManager extends AbstractManager {
     return rows;
   }
 
+  async getByName(name) {
+    const [rows] = await this.database.query(
+      `SELECT id FROM ingredient WHERE name=?`,
+      [name]
+    );
+    return rows[0];
+  }
+
   // The U of CRUD - Update operation
   // TODO: Implement the update operation to modify an existing item
 

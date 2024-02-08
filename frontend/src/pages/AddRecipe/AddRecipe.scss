@@ -1,136 +1,168 @@
 @import "../../variables.scss";
 
-.form {
+.addRecipe_page {
   margin: 1.5em;
+  width: clamp(375px, 80vw, 800px);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-self: center;
 
-  .form__title {
+  .titleAddRecipe {
     font-size: 2.4rem;
     text-align: center;
     margin: 0 0 0.5em 0;
   }
-
-  .form__addTitle {
+  .addTitle {
     display: flex;
     width: 100%;
     border-radius: 30px;
     font-size: 1.5rem;
     margin-bottom: 0.25em;
     padding: 0.2em 0;
+    resize: none;
   }
-
-  .form__fontLabel {
-    font-size: 1.5rem;
+  .selectCountry {
+    margin-top: 0.5em;
+  }
+  .form {
     display: flex;
     flex-direction: column;
-  }
+    justify-content: center;
 
-  .form__evaluation {
-    display: flex;
-    justify-content: space-between;
-    margin: 0.5em 0;
+    .form__fontLabel {
+      font-size: 1.5rem;
+      display: flex;
+      flex-direction: column;
+    }
 
-    .form__evaluation__select {
+    .form__evaluation__select__numberShare {
       border-radius: 30px;
       font-size: 1.5rem;
       margin: 0.25em 0;
       border: 1px solid $mainFontColor;
       height: 1.25em;
-    }
-  }
-
-  .form__picture {
-    color: $secondaryColor;
-    background-color: #fff;
-    font-weight: bold;
-    font-size: 1.7rem;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    border: 3px dashed $secondaryColor;
-    padding: 0.2em;
-    align-items: center;
-    border-radius: 30px;
-    margin: 1em 0;
-
-    span {
-      font-size: 3em;
-      font-weight: 1.5;
+      padding: 0 0.3em;
     }
 
-    .form__picture__button {
-      display: none;
+    .form__evaluation {
+      display: flex;
+      justify-content: space-between;
+      margin: 0.5em 0;
+
+      .form__evaluation__select {
+        border-radius: 30px;
+        font-size: 1.5rem;
+        margin: 0.25em 0;
+        border: 1px solid $mainFontColor;
+        height: 1.25em;
+      }
     }
-  }
 
-  .form__picture__on {
-    color: $secondaryColor;
-    width: 100%;
-    height: 25vh;
-    display: block;
-    background-size: cover;
-    background-position: center;
-    border: 3px solid $secondaryColor;
-    align-items: center;
-    border-radius: 30px;
-    margin: 1em 0;
+    .form__picture {
+      color: $secondaryColor;
+      background-color: #fff;
+      font-weight: bold;
+      font-size: 1.7rem;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      border: 3px dashed $secondaryColor;
+      padding: 0.2em;
+      align-items: center;
+      border-radius: 30px;
+      margin: 1em 0;
 
-    .form__picture__button {
-      display: none;
-    }
-  }
-
-  .form__fieldset {
-    border: none;
-    margin: 1em 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1em;
-
-    .form__fieldset__titre {
-      font-size: 2em;
-      margin-bottom: 0.25em;
-    }
-    .form__fieldset__textCheck {
-      font-size: 1.5em;
-
-      .form__fieldset__Checkbox {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        -ms-appearance: none;
-
-        border-radius: 50%;
-        height: 20px;
-        width: 20px;
-        background: #fff;
-        border: 1px solid #ccc;
-        margin-right: 0.5em;
+      span {
+        font-size: 3em;
+        font-weight: 1.5;
       }
 
-      .form__fieldset__Checkbox:checked {
-        background: $secondaryColor;
-        margin: 0px;
-        position: relative;
-        border: 1px solid #ccc;
-        margin-right: 0.5em;
-        &:before {
-          display: block;
-          font-size: 13px;
-          position: absolute;
+      .form__picture__button {
+        display: none;
+      }
+    }
+
+    .form__picture__on {
+      color: $secondaryColor;
+      width: 100%;
+      height: 25vh;
+      display: block;
+      background-size: cover;
+      background-position: center;
+      border: 3px solid $secondaryColor;
+      align-items: center;
+      border-radius: 30px;
+      margin: 1em 0;
+
+      .form__picture__button {
+        display: none;
+      }
+    }
+
+    .form__fieldset {
+      border: none;
+      margin: 1em 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+
+      .form__fieldset__titre {
+        font-size: 2em;
+        margin-bottom: 0.25em;
+      }
+      .form__fieldset__textCheck {
+        font-size: 1.5em;
+
+        .form__fieldset__Checkbox {
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          -ms-appearance: none;
+
+          border-radius: 50%;
+          height: 20px;
+          width: 20px;
+          background: #fff;
+          border: 1px solid #ccc;
+          margin-right: 0.5em;
+        }
+
+        .form__fieldset__Checkbox:checked {
+          background: $secondaryColor;
+          margin: 0px;
+          position: relative;
+          border: 1px solid #ccc;
+          margin-right: 0.5em;
+          &:before {
+            display: block;
+            font-size: 13px;
+            position: absolute;
+          }
         }
       }
     }
+
+    .form__submit {
+      border: none;
+      background-color: $mainColor;
+      color: $secondaryFontColor;
+      border-radius: 30px;
+      font-size: 2em;
+      margin: 0.5em 0 2em;
+      padding: 0.2em 0;
+    }
   }
 
-  .form__submit {
-    border: none;
-    background-color: $mainColor;
-    color: $secondaryFontColor;
-    border-radius: 30px;
+  .buttonFetch {
     font-size: 2em;
-    margin-top: 0.5em;
-    padding: 0.2em 0;
+    background-color: $secondaryColor;
+    border-radius: 20px;
+    border: none;
+    padding: 0.2em 0.5em;
+    color: $secondaryFontColor;
+    margin: 1em 0 2em;
+  }
+  .buttonFetch:active {
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: $secondaryColor;
   }
 }

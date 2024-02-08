@@ -11,6 +11,9 @@
   background-repeat: no-repeat;
   background-image: URL(src/assets/loginPage.svg);
 
+  .Link_to_home {
+    margin-top: 1em;
+  }
   .formLogin__Button {
     display: flex;
     justify-content: space-evenly;
@@ -61,7 +64,7 @@
     .formLogin__inputs__submit {
       width: 30%;
       height: 2em;
-
+      margin-top: 0.5em;
       color: #ffffff;
       border: 0;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -96,7 +99,7 @@
     .formInscription__inputs__submit {
       width: 30%;
       height: 2em;
-
+      margin-top: 0.5em;
       color: #ffffff;
       border: 0;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -116,7 +119,7 @@
     align-items: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    background-image: URL(src/assets/backgroundDes.svg);
+    background-image: url(src/assets/backgroundDes.svg);
 
     .formLogin__Button {
       display: flex;
@@ -163,10 +166,10 @@
     .formInscription__inputs {
       display: flex;
       flex-direction: column;
-      gap: 0.5em;
+      gap: 2px;
       padding-top: 0.3em;
       align-items: center;
-      height: 38vh;
+      height: 40vh;
       width: 40%;
 
       .formInscription__label {

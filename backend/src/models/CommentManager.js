@@ -22,6 +22,16 @@ class CommentManager extends AbstractManager {
     return rows;
   }
 
+  // create a new comment.
+  async create(recipeId, userId, grade, comment) {
+    const [newComment] = await this.database.query(
+      `INSERT INTO ${this.table} (recipe_id, user_id, grade, comment, date_time) VALUE (?,?,?,?,NOW())`,
+      [recipeId, userId, grade, comment]
+    );
+
+    return newComment.insertId;
+  }
+
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
     const [rows] = await this.database.query(`SELECT * FROM ${this.table}`);

@@ -1,0 +1,113 @@
+@import "../../variables.scss";
+
+.SearchRecipeCard {
+  position: relative;
+  flex-direction: column;
+  display: flex;
+  width: 90%;
+  height: 20%;
+  .SearchRecipeCard__img {
+    width: 80%;
+  }
+
+  .SearchRecipeCard__logo {
+    width: 100%;
+    height: 60%;
+    border: 2px solid $mainColor;
+    border-radius: 0 20px 0 20px;
+    object-fit: cover;
+
+    .SearchRecipeCard__logo__diet__vegan {
+      width: 2em;
+      margin: 0.3em;
+    }
+  }
+  .SearchRecipeCard__info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 1em;
+    margin-bottom: 1em;
+    .SearchRecipeCard__info__name {
+      display: flex;
+    }
+
+    .SearchRecipeCard__info__title {
+      margin: 0;
+      width: 74%;
+      font-size: 1.25em;
+    }
+    .SearchRecipeCard_info__stars {
+      width: 30%;
+    }
+    .SearchRecipeCard__info__stats {
+      display: none;
+    }
+  }
+}
+.recipeInfo__Link-button {
+  height: 0;
+  width: 0;
+  font-size: 1px;
+  opacity: 0;
+  &::after {
+    position: absolute;
+    cursor: pointer;
+    content: "";
+    inset: 0;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .SearchRecipeCard {
+    background-color: $tertiaryColor;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    display: flex;
+    width: 45%;
+    height: 40vh;
+    border: 1px solid $mainColor;
+    border-radius: 20px;
+    background-color: $tertiaryColor;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+
+    .SearchRecipeCard__logo {
+      border-radius: 20px 20px 0 0;
+      border: none;
+    }
+
+    .SearchRecipeCard__info {
+      height: 40%;
+      margin: 1em 0;
+      width: 85%;
+      display: flex;
+      justify-content: space-between;
+
+      .SearchRecipeCard__info__title {
+        margin: 0;
+        width: 75%;
+        font-size: 1em;
+        font-family: handlee;
+      }
+      .SearchRecipeCard__info__stats {
+        display: flex;
+        justify-content: space-between;
+        width: 75%;
+        .SearchRecipeCard__info__stats__div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 1em;
+        }
+        .SearchRecipeCard__info__p {
+          font-size: 16px;
+        }
+        .SearchRecipeCard__info__stats__img {
+          height: 1em;
+        }
+      }
+    }
+  }
+}

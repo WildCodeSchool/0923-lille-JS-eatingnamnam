@@ -2,74 +2,106 @@ const AbstractManager = require("./AbstractManager");
 
 class RecipeManager extends AbstractManager {
   constructor() {
-    // Call the constructor of the parent class (AbstractManager)
-    // and pass the table name "item" as configuration
+    /*       Call the constructor of the parent class (AbstractManager)
+      and pass the table name "item" as configuration */
     super({ table: "recipe" });
   }
 
-  // The C of CRUD - Create operation
-
-  async create(recipe) {
-    // Execute the SQL INSERT query to add a new item to the "item" table
-    const [result] = await this.database.query(
-      `INSERT INTO ${this.table} (title) VALUE (?)`,
-      [recipe.title]
+  async addIngredients(insertId, element) {
+    const [rows] = await this.database.query(
+      `INSERT INTO list_ingredients_recip (recipe_id,ingredient_id,quantity,unit) VALUE (?,?,?,?)`,
+      [insertId, element.ingredientId, element.quantity, element.unit]
     );
-
-    // Return the ID of the newly inserted item
-    return result.insertId;
+    return rows[0];
   }
 
-  // The Rs of CRUD - Read operations
+  async create(title, time, price, difficulty, share, userId, stepsArr) {
+    const [resultRecipe] = await this.database.query(
+      `INSERT INTO nam_nam.recipe (title, picture, time, date, price, difficulty, number_share, user_id) VALUES (?,?,?,?,?,?,?,?)`,
+      [
+        title,
+        "/assets/recette/defaultPictureRecipe.png",
+        time,
+        "2024-11-01",
+        1,
+        difficulty,
+        share,
+        userId,
+      ]
+    );
+
+    const recipeId = resultRecipe.insertId;
+
+    for (let i = 0; i < stepsArr.length; i += 1) {
+      this.database.query(
+        `INSERT INTO nam_nam.step ( number_step, description, recipe_id) VALUE (?,?,?)`,
+        [stepsArr[i].id, stepsArr[i].desc, recipeId]
+      );
+    }
+    // Return the ID of the newly inserted item
+    return resultRecipe.insertId;
+  }
+
+  async recipeByFav(id) {
+    const [rows] = await this.database.query(
+      ` SELECT * FROM ${this.table}
+       INNER JOIN nam_nam.list_favorites_recipe_user AS fav
+       ON recipe.id = fav.recipe_id
+       WHERE fav.user_id = ?`,
+      [id]
+    );
+
+    return rows;
+  }
 
   async recipeById(id) {
-    // Execute the SQL SELECT query to retrieve a specific item by its ID
     const [rows] = await this.database.query(
       `SELECT * FROM ${this.table} where recipe.id = ?`,
       [id]
     );
 
-    // Return the first row of the result, which represents the item
     return rows[0];
   }
 
-  async randomRecipe() {
-    // check the length of the database and store the length in a variable count
-    const [count] = await this.database.query(`
-      SELECT COUNT(id) as result FROM ${this.table}`);
+  async recipeByUserId(userId) {
+    const [rows] = await this.database.query(
+      `SELECT * FROM ${this.table} where recipe.user_id = ?`,
+      [userId]
+    );
 
-    // randomize a number in range of the database length
+    return rows;
+  }
+
+  async randomRecipe() {
+    const [count] = await this.database.query(`
+       SELECT COUNT(id) as result FROM ${this.table}`);
+
     const random = Math.floor(Math.random() * count[0].result + 1);
 
-    // Execute the SQL request to display the recipe with the random number generated
     const [rows] = await this.database.query(
       `SELECT * FROM ${this.table}
-       WHERE recipe.id = ?`,
+        WHERE recipe.id = ?`,
       [random]
     );
 
-    // Return the first row of the result, which represents the item
     return rows[0];
   }
 
   async readAll() {
-    // Execute the SQL SELECT query to retrieve all items from the "item" table
     const [rows] = await this.database.query(`SELECT * FROM ${this.table}`);
 
-    // Return the array of items
     return rows;
   }
 
   async recipeByTag(id) {
-    // Execute the SQL SELECT query to retrieve all items from the "item" table
     const [rows] = await this.database.query(
-      `SELECT recipe.* FROM recipe 
-      INNER JOIN list_tags_recipe AS tags_id 
-      ON recipe.id=tags_id.recipe_id 
-      WHERE tags_id.tag_id = ?`,
+      `SELECT recipe.* FROM recipe
+       INNER JOIN list_tags_recipe AS tags_id
+       ON recipe.id=tags_id.recipe_id
+       WHERE tags_id.tag_id = ?`,
       [id]
     );
-    // Return the array of items
+
     return rows;
   }
 
@@ -105,19 +137,14 @@ class RecipeManager extends AbstractManager {
       return error;
     }
   }
-  // The U of CRUD - Update operation
-  // TODO: Implement the update operation to modify an existing item
 
-  // async update(item) {
-  //   ...
-  // }
-
-  // The D of CRUD - Delete operation
-  // TODO: Implement the delete operation to remove an item by its ID
-
-  // async delete(id) {
-  //   ...
-  // }
+  async updatePic(recipeId, imageName, originalName) {
+    const [rows] = await this.database.query(
+      `UPDATE recipe SET picture = ? WHERE id = ?`,
+      [`/assets/uploads/${imageName}-${originalName}`, recipeId]
+    );
+    return rows[0];
+  }
 }
 
 module.exports = RecipeManager;
