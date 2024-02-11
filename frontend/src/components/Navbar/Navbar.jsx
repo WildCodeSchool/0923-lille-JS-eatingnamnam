@@ -24,7 +24,7 @@ function Navbar() {
                 name="home"
                 src={`${
                   import.meta.env.VITE_BACKEND_URL
-                }/assets/images/Home.svg`}
+                }/assets/images/Home1.svg`}
                 alt="bouton accueil"
               />
             ) : (
@@ -52,7 +52,7 @@ function Navbar() {
                 name="search"
                 src={`${
                   import.meta.env.VITE_BACKEND_URL
-                }/assets/images/search.svg`}
+                }/assets/images/search1.svg`}
                 alt="bouton accueil"
               />
             ) : (
@@ -80,7 +80,7 @@ function Navbar() {
                 name="add"
                 src={`${
                   import.meta.env.VITE_BACKEND_URL
-                }/assets/images/add.svg`}
+                }/assets/images/add1.svg`}
                 alt="bouton accueil"
               />
             ) : (
@@ -108,7 +108,7 @@ function Navbar() {
                 name="bookmark"
                 src={`${
                   import.meta.env.VITE_BACKEND_URL
-                }/assets/images/bookmark.svg`}
+                }/assets/images/bookmark1.svg`}
                 alt="bouton accueil"
               />
             ) : (
