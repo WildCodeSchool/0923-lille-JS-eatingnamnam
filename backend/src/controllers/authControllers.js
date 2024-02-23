@@ -5,7 +5,6 @@ const tables = require("../tables");
 const login = async (req, res, next) => {
   try {
     const user = await tables.user.readByEmail(req.body.data.mail);
-    console.info(" auth controller // my user info:", user);
     if (user == null) {
       res.sendStatus(422);
       return;

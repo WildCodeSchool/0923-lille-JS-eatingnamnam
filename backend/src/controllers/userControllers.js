@@ -27,7 +27,6 @@ const readById = async (req, res, next) => {
 };
 
 const readByCookieId = async (req, res, next) => {
-  console.error("read by ID reqbody ===>", req.idUser);
   try {
     const user = await tables.user.read(req.idUser);
     res.json(user);

@@ -1,4 +1,4 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
+/* eslint-disable import/no-extraneous-dependencies */
 import axios from "axios";
 import { createContext, useState, useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
@@ -26,8 +26,6 @@ export function UserProvider({ children }) {
   );
 
   const setConnection = async () => {
-    console.info("entering set connection");
-    console.info("auth email is ==>", auth.email);
     try {
       const response = await axios.get(
         `${import.meta.env.VITE_BACKEND_URL}/api/me`,
@@ -44,16 +42,12 @@ export function UserProvider({ children }) {
         role: response.data.role,
         isLogged: true,
       });
-      console.info("auth:", auth);
-      console.info("response data:", response.data);
     } catch (error) {
       console.error(error);
     }
   };
   useEffect(() => {
-    console.info("old auth ! -->", auth);
     setConnection();
-    console.info("NEW AUTH ===>", auth);
   }, [setAuth]);
 
   return (
