@@ -13,6 +13,7 @@ function UserProfil() {
   const [myInfo, setMyInfo] = useState(false);
 
   useEffect(() => {
+    console.info("my user ID is:", userId);
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipe/user/${auth.id}`)
       .then((response) => response.json())
       .then((data) => setRecipes(data))

@@ -18,8 +18,9 @@ const stepControllers = require("./controllers/stepControllers");
 const { hashPassword } = require("./middleware/hashPassword");
 const authControllers = require("./controllers/authControllers");
 const { uploadService, handleFileUpload } = require("./services/upload");
+const { authorize } = require("./middleware/auth");
 
-router.get("/me", userControllers.getUser);
+router.get("/me", authorize, userControllers.readByCookieId);
 router.delete("/recipe/:id/delete", recipeControllers.deleteById);
 router.get("/recipe", recipeControllers.browse);
 router.get("/recipe/:id", recipeControllers.recipeById);

@@ -26,6 +26,16 @@ const readById = async (req, res, next) => {
   }
 };
 
+const readByCookieId = async (req, res, next) => {
+  console.error("read by ID reqbody ===>", req.idUser);
+  try {
+    const user = await tables.user.read(req.idUser);
+    res.json(user);
+  } catch (error) {
+    next();
+  }
+};
+
 const getCurrentUser = async (req, res, next) => {
   try {
     const [user] = await tables.user.getById(req.id);
@@ -66,4 +76,5 @@ module.exports = {
   getUser,
   register,
   readById,
+  readByCookieId,
 };

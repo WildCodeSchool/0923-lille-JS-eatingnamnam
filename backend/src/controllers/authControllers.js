@@ -5,6 +5,7 @@ const tables = require("../tables");
 const login = async (req, res, next) => {
   try {
     const user = await tables.user.readByEmail(req.body.data.mail);
+    console.info(" auth controller // my user info:", user);
     if (user == null) {
       res.sendStatus(422);
       return;
@@ -13,16 +14,19 @@ const login = async (req, res, next) => {
     if (verified) {
       // Respond with the user and a signed token in JSON format (but without the hashed password)
       delete user.password;
-      const token = jwt.sign(
-        { sub: user.id, isAdmin: user.isAdmin },
-        process.env.APP_SECRET,
+      const accessToken = jwt.sign(
+        { sub: user.id, role: user.role },
+        process.env.ACCESS_TOKEN_SECRET,
         {
           expiresIn: "1h",
         }
       );
-      res.cookie("access_token", token, {
+
+      res.cookie("jwt", accessToken, {
         httpOnly: true,
-        secure: false,
+        maxAge: 60 * 60 * 1000,
+        secure: true,
+        sameSite: "none",
       });
       res.status(200).json({
         email: user.email,
@@ -40,7 +44,7 @@ const login = async (req, res, next) => {
 };
 
 const logout = ({ res }) => {
-  res.clearCookie("access_token").sendStatus(200);
+  res.clearCookie("jwt").sendStatus(200);
 };
 module.exports = {
   login,

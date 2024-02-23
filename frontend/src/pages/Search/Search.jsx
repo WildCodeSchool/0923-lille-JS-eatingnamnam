@@ -4,6 +4,9 @@ import SearchRecipeCard from "../../components/SearchRecipeCard/SearchRecipeCard
 
 function Search() {
   const [searchInput, setSearchInput] = useState("");
+  const handleChange = (e) => {
+    setSearchInput(e.target.value);
+  };
   const [recipes, setRecipes] = useState("");
 
   useEffect(() => {
@@ -12,9 +15,6 @@ function Search() {
       .then((data) => setRecipes(data))
       .catch((error) => console.error(error));
   }, []);
-  const handleChange = (e) => {
-    setSearchInput(e.target.value);
-  };
 
   return (
     <main className="page_search">
