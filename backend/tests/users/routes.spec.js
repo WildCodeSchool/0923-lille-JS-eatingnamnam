@@ -87,7 +87,7 @@ const { app, request, tables } = require("../setup");
   });
 }); */
 
-describe("POST /api/addUser", () => {
+describe("POST /api/add/user", () => {
   it("should return created user", async () => {
     const myUser = {
       firstname: "Marie",
@@ -98,8 +98,8 @@ describe("POST /api/addUser", () => {
       birth_date: "1990-01-01",
     };
 
-    // Send a POST request to the /api/addUser endpoint with a test user
-    const response = await request(app).post("/api/addUser").send(myUser);
+    // Send a POST request to the /api/add/user endpoint with a test user
+    const response = await request(app).post("/api/add/user").send(myUser);
 
     // Assertions
     expect(response.status).toBe(201);

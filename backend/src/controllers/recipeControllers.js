@@ -37,20 +37,6 @@ const add = async (req, res, next) => {
   }
 };
 
-const uploadPicture = async (req, res, next) => {
-  try {
-    if (!req.file) {
-      return res.status(400).send("No file uploaded.");
-    }
-    const imageName = req.file.filename;
-    return res
-      .status(201)
-      .send({ message: "Image uploaded successfully", filename: imageName });
-  } catch (err) {
-    next(err);
-  }
-  return undefined;
-};
 const uploadPic = async (req, res, next) => {
   const recipeId = req.params.id;
   try {
@@ -171,5 +157,4 @@ module.exports = {
   recipeByTag,
   recipeByUserId,
   uploadPic,
-  uploadPicture,
 };

@@ -38,7 +38,7 @@ const { database, tables } = require("../setup");
   });
 }); */
 
-describe("POST /api/addUser", () => {
+describe("POST /api/add/User", () => {
   it("should return created user", async () => {
     const myUser = {
       firstname: "Marie",

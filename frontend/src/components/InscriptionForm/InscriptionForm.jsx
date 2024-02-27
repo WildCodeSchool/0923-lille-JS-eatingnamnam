@@ -13,7 +13,7 @@ function InscriptionForm() {
 
   const onSubmit = (data) => {
     try {
-      fetch(`${import.meta.env.VITE_BACKEND_URL}/api/adduser`, {
+      fetch(`${import.meta.env.VITE_BACKEND_URL}/api/add/user`, {
         method: "post",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
