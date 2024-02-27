@@ -9,7 +9,7 @@ import SwiperRecipeCard from "../SwiperRecipeCard/SwiperRecipeCard";
 import "swiper/css";
 import "swiper/css/pagination";
 import "./Swipper.scss";
-import { NavContext } from "../Contexts/navBarContext";
+import { NavContext } from "../../contexts/navBarContext";
 
 function Swipper({ recipes }) {
   const windowWidth = window.innerWidth;

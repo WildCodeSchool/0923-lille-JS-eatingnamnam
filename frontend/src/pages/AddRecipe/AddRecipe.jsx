@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import SelectCountry from "../../components/SelectCountry/SelectCountry";
 import AddIgredients from "../../components/AddIngredients/AddIngredients";
 import AddSteps from "../../components/AddSteps/AddSteps";
-import { UserContext } from "../../components/Contexts/userContext";
+import { UserContext } from "../../contexts/userContext";
 
 function AddRecipe() {
   const { auth } = useContext(UserContext);

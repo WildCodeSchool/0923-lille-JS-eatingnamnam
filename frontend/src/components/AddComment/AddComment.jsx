@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { useForm } from "react-hook-form";
 import StarRating from "../StarRating/StarRating";
-import { UserContext } from "../Contexts/userContext";
+import { UserContext } from "../../contexts/userContext";
 
 function AddComment({ post, setPost }) {
   const { auth } = useContext(UserContext);

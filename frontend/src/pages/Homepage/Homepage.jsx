@@ -3,9 +3,9 @@ import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
 import Swipper from "../../components/Swipper/Swipper";
-import { NavContext } from "../../components/Contexts/navBarContext";
+import { NavContext } from "../../contexts/navBarContext";
 import LittleRecipeCard from "../../components/LittleRecipeCard/LittleRecipeCard";
-import { UserContext } from "../../components/Contexts/userContext";
+import { UserContext } from "../../contexts/userContext";
 
 function Homepage() {
   const { setActiveButton } = useContext(NavContext);

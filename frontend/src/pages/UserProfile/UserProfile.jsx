@@ -1,7 +1,7 @@
 import "./UserProfile.scss";
 import { useEffect, useState, useContext } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { UserContext } from "../../components/Contexts/userContext";
+import { UserContext } from "../../contexts/userContext";
 import RecipeCardUser from "../../components/RecipeCardUser/RecipeCardUser";
 
 function UserProfil() {

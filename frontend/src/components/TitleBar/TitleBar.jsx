@@ -1,7 +1,7 @@
 import "./TitleBar.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import { UserContext } from "../Contexts/userContext";
+import { UserContext } from "../../contexts/userContext";
 
 function TitleBar() {
   const { auth } = useContext(UserContext);

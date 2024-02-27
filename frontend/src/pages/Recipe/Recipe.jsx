@@ -7,7 +7,7 @@ import AddComment from "../../components/AddComment/AddComment";
 import RecipeStep from "../../components/RecipeStep/RecipeStep";
 import UstensiltCard from "../../components/UtensilCard/UtensilCard";
 import CommentCard from "../../components/CommentCard/CommentCard";
-import { UserContext } from "../../components/Contexts/userContext";
+import { UserContext } from "../../contexts/userContext";
 
 function Recipe() {
   const { auth } = useContext(UserContext);

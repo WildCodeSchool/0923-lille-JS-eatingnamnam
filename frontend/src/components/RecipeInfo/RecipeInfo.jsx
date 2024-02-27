@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import Swal from "sweetalert2";
 import StarBar from "../StarBar/StarBar";
-import { UserContext } from "../Contexts/userContext";
+import { UserContext } from "../../contexts/userContext";
 
 function RecipeInfo({ recipe, id, auth }) {
   const navigate = useNavigate();

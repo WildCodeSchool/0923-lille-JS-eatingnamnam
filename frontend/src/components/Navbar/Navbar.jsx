@@ -1,7 +1,7 @@
 import "./Navbar.scss";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { NavContext } from "../Contexts/navBarContext";
+import { NavContext } from "../../contexts/navBarContext";
 
 function Navbar() {
   const { activeButton, setActiveButton } = useContext(NavContext);

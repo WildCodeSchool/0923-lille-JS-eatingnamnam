@@ -2,8 +2,8 @@ import "./App.scss";
 import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import TitleBar from "./components/TitleBar/TitleBar";
-import { NavBarProvider } from "./components/Contexts/navBarContext";
-import { UserProvider } from "./components/Contexts/userContext";
+import { NavBarProvider } from "./contexts/navBarContext";
+import { UserProvider } from "./contexts/userContext";
 
 function App() {
   const location = useLocation();
