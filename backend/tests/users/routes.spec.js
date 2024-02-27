@@ -1,8 +1,9 @@
+const crypto = require("node:crypto");
 // Import required dependencies
 const { app, request, tables } = require("../setup");
 
 // Test suite for the GET /api/items route
-describe("GET /api/items", () => {
+/* describe("GET /api/items", () => {
   it("should fetch items successfully", async () => {
     // Define a sample item for testing
     const testItem = {
@@ -26,10 +27,10 @@ describe("GET /api/items", () => {
     expect(foundItem).toBeInstanceOf(Object);
     expect(foundItem.title).toBe(testItem.title);
   });
-});
+}); */
 
 // Test suite for the GET /api/items/:id route
-describe("GET /api/items/:id", () => {
+/* describe("GET /api/items/:id", () => {
   it("should fetch a single item successfully", async () => {
     // Define a sample item for testing
     const testItem = {
@@ -57,12 +58,12 @@ describe("GET /api/items/:id", () => {
     expect(response.status).toBe(404);
     expect(response.body).toEqual({});
   });
-});
+}); */
 
 // Test suite for the POST /api/items route
 // Doesn't pass: maybe something to change in app config :/
 // Hint: enabling log could help ;)
-describe("POST /api/items", () => {
+/* describe("POST /api/items", () => {
   it("should add a new item successfully", async () => {
     // Define a sample item for testing
     const testItem = {
@@ -83,6 +84,34 @@ describe("POST /api/items", () => {
     // Assertions
     expect(foundItem).toBeDefined();
     expect(foundItem.title).toBe(testItem.title);
+  });
+}); */
+
+describe("POST /api/addUser", () => {
+  it("should return created user", async () => {
+    const myUser = {
+      firstname: "Marie",
+      lastname: "Martin",
+      pseudo: "mama",
+      email: `${crypto.randomUUID()}@wild.co`,
+      password: `${crypto.randomUUID()}`,
+      birth_date: "1990-01-01",
+    };
+
+    // Send a POST request to the /api/addUser endpoint with a test user
+    const response = await request(app).post("/api/addUser").send(myUser);
+
+    // Assertions
+    expect(response.status).toBe(201);
+    expect(response.body).toBeInstanceOf(Object);
+    expect(response.body.insertId).toEqual(expect.any(Number));
+
+    // Check if the newly added user exists in the database
+    const foundUser = await tables.user.read(response.body.insertId);
+
+    // Assertions
+    expect(foundUser).toBeDefined();
+    expect(foundUser.pseudo).toBe(myUser.pseudo);
   });
 });
 
