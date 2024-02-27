@@ -7,7 +7,6 @@ const router = express.Router();
 /* ************************************************************************* */
 
 // Import itemControllers module for handling item-related operations
-const itemControllers = require("./controllers/itemControllers");
 const recipeControllers = require("./controllers/recipeControllers");
 const ustensilControllers = require("./controllers/ustensilControllers");
 const tagControllers = require("./controllers/tagControllers");
@@ -61,10 +60,6 @@ router.get("/logout", authControllers.logout);
 router.get("/step/:id", stepControllers.stepByRecipeId);
 router.get("/grade/:recipeID", commentControllers.rating);
 router.get("/ingredients", ingredientControllers.browse);
-
-router.get("/items/:id", itemControllers.read);
-router.get("/items", itemControllers.browse);
-router.post("/items", itemControllers.add);
 
 /* ************************************************************************* */
 

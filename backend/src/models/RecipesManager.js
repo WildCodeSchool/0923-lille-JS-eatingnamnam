@@ -2,8 +2,6 @@ const AbstractManager = require("./AbstractManager");
 
 class RecipeManager extends AbstractManager {
   constructor() {
-    /*       Call the constructor of the parent class (AbstractManager)
-      and pass the table name "item" as configuration */
     super({ table: "recipe" });
   }
 
@@ -38,7 +36,6 @@ class RecipeManager extends AbstractManager {
         [stepsArr[i].id, stepsArr[i].desc, recipeId]
       );
     }
-    // Return the ID of the newly inserted item
     return resultRecipe.insertId;
   }
 
@@ -89,7 +86,6 @@ class RecipeManager extends AbstractManager {
 
   async readAll() {
     const [rows] = await this.database.query(`SELECT * FROM ${this.table}`);
-
     return rows;
   }
 

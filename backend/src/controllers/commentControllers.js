@@ -10,21 +10,16 @@ const browse = async (req, res, next) => {
 };
 
 const addComments = async (req, res, next) => {
-  // Extract the item data from the request body
   const { recipeId, userId, grade, comment } = req.body;
   try {
-    // Insert the item into the database
     const insertId = await tables.comment_recipe_user.create(
       recipeId,
       userId,
       grade,
       comment
     );
-
-    // Respond with HTTP 201 (Created) and the ID of the newly inserted item
     res.status(201).json({ insertId });
   } catch (err) {
-    // Pass any errors to the error-handling middleware
     next(err);
   }
 };

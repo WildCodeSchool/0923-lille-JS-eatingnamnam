@@ -11,7 +11,6 @@ const login = async (req, res, next) => {
     }
     const verified = await argon2.verify(user.password, req.body.data.password);
     if (verified) {
-      // Respond with the user and a signed token in JSON format (but without the hashed password)
       delete user.password;
       const accessToken = jwt.sign(
         { sub: user.id, role: user.role },

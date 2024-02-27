@@ -2,16 +2,13 @@ const jwt = require("jsonwebtoken");
 
 const authorize = (req, res, next) => {
   const myCookieToken = req.headers.cookie;
-  console.info(myCookieToken);
   const token = myCookieToken.split("jwt=")[1];
   if (!token) return res.sendStatus(401);
 
   try {
-    console.info(" trying to decode token");
     const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
     req.idUser = decoded.sub;
     req.roleUser = decoded.role;
-
     next();
   } catch (error) {
     res.sendStatus(401);
