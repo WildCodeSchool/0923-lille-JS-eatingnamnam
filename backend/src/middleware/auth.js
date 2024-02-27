@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 
 const authorize = (req, res, next) => {
   const myCookieToken = req.headers.cookie;
-  const token = myCookieToken.split("jwt=")[1];
+  const token = myCookieToken?.split("jwt=")[1];
   if (!token) return res.sendStatus(401);
 
   try {

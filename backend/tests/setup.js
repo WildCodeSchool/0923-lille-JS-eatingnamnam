@@ -1,10 +1,7 @@
-/* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
-
-// Load environment variables from .env file
 require("dotenv").config();
 
+// eslint-disable-next-line import/no-extraneous-dependencies
 const request = require("supertest");
-
 const app = require("../src/app");
 const router = require("../src/router");
 const tables = require("../src/tables");
@@ -14,4 +11,10 @@ afterAll((done) => {
   database.end().then(done);
 });
 
-module.exports = { app, database, request, tables, router };
+module.exports = {
+  app,
+  database,
+  request,
+  tables,
+  router,
+};
