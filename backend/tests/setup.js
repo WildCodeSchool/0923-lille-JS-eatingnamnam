@@ -1,5 +1,3 @@
-require("dotenv").config();
-
 // eslint-disable-next-line import/no-extraneous-dependencies
 const request = require("supertest");
 const app = require("../src/app");
