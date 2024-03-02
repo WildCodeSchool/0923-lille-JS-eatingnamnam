@@ -1,7 +1,9 @@
 ## Concept
 
-This template is meant to serve as a foundation for every P2/P3 following the React-Express-MySQL stack, as learned in Wild Code School.
-It's pre-configured with a set of tools which'll help students produce industry-quality and easier-to-maintain code, while staying a pedagogical tool.
+Eating nam nam is a website project realized during a training course
+at the Wild Code Scool in Lille. The aim is to enable users to read, create and share recipes. It was completed in two months by a team of
+four students. The aim of the project was to design a website with a front-end, a back-end and its own database. It must also
+adapt to a mobile and computer format.
 
 ## Setup & Use
 
